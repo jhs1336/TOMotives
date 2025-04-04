@@ -1,0 +1,42 @@
+.button {
+    -fx-cursor: hand;
+}
+
+/* styles for text fields */
+.text-field, .password-field {
+    -fx-background-radius: 3px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 3px;
+    -fx-border-width: 1px;
+    -fx-padding: 5px;
+}
+
+/* styles for create account button*/
+#createAccountButton {
+    -fx-background-color: #00a0b0;
+    -fx-text-fill: white;
+    -fx-background-radius: 25px;
+    -fx-font-size: 18px;
+}
+#createAccountButton:hover {
+    -fx-background-color: #008a99;
+}
+
+/* toolbar button hover */
+.toolbarButton:hover {
+    -fx-text-fill: #e0e0e0;
+}
+/* toolbar button normal state */
+.toolbarButton {
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+}
+
+/* styles for the main window */
+.vBox {
+    -fx-background-color: WHITE;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-border-color: rgba(0,0,0,0.5);
+    -fx-border-width: 2
+}
