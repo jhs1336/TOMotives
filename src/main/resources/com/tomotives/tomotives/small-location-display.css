@@ -1,0 +1,32 @@
+.location-name {
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+}
+
+.empty-star {
+    -fx-text-fill: #DDDDDD;
+}
+.filled-star {
+    -fx-text-fill: gold;
+}
+
+.empty-price {
+    -fx-text-fill: #DDDDDD;
+    -fx-font-weight: bold;
+}
+.filled-price {
+    -fx-text-fill: #2E8B57;
+    -fx-font-weight: bold;
+}
+
+.filter-button {
+    -fx-background-color: #FF6B6B;
+    -fx-text-fill: white;
+    -fx-background-radius: 15;
+    -fx-padding: 5 15;
+    -fx-cursor: hand;
+}
+
+.filter-button:hover {
+    -fx-background-color: #FF5252;
+}

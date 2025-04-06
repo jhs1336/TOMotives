@@ -80,10 +80,7 @@
 <!--                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />-->
                     </padding>
                     <children>
-                        <ImageView fx:id="carouselImage"
-                                   fitWidth="640.0" fitHeight="360.0"
-                                   pickOnBounds="true" preserveRatio="true"
-                                   style="-fx-background-color: black;">
+                        <ImageView fx:id="carouselImage" fitHeight="360.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: black;">
                             <image>
                                 <Image url="@testimage1.jpg" />
                             </image>
