@@ -103,7 +103,7 @@ public class SignUpController {
         }
 
         if (passwordField.getText().isEmpty()) {
-            showError("Password must be at least 6 characters");
+            showError("Password must be at least 8 characters");
             return false;
         }
 
