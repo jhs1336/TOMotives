@@ -7,12 +7,11 @@
 
 <AnchorPane maxHeight="300" maxWidth="425" minHeight="300" minWidth="425" stylesheets="@large-location-display.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.LargeLocationController">
     <children>
-         <ImageView fx:id="imageView" fitWidth="425" preserveRatio="true">
-             <image>
-                 <Image url="@testimage1.jpg" />
-             </image>
-         </ImageView>
+        <fx:define>
+            <Image fx:id="image" url="@testimage3.jpg" />
+        </fx:define>
 
+        <fx:include source="resizable-image.fxml" fitHeight="300" fitWidth="425" />
 
         <!-- Location name with underline -->
         <Label fx:id="locationNameLabel" layoutX="8" layoutY="40" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Location Name" />
