@@ -12,6 +12,7 @@ import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class SignUpController {
 
@@ -92,29 +93,33 @@ public class SignUpController {
         boolean isValid = validateInputs();
 
         if (isValid) {
-
+            // will take the account to the quiz to see their preferences
         }
     }
 
     private boolean validateInputs() {
-        if (emailField.getText().isEmpty()) {
-            showError("Please enter a valid email address");
+        if (emailField.getText().isEmpty() || Pattern.compile("^(.+)@(\\S+)$").matcher(emailField.getText()).matches()) {
+            showError("Please enter a valid email address.");
             return false;
         }
 
-        if (passwordField.getText().isEmpty()) {
-            showError("Password must be at least 8 characters");
+        if (passwordField.getText().isEmpty() || passwordField.getText().length() < 8) {
+            showError("Password must be at least 8 characters.");
             return false;
         }
 
         if (firstNameField.getText().isEmpty()) {
-            showError("First name is required");
+            showError("First name is required.");
             return false;
-        }
+        } else if (firstNameField.getText().matches(".*\\d.*")) showError("First Name cannot contain numbers.");
 
         if (lastNameField.getText().isEmpty()) {
-            showError("Last name is required");
+            showError("Last name is required.");
             return false;
+        } else if (lastNameField.getText().matches(".*\\d.*")) showError("Last Name cannot contain numbers.");
+
+        if(displayNameField.getText().isEmpty()) {
+            showError("Display name is required");
         }
 
         return true;
