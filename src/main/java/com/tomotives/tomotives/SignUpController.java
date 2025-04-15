@@ -93,15 +93,15 @@ public class SignUpController {
 
     private void handleCreateAccount() {
         boolean isValid = validateInputs();
-        ToastService.show(getStage(), "This is the same as the other!", ToastController.ToastType.SUCCESS, 3000);
 
         if (isValid) {
             // will take the account to the quiz to see their preferences
+            ToastService.show(getStage(), "Created Account", ToastController.ToastType.SUCCESS);
         }
     }
 
     private boolean validateInputs() {
-        if (emailField.getText().isEmpty() || Pattern.compile("^(.+)@(\\S+)$").matcher(emailField.getText()).matches()) {
+        if (emailField.getText().isEmpty() || !Pattern.compile("^(.+)@(\\S+)$").matcher(emailField.getText()).matches()) {
             showError("Please enter a valid email address.");
             return false;
         }
@@ -114,22 +114,29 @@ public class SignUpController {
         if (firstNameField.getText().isEmpty()) {
             showError("First name is required.");
             return false;
-        } else if (firstNameField.getText().matches(".*\\d.*")) showError("First Name cannot contain numbers.");
+        } else if (firstNameField.getText().matches(".*\\d.*")) {
+            showError("First Name cannot contain numbers.");
+            return false;
+        }
 
         if (lastNameField.getText().isEmpty()) {
             showError("Last name is required.");
             return false;
-        } else if (lastNameField.getText().matches(".*\\d.*")) showError("Last Name cannot contain numbers.");
+        } else if (lastNameField.getText().matches(".*\\d.*")) {
+            showError("Last Name cannot contain numbers.");
+            return false;
+        }
 
         if(displayNameField.getText().isEmpty()) {
             showError("Display name is required");
+            return false;
         }
 
         return true;
     }
 
     private void showError(String message) {
-        // popup toast for error
+        ToastService.show(getStage(), message, ToastController.ToastType.ERROR);
     }
 
     private void handleHomeButton() {
