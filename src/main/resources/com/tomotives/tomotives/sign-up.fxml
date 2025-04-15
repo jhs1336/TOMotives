@@ -108,7 +108,7 @@
                             <children>
                                 <VBox prefWidth="400.0">
                                     <children>
-                                        <Label text="Email*">
+                                        <Label text="Email">
                                             <font>
                                                 <Font size="16.0" />
                                             </font>
@@ -121,7 +121,7 @@
                                                 <Insets bottom="20.0" />
                                             </VBox.margin>
                                         </TextField>
-                                        <Label text="First Name*">
+                                        <Label text="First Name">
                                             <font>
                                                 <Font size="16.0" />
                                             </font>
@@ -147,7 +147,7 @@
                                 </VBox>
                                 <VBox alignment="TOP_LEFT" prefWidth="400.0">
                                     <children>
-                                        <Label text="Password*">
+                                        <Label text="Password">
                                             <font>
                                                 <Font size="16.0" />
                                             </font>
@@ -160,7 +160,7 @@
                                                 <Insets bottom="20.0" />
                                             </VBox.margin>
                                         </PasswordField>
-                                        <Label text="Last Name*">
+                                        <Label text="Last Name">
                                             <font>
                                                 <Font size="16.0" />
                                             </font>

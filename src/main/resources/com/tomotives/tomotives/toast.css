@@ -1,0 +1,26 @@
+.toast-container {
+    -fx-background-radius: 8px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 0, 3);
+}
+
+.toast-container.success {
+    -fx-background-color: #4CAF50;
+}
+
+.toast-container.error {
+    -fx-background-color: #F44336;
+}
+
+.toast-container.info {
+    -fx-background-color: #2196F3;
+}
+
+.toast-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-wrap-text: true;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+}

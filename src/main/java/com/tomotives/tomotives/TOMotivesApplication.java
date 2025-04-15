@@ -9,6 +9,7 @@ import java.io.IOException;
 
 public class TOMotivesApplication extends Application {
     private Scene scene;
+    private static Stage stage;
 
     @Override
     public void start(Stage stage) {
@@ -19,6 +20,7 @@ public class TOMotivesApplication extends Application {
             // DIMENSIONS: 1280 x 720
             scene = new Scene(loader.load(), 1280, 720);
             // set up options
+            this.stage = stage;
             stage.setTitle("TOMotives");
             stage.setScene(scene);
             stage.setResizable(false); // fixed window size
@@ -26,6 +28,10 @@ public class TOMotivesApplication extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static Stage getStage() {
+        return stage;
     }
 
     public static void main(String[] args) {

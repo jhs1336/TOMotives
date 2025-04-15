@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import static com.tomotives.tomotives.TOMotivesApplication.getStage;
+
 public class SignUpController {
 
     @FXML
@@ -91,6 +93,7 @@ public class SignUpController {
 
     private void handleCreateAccount() {
         boolean isValid = validateInputs();
+        ToastService.show(getStage(), "This is the same as the other!", ToastController.ToastType.SUCCESS, 3000);
 
         if (isValid) {
             // will take the account to the quiz to see their preferences
