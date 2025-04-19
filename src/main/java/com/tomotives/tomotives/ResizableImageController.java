@@ -13,10 +13,11 @@ public class ResizableImageController {
     @FXML
     public void initialize() {
         image = imageView.getImage();
-        resize(425, 300);
+//        resize(425, 300);
     }
 
     public void resize(double width, double height) {
+        System.out.println("resized" + width + " " + height);
         double targetAspectRatio = width / height;
         double imageWidth = image.getWidth();
         double imageHeight = image.getHeight();
@@ -42,7 +43,5 @@ public class ResizableImageController {
 
         imageView.setFitWidth(width);
         imageView.setFitHeight(height);
-
-        System.out.println("resized");
     }
 }

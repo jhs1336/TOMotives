@@ -15,7 +15,7 @@ public class TOMotivesApplication extends Application {
     public void start(Stage stage) {
         try {
             // load xml
-            FXMLLoader loader = new FXMLLoader(TOMotivesApplication.class.getResource("sign-up.fxml"));
+            FXMLLoader loader = new FXMLLoader(TOMotivesApplication.class.getResource("home.fxml"));
 
             // DIMENSIONS: 1280 x 720
             scene = new Scene(loader.load(), 1280, 720);

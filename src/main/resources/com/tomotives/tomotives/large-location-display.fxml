@@ -11,7 +11,7 @@
             <Image fx:id="image" url="@testimage3.jpg" />
         </fx:define>
 
-        <fx:include source="resizable-image.fxml" fitHeight="300" fitWidth="425" />
+        <fx:include fx:id="resizableImage" source="resizable-image.fxml" fitHeight="300" fitWidth="425" />
 
         <!-- Location name with underline -->
         <Label fx:id="locationNameLabel" layoutX="8" layoutY="40" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Location Name" />
