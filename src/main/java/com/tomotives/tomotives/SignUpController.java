@@ -36,20 +36,11 @@ public class SignUpController {
     @FXML
     private Button createAccountButton;
 
-    @FXML
-    private Button homeButton;
 
     @FXML
-    private Button browseButton;
-
+    private ImageView resizableImage;
     @FXML
-    private Button favouritesButton;
-
-    @FXML
-    private TextField searchField;
-
-    @FXML
-    private ImageView carouselImage;
+    private ResizableImageController resizableImageController;
 
     private List<Image> carouselImages;
     private int currentImageIndex = 0;
@@ -57,39 +48,39 @@ public class SignUpController {
 
     @FXML
     private void initialize() {
+        resizableImageController.resize(resizableImage.getFitWidth(), resizableImage.getFitHeight());
+        resizableImageController.applyRoundedCorners(60);
+
         // set up button handlers
         createAccountButton.setOnAction(event -> handleCreateAccount());
-        homeButton.setOnAction(event -> handleHomeButton());
-        browseButton.setOnAction(event -> handleBrowseButton());
-        favouritesButton.setOnAction(event -> handleFavouritesButton());
 
         // set up carousel
-        initializeCarousel();
-        startCarousel();
+//        initializeCarousel();
+//        startCarousel();
     }
 
-    private void initializeCarousel() {
-        carouselImages = new ArrayList<>();
-
-        try {
-            carouselImages.add(new Image(getClass().getResourceAsStream("testimage1.jpg")));
-            carouselImages.add(new Image(getClass().getResourceAsStream("testimage2.jpg")));
-            carouselImages.add(new Image(getClass().getResourceAsStream("testimage3.jpg")));
-        } catch (Exception e) {
-            System.err.println("Error loading carousel images: " + e.getMessage());
-        }
-    }
-
-    private void startCarousel() {
-        carouselTimeline = new Timeline(
-                new KeyFrame(Duration.seconds(5), event -> {
-                    currentImageIndex = (currentImageIndex + 1) % carouselImages.size();
-                    carouselImage.setImage(carouselImages.get(currentImageIndex));
-                })
-        );
-        carouselTimeline.setCycleCount(Timeline.INDEFINITE);
-        carouselTimeline.play();
-    }
+//    private void initializeCarousel() {
+//        carouselImages = new ArrayList<>();
+//
+//        try {
+//            carouselImages.add(new Image(getClass().getResourceAsStream("testimage1.jpg")));
+//            carouselImages.add(new Image(getClass().getResourceAsStream("testimage2.jpg")));
+//            carouselImages.add(new Image(getClass().getResourceAsStream("testimage3.jpg")));
+//        } catch (Exception e) {
+//            System.err.println("Error loading carousel images: " + e.getMessage());
+//        }
+//    }
+//
+//    private void startCarousel() {
+//        carouselTimeline = new Timeline(
+//                new KeyFrame(Duration.seconds(5), event -> {
+//                    currentImageIndex = (currentImageIndex + 1) % carouselImages.size();
+//                    carouselImage.setImage(carouselImages.get(currentImageIndex));
+//                })
+//        );
+//        carouselTimeline.setCycleCount(Timeline.INDEFINITE);
+//        carouselTimeline.play();
+//    }
 
     private void handleCreateAccount() {
         boolean isValid = validateInputs();
@@ -137,17 +128,5 @@ public class SignUpController {
 
     private void showError(String message) {
         ToastService.show(getStage(), message, ToastController.ToastType.ERROR);
-    }
-
-    private void handleHomeButton() {
-
-    }
-
-    private void handleBrowseButton() {
-
-    }
-
-    private void handleFavouritesButton() {
-
     }
 }

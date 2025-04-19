@@ -8,22 +8,25 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class TOMotivesApplication extends Application {
-    private Scene scene;
+    private static Scene scene;
     private static Stage stage;
 
     @Override
     public void start(Stage stage) {
-        try {
-            // load xml
-            FXMLLoader loader = new FXMLLoader(TOMotivesApplication.class.getResource("home.fxml"));
+        // set up options
+        this.stage = stage;
+        stage.setTitle("TOMotives");
+        stage.setResizable(false); // fixed window size
 
+        loadPage("sign-up.fxml");
+    }
+
+    public static void loadPage(String url) {
+        try {
+            FXMLLoader loader = new FXMLLoader(TOMotivesApplication.class.getResource(url));
             // DIMENSIONS: 1280 x 720
             scene = new Scene(loader.load(), 1280, 720);
-            // set up options
-            this.stage = stage;
-            stage.setTitle("TOMotives");
             stage.setScene(scene);
-            stage.setResizable(false); // fixed window size
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

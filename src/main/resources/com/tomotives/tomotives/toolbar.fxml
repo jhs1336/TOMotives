@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.tomotives.tomotives.ToolbarController"
+      alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="1280.0" style="-fx-background-color: #00a0b0;" BorderPane.alignment="CENTER">
+    <children>
+        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+            <!--                    <image>-->
+            <!--                        <Image url="LOGO" />-->
+            <!--                    </image>-->
+            <HBox.margin>
+                <Insets left="20.0" right="20.0" />
+            </HBox.margin>
+        </ImageView>
+        <Button fx:id="homeButton" mnemonicParsing="false" styleClass="toolbarButton" text="Home" textFill="WHITE">
+            <font>
+                <Font size="18.0" />
+            </font>
+            <HBox.margin>
+                <Insets right="20.0" />
+            </HBox.margin>
+        </Button>
+        <Button fx:id="browseButton" mnemonicParsing="false" styleClass="toolbarButton" text="Browse" textFill="WHITE">
+            <font>
+                <Font size="18.0" />
+            </font>
+            <HBox.margin>
+                <Insets right="20.0" />
+            </HBox.margin>
+        </Button>
+        <Button fx:id="favouritesButton" mnemonicParsing="false" styleClass="toolbarButton" text="Favourites" textFill="WHITE">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+            <children>
+                <TextField fx:id="searchField" prefHeight="30.0" prefWidth="200.0" promptText="Search">
+                    <HBox.margin>
+                        <Insets right="20.0" />
+                    </HBox.margin>
+                </TextField>
+                <Button fx:id="signupButton" style="-fx-background-color: transparent;" styleClass="toolbarButton" text="Sign Up" textFill="WHITE">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+                <Label text="|" textFill="WHITE">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <Button fx:id="loginButton" style="-fx-background-color: transparent;" styleClass="toolbarButton" text="Log in" textFill="WHITE">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets right="20.0" />
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+    </children>
+</HBox>

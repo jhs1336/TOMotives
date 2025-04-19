@@ -8,66 +8,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.SignUpController">
     <top>
-        <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="1280.0" style="-fx-background-color: #00a0b0;" BorderPane.alignment="CENTER">
-            <children>
-                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                    <!--                    <image>-->
-                    <!--                        <Image url="LOGO" />-->
-                    <!--                    </image>-->
-                    <HBox.margin>
-                        <Insets left="20.0" right="20.0" />
-                    </HBox.margin>
-                </ImageView>
-                <Button fx:id="homeButton" mnemonicParsing="false" styleClass="toolbarButton" text="Home" textFill="WHITE">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="20.0" />
-                    </HBox.margin>
-                </Button>
-                <Button fx:id="browseButton" mnemonicParsing="false" styleClass="toolbarButton" text="Browse" textFill="WHITE">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets right="20.0" />
-                    </HBox.margin>
-                </Button>
-                <Button fx:id="favouritesButton" mnemonicParsing="false" styleClass="toolbarButton" text="Favourites" textFill="WHITE">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Button>
-                <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                    <children>
-                        <TextField fx:id="searchField" prefHeight="30.0" prefWidth="200.0" promptText="Search">
-                            <HBox.margin>
-                                <Insets right="20.0" />
-                            </HBox.margin>
-                        </TextField>
-                        <Button style="-fx-background-color: transparent;" styleClass="toolbarButton" text="Sign Up" textFill="WHITE">
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                        </Button>
-                        <Label text="|" textFill="WHITE">
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                        </Label>
-                        <Button style="-fx-background-color: transparent;" styleClass="toolbarButton" text="Log in" textFill="WHITE">
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                            <HBox.margin>
-                                <Insets right="20.0" />
-                            </HBox.margin>
-                        </Button>
-                    </children>
-                </HBox>
-            </children>
-        </HBox>
+        <fx:include source="toolbar.fxml" />
     </top>
     <center>
         <StackPane BorderPane.alignment="CENTER" />
@@ -75,20 +16,13 @@
     <left>
         <HBox BorderPane.alignment="CENTER">
             <children>
-                <VBox id="imageVBox" alignment="CENTER" prefHeight="360.0" prefWidth="640.0" styleClass="vBox">
-                    <padding>
-<!--                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />-->
-                    </padding>
+                <VBox id="imageVBox" alignment="CENTER" prefHeight="660.0" prefWidth="640.0" styleClass="vBox">
                     <children>
-                        <ImageView fx:id="carouselImage" fitHeight="360.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: black;">
-                            <image>
-                                <Image url="@testimage1.jpg" />
-                            </image>
-                        </ImageView>
+                        <fx:include source="resizable-image.fxml" fx:id="resizableImage" fitWidth="640" fitHeight="650" />
                     </children>
-               <HBox.margin>
+                <HBox.margin>
                   <Insets bottom="6.0" left="6.0" right="3.0" top="6.0" />
-               </HBox.margin>
+                </HBox.margin>
                 </VBox>
 
                 <VBox id="formVBox" alignment="CENTER" prefHeight="360.0" prefWidth="640.0" styleClass="vBox">

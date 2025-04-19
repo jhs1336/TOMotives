@@ -2,7 +2,7 @@
 
 <?import javafx.scene.image.*?>
 
-<ImageView fx:id="imageView" preserveRatio="true" style="-fx-border-radius: 50" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.ResizableImageController">
+<ImageView fx:id="imageView" preserveRatio="true" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.ResizableImageController">
     <image>
         <Image url="@testimage3.jpg"/>
     </image>
