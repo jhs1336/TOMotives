@@ -18,7 +18,7 @@ public class TOMotivesApplication extends Application {
         stage.setTitle("TOMotives");
         stage.setResizable(false); // fixed window size
 
-        loadPage("sign-up.fxml");
+        loadPage("home.fxml");
     }
 
     public static void loadPage(String url) {
