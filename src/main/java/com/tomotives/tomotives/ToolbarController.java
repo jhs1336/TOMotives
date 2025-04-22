@@ -49,6 +49,6 @@ public class ToolbarController {
         TOMotivesApplication.loadPage("sign-up.fxml");
     }
     private void handleLoginButton() {
-
+        TOMotivesApplication.loadPage("login.fxml");
     }
 }
