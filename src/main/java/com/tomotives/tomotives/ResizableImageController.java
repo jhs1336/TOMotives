@@ -13,6 +13,17 @@ public class ResizableImageController {
     Image image;
 
     /**
+     * Sets the image to be displayed in the ImageView and resizes the ImageView to fit the image.
+     *
+     * @param image the new image to be displayed
+     */
+        public void setImage(Image image) {
+        imageView.setImage(image);
+        this.image = image;
+        resize(imageView.getFitWidth(), imageView.getFitHeight());
+    }
+
+    /**
      * Called by javaFX on the componenent initialization
      * Gets the image object from the iamgeview
      */

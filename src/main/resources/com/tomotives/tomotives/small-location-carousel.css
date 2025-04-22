@@ -1,0 +1,17 @@
+.carousel-button {
+    -fx-background-color: #FF6B6B;
+    -fx-text-fill: white;
+    -fx-background-radius: 50%;
+    -fx-min-width: 40px;
+    -fx-min-height: 40px;
+    -fx-cursor: hand;
+}
+
+.carousel-button:hover {
+    -fx-background-color: #FF5252;
+}
+
+.carousel-button:disabled {
+    -fx-background-color: #CCCCCC;
+    -fx-opacity: 0.7;
+}

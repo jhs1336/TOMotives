@@ -10,9 +10,6 @@
 
     <StackPane>
         <fx:include fx:id="resizableImage" source="resizable-image.fxml" fitHeight="110.0" fitWidth="196.0" />
-<!--        <ImageView fitHeight="110.0" fitWidth="196.0" preserveRatio="false">-->
-<!--            <Image url="@testimage1.jpg" />-->
-<!--        </ImageView>-->
     </StackPane>
 
     <VBox spacing="5" VBox.vgrow="NEVER">
@@ -20,7 +17,7 @@
             <Insets left="15" right="15" />
         </padding>
 
-        <Label styleClass="location-name" text="Location Name">
+        <Label fx:id="locationNameLabel" styleClass="location-name" text="Location Name">
             <padding>
                 <Insets top="5" />
             </padding>
@@ -29,54 +26,55 @@
             </font>
         </Label>
 
-        <HBox alignment="CENTER_LEFT" spacing="2">
+        <HBox fx:id="starsContainer" alignment="CENTER_LEFT" spacing="2">
             <Label styleClass="filled-star" text="★">
-            <font>
-               <Font size="14.0" />
-            </font></Label>
+                <font>
+                    <Font size="14.0" />
+                </font></Label>
             <Label styleClass="filled-star" text="★">
-            <font>
-               <Font size="14.0" />
-            </font></Label>
+                <font>
+                    <Font size="14.0" />
+                </font></Label>
             <Label styleClass="filled-star" text="★">
-            <font>
-               <Font size="14.0" />
-            </font></Label>
+                <font>
+                    <Font size="14.0" />
+                </font></Label>
             <Label styleClass="filled-star" text="★">
-            <font>
-               <Font size="14.0" />
-            </font></Label>
+                <font>
+                    <Font size="14.0" />
+                </font></Label>
             <Label styleClass="empty-star" text="★">
-            <font>
-               <Font size="14.0" />
-            </font></Label>
+                <font>
+                    <Font size="14.0" />
+                </font></Label>
         </HBox>
 
-        <HBox alignment="CENTER_LEFT" spacing="2">
+        <HBox fx:id="priceContainer" alignment="CENTER_LEFT" spacing="2">
             <Label styleClass="filled-price" text="\$">
-            <font>
-               <Font size="18.0" />
-            </font></Label>
+                <font>
+                    <Font size="18.0" />
+                </font></Label>
             <Label styleClass="filled-price" text="\$">
-            <font>
-               <Font size="18.0" />
-            </font></Label>
+                <font>
+                    <Font size="18.0" />
+                </font></Label>
             <Label styleClass="filled-price" text="\$">
-            <font>
-               <Font size="18.0" />
-            </font></Label>
+                <font>
+                    <Font size="18.0" />
+                </font></Label>
             <Label styleClass="filled-price" text="\$">
-            <font>
-               <Font size="18.0" />
-            </font></Label>
+                <font>
+                    <Font size="18.0" />
+                </font></Label>
             <Label styleClass="empty-price" text="\$">
-            <font>
-               <Font size="18.0" />
-            </font></Label>
+                <font>
+                    <Font size="18.0" />
+                </font></Label>
         </HBox>
 
         <HBox alignment="CENTER" spacing="10">
-            <Button styleClass="filter-button" text="Filter 1" />
-            <Button styleClass="filter-button" text="Filter 2" />
+            <Button fx:id="filter1Button" styleClass="filter-button" text="Filter 1" />
+            <Button fx:id="filter2Button" styleClass="filter-button" text="Filter 2" />
         </HBox>
-    </VBox></VBox>
+    </VBox>
+</VBox>
