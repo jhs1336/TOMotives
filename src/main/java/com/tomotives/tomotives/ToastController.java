@@ -15,9 +15,9 @@ public class ToastController {
         SUCCESS, ERROR, INFO
     }
 
-    private int duration = 2500; // 2.5 seconds
+    private int duration = 3000; // 3 seconds
     private static final int FADE_IN_DURATION = 1000; // 1 second
-    private static final int FADE_OUT_DURATION = 500; // .5 seconds
+    private static final int FADE_OUT_DURATION = 1000; // 1 second
 
     @FXML
     private StackPane toastContainer;
