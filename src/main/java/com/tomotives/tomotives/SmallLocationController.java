@@ -52,7 +52,7 @@ public class SmallLocationController {
             locationNameLabel.setText(locationName);
         }
         if (resizableImageController != null && imageUrl != null) {
-            resizableImageController.setImage(new Image(getClass().getResourceAsStream(imageUrl)));
+            resizableImageController.setImage(new Image(getClass().getResourceAsStream("Images/" + imageUrl)));
         }
         if (filter1Button != null && filter1 != null) {
             filter1Button.setText(filter1);
