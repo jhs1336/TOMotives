@@ -10,6 +10,7 @@ module com.tomotives.tomotives {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires com.google.gson;
 
     opens com.tomotives.tomotives to javafx.fxml;
     exports com.tomotives.tomotives;

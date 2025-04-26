@@ -26,10 +26,10 @@ public class SmallLocationController {
     // will be used later for data collection
     private String locationName;
     private String imageUrl;
-    private int starRating;
-    private int priceRating;
-    private String filter1;
-    private String filter2;
+    private double starRating;
+    private double priceRating;
+    private Category filter1;
+    private Category filter2;
 
     @FXML
     public void initialize() {
@@ -38,7 +38,7 @@ public class SmallLocationController {
         }
     }
 
-    public void setLocationData(String locationName, String imageUrl, int starRating, int priceRating, String filter1, String filter2) {
+    public void setLocationData(String locationName, String imageUrl, double starRating, double priceRating, Category filter1, Category filter2) {
         // store the data
         this.locationName = locationName;
         this.imageUrl = imageUrl;
@@ -55,10 +55,10 @@ public class SmallLocationController {
             resizableImageController.setImage(new Image(getClass().getResourceAsStream("Images/" + imageUrl)));
         }
         if (filter1Button != null && filter1 != null) {
-            filter1Button.setText(filter1);
+            filter1Button.setText(filter1.getName());
         }
         if (filter2Button != null && filter2 != null) {
-            filter2Button.setText(filter2);
+            filter2Button.setText(filter2.getName());
         }
 
         // update star and price ratings
@@ -66,7 +66,7 @@ public class SmallLocationController {
         updatePriceRating(priceRating);
     }
 
-    private void updateStarRating(int rating) {
+    private void updateStarRating(double rating) {
         if (starsContainer != null) {
             for (int i = 0; i < starsContainer.getChildren().size(); i++) {
                 if (starsContainer.getChildren().get(i) instanceof Label) {
@@ -83,7 +83,7 @@ public class SmallLocationController {
         }
     }
 
-    private void updatePriceRating(int rating) {
+    private void updatePriceRating(double rating) {
         if (priceContainer != null) {
             for (int i = 0; i < priceContainer.getChildren().size(); i++) {
                 if (priceContainer.getChildren().get(i) instanceof Label) {

@@ -1,0 +1,24 @@
+[
+  {
+    "name": "CN Tower",
+    "categories": ["Landmark", "TouristAttraction", "Indoors", "Outdoors"],
+    "rating": 4.0,
+    "priceRating": 3.0,
+    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "reviews": [
+      {
+        "description": "Amazing view of the city!",
+        "rating": "5",
+        "priceRating": "4",
+        "user": "John Doe"
+      },
+      {
+        "description": "Great experience but a bit pricey.",
+        "rating": "4",
+        "priceRating": "3",
+        "user": "Jane Smith"
+      }
+    ],
+    "image": "testimage1.jpg"
+  }
+]

@@ -38,7 +38,7 @@ public class SmallLocationCarouselController {
         }
     }
 
-    public void addLocationDisplay(String locationName, String imageUrl, int starRating, int priceRating, String filter1, String filter2) {
+    public void addLocationDisplay(String locationName, String imageUrl, double starRating, double priceRating, Category filter1, Category filter2) {
         try {
             // get fxml
             FXMLLoader loader = new FXMLLoader(getClass().getResource("small-location-display.fxml"));
@@ -54,6 +54,9 @@ public class SmallLocationCarouselController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void addLocationDisplay(Location location) {
+        addLocationDisplay(location.getName(), location.getImage(), location.getRating(), location.getPrice(), location.getCategories().getFirst(), location.getCategories().get(1));
     }
 
     @FXML
