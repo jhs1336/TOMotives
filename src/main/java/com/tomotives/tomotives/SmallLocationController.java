@@ -2,7 +2,9 @@ package com.tomotives.tomotives;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -13,7 +15,7 @@ public class SmallLocationController {
     @FXML
     private ResizableImageController resizableImageController;
     @FXML
-    private Label locationNameLabel;
+    private Hyperlink locationNameLabel;
     @FXML
     private HBox starsContainer;
     @FXML
@@ -56,9 +58,11 @@ public class SmallLocationController {
         }
         if (filter1Button != null && filter1 != null) {
             filter1Button.setText(filter1.getName());
+            filter1Button.setTooltip(new Tooltip(filter1.getName()));
         }
         if (filter2Button != null && filter2 != null) {
             filter2Button.setText(filter2.getName());
+            filter2Button.setTooltip(new Tooltip(filter2.getName()));
         }
 
         // update star and price ratings
@@ -71,12 +75,19 @@ public class SmallLocationController {
             for (int i = 0; i < starsContainer.getChildren().size(); i++) {
                 if (starsContainer.getChildren().get(i) instanceof Label) {
                     Label star = (Label) starsContainer.getChildren().get(i);
-                    if (i < rating) {
+                    if (i+1 < rating) {
                         star.getStyleClass().remove("empty-star");
                         star.getStyleClass().add("filled-star");
                     } else {
-                        star.getStyleClass().remove("filled-star");
-                        star.getStyleClass().add("empty-star");
+                        if (rating + 0.5 > (i+1)) {
+                            star.getStyleClass().remove("empty-star");
+                            star.getStyleClass().remove("filled-star");
+                            star.getStyleClass().add("half-star");
+                            System.out.println(star.getText());
+                        } else {
+                            star.getStyleClass().remove("filled-star");
+                            star.getStyleClass().add("empty-star");
+                        }
                     }
                 }
             }
@@ -88,15 +99,26 @@ public class SmallLocationController {
             for (int i = 0; i < priceContainer.getChildren().size(); i++) {
                 if (priceContainer.getChildren().get(i) instanceof Label) {
                     Label price = (Label) priceContainer.getChildren().get(i);
-                    if (i < rating) {
+                    if (i+1 < rating) {
                         price.getStyleClass().remove("empty-price");
                         price.getStyleClass().add("filled-price");
                     } else {
-                        price.getStyleClass().remove("filled-price");
-                        price.getStyleClass().add("empty-price");
+                        if (rating + 0.5 > (i+1)) {
+                            price.getStyleClass().remove("empty-price");
+                            price.getStyleClass().remove("filled-price");
+                            price.getStyleClass().add("half-price");
+                        } else {
+                            price.getStyleClass().remove("filled-price");
+                            price.getStyleClass().add("empty-price");
+                        }
                     }
                 }
             }
         }
+    }
+
+    @FXML
+    public void openLocationDetailPage() {
+        //TOMotivesApplication.loadPage();
     }
 }

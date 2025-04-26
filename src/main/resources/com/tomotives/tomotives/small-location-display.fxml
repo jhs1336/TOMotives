@@ -17,14 +17,14 @@
             <Insets left="15" right="15" />
         </padding>
 
-        <Label fx:id="locationNameLabel" styleClass="location-name" text="Location Name">
+        <Hyperlink fx:id="locationNameLabel" styleClass="location-name" text="Location Name" onAction="#openLocationDetailPage">
             <padding>
                 <Insets top="5" />
             </padding>
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
-        </Label>
+        </Hyperlink>
 
         <HBox fx:id="starsContainer" alignment="CENTER_LEFT" spacing="2">
             <Label styleClass="filled-star" text="★">
