@@ -10,7 +10,6 @@ public class LargeLocationController {
     private ResizableImageController resizableImageController;
     @FXML
     public void initialize() {
-        System.out.println("initialize" + resizableImage.getFitWidth() + " " + resizableImage.getFitHeight());
         resizableImageController.resize(resizableImage.getFitWidth(), resizableImage.getFitHeight());
     }
 }

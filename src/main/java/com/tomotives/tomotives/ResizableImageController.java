@@ -41,7 +41,6 @@ public class ResizableImageController {
      * @param height the desired height of the image
      */
     public void resize(double width, double height) {
-        System.out.println("resized" + width + " " + height);
         double targetAspectRatio = width / height;
         double imageWidth = image.getWidth();
         double imageHeight = image.getHeight();

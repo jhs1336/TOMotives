@@ -20,5 +20,27 @@
       }
     ],
     "image": "testimage1.jpg"
+  },
+  {
+    "name": "Royal Ontario Museum",
+    "categories": ["Museum", "TouristAttraction", "Indoors"],
+    "rating": 4.5,
+    "priceRating": 2.0,
+    "description": "The Royal Ontario Museum is a museum of art, world culture and natural history in Toronto, Ontario, Canada.",
+    "reviews": [
+      {
+        "description": "Fascinating exhibits and beautiful architecture!",
+        "rating": "5",
+        "priceRating": "2",
+        "user": "Mike Wilson"
+      },
+      {
+        "description": "Great for families, lots to see and learn.",
+        "rating": "4",
+        "priceRating": "2",
+        "user": "Sarah Johnson"
+      }
+    ],
+    "image": "testimage2.jpg"
   }
 ]
