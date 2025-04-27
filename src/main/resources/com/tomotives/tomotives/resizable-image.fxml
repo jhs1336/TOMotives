@@ -4,6 +4,6 @@
 
 <ImageView fx:id="imageView" preserveRatio="true" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.ResizableImageController">
     <image>
-        <Image url="@Images/testimage3.jpg"/>
+        <Image url="@images/testimage3.jpg"/>
     </image>
 </ImageView>

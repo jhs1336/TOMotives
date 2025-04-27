@@ -52,9 +52,12 @@ public class SmallLocationController {
         // update UI
         if (locationNameLabel != null) {
             locationNameLabel.setText(locationName);
+            Tooltip tooltip = new Tooltip(locationName);
+            tooltip.setStyle("-fx-font-size: 10px;");
+            locationNameLabel.setTooltip(tooltip);
         }
         if (resizableImageController != null && imageUrl != null) {
-            resizableImageController.setImage(new Image(getClass().getResourceAsStream("Images/" + imageUrl)));
+            resizableImageController.setImage(new Image(getClass().getResourceAsStream("images/" + imageUrl)));
         }
         if (filter1Button != null && filter1 != null) {
             filter1Button.setText(filter1.getName());
@@ -88,7 +91,6 @@ public class SmallLocationController {
                             star.getStyleClass().remove("empty-star");
                             star.getStyleClass().remove("filled-star");
                             star.getStyleClass().add("half-star");
-                            System.out.println(star.getText());
                         } else {
                             star.getStyleClass().remove("filled-star");
                             star.getStyleClass().add("empty-star");

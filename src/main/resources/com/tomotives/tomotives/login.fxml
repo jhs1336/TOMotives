@@ -73,7 +73,7 @@
                                         </PasswordField>
                                         <HBox alignment="CENTER_RIGHT" prefWidth="400.0">
                                             <children>
-                                                <Button fx:id="createAccountButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #00a0b0; -fx-background-radius: 25;" text="Log in" textFill="WHITE">
+                                                <Button fx:id="createAccountButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #00a0b0; -fx-background-radius: 25;" text="Log in" textFill="WHITE" onAction="#attemptLogin">
                                                     <font>
                                                         <Font size="18.0" />
                                                     </font>

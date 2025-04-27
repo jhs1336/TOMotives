@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class LocationDataManager {
-    private static String locationsFilePath = "src/main/resources/com/tomotives/tomotives/locations.json";
+    private static String locationsFilePath = "src/main/resources/com/tomotives/tomotives/data/locations.json";
     private static Gson gson = new Gson();
 
     // dont use

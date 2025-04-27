@@ -8,7 +8,7 @@
 <AnchorPane maxHeight="300" maxWidth="425" minHeight="300" minWidth="425" stylesheets="@large-location-display.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.LargeLocationController">
     <children>
         <fx:define>
-            <Image fx:id="image" url="@Images/testimage3.jpg" />
+            <Image fx:id="image" url="@images/testimage3.jpg" />
         </fx:define>
 
         <fx:include fx:id="resizableImage" source="resizable-image.fxml" fitHeight="300" fitWidth="425" />

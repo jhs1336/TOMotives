@@ -1,0 +1,21 @@
+[
+  {
+    "email": "john.doe@gmail.com",
+    "firstName": "John",
+    "lastName": "Doe",
+    "password": "password123",
+    "displayName": "JohnD",
+    "favourites": [
+      "Royal Ontario Museum",
+      "CN Tower"
+    ],
+    "recentLocations": [
+      "CN Tower",
+      "Royal Ontario Museum"
+    ],
+    "friends": [
+      "jane.smith@example.com",
+      "bob.johnson@example.com"
+    ]
+  }
+]
