@@ -42,10 +42,6 @@ public class SignUpController {
     @FXML
     private ResizableImageController resizableImageController;
 
-    private List<Image> carouselImages;
-    private int currentImageIndex = 0;
-    private Timeline carouselTimeline;
-
     @FXML
     private void initialize() {
         resizableImageController.resize(resizableImage.getFitWidth(), resizableImage.getFitHeight());
@@ -53,34 +49,7 @@ public class SignUpController {
 
         // set up button handlers
         createAccountButton.setOnAction(event -> handleCreateAccount());
-
-        // set up carousel
-//        initializeCarousel();
-//        startCarousel();
     }
-
-//    private void initializeCarousel() {
-//        carouselImages = new ArrayList<>();
-//
-//        try {
-//            carouselImages.add(new Image(getClass().getResourceAsStream("testimage1.jpg")));
-//            carouselImages.add(new Image(getClass().getResourceAsStream("testimage2.jpg")));
-//            carouselImages.add(new Image(getClass().getResourceAsStream("testimage3.jpg")));
-//        } catch (Exception e) {
-//            System.err.println("Error loading carousel images: " + e.getMessage());
-//        }
-//    }
-//
-//    private void startCarousel() {
-//        carouselTimeline = new Timeline(
-//                new KeyFrame(Duration.seconds(5), event -> {
-//                    currentImageIndex = (currentImageIndex + 1) % carouselImages.size();
-//                    carouselImage.setImage(carouselImages.get(currentImageIndex));
-//                })
-//        );
-//        carouselTimeline.setCycleCount(Timeline.INDEFINITE);
-//        carouselTimeline.play();
-//    }
 
     private void handleCreateAccount() {
         boolean isValid = validateInputs();

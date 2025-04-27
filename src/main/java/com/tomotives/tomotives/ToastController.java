@@ -41,6 +41,12 @@ public class ToastController {
         // called by javafx when first loaded
     }
 
+    /**Joshua
+     * Initializes the toast notification with the provided message and type
+     *
+     * @param message The message to display in the toast
+     * @param type The type of toast (SUCCESS, ERROR, or INFO) which determines the styling
+     */
     public void initialize(String message, ToastType type) {
         this.message = message;
         this.type = type;
@@ -60,7 +66,14 @@ public class ToastController {
         popup.getContent().add(toastContainer);
     }
 
-    public void showToast(Stage ownerStage) {
+    /**Joshua
+     * Shows a toast notification with the configured message and type
+     * The toast is positioned at the bottom center of the owner stage and
+     * fades in and out with animations
+     *
+     * @param ownerStage The stage that shows the toast
+     */
+        public void showToast(Stage ownerStage) {
         // position toast at the bottom center of screen
         popup.setOnShown(e -> {
             popup.setX(ownerStage.getX() + (ownerStage.getWidth() - popup.getWidth()) / 2);

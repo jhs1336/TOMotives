@@ -12,7 +12,7 @@ public class ResizableImageController {
     ImageView imageView;
     Image image;
 
-    /**
+    /**Joshua
      * Sets the image to be displayed in the ImageView and resizes the ImageView to fit the image.
      *
      * @param image the new image to be displayed
@@ -23,17 +23,16 @@ public class ResizableImageController {
         resize(imageView.getFitWidth(), imageView.getFitHeight());
     }
 
-    /**
+    /**Joshua
      * Called by javaFX on the componenent initialization
      * Gets the image object from the iamgeview
      */
     @FXML
     public void initialize() {
         image = imageView.getImage();
-//        resize(425, 300);
     }
 
-    /**
+    /**Joshua
      * Resizes the image view to the given width and height, maintaining the aspect ratio of the original image
      * The image is cropped to fit the target aspect ratio, with the cropping centered on the image
      *
@@ -68,7 +67,7 @@ public class ResizableImageController {
         imageView.setFitHeight(height);
     }
 
-    /**
+    /**Joshua
      * Apply rounded corners to the image view
      * @param cornerRadius the radius of the rounded corners
      */
@@ -89,7 +88,7 @@ public class ResizableImageController {
         imageView.setClip(clip);
     }
 
-    /**
+    /**Joshua
      * Apply a circular clip to the image
      */
     public void applyCircularClip() {

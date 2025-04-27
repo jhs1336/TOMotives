@@ -33,7 +33,10 @@ public class ToolbarController {
         loginButton.setOnAction(event -> handleLoginButton());
     }
 
-    private void handleHomeButton() {
+    /**Joshua
+     * Handles the click event of the home button by loading the home page.
+     */
+        private void handleHomeButton() {
         TOMotivesApplication.loadPage("home.fxml");
     }
 
@@ -45,10 +48,16 @@ public class ToolbarController {
 
     }
 
-    private void handleSignupButton() {
+    /**Joshua
+     * Handles the click event of the signup button by loading the sign-up page.
+     */
+        private void handleSignupButton() {
         TOMotivesApplication.loadPage("sign-up.fxml");
     }
-    private void handleLoginButton() {
+    /**Joshua
+     * Handles the login button click event by loading the login page.
+     */
+        private void handleLoginButton() {
         TOMotivesApplication.loadPage("login.fxml");
     }
 }

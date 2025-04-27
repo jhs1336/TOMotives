@@ -33,6 +33,11 @@ public class LocationDataManager {
 //        }
 //    }
 
+    /**Joshua
+     * Retrieves a list of location objects, as type Object from the locations JSON file
+     *
+     * @return an ArrayList of location objects as type Object, or null if an IOException occurs while reading the file
+     */
     public static ArrayList<Object> getLocationObjectList() {
         try {
             String locationList = new String(Files.readAllBytes(Paths.get(locationsFilePath)));
@@ -44,6 +49,11 @@ public class LocationDataManager {
             return null;
         }
     }
+    /**Joshua
+     * Retrieves a list of Location objects as type Location from the locations JSON file
+     *
+     * @return an ArrayList of Location objects as type Location, or null if an IOException occurs while reading the file
+     */
     public static ArrayList<Location> getLocationList() {
         ArrayList<Object> locationList = getLocationObjectList();
         ArrayList<Location> locations = new ArrayList<>();
@@ -54,6 +64,12 @@ public class LocationDataManager {
         return locations;
     }
 
+    /**Joshua
+     * Constructs a new Location object from the provided Map of location data
+     *
+     * @param locationMap a Map containing the location data, with keys for name, description, rating, priceRating, categories, reviews, and image (url)
+     * @return a new Location object with the data from the provided Map
+     */
     public static Location getLocationFromMap(Map<String, Object> locationMap) {
         ArrayList<Category> categories = gson.fromJson(gson.toJson(locationMap.get("categories")), new TypeToken<ArrayList<Category>>(){}.getType());
         return new Location((String) locationMap.get("name"), (String) locationMap.get("description"), (double) locationMap.get("rating"), (double) locationMap.get("priceRating"), categories, (ArrayList<Review>) locationMap.get("reviews"), (String) locationMap.get("image"));

@@ -1,5 +1,8 @@
 package com.tomotives.tomotives;
 
+/** Joshua
+ * Represents the different categories of activities or places that can be associated with a location
+ */
 public enum Category {
     // copied from mindomo diagram
     Indoors,

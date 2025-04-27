@@ -27,11 +27,21 @@ public class SmallLocationCarouselController {
     private int displayCount = 4; // number of locations to display at once *not how many locations are in the carousel*
     private List<Pane> locationDisplays = new ArrayList<>();
 
+    /**Joshua
+     * Sets the number of locations to show in the carousel at once
+     *
+     * @param count the number of locations to show
+     */
     public void setDisplayCount(int count) {
         this.displayCount = Math.min(count, 4); // max display at once is 4
         updateCarousel();
     }
 
+    /**Joshua
+     * Sets the title of the carousel
+     *
+     * @param title the new title to set for the carousel
+     */
     public void setTitle(String title) {
         if (carouselTitle != null) {
             carouselTitle.setText(title);
@@ -59,6 +69,9 @@ public class SmallLocationCarouselController {
         addLocationDisplay(location.getName(), location.getImage(), location.getRating(), location.getPrice(), location.getCategories().getFirst(), location.getCategories().get(1));
     }
 
+    /**Joshua
+     * Navigates the carousel back one location (shifts one to left)
+     */
     @FXML
     private void goToPrevious() {
         if (locationDisplays.isEmpty()) {
@@ -68,6 +81,9 @@ public class SmallLocationCarouselController {
         updateCarousel();
     }
 
+    /**Joshua
+     * Navigates the carousel forward one location (shifts one to the right)
+     */
     @FXML
     private void goToNext() {
         if (locationDisplays.isEmpty()) {
@@ -77,6 +93,11 @@ public class SmallLocationCarouselController {
         updateCarousel();
     }
 
+    /**Joshua
+     * Updates the carousel to show the appropriate locations based on the current index
+     * If there are fewer location displays than the display count, all displays are shown
+     * Otherwise, the displays starting from the current index are shown, up to the display count
+     */
     private void updateCarousel() {
         if (locationsContainer != null && !locationDisplays.isEmpty()) {
             locationsContainer.getChildren().clear();

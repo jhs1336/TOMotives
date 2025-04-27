@@ -11,6 +11,18 @@ public class Location {
     private ArrayList<Review> reviews;
     private String image;
 
+
+    /** Joshua
+     * Constructs a new Location object with the specified properties.
+     *
+     * @param name        the name of the location
+     * @param description the description of the location
+     * @param rating      the rating of the location
+     * @param price       the price of the location
+     * @param categories  the categories associated with the location
+     * @param reviews     the reviews for the location
+     * @param image       the image associated with the location
+     */
     public Location(String name, String description, double rating, double price, ArrayList<Category> categories, ArrayList<Review> reviews, String image) {
         this.name = name;
         this.description = description;
@@ -20,7 +32,13 @@ public class Location {
         this.reviews = reviews;
         this.image = image;
     }
-    public Location(Location location) {
+
+    /** Joshua
+     * Constructs a new Location object by copying the properties of the provided Location object
+     *
+     * @param location the Location object to copy
+     */
+        public Location(Location location) {
         this.name = location.name;
         this.categories = new ArrayList<>(location.categories);
         this.rating = location.rating;
@@ -30,6 +48,11 @@ public class Location {
         this.image = location.image;
     }
 
+    /** Saul
+     * The name of the location
+     *
+     * @return the name of the location
+     */
     public String getName() {
         return name;
     }

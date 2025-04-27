@@ -70,6 +70,11 @@ public class SmallLocationController {
         updatePriceRating(priceRating);
     }
 
+    /**Joshua
+     * Updates the visual representation of the star rating for a location
+     *
+     * @param rating The rating value to display, which can be a decimal value between 0 and 5
+     */
     private void updateStarRating(double rating) {
         if (starsContainer != null) {
             for (int i = 0; i < starsContainer.getChildren().size(); i++) {
@@ -94,7 +99,12 @@ public class SmallLocationController {
         }
     }
 
-    private void updatePriceRating(double rating) {
+    /**Joshua
+     * Updates the visual representation of the price rating for a location
+     *
+     * @param rating The rating value to display, which can be a decimal value between 0 and the 5
+     */
+        private void updatePriceRating(double rating) {
         if (priceContainer != null) {
             for (int i = 0; i < priceContainer.getChildren().size(); i++) {
                 if (priceContainer.getChildren().get(i) instanceof Label) {
