@@ -42,5 +42,225 @@
       }
     ],
     "image": "testimage2.jpg"
+  },
+  {
+    "name": "Casa Loma",
+    "categories": ["Landmark", "Indoors", "Tourist"],
+    "rating": 4.5,
+    "priceRating": 2.5,
+    "description": "Casa Loma is gothic revival-style castle in Toronto built from 1911-14 and a staple of Toronto tourism!",
+    "reviews": [
+      {
+        "description": "What a beautiful castle, love it!",
+        "rating": "5",
+        "priceRating": "2",
+        "user": "John Doe"
+      },
+      {
+        "description": "I'm a big fan, although there is a lot of walking involved.",
+        "rating": "3.5",
+        "priceRating": "3",
+        "user": "Jane Smith"
+      }
+    ],
+    "image": "casalomajpeg.jpg"
+  },
+  {
+    "name": "Wingstop",
+    "categories": ["Restaurant", "Date Spot", "Lunch", "Dinner"],
+    "rating": 1.6,
+    "priceRating": 5,
+    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "reviews": [
+      {
+        "description": "Amazing view of the city!",
+        "rating": "5",
+        "priceRating": "4",
+        "user": "John Doe"
+      },
+      {
+        "description": "Great experience but a bit pricey.",
+        "rating": "4",
+        "priceRating": "3",
+        "user": "Jane Smith"
+      }
+    ],
+    "image": "wingstop.jpg"
+  },
+  {
+    "name": "High Park",
+    "categories": ["Scenic", "Walking", "Hiking", "Outdoors"],
+    "rating": 4.5,
+    "priceRating": 0.0,
+    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "reviews": [
+      {
+        "description": "Amazing view of the city!",
+        "rating": "5",
+        "priceRating": "4",
+        "user": "John Doe"
+      },
+      {
+        "description": "Great experience but a bit pricey.",
+        "rating": "4",
+        "priceRating": "3",
+        "user": "Jane Smith"
+      }
+    ],
+    "image": "highpark.jpg"
+  },
+  {
+    "name": "Eaton Centre",
+    "categories": ["Shopping", "Mall", "Indoors", "Outdoors"],
+    "rating": 4.2,
+    "priceRating": 4.8,
+    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "reviews": [
+      {
+        "description": "Amazing view of the city!",
+        "rating": "5",
+        "priceRating": "4",
+        "user": "John Doe"
+      },
+      {
+        "description": "Great experience but a bit pricey.",
+        "rating": "4",
+        "priceRating": "3",
+        "user": "Jane Smith"
+      }
+    ],
+    "image": "eaton.jpg"
+  },
+  {
+    "name": "Aga Khan Museum",
+    "categories": ["Museum", "Tourist", "Indoors", "Outdoors"],
+    "rating": 4.1,
+    "priceRating": 1.9,
+    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "reviews": [
+      {
+        "description": "Amazing view of the city!",
+        "rating": "5",
+        "priceRating": "4",
+        "user": "John Doe"
+      },
+      {
+        "description": "Great experience but a bit pricey.",
+        "rating": "4",
+        "priceRating": "3",
+        "user": "Jane Smith"
+      }
+    ],
+    "image": "agakhan.jpg"
+  },
+  {
+    "name": "Kensington Market",
+    "categories": ["Outdoors", "Tourist", "Indoors", "Outdoors"],
+    "rating": 4.4,
+    "priceRating": 2.3,
+    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "reviews": [
+      {
+        "description": "Amazing view of the city!",
+        "rating": "5",
+        "priceRating": "4",
+        "user": "John Doe"
+      },
+      {
+        "description": "Great experience but a bit pricey.",
+        "rating": "4",
+        "priceRating": "3",
+        "user": "Jane Smith"
+      }
+    ],
+    "image": "kensington.jpg"
+  },
+  {
+    "name": "Little Canada",
+    "categories": ["Indoors", "Tourist", "Indoors", "Outdoors"],
+    "rating": 4.7,
+    "priceRating": 3.8,
+    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "reviews": [
+      {
+        "description": "Amazing view of the city!",
+        "rating": "5",
+        "priceRating": "4",
+        "user": "John Doe"
+      },
+      {
+        "description": "Great experience but a bit pricey.",
+        "rating": "4",
+        "priceRating": "3",
+        "user": "Jane Smith"
+      }
+    ],
+    "image": "littlecanada.jpeg"
+  },
+  {
+    "name": "Niagara Falls",
+    "categories": ["Landmark", "Outdoors", "Indoors", "Outdoors"],
+    "rating": 5.0,
+    "priceRating": 3.4,
+    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "reviews": [
+      {
+        "description": "Amazing view of the city!",
+        "rating": "5",
+        "priceRating": "4",
+        "user": "John Doe"
+      },
+      {
+        "description": "Great experience but a bit pricey.",
+        "rating": "4",
+        "priceRating": "3",
+        "user": "Jane Smith"
+      }
+    ],
+    "image": "niagarafalls.jpg"
+  },
+  {
+    "name": "Canada's Wonderland",
+    "categories": ["Indoors", "Outdoors", "Indoors", "Outdoors"],
+    "rating": 4.2,
+    "priceRating": 4.8,
+    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "reviews": [
+      {
+        "description": "Amazing view of the city!",
+        "rating": "5",
+        "priceRating": "4",
+        "user": "John Doe"
+      },
+      {
+        "description": "Great experience but a bit pricey.",
+        "rating": "4",
+        "priceRating": "3",
+        "user": "Jane Smith"
+      }
+    ],
+    "image": "niagarafalls.jpg"
+  },
+  {
+    "name": "Toronto City Hall",
+    "categories": ["Landmark", "Tourist", "Indoors", "Outdoors"],
+    "rating": 1.2,
+    "priceRating": 0.0,
+    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "reviews": [
+      {
+        "description": "Amazing view of the city!",
+        "rating": "5",
+        "priceRating": "4",
+        "user": "John Doe"
+      },
+      {
+        "description": "Great experience but a bit pricey.",
+        "rating": "4",
+        "priceRating": "3",
+        "user": "Jane Smith"
+      }
+    ],
+    "image": "torontocityhall.jpg"
   }
 ]
