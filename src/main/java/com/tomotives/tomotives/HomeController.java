@@ -15,9 +15,14 @@ public class HomeController {
     public void initialize() {
         smallLocationCarouselController.setTitle("Popular Locations");
         ArrayList<Location> locationList = LocationDataManager.getLocationList();
-        for (Location location : locationList) {
-            smallLocationCarouselController.addLocationDisplay(location);
+        ArrayList<Location> randomLocations = new ArrayList<>(locationList);
+        java.util.Collections.shuffle(randomLocations);
+        for (int i = 0; i < 10; i++) {
+            smallLocationCarouselController.addLocationDisplay(randomLocations.get(i));
         }
-    }
 
+//        for (Location location : locationList) {
+//            smallLocationCarouselController.addLocationDisplay(location);
+//        }
+    }
 }

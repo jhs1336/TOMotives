@@ -67,7 +67,7 @@
   },
   {
     "name": "Wingstop",
-    "categories": ["Restaurant", "Date Spot", "Lunch", "Dinner"],
+    "categories": ["Restaurant", "DateSpot", "Lunch", "Dinner"],
     "rating": 1.6,
     "priceRating": 5,
     "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
@@ -239,7 +239,7 @@
         "user": "Jane Smith"
       }
     ],
-    "image": "niagarafalls.jpg"
+    "image": "canadawonderland.jpg"
   },
   {
     "name": "Toronto City Hall",

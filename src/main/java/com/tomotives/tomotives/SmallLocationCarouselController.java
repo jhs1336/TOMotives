@@ -78,8 +78,13 @@ public class SmallLocationCarouselController {
             return;
         }
         currentIndex--;
+        // Handle wrap-around for negative index
+        if (currentIndex < 0) {
+            currentIndex = locationDisplays.size() - 1;
+        }
         updateCarousel();
     }
+
 
     /**Joshua
      * Navigates the carousel forward one location (shifts one to the right)
