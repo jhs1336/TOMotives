@@ -24,16 +24,17 @@ public class SmallLocationCarouselController {
     private Label carouselTitle;
 
     private int currentIndex;
-    private int displayCount = 4; // number of locations to display at once *not how many locations are in the carousel*
+    private int displayCount = 5; // number of locations to display at once *not how many locations are in the carousel*
     private List<Pane> locationDisplays = new ArrayList<>();
 
     /**Joshua
      * Sets the number of locations to show in the carousel at once
+     * Max is 5. Will be set to high if given a number greater
      *
      * @param count the number of locations to show
      */
     public void setDisplayCount(int count) {
-        this.displayCount = Math.min(count, 4); // max display at once is 4
+        this.displayCount = Math.min(count, 5); // max display at once is 5
         updateCarousel();
     }
 
