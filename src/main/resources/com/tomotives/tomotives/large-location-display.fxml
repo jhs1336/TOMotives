@@ -1,59 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 
-<AnchorPane maxHeight="300" maxWidth="425" minHeight="300" minWidth="425" stylesheets="@large-location-display.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.LargeLocationController">
+<?import javafx.scene.image.Image?>
+<AnchorPane maxHeight="300" maxWidth="575" minHeight="300" minWidth="575" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;" stylesheets="@large-location-display.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.LargeLocationController">
     <children>
-        <fx:define>
-            <Image fx:id="image" url="@images/testimage3.jpg" />
-        </fx:define>
+        <HBox spacing="10" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
-        <fx:include fx:id="resizableImage" source="resizable-image.fxml" fitHeight="300" fitWidth="425" />
+            <fx:define>
+                <Image fx:id="image" url="@images/testimage3.jpg" />
+            </fx:define>
+            <fx:include fx:id="resizableImage" fitHeight="296" fitWidth="400" source="resizable-image.fxml" />
 
-        <!-- Location name with underline -->
-        <Label fx:id="locationNameLabel" layoutX="8" layoutY="40" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Location Name" />
-        <Line endX="208" endY="70" layoutX="216.0" layoutY="-12.0" startX="8" startY="70" strokeWidth="2" />
+            <VBox minWidth="160" prefWidth="160" spacing="5.0">
+                <Label fx:id="locationNameLabel" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Location Name" wrapText="true" />
 
-        <!-- Star rating section -->
-        <HBox layoutX="8" layoutY="220" spacing="5">
-            <children>
-                <Label style="-fx-font-size: 24px;" styleClass="filled-star" text="★" />
-                <Label style="-fx-font-size: 24px;" styleClass="filled-star" text="★" />
-                <Label style="-fx-font-size: 24px;" styleClass="filled-star" text="★" />
-                <Label style="-fx-font-size: 24px;" styleClass="empty-star" text="★" />
-                <Label style="-fx-font-size: 24px;" styleClass="empty-star" text="★" />
-                <Label fx:id="starRatingLabel" layoutX="180" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="X.X" />
-            </children>
-        </HBox>
+                <!-- Small images grid -->
+                <GridPane hgap="5" vgap="5">
+                    <fx:include fx:id="smallImage1" fitHeight="50" fitWidth="75" source="resizable-image.fxml" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <fx:include fx:id="smallImage2" fitHeight="50" fitWidth="75" source="resizable-image.fxml" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <fx:include fx:id="smallImage3" fitHeight="50" fitWidth="75" source="resizable-image.fxml" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <fx:include fx:id="smallImage4" fitHeight="50" fitWidth="75" source="resizable-image.fxml" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                </GridPane>
 
-        <!-- Dollar sign rating section -->
-        <HBox layoutX="8" layoutY="260" spacing="10">
-            <children>
-                <Label style="-fx-font-size: 24px;" styleClass="filled-price" text="\$" />
-                <Label style="-fx-font-size: 24px;" styleClass="filled-price" text="\$" />
-                <Label style="-fx-font-size: 24px;" styleClass="filled-price" text="\$" />
-                <Label style="-fx-font-size: 24px;" styleClass="empty-price" text="\$" />
-                <Label style="-fx-font-size: 24px;" styleClass="empty-price" text="\$" />
-                <Label fx:id="priceRatingLabel" layoutX="180" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="X.X" />
-            </children>
-        </HBox>
 
-        <!-- Filters -->
-        <HBox layoutX="260" layoutY="220" spacing="20">
-            <children>
-                <Button fx:id="filter1Button" style="-fx-background-color: #ff6b6b; -fx-background-radius: 20; -fx-text-fill: black; -fx-padding: 5 15;" text="Filter 1" />
-                <Button fx:id="filter2Button" style="-fx-background-color: #ff6b6b; -fx-background-radius: 20; -fx-text-fill: black; -fx-padding: 5 15;" text="Filter 2" />
-            </children>
-        </HBox>
+                <!-- Star rating section -->
+                <HBox spacing="5">
+                    <children>
+                        <Label style="-fx-font-size: 18px;" styleClass="filled-star" text="★" />
+                        <Label style="-fx-font-size: 18px;" styleClass="filled-star" text="★" />
+                        <Label style="-fx-font-size: 18px;" styleClass="filled-star" text="★" />
+                        <Label style="-fx-font-size: 18px;" styleClass="empty-star" text="★" />
+                        <Label style="-fx-font-size: 18px;" styleClass="empty-star" text="★" />
+                        <Label fx:id="starRatingLabel" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="X.X" />
+                    </children>
+                </HBox>
 
-        <HBox layoutX="260" layoutY="260" spacing="20">
-            <children>
-                <Button fx:id="filter3Button" style="-fx-background-color: #ff6b6b; -fx-background-radius: 20; -fx-text-fill: black; -fx-padding: 5 15;" text="Filter 3" />
-                <Button fx:id="filter4Button" style="-fx-background-color: #ff6b6b; -fx-background-radius: 20; -fx-text-fill: black; -fx-padding: 5 15;" text="Filter 4" />
-            </children>
+                <!-- Dollar sign rating section -->
+                <HBox spacing="10">
+                    <children>
+                        <Label style="-fx-font-size: 21px;" styleClass="filled-price" text="\$" />
+                        <Label style="-fx-font-size: 21px;" styleClass="filled-price" text="\$" />
+                        <Label style="-fx-font-size: 21px;" styleClass="filled-price" text="\$" />
+                        <Label style="-fx-font-size: 21px;" styleClass="empty-price" text="\$" />
+                        <Label style="-fx-font-size: 21px;" styleClass="empty-price" text="\$" />
+                        <Label fx:id="priceRatingLabel" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="X.X" />
+                    </children>
+                </HBox>
+
+                <!-- Filters -->
+                <VBox spacing="8">
+                    <HBox spacing="8">
+                        <Button fx:id="filter1Button" styleClass="filter-button" text="Filter 1" />
+                        <Button fx:id="filter2Button" styleClass="filter-button" text="Filter 2" />
+                    </HBox>
+                    <HBox spacing="8">
+                        <Button fx:id="filter3Button" styleClass="filter-button" text="Filter 3" />
+                        <Button fx:id="filter4Button" styleClass="filter-button" text="Filter 4" />
+                    </HBox>
+                </VBox>
+            <padding>
+               <Insets top="10.0" />
+            </padding>
+            </VBox>
         </HBox>
     </children>
 </AnchorPane>

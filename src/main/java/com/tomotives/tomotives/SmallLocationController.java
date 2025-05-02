@@ -37,6 +37,7 @@ public class SmallLocationController {
     public void initialize() {
         if (resizableImageController != null) {
             resizableImageController.resize(resizableImage.getFitWidth(), resizableImage.getFitHeight());
+            resizableImageController.applyRoundedCorners(10);
         }
     }
 
@@ -58,6 +59,7 @@ public class SmallLocationController {
         }
         if (resizableImageController != null && imageUrl != null) {
             resizableImageController.setImage(new Image(getClass().getResourceAsStream("images/" + imageUrl)));
+            resizableImageController.applyRoundedCorners(10);
         }
         if (filter1Button != null && filter1 != null) {
             filter1Button.setText(filter1.getName());

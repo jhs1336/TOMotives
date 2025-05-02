@@ -11,6 +11,11 @@
         <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
                 <VBox>
+                    <HBox prefHeight="100.0" prefWidth="200.0">
+                        <children>
+                            <fx:include source="large-location-display.fxml"></fx:include>
+                        </children>
+                    </HBox>
                 <HBox>
                     <fx:include fx:id="smallLocationCarousel" source="small-location-carousel.fxml" />
                   <opaqueInsets>
