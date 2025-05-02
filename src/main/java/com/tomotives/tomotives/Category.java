@@ -19,7 +19,7 @@ public enum Category {
     Breakfast,
     Lunch,
     Dinner,
-    StudySpot,
+    StudySpot("Study Spot"),
     Walking,
     Tourist,
     Bars,
