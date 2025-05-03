@@ -79,7 +79,7 @@ public class SmallLocationCarouselController {
             return;
         }
         currentIndex--;
-        // Handle wrap-around for negative index
+        // handle wrap-around for negative index
         if (currentIndex < 0) {
             currentIndex = locationDisplays.size() - 1;
         }
@@ -95,7 +95,9 @@ public class SmallLocationCarouselController {
         if (locationDisplays.isEmpty()) {
             return;
         }
-        currentIndex++;
+        if (currentIndex >= locationDisplays.size() - 1) {
+            currentIndex = 0;
+        } else currentIndex++;
         updateCarousel();
     }
 

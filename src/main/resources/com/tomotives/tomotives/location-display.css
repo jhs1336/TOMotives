@@ -20,6 +20,7 @@
 }
 .half-price {
     -fx-text-fill: linear-gradient(to right, #2E8B57 50%, #DDDDDD 50%);
+    -fx-font-weight: bold;
 }
 .filled-price {
     -fx-text-fill: #2E8B57;

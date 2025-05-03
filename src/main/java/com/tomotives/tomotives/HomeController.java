@@ -10,6 +10,8 @@ public class HomeController {
     private AnchorPane smallLocationCarousel;
     @FXML
     private SmallLocationCarouselController smallLocationCarouselController;
+    @FXML
+    private LargeLocationCarouselController largeLocationCarouselController;
 
     @FXML
     public void initialize() {
@@ -20,6 +22,10 @@ public class HomeController {
         for (int i = 0; i < 10; i++) {
             smallLocationCarouselController.addLocationDisplay(randomLocations.get(i));
         }
+        for (int i = 0; i < 10; i++) {
+            largeLocationCarouselController.addLocationDisplay(randomLocations.get(i));
+        }
+        largeLocationCarouselController.updateCarousel();
 
 //        for (Location location : locationList) {
 //            smallLocationCarouselController.addLocationDisplay(location);

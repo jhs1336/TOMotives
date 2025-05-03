@@ -9,7 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
-public class SmallLocationController {
+public class SmallLocationController extends LocationControllerBase{
     @FXML
     private ImageView resizableImage;
     @FXML
@@ -71,68 +71,7 @@ public class SmallLocationController {
         }
 
         // update star and price ratings
-        updateStarRating(starRating);
-        updatePriceRating(priceRating);
-    }
-
-    /**Joshua
-     * Updates the visual representation of the star rating for a location
-     *
-     * @param rating The rating value to display, which can be a decimal value between 0 and 5
-     */
-    private void updateStarRating(double rating) {
-        if (starsContainer != null) {
-            for (int i = 0; i < starsContainer.getChildren().size(); i++) {
-                if (starsContainer.getChildren().get(i) instanceof Label) {
-                    Label star = (Label) starsContainer.getChildren().get(i);
-                    if (i+1 < rating) {
-                        star.getStyleClass().remove("empty-star");
-                        star.getStyleClass().add("filled-star");
-                    } else {
-                        if (rating + 0.5 > (i+1)) {
-                            star.getStyleClass().remove("empty-star");
-                            star.getStyleClass().remove("filled-star");
-                            star.getStyleClass().add("half-star");
-                        } else {
-                            star.getStyleClass().remove("filled-star");
-                            star.getStyleClass().add("empty-star");
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /**Joshua
-     * Updates the visual representation of the price rating for a location
-     *
-     * @param rating The rating value to display, which can be a decimal value between 0 and the 5
-     */
-        private void updatePriceRating(double rating) {
-        if (priceContainer != null) {
-            for (int i = 0; i < priceContainer.getChildren().size(); i++) {
-                if (priceContainer.getChildren().get(i) instanceof Label) {
-                    Label price = (Label) priceContainer.getChildren().get(i);
-                    if (i+1 < rating) {
-                        price.getStyleClass().remove("empty-price");
-                        price.getStyleClass().add("filled-price");
-                    } else {
-                        if (rating + 0.5 > (i+1)) {
-                            price.getStyleClass().remove("empty-price");
-                            price.getStyleClass().remove("filled-price");
-                            price.getStyleClass().add("half-price");
-                        } else {
-                            price.getStyleClass().remove("filled-price");
-                            price.getStyleClass().add("empty-price");
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    @FXML
-    public void openLocationDetailPage() {
-        //TOMotivesApplication.loadPage();
+        updateStarRating(starRating, starsContainer);
+        updatePriceRating(priceRating, priceContainer);
     }
 }

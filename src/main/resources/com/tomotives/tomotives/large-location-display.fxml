@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.image.Image?>
-<AnchorPane maxHeight="300" maxWidth="575" minHeight="300" minWidth="575" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;" stylesheets="@large-location-display.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.LargeLocationController">
+<AnchorPane maxHeight="300" maxWidth="580" minHeight="300" minWidth="580" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;" stylesheets="@location-display.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.LargeLocationController">
     <children>
         <HBox spacing="10" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
@@ -15,9 +15,8 @@
             <fx:include fx:id="resizableImage" fitHeight="296" fitWidth="400" source="resizable-image.fxml" />
 
             <VBox minWidth="160" prefWidth="160" spacing="5.0">
-                <Label fx:id="locationNameLabel" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Location Name" wrapText="true" />
+                <Hyperlink fx:id="locationNameLabel" styleClass="location-name" text="Location Name" wrapText="true" />
 
-                <!-- Small images grid -->
                 <GridPane hgap="5" vgap="5">
                     <fx:include fx:id="smallImage1" fitHeight="50" fitWidth="75" source="resizable-image.fxml" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                     <fx:include fx:id="smallImage2" fitHeight="50" fitWidth="75" source="resizable-image.fxml" GridPane.columnIndex="1" GridPane.rowIndex="0" />
@@ -27,19 +26,19 @@
 
 
                 <!-- Star rating section -->
-                <HBox spacing="5">
+                <HBox fx:id="starsContainer" spacing="5">
                     <children>
-                        <Label style="-fx-font-size: 18px;" styleClass="filled-star" text="★" />
-                        <Label style="-fx-font-size: 18px;" styleClass="filled-star" text="★" />
-                        <Label style="-fx-font-size: 18px;" styleClass="filled-star" text="★" />
-                        <Label style="-fx-font-size: 18px;" styleClass="empty-star" text="★" />
-                        <Label style="-fx-font-size: 18px;" styleClass="empty-star" text="★" />
+                        <Label style="-fx-font-size: 18px;" text="★" />
+                        <Label style="-fx-font-size: 18px;" text="★" />
+                        <Label style="-fx-font-size: 18px;" text="★" />
+                        <Label style="-fx-font-size: 18px;" text="★" />
+                        <Label style="-fx-font-size: 18px;" text="★" />
                         <Label fx:id="starRatingLabel" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="X.X" />
                     </children>
                 </HBox>
 
                 <!-- Dollar sign rating section -->
-                <HBox spacing="10">
+                <HBox fx:id="priceContainer" spacing="10">
                     <children>
                         <Label style="-fx-font-size: 21px;" styleClass="filled-price" text="\$" />
                         <Label style="-fx-font-size: 21px;" styleClass="filled-price" text="\$" />
@@ -62,7 +61,7 @@
                     </HBox>
                 </VBox>
             <padding>
-               <Insets top="10.0" />
+               <Insets top="5.0" />
             </padding>
             </VBox>
         </HBox>
