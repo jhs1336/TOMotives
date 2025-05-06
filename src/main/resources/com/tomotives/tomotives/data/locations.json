@@ -23,9 +23,7 @@
   },
   {
     "name": "Royal Ontario Museum",
-    "categories": ["Museum", "Tourist", "Indoors"],
-    "rating": 4.6,
-    "priceRating": 2.2,
+    "categories": ["Museum", "Tourist", "Indoors", "Landmark"],
     "description": "The Royal Ontario Museum is a museum of art, world culture and natural history in Toronto, Ontario, Canada.",
     "reviews": [
       {
@@ -45,22 +43,20 @@
   },
   {
     "name": "Casa Loma",
-    "categories": ["Landmark", "Indoors", "Tourist"],
-    "rating": 4.5,
-    "priceRating": 2.5,
+    "categories": ["Landmark", "Indoors", "Tourist", "Historic"],
     "description": "Casa Loma is gothic revival-style castle in Toronto built from 1911-14 and a staple of Toronto tourism!",
     "reviews": [
       {
         "description": "What a beautiful castle, love it!",
         "rating": "5",
         "priceRating": "2",
-        "user": "John Doe"
+        "user": "James Smith"
       },
       {
-        "description": "I'm a big fan, although there is a lot of walking involved.",
+        "description": "I'm a big fan, although there is a lot of walking involved. (Difficult due to my weight)",
         "rating": "3.5",
         "priceRating": "3",
-        "user": "Jane Smith"
+        "user": "Joshua Holzman-Sharfe"
       }
     ],
     "image": "casalomajpeg.jpg"
@@ -68,20 +64,18 @@
   {
     "name": "Wingstop",
     "categories": ["Restaurant", "DateSpot", "Lunch", "Dinner"],
-    "rating": 1.6,
-    "priceRating": 5,
-    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "description": "Wingstop Inc. is an American international chain of restaurants that primarily sells buffalo wings. It is often noted for their poor quality and expensive prices.",
     "reviews": [
       {
-        "description": "Amazing view of the city!",
-        "rating": "5",
-        "priceRating": "4",
-        "user": "John Doe"
+        "description": "I paid 20 dollars for 8 wings! (A lot of money for me)",
+        "rating": "2",
+        "priceRating": "4.6",
+        "user": "Emmett Cassan"
       },
       {
-        "description": "Great experience but a bit pricey.",
-        "rating": "4",
-        "priceRating": "3",
+        "description": "It's alright but a bit pricey.",
+        "rating": "3",
+        "priceRating": "4",
         "user": "Jane Smith"
       }
     ],
@@ -90,21 +84,19 @@
   {
     "name": "High Park",
     "categories": ["Scenic", "Walking", "Hiking", "Outdoors"],
-    "rating": 4.5,
-    "priceRating": 0.0,
-    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "description": "High Park is a municipal park in Toronto, Ontario, Canada. High Park is a mixed recreational and natural park, with sporting facilities, cultural facilities, educational facilities, gardens, playgrounds and a zoo. ",
     "reviews": [
       {
-        "description": "Amazing view of the city!",
+        "description": "Amazing view of nature within Toronto!",
         "rating": "5",
-        "priceRating": "4",
-        "user": "John Doe"
+        "priceRating": "0",
+        "user": "John Dice"
       },
       {
-        "description": "Great experience but a bit pricey.",
-        "rating": "4",
-        "priceRating": "3",
-        "user": "Jane Smith"
+        "description": "Lots to do! We went to the zoo and hiked around.",
+        "rating": "4.5",
+        "priceRating": "1.5",
+        "user": "Jane Doe"
       }
     ],
     "image": "highpark.jpg"
@@ -112,21 +104,19 @@
   {
     "name": "Eaton Centre",
     "categories": ["Shopping", "Mall", "Indoors", "Outdoors"],
-    "rating": 4.2,
-    "priceRating": 4.8,
-    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "description": "CF Toronto Eaton Centre, commonly referred to simply as the Eaton Centre, is a shopping mall and office complex in the downtown core of Toronto, Ontario, Canada. It is owned and managed by Cadillac Fairview.",
     "reviews": [
       {
-        "description": "Amazing view of the city!",
-        "rating": "5",
+        "description": "Lots to buy and things to eat - fairly expensive.",
+        "rating": "3.8",
         "priceRating": "4",
-        "user": "John Doe"
+        "user": "MerchantFlyer62"
       },
       {
-        "description": "Great experience but a bit pricey.",
+        "description": "I was turned out of a store when they refused to accept paying in cash! >:(",
         "rating": "4",
         "priceRating": "3",
-        "user": "Jane Smith"
+        "user": "Jhs1336"
       }
     ],
     "image": "eaton.jpg"
@@ -134,9 +124,7 @@
   {
     "name": "Aga Khan Museum",
     "categories": ["Museum", "Tourist", "Indoors", "Outdoors"],
-    "rating": 4.1,
-    "priceRating": 1.9,
-    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "description": "The Aga Khan Museum is a museum of Islamic art located at 77 Wynford Drive in the North York district of Toronto, Ontario, Canada. The museum is dedicated to Islamic art and objects, and it houses approximately 1,200 rare objects assembled by Shah Karim al-Husayni and Prince Sadruddin Aga Khan.",
     "reviews": [
       {
         "description": "Amazing view of the city!",
