@@ -32,6 +32,37 @@ public class Location {
         this.reviews = reviews;
         this.image = image;
     }
+    /**
+     * Constructs a new Location object with rating and price calculated from reviews
+     *
+     * @param name        the name of the location
+     * @param description the description of the location
+     * @param categories  the categories associated with the location
+     * @param reviews     the reviews for the location
+     * @param image       the image associated with the location
+     */
+    public Location(String name, String description, ArrayList<Category> categories, ArrayList<Review> reviews, String image) {
+        this.name = name;
+        this.description = description;
+        this.categories = categories;
+        this.reviews = reviews;
+        this.image = image;
+
+        if (reviews != null && !reviews.isEmpty()) {
+            double totalRating = 0;
+            double totalPrice = 0;
+            for (Review review : reviews) {
+                totalRating += review.getRating();
+                totalPrice += review.getPriceRating();
+            }
+            this.rating = totalRating / reviews.size();
+            this.price = totalPrice / reviews.size();
+        } else {
+            this.rating = 0;
+            this.price = 0;
+        }
+    }
+
 
     /** Joshua
      * Constructs a new Location object by copying the properties of the provided Location object

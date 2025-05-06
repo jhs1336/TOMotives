@@ -2,20 +2,18 @@
   {
     "name": "CN Tower",
     "categories": ["Landmark", "Tourist", "Indoors", "Outdoors"],
-    "rating": 4.4,
-    "priceRating": 3.6,
     "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
     "reviews": [
       {
         "description": "Amazing view of the city!",
-        "rating": "5",
-        "priceRating": "4",
+        "rating": 5.0,
+        "priceRating": 4.0,
         "user": "John Doe"
       },
       {
         "description": "Great experience but a bit pricey.",
-        "rating": "4",
-        "priceRating": "3",
+        "rating": 4.0,
+        "priceRating": 3.0,
         "user": "Jane Smith"
       }
     ],
@@ -28,14 +26,14 @@
     "reviews": [
       {
         "description": "Fascinating exhibits and beautiful architecture!",
-        "rating": "5",
-        "priceRating": "2",
+        "rating": 5.0,
+        "priceRating": 2.0,
         "user": "Mike Wilson"
       },
       {
         "description": "Great for families, lots to see and learn.",
-        "rating": "4",
-        "priceRating": "2",
+        "rating": 4.0,
+        "priceRating": 2.0,
         "user": "Sarah Johnson"
       }
     ],
@@ -48,14 +46,14 @@
     "reviews": [
       {
         "description": "What a beautiful castle, love it!",
-        "rating": "5",
-        "priceRating": "2",
+        "rating": 5.0,
+        "priceRating": 2.0,
         "user": "James Smith"
       },
       {
         "description": "I'm a big fan, although there is a lot of walking involved. (Difficult due to my weight)",
-        "rating": "3.5",
-        "priceRating": "3",
+        "rating": 3.5,
+        "priceRating": 3,
         "user": "Joshua Holzman-Sharfe"
       }
     ],
@@ -68,14 +66,14 @@
     "reviews": [
       {
         "description": "I paid 20 dollars for 8 wings! (A lot of money for me)",
-        "rating": "2",
-        "priceRating": "4.6",
+        "rating": 2.0,
+        "priceRating": 4.6,
         "user": "Emmett Cassan"
       },
       {
         "description": "It's alright but a bit pricey.",
-        "rating": "3",
-        "priceRating": "4",
+        "rating": 3.0,
+        "priceRating": 4.0,
         "user": "Jane Smith"
       }
     ],
@@ -88,14 +86,14 @@
     "reviews": [
       {
         "description": "Amazing view of nature within Toronto!",
-        "rating": "5",
-        "priceRating": "0",
+        "rating": 5.0,
+        "priceRating": 0.0,
         "user": "John Dice"
       },
       {
         "description": "Lots to do! We went to the zoo and hiked around.",
-        "rating": "4.5",
-        "priceRating": "1.5",
+        "rating": 4.5,
+        "priceRating": 1.5,
         "user": "Jane Doe"
       }
     ],
@@ -108,14 +106,14 @@
     "reviews": [
       {
         "description": "Lots to buy and things to eat - fairly expensive.",
-        "rating": "3.8",
-        "priceRating": "4",
+        "rating": 3.8,
+        "priceRating": 4.0,
         "user": "MerchantFlyer62"
       },
       {
         "description": "I was turned out of a store when they refused to accept paying in cash! >:(",
-        "rating": "4",
-        "priceRating": "3",
+        "rating": 4.0,
+        "priceRating": 3.0,
         "user": "Jhs1336"
       }
     ],
@@ -128,14 +126,14 @@
     "reviews": [
       {
         "description": "Amazing view of the city!",
-        "rating": "5",
-        "priceRating": "4",
+        "rating": 5.0,
+        "priceRating": 4.0,
         "user": "John Doe"
       },
       {
         "description": "Great experience but a bit pricey.",
-        "rating": "4",
-        "priceRating": "3",
+        "rating": 4.0,
+        "priceRating": 3.0,
         "user": "Jane Smith"
       }
     ],
@@ -150,14 +148,14 @@
     "reviews": [
       {
         "description": "Amazing view of the city!",
-        "rating": "5",
-        "priceRating": "4",
+        "rating": 5.0,
+        "priceRating": 4.0,
         "user": "John Doe"
       },
       {
         "description": "Great experience but a bit pricey.",
-        "rating": "4",
-        "priceRating": "3",
+        "rating": 4.0,
+        "priceRating": 3.0,
         "user": "Jane Smith"
       }
     ],
@@ -172,14 +170,14 @@
     "reviews": [
       {
         "description": "Amazing view of the city!",
-        "rating": "5",
-        "priceRating": "4",
+        "rating": 5.0,
+        "priceRating": 4.0,
         "user": "John Doe"
       },
       {
         "description": "Great experience but a bit pricey.",
-        "rating": "4",
-        "priceRating": "3",
+        "rating": 4.0,
+        "priceRating": 3.0,
         "user": "Jane Smith"
       }
     ],
@@ -194,14 +192,14 @@
     "reviews": [
       {
         "description": "Amazing view of the city!",
-        "rating": "5",
-        "priceRating": "4",
+        "rating": 5.0,
+        "priceRating": 4.0,
         "user": "John Doe"
       },
       {
         "description": "Great experience but a bit pricey.",
-        "rating": "4",
-        "priceRating": "3",
+        "rating": 4.0,
+        "priceRating": 3.0,
         "user": "Jane Smith"
       }
     ],
@@ -216,14 +214,14 @@
     "reviews": [
       {
         "description": "Amazing view of the city!",
-        "rating": "5",
-        "priceRating": "4",
+        "rating": 5.0,
+        "priceRating": 4.0,
         "user": "John Doe"
       },
       {
         "description": "Great experience but a bit pricey.",
-        "rating": "4",
-        "priceRating": "3",
+        "rating": 4.0,
+        "priceRating": 3.0,
         "user": "Jane Smith"
       }
     ],
@@ -238,14 +236,14 @@
     "reviews": [
       {
         "description": "Amazing view of the city!",
-        "rating": "5",
-        "priceRating": "4",
+        "rating": 5.0,
+        "priceRating": 4.0,
         "user": "John Doe"
       },
       {
         "description": "Great experience but a bit pricey.",
-        "rating": "4",
-        "priceRating": "3",
+        "rating": 4.0,
+        "priceRating": 3.0,
         "user": "Jane Smith"
       }
     ],

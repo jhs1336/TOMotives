@@ -13,7 +13,6 @@ public class LocationControllerBase {
      * @param starsContainer The HBox container where the star icons are displayed
      */
     protected void updateStarRating(double rating, HBox starsContainer) {
-        System.out.println("Updating star rating: " + rating);
         if (starsContainer != null) {
             for (int i = 0; i < starsContainer.getChildren().size(); i++) {
                 if (starsContainer.getChildren().get(i) instanceof Label && ((Label) starsContainer.getChildren().get(i)).getText().equals("★")) {
@@ -23,14 +22,11 @@ public class LocationControllerBase {
                     star.getStyleClass().remove("empty-star");
                     if (i+1 <= rating) {
                         star.getStyleClass().add("filled-star");
-                        System.out.println("Filled star at index: " + i);
                     } else {
                         if (rating + 0.5 >= (i+1)) {
                             star.getStyleClass().add("half-star");
-                            System.out.println("Half star at index: " + i);
                         } else {
                             star.getStyleClass().add("empty-star");
-                            System.out.println("Empty star at index: " + i);
                         }
                     }
                 }

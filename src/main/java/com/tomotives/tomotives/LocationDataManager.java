@@ -72,6 +72,18 @@ public class LocationDataManager {
      */
     public static Location getLocationFromMap(Map<String, Object> locationMap) {
         ArrayList<Category> categories = gson.fromJson(gson.toJson(locationMap.get("categories")), new TypeToken<ArrayList<Category>>(){}.getType());
-        return new Location((String) locationMap.get("name"), (String) locationMap.get("description"), (double) locationMap.get("rating"), (double) locationMap.get("priceRating"), categories, (ArrayList<Review>) locationMap.get("reviews"), (String) locationMap.get("image"));
+        ArrayList<Map<String, Object>> reviews = gson.fromJson(gson.toJson(locationMap.get("reviews")), new TypeToken<ArrayList<Map<String, Object>>>(){}.getType());
+        double totalRating = 0;
+        double totalPriceRating = 0;
+        for (Map<String, Object> review : reviews) {
+            totalRating += (double) review.get("rating");
+            totalPriceRating += (double) review.get("priceRating");
+        }
+
+        int reviewCount = reviews.size();
+        double averageRating = reviewCount > 0 ? totalRating / reviewCount : 0;
+        double averagePriceRating = reviewCount > 0 ? totalPriceRating / reviewCount : 0;
+
+        return new Location((String) locationMap.get("name"), (String) locationMap.get("description"), averageRating, averagePriceRating, categories, (ArrayList<Review>) locationMap.get("reviews"), (String) locationMap.get("image"));
     }
 }
