@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="1280.0" style="-fx-background-color: #00a0b0;" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.ToolbarController">
+<HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="1280.0" style="-fx-background-color: #00a0b0;" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.ToolbarController">
     <children>
         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -39,11 +39,7 @@
         </Button>
         <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
             <children>
-                <TextField fx:id="searchField" prefHeight="30.0" prefWidth="200.0" promptText="Search">
-                    <HBox.margin>
-                        <Insets right="20.0" />
-                    </HBox.margin>
-                </TextField>
+                <TextField fx:id="searchField" prefHeight="30.0" prefWidth="200.0" promptText="Search" />
                 <Button fx:id="signupButton" style="-fx-background-color: transparent;" styleClass="toolbarButton" text="Sign Up" textFill="WHITE">
                     <font>
                         <Font size="16.0" />
@@ -58,10 +54,12 @@
                     <font>
                         <Font size="16.0" />
                     </font>
-                    <HBox.margin>
-                        <Insets right="20.0" />
-                    </HBox.margin>
                 </Button>
+              <Button fx:id="loginButton1" style="-fx-background-color: transparent;" styleClass="toolbarButton" text="Profile" textFill="WHITE" visible="false">
+                 <font>
+                    <Font size="16.0" />
+                 </font>
+              </Button>
             </children>
         </HBox>
     </children>

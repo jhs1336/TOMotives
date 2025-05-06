@@ -24,6 +24,8 @@ public class ToolbarController {
     public Button loginButton;
 
     @FXML
+    public Button profileButton;
+    @FXML
     public void initialize() {
         //set up listeners
         homeButton.setOnAction(event -> handleHomeButton());
@@ -31,6 +33,7 @@ public class ToolbarController {
         favouritesButton.setOnAction(event -> handleFavouritesButton());
         signupButton.setOnAction(event -> handleSignupButton());
         loginButton.setOnAction(event -> handleLoginButton());
+        profileButton.setOnAction(event -> handleProfileButton());
     }
 
     /**Joshua
@@ -46,6 +49,10 @@ public class ToolbarController {
 
     private void handleFavouritesButton() {
 
+    }
+
+    private void handleProfileButton() {
+           // TOMotivesApplication.loadPage("profile.fxml");
     }
 
     /**Joshua
