@@ -125,16 +125,16 @@
     "description": "The Aga Khan Museum is a museum of Islamic art located at 77 Wynford Drive in the North York district of Toronto, Ontario, Canada. The museum is dedicated to Islamic art and objects, and it houses approximately 1,200 rare objects assembled by Shah Karim al-Husayni and Prince Sadruddin Aga Khan.",
     "reviews": [
       {
-        "description": "Amazing view of the city!",
+        "description": "Very cool and curated selection!",
         "rating": 5.0,
-        "priceRating": 4.0,
-        "user": "John Doe"
+        "priceRating": 2.0,
+        "user": "Jehovah"
       },
       {
-        "description": "Great experience but a bit pricey.",
-        "rating": 4.0,
+        "description": "I am not a huge fan - especially not with the drive it took to get there!",
+        "rating": 2.6,
         "priceRating": 3.0,
-        "user": "Jane Smith"
+        "user": "Adonai"
       }
     ],
     "image": "agakhan.jpg"
@@ -142,21 +142,19 @@
   {
     "name": "Kensington Market",
     "categories": ["Outdoors", "Tourist", "Indoors", "Outdoors"],
-    "rating": 4.4,
-    "priceRating": 2.3,
-    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "description": "Kensington Market is a walkable bohemian neighbourhood that draws artists and tourists to its indie shops, vintage boutiques and arts spaces. The Market is also home to a wide array of specialty grocers, bakeries and cheese shops. Hipsters frequent trendy bars, cafes and international restaurants that range from casual to fine dining. Students and families populate Victorian houses along tree-lined streets.",
     "reviews": [
       {
-        "description": "Amazing view of the city!",
-        "rating": 5.0,
-        "priceRating": 4.0,
-        "user": "John Doe"
+        "description": "So much to do and all sorts of interesting shops to visit!",
+        "rating": 4.8,
+        "priceRating": 1.6,
+        "user": "AlbertCompoundInterest"
       },
       {
-        "description": "Great experience but a bit pricey.",
-        "rating": 4.0,
-        "priceRating": 3.0,
-        "user": "Jane Smith"
+        "description": "I love Toronto!!!",
+        "rating": 5.0,
+        "priceRating": 0.7,
+        "user": "Grade11bio"
       }
     ],
     "image": "kensington.jpg"
@@ -164,9 +162,7 @@
   {
     "name": "Little Canada",
     "categories": ["Indoors", "Tourist", "Indoors", "Outdoors"],
-    "rating": 4.7,
-    "priceRating": 3.8,
-    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "description": "Little Canada, previously known as Our Home and Miniature Land, is a tourist attraction located in the basement of The Tenor, near Yonge–Dundas Square.",
     "reviews": [
       {
         "description": "Amazing view of the city!",
