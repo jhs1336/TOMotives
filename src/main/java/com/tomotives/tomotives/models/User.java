@@ -1,8 +1,6 @@
-package com.tomotives.tomotives;
+package com.tomotives.tomotives.models;
 
 import java.util.ArrayList;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 public class User {
     private String email;

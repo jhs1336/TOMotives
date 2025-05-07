@@ -1,5 +1,6 @@
-package com.tomotives.tomotives;
+package com.tomotives.tomotives.controllers;
 
+import com.tomotives.tomotives.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -40,7 +41,7 @@ public class ToolbarController {
      * Handles the click event of the home button by loading the home page.
      */
         private void handleHomeButton() {
-        TOMotivesApplication.loadPage("home.fxml");
+        Application.loadPage("home.fxml");
     }
 
     private void handleBrowseButton() {
@@ -59,12 +60,12 @@ public class ToolbarController {
      * Handles the click event of the signup button by loading the sign-up page.
      */
         private void handleSignupButton() {
-        TOMotivesApplication.loadPage("sign-up.fxml");
+        Application.loadPage("sign-up.fxml");
     }
     /**Joshua
      * Handles the login button click event by loading the login page.
      */
         private void handleLoginButton() {
-        TOMotivesApplication.loadPage("login.fxml");
+        Application.loadPage("login.fxml");
     }
 }

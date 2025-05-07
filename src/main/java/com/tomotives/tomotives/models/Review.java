@@ -1,4 +1,4 @@
-package com.tomotives.tomotives;
+package com.tomotives.tomotives.models;
 
 public class Review {
     private String description;

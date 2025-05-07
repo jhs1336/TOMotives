@@ -1,28 +1,23 @@
-package com.tomotives.tomotives;
+package com.tomotives.tomotives.controllers;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import com.tomotives.tomotives.services.ToastService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.util.Duration;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Pattern;
 
-import static com.tomotives.tomotives.TOMotivesApplication.getStage;
+import static com.tomotives.tomotives.Application.getStage;
 
 public class SignUpController {
 

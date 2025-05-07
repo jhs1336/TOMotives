@@ -1,13 +1,14 @@
 package com.tomotives.tomotives;
 
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 
-public class TOMotivesApplication extends Application {
+public class Application extends javafx.application.Application {
     private static Scene scene;
     private static Stage stage;
 
@@ -33,7 +34,7 @@ public class TOMotivesApplication extends Application {
      */
     public static void loadPage(String url) {
         try {
-            FXMLLoader loader = new FXMLLoader(TOMotivesApplication.class.getResource(url));
+            FXMLLoader loader = new FXMLLoader(Application.class.getResource(url));
             // DIMENSIONS: 1280 x 720
             scene = new Scene(loader.load(), 1280, 720);
             stage.setScene(scene);
@@ -50,6 +51,13 @@ public class TOMotivesApplication extends Application {
      */
     public static Stage getStage() {
         return stage;
+    }
+
+    public static InputStream getResourceAsStream(String resourceName) {
+        return Application.class.getResourceAsStream(resourceName);
+    }
+    public static URL getResource(String resourceName) {
+        return Application.class.getResource(resourceName);
     }
 
     public static void main(String[] args) {

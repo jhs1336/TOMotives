@@ -1,4 +1,4 @@
-package com.tomotives.tomotives;
+package com.tomotives.tomotives.controllers;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;

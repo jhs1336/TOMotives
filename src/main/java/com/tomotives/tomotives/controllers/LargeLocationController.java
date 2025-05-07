@@ -1,5 +1,8 @@
-package com.tomotives.tomotives;
+package com.tomotives.tomotives.controllers;
 
+import com.tomotives.tomotives.models.Category;
+import com.tomotives.tomotives.LocationControllerBase;
+import com.tomotives.tomotives.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -66,16 +69,16 @@ public class LargeLocationController extends LocationControllerBase {
         resizableImageController.resize(resizableImage.getFitWidth(), resizableImage.getFitHeight());
         resizableImageController.applyRoundedCorners(10);
 
-        smallImage1Controller.setImage(new Image(getClass().getResourceAsStream("images/testimage1.jpg")));
+        smallImage1Controller.setImage(new Image(Application.getResourceAsStream("images/testimage1.jpg")));
         smallImage1Controller.resize(smallImage1.getFitWidth(), smallImage1.getFitHeight());
         smallImage1Controller.applyRoundedCorners(10);
-        smallImage2Controller.setImage(new Image(getClass().getResourceAsStream("images/testimage2.jpg")));
+        smallImage2Controller.setImage(new Image(Application.getResourceAsStream("images/testimage2.jpg")));
         smallImage2Controller.resize(smallImage2.getFitWidth(), smallImage2.getFitHeight());
         smallImage2Controller.applyRoundedCorners(10);
-        smallImage3Controller.setImage(new Image(getClass().getResourceAsStream("images/testimage3.jpg")));
+        smallImage3Controller.setImage(new Image(Application.getResourceAsStream("images/testimage3.jpg")));
         smallImage3Controller.resize(smallImage3.getFitWidth(), smallImage3.getFitHeight());
         smallImage3Controller.applyRoundedCorners(10);
-        smallImage4Controller.setImage(new Image(getClass().getResourceAsStream("images/testimage1.jpg")));
+        smallImage4Controller.setImage(new Image(Application.getResourceAsStream("images/testimage1.jpg")));
         smallImage4Controller.resize(smallImage4.getFitWidth(), smallImage4.getFitHeight());
         smallImage4Controller.applyRoundedCorners(10);
     }
@@ -99,7 +102,7 @@ public class LargeLocationController extends LocationControllerBase {
             locationNameLabel.setTooltip(tooltip);
         }
         if (resizableImageController != null && imageUrl != null) {
-            resizableImageController.setImage(new Image(getClass().getResourceAsStream("images/" + imageUrl)));
+            resizableImageController.setImage(new Image(Application.getResourceAsStream("images/" + imageUrl)));
             resizableImageController.applyRoundedCorners(10);
         }
         if (filter1Button != null && filter1 != null) {

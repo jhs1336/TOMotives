@@ -1,5 +1,8 @@
-package com.tomotives.tomotives;
+package com.tomotives.tomotives.controllers;
 
+import com.tomotives.tomotives.Application;
+import com.tomotives.tomotives.models.Category;
+import com.tomotives.tomotives.models.Location;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -52,7 +55,7 @@ public class SmallLocationCarouselController {
     public void addLocationDisplay(String locationName, String imageUrl, double starRating, double priceRating, Category filter1, Category filter2) {
         try {
             // get fxml
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("small-location-display.fxml"));
+            FXMLLoader loader = new FXMLLoader(Application.getResource("small-location-display.fxml"));
             Pane locationDisplay = loader.load();
             SmallLocationController controller = loader.getController();
 

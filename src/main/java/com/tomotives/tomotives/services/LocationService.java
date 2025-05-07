@@ -1,7 +1,10 @@
-package com.tomotives.tomotives;
+package com.tomotives.tomotives.services;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.tomotives.tomotives.models.Category;
+import com.tomotives.tomotives.models.Location;
+import com.tomotives.tomotives.models.Review;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -10,7 +13,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class LocationDataManager {
+public class LocationService {
     private static String locationsFilePath = "src/main/resources/com/tomotives/tomotives/data/locations.json";
     private static Gson gson = new Gson();
 

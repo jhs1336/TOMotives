@@ -1,14 +1,14 @@
-package com.tomotives.tomotives;
+package com.tomotives.tomotives.controllers;
 
+import com.tomotives.tomotives.services.ToastService;
+import com.tomotives.tomotives.services.UserService;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.util.regex.Pattern;
-
-import static com.tomotives.tomotives.TOMotivesApplication.getStage;
+import static com.tomotives.tomotives.Application.getStage;
 
 public class LoginController {
     @FXML
@@ -33,8 +33,8 @@ public class LoginController {
         String email = emailField.getText();
         String password = passwordField.getText();
 
-        if (UserDataManager.getUserFromEmail(email) != null) {
-            if (UserDataManager.getUserFromEmail(email).getPassword().equals(password)) {
+        if (UserService.getUserFromEmail(email) != null) {
+            if (UserService.getUserFromEmail(email).getPassword().equals(password)) {
                 ToastService.show(getStage(), "Login successful", ToastController.ToastType.SUCCESS);
                 return;
             }

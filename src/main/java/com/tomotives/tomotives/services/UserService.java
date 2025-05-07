@@ -1,7 +1,8 @@
-package com.tomotives.tomotives;
+package com.tomotives.tomotives.services;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.tomotives.tomotives.models.User;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -10,7 +11,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class UserDataManager {
+public class UserService {
     private static String usersFilePath = "src/main/resources/com/tomotives/tomotives/data/users.json";
     private static Gson gson = new Gson();
 

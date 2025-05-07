@@ -4,6 +4,6 @@
 <?import javafx.scene.layout.StackPane?>
 
 <StackPane fx:id="toastContainer" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-           styleClass="toast-container" prefHeight="80.0" prefWidth="300.0" fx:controller="com.tomotives.tomotives.ToastController" stylesheets="@toast.css">
+           styleClass="toast-container" prefHeight="80.0" prefWidth="300.0" fx:controller="com.tomotives.tomotives.controllers.ToastController" stylesheets="@toast.css">
     <Label fx:id="toastMessageLabel" styleClass="toast-label" wrapText="true" />
 </StackPane>

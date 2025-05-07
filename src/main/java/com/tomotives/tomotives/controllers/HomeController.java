@@ -1,5 +1,7 @@
-package com.tomotives.tomotives;
+package com.tomotives.tomotives.controllers;
 
+import com.tomotives.tomotives.services.LocationService;
+import com.tomotives.tomotives.models.Location;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 
@@ -16,7 +18,7 @@ public class HomeController {
     @FXML
     public void initialize() {
         smallLocationCarouselController.setTitle("Popular Locations");
-        ArrayList<Location> locationList = LocationDataManager.getLocationList();
+        ArrayList<Location> locationList = LocationService.getLocationList();
         ArrayList<Location> randomLocations = new ArrayList<>(locationList);
         java.util.Collections.shuffle(randomLocations);
         for (int i = 0; i < 10; i++) {

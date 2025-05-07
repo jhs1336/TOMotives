@@ -1,4 +1,4 @@
-package com.tomotives.tomotives;
+package com.tomotives.tomotives.models;
 
 /** Joshua
  * Represents the different categories of activities or places that can be associated with a location

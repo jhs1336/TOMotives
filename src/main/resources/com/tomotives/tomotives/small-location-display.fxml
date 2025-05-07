@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="250" maxWidth="200" minHeight="250" minWidth="200" prefHeight="200" prefWidth="200" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;" stylesheets="@location-display.css" fx:controller="com.tomotives.tomotives.SmallLocationController" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="250" maxWidth="200" minHeight="250" minWidth="200" prefHeight="200" prefWidth="200" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;" stylesheets="@location-display.css" fx:controller="com.tomotives.tomotives.controllers.SmallLocationController" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
 
     <StackPane>
         <fx:include fx:id="resizableImage" source="resizable-image.fxml" fitHeight="110.0" fitWidth="196.0" />

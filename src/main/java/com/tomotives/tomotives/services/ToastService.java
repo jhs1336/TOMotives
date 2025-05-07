@@ -1,5 +1,6 @@
-package com.tomotives.tomotives;
+package com.tomotives.tomotives.services;
 
+import com.tomotives.tomotives.controllers.ToastController;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.StackPane;

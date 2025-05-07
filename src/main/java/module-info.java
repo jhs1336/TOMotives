@@ -14,4 +14,10 @@ module com.tomotives.tomotives {
 
     opens com.tomotives.tomotives to javafx.fxml;
     exports com.tomotives.tomotives;
+    exports com.tomotives.tomotives.models;
+    opens com.tomotives.tomotives.models to javafx.fxml;
+    exports com.tomotives.tomotives.controllers;
+    opens com.tomotives.tomotives.controllers to javafx.fxml;
+    exports com.tomotives.tomotives.services;
+    opens com.tomotives.tomotives.services to javafx.fxml;
 }

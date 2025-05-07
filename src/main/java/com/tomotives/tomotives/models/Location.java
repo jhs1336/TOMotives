@@ -1,4 +1,4 @@
-package com.tomotives.tomotives;
+package com.tomotives.tomotives.models;
 
 import java.util.ArrayList;
 
