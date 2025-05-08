@@ -165,16 +165,16 @@
     "description": "Little Canada, previously known as Our Home and Miniature Land, is a tourist attraction located in the basement of The Tenor, near Yonge–Dundas Square.",
     "reviews": [
       {
-        "description": "Amazing view of the city!",
-        "rating": 5.0,
-        "priceRating": 4.0,
-        "user": "John Doe"
+        "description": "So cool to see locations I recognize from all over Canada.",
+        "rating": 4.5,
+        "priceRating": 2.3,
+        "user": "John Dice"
       },
       {
-        "description": "Great experience but a bit pricey.",
+        "description": "This was good.",
         "rating": 4.0,
-        "priceRating": 3.0,
-        "user": "Jane Smith"
+        "priceRating": 1.5,
+        "user": "Spacehelmetbob"
       }
     ],
     "image": "littlecanada.jpeg"
@@ -182,20 +182,18 @@
   {
     "name": "Niagara Falls",
     "categories": ["Landmark", "Outdoors", "Indoors", "Outdoors"],
-    "rating": 5.0,
-    "priceRating": 3.4,
-    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "description": "Niagara Falls, Ontario, is a Canadian city at the famous waterfalls of the same name, linked with the U.S. by the Rainbow Bridge. Its site on the Niagara River's western shore overlooks the Horseshoe Falls, the cascades' most expansive section. ",
     "reviews": [
       {
-        "description": "Amazing view of the city!",
+        "description": "One of the seven modern wonders of the world! If you buy things from the areas around it can get pricey very quick.",
         "rating": 5.0,
         "priceRating": 4.0,
-        "user": "John Doe"
+        "user": "JhsSister1336"
       },
       {
-        "description": "Great experience but a bit pricey.",
-        "rating": 4.0,
-        "priceRating": 3.0,
+        "description": "SOOOOO EXPENSIVE!!!!",
+        "rating": 3.4,
+        "priceRating": 5.0,
         "user": "Jane Smith"
       }
     ],
@@ -204,21 +202,19 @@
   {
     "name": "Canada's Wonderland",
     "categories": ["Indoors", "Outdoors", "Indoors", "Outdoors"],
-    "rating": 4.2,
-    "priceRating": 4.8,
-    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "description": "Canada's Wonderland, formerly known as Paramount Canada's Wonderland, is a 330-acre amusement park located in Vaughan, Ontario, a municipality within the Greater Toronto Area.",
     "reviews": [
       {
-        "description": "Amazing view of the city!",
-        "rating": 5.0,
-        "priceRating": 4.0,
+        "description": "Fun with the kids.",
+        "rating": 4.2,
+        "priceRating": 5.0,
         "user": "John Doe"
       },
       {
-        "description": "Great experience but a bit pricey.",
+        "description": "I parted the red sea! (At gods command) HAHAHA I'm joking I went on a couple rollercoasters though",
         "rating": 4.0,
         "priceRating": 3.0,
-        "user": "Jane Smith"
+        "user": "Moses"
       }
     ],
     "image": "canadawonderland.jpg"
@@ -226,20 +222,18 @@
   {
     "name": "Toronto City Hall",
     "categories": ["Landmark", "Tourist", "Indoors", "Outdoors"],
-    "rating": 1.2,
-    "priceRating": 0.0,
-    "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
+    "description": "The Toronto City Hall, or New City Hall, is the seat of the municipal government of Toronto, Ontario, Canada, and one of the city's most distinctive landmarks. Designed by Viljo Revell and engineered by Hannskarl Bandel, the building opened in 1965.",
     "reviews": [
       {
-        "description": "Amazing view of the city!",
-        "rating": 5.0,
-        "priceRating": 4.0,
-        "user": "John Doe"
+        "description": "I hate this place",
+        "rating": 1.0,
+        "priceRating": 0.0,
+        "user": "John Tory"
       },
       {
-        "description": "Great experience but a bit pricey.",
-        "rating": 4.0,
-        "priceRating": 3.0,
+        "description": "Would NOT recommend",
+        "rating": 0.0,
+        "priceRating": 0.0,
         "user": "Jane Smith"
       }
     ],
