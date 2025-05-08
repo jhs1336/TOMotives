@@ -30,7 +30,13 @@ public enum Category {
     Scenic,
     Historic,
     Museum,
+    Parking,
+    Gym,
+    CarRental( "Car Rental"),
+    CarWash( "Car Wash"),
+    CarRepair( "Car Repair"),
     Educational;
+
 
     private final String name;
 
