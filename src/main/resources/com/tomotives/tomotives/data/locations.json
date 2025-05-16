@@ -1,5 +1,285 @@
 [
   {
+    "name": "Riverdale Park",
+    "categories": ["Park", "Scenic", "Outdoors", "Walking"],
+    "description": "Known for its iconic skyline view, Riverdale Park is a local favorite for sunset watching, tobogganing, and dog walking.",
+    "reviews": [
+      {
+        "description": "One of the best views of Toronto’s skyline.",
+        "rating": 5.0,
+        "priceRating": 0.0,
+        "user": "Elena Brooks"
+      },
+      {
+        "description": "Great space to relax or play sports.",
+        "rating": 4.5,
+        "priceRating": 0.0,
+        "user": "Nathan Silva"
+      }
+    ],
+    "image": "riverdale.jpg"
+  },
+  {
+    "name": "The Music Garden",
+    "categories": ["Park", "Outdoors", "Artistic", "Scenic"],
+    "description": "Designed in collaboration with Yo-Yo Ma, this waterfront park is inspired by Bach’s music and features artistic landscaping.",
+    "reviews": [
+      {
+        "description": "A hidden gem, especially in the summer.",
+        "rating": 5.0,
+        "priceRating": 0.0,
+        "user": "Harper Nguyen"
+      },
+      {
+        "description": "Peaceful and beautifully designed.",
+        "rating": 4.0,
+        "priceRating": 0.0,
+        "user": "Victor Almeida"
+      }
+    ],
+    "image": "musicgarden.jpg"
+  },
+  {
+    "name": "Humber River Trail",
+    "categories": ["Trail", "Outdoors", "Hiking", "Biking"],
+    "description": "Scenic trail winding through natural areas and city neighborhoods, perfect for cycling, jogging, or bird watching.",
+    "reviews": [
+      {
+        "description": "Feels like an escape from the city.",
+        "rating": 4.0,
+        "priceRating": 0.0,
+        "user": "Olivia Petras"
+      },
+      {
+        "description": "Great trail with a mix of forest and riverside.",
+        "rating": 5.0,
+        "priceRating": 0.0,
+        "user": "Isaac Ford"
+      }
+    ],
+    "image": "humbertrail.jpg"
+  },
+  {
+    "name": "Tommy Thompson Park",
+    "categories": ["Park", "Nature", "Birdwatching", "Outdoors"],
+    "description": "An urban wilderness extending into Lake Ontario, popular for wildlife watching, cycling, and sunset walks.",
+    "reviews": [
+      {
+        "description": "Saw a fox and tons of birds — unforgettable.",
+        "rating": 5.0,
+        "priceRating": 0.0,
+        "user": "Grace Bennett"
+      },
+      {
+        "description": "A true escape right in the city.",
+        "rating": 5.0,
+        "priceRating": 0.0,
+        "user": "Louis Hammond"
+      }
+    ],
+    "image": "tommythompson.jpg"
+  },
+  {
+    "name": "Cherry Beach",
+    "categories": ["Beach", "Outdoors", "Swimming", "Dog-friendly"],
+    "description": "A quiet lakeside beach with picnic tables and off-leash areas, popular for paddleboarding and sunsets.",
+    "reviews": [
+      {
+        "description": "Underrated beach. Very relaxing.",
+        "rating": 4.5,
+        "priceRating": 0.0,
+        "user": "Isabelle Crawford"
+      },
+      {
+        "description": "Great spot for a calm afternoon.",
+        "rating": 4.0,
+        "priceRating": 0.0,
+        "user": "Derek Walsh"
+      }
+    ],
+    "image": "cherrybeach.jpg"
+  },
+  {
+    "name": "Centennial Hill",
+    "categories": ["Park", "Outdoors", "Sledding", "Family"],
+    "description": "A community park known for its large hill, popular in winter for sledding and summer for picnics.",
+    "reviews": [
+      {
+        "description": "Perfect sledding hill in winter!",
+        "rating": 5.0,
+        "priceRating": 0.0,
+        "user": "Chloe Lang"
+      },
+      {
+        "description": "Lots of space and very peaceful.",
+        "rating": 4.5,
+        "priceRating": 0.0,
+        "user": "Anthony Rivas"
+      }
+    ],
+    "image": "centennialhill.jpg"
+  },
+  {
+    "name": "Black Market",
+    "categories": ["Shopping", "Vintage", "Clothing", "Indoors"],
+    "description": "An underground vintage clothing store known for its eclectic fashion, punk energy, and affordable prices.",
+    "reviews": [
+      {
+        "description": "Best $10 rack in the city. Cool vibe too.",
+        "rating": 5.0,
+        "priceRating": 1.0,
+        "user": "Diana Liu"
+      },
+      {
+        "description": "Love the 90s jackets and tees!",
+        "rating": 4.0,
+        "priceRating": 1.0,
+        "user": "Adam Fraser"
+      }
+    ],
+    "image": "blackmarket.jpg"
+  },
+  {
+    "name": "Expo Vintage",
+    "categories": ["Shopping", "Vintage", "Indoors"],
+    "description": "Curated vintage store offering timeless pieces and rare finds, with a focus on quality and sustainability.",
+    "reviews": [
+      {
+        "description": "Found an original Levi’s denim jacket here!",
+        "rating": 4.0,
+        "priceRating": 3.0,
+        "user": "Stephanie Novak"
+      },
+      {
+        "description": "Not cheap, but really well-curated.",
+        "rating": 4.5,
+        "priceRating": 3.0,
+        "user": "Ethan McNeil"
+      }
+    ],
+    "image": "expovintage.jpg"
+  },
+  {
+    "name": "Value Village",
+    "categories": ["Shopping", "Thrift", "Budget", "Indoors"],
+    "description": "Large-scale thrift store chain offering clothing, household items, books, and more at affordable prices.",
+    "reviews": [
+      {
+        "description": "Scored a full outfit for under $20!",
+        "rating": 4.0,
+        "priceRating": 1.0,
+        "user": "Amanda Grant"
+      },
+      {
+        "description": "Big selection, but you have to dig.",
+        "rating": 4.0,
+        "priceRating": 2.0,
+        "user": "Julian Cook"
+      }
+    ],
+    "image": "valuevillage.jpg"
+  },
+  {
+    "name": "Brick Room",
+    "categories": ["Cafe", "Indoors"],
+    "description": "A cozy cafe offering a selection of artisanal coffees and pastries in a warm, brick-lined setting.",
+    "reviews": [
+      {
+        "description": "Charming atmosphere and excellent espresso.",
+        "rating": 4.5,
+        "priceRating": 3.0,
+        "user": "Emily Thompson"
+      },
+      {
+        "description": "A perfect spot for a quiet afternoon read.",
+        "rating": 4.0,
+        "priceRating": 2.0,
+        "user": "Michael Lee"
+      }
+    ],
+    "image": "brickroom.jpg"
+  },
+  {
+    "name": "Boxcar Social Laneway",
+    "categories": ["Cafe", "Indoors"],
+    "description": "An intimate cafe inspired by Japanese listening bars, offering specialty coffee and a rotating selection of vinyl records.",
+    "reviews": [
+      {
+        "description": "Unique concept with great coffee and music.",
+        "rating": 4.0,
+        "priceRating": 3.0,
+        "user": "Samantha Green"
+      },
+      {
+        "description": "A hidden gem for coffee enthusiasts.",
+        "rating": 4.0,
+        "priceRating": 3.0,
+        "user": "David Chen"
+      }
+    ],
+    "image": "boxcarsocial.jpg"
+  },
+  {
+    "name": "Simple Coffee",
+    "categories": ["Cafe", "Indoors"],
+    "description": "A minimalist cafe focusing on high-quality, simply roasted coffee beans for the perfect daily brew.",
+    "reviews": [
+      {
+        "description": "Clean aesthetic and delicious coffee.",
+        "rating": 5.0,
+        "priceRating": 2.5,
+        "user": "Laura Martinez"
+      },
+      {
+        "description": "Great place to start your morning.",
+        "rating": 4.0,
+        "priceRating": 2.0,
+        "user": "James Wilson"
+      }
+    ],
+    "image": "simplecoffee.jpg"
+  },
+  {
+    "name": "Icha Tea",
+    "categories": ["Cafe", "Indoors"],
+    "description": "A premium tea shop offering handcrafted bubble tea beverages and a variety of loose leaf teas.",
+    "reviews": [
+      {
+        "description": "Exceptional quality teas and a relaxing environment.",
+        "rating": 5.0,
+        "priceRating": 3.0,
+        "user": "Olivia Brown"
+      },
+      {
+        "description": "A must-visit for tea lovers.",
+        "rating": 4.8,
+        "priceRating": 2.8,
+        "user": "Daniel Smith"
+      }
+    ],
+    "image": "ichatea.jpg"
+  },
+  {
+    "name": "Matcha Matcha",
+    "categories": ["Cafe", "Indoors"],
+    "description": "A dedicated matcha bar serving ceremonial grade matcha drinks and unique flavor combinations.",
+    "reviews": [
+      {
+        "description": "Innovative matcha creations and cozy ambiance.",
+        "rating": 4.5,
+        "priceRating": 3.0,
+        "user": "Sophia Johnson"
+      },
+      {
+        "description": "Delightful flavors and friendly staff.",
+        "rating": 4.5,
+        "priceRating": 3.0,
+        "user": "Liam Davis"
+      }
+    ],
+    "image": "matchamatcha.jpg"
+  },
+  {
     "name": "CN Tower",
     "categories": ["Landmark", "Tourist", "Indoors", "Outdoors"],
     "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
