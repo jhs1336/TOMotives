@@ -1,5 +1,6 @@
 package com.tomotives.tomotives;
 
+import com.tomotives.tomotives.models.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -11,6 +12,7 @@ import java.net.URL;
 public class Application extends javafx.application.Application {
     private static Scene scene;
     private static Stage stage;
+    private static User user;
 
     /**Joshua
      * Initializes the JavaFX application and sets up the main stage
@@ -44,6 +46,10 @@ public class Application extends javafx.application.Application {
         }
     }
 
+    public static void setUser(User user) {
+        Application.user = user;
+    }
+
     /**Joshua
      * Gets the stage of the application
      *
@@ -63,4 +69,5 @@ public class Application extends javafx.application.Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }
