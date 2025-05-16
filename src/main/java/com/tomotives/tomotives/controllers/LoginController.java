@@ -1,5 +1,6 @@
 package com.tomotives.tomotives.controllers;
 
+import com.tomotives.tomotives.Application;
 import com.tomotives.tomotives.services.ToastService;
 import com.tomotives.tomotives.services.UserService;
 import javafx.fxml.FXML;
@@ -23,7 +24,7 @@ public class LoginController {
 
     @FXML
     private void initialize() {
-        resizableImageController.setImage(new Image(getClass().getResourceAsStream("images/testimage1.jpg")));
+        resizableImageController.setImage(new Image(Application.getResourceAsStream("images/testimage1.jpg")));
         resizableImageController.resize(resizableImage.getFitWidth(), resizableImage.getFitHeight());
         resizableImageController.applyRoundedCorners(60);
     }
