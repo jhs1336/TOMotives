@@ -1,6 +1,7 @@
 package com.tomotives.tomotives.controllers;
 
 import com.tomotives.tomotives.Application;
+import com.tomotives.tomotives.models.User;
 import com.tomotives.tomotives.services.ToastService;
 import com.tomotives.tomotives.services.UserService;
 import javafx.fxml.FXML;
@@ -37,6 +38,7 @@ public class LoginController {
         if (UserService.getUserFromEmail(email) != null) {
             if (UserService.getUserFromEmail(email).getPassword().equals(password)) {
                 ToastService.show(getStage(), "Login successful", ToastController.ToastType.SUCCESS);
+                Application.setUser(UserService.getUserFromEmail(email));
                 return;
             }
         }
