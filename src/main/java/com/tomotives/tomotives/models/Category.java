@@ -1,6 +1,6 @@
 package com.tomotives.tomotives.models;
 
-/** Joshua
+/** Joshua + Saul
  * Represents the different categories of activities or places that can be associated with a location
  */
 public enum Category {
@@ -8,14 +8,22 @@ public enum Category {
     Indoors,
     Outdoors,
     Park,
+    Nature,
+    Budget,
+    Clothing,
+    Vintage,
     WithFriends("With Friends"),
     Solo,
     DateSpot("Date Spot"),
     NightTime("Night Time"),
     Landmark,
+    Birdwatching,
     Family,
     Restaurant,
     Cafe,
+    Swimming,
+    Beach,
+    DogFriendly( "Dog-friendly"),
     Breakfast,
     Lunch,
     Dinner,
@@ -23,14 +31,17 @@ public enum Category {
     Walking,
     Tourist,
     Bars,
+    Sledding,
     Mall,
     Shop,
     Shopping,
     Hiking,
+    Biking,
     Scenic,
     Historic,
     Museum,
     Parking,
+    Music,
     Gym,
     CarRental( "Car Rental"),
     CarWash( "Car Wash"),

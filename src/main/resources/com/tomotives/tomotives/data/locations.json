@@ -23,7 +23,7 @@
   },
   {
     "name": "The Music Garden",
-    "categories": ["Park", "Outdoors", "Artistic", "Scenic"],
+    "categories": ["Park", "Outdoors", "Music", "Scenic"],
     "description": "Designed in collaboration with Yo-Yo Ma, this waterfront park is inspired by Bach's music and features artistic landscaping.",
     "reviews": [
       {
@@ -155,7 +155,7 @@
   },
   {
     "name": "Expo Vintage",
-    "categories": ["Shopping", "Vintage", "Indoors"],
+    "categories": ["Shopping", "Vintage", "Indoors", "Clothing"],
     "description": "Curated vintage store offering timeless pieces and rare finds, with a focus on quality and sustainability.",
     "reviews": [
       {
@@ -177,7 +177,7 @@
   },
   {
     "name": "Value Village",
-    "categories": ["Shopping", "Thrift", "Budget", "Indoors"],
+    "categories": ["Shopping", "Vintage", "Budget", "Indoors"],
     "description": "Large-scale thrift store chain offering clothing, household items, books, and more at affordable prices.",
     "reviews": [
       {
