@@ -22,12 +22,12 @@ public class ToolbarController {
     private Button signupButton;
 
     @FXML
-    public Button loginButton;
+    private Button loginButton;
 
     @FXML
-    public Button profileButton;
+    private Button profileButton;
     @FXML
-    public void initialize() {
+    private void initialize() {
         //set up listeners
         homeButton.setOnAction(event -> handleHomeButton());
         browseButton.setOnAction(event -> handleBrowseButton());
@@ -40,12 +40,11 @@ public class ToolbarController {
     /**Joshua
      * Handles the click event of the home button by loading the home page.
      */
-        private void handleHomeButton() {
+    private void handleHomeButton() {
         Application.loadPage("home.fxml");
     }
 
     private void handleBrowseButton() {
-
     }
 
     private void handleFavouritesButton() {
@@ -59,13 +58,13 @@ public class ToolbarController {
     /**Joshua
      * Handles the click event of the signup button by loading the sign-up page.
      */
-        private void handleSignupButton() {
+    private void handleSignupButton() {
         Application.loadPage("sign-up.fxml");
     }
     /**Joshua
      * Handles the login button click event by loading the login page.
      */
-        private void handleLoginButton() {
+    private void handleLoginButton() {
         Application.loadPage("login.fxml");
     }
 }

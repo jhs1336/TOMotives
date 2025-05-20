@@ -13,6 +13,33 @@ public class Application extends javafx.application.Application {
     private static Scene scene;
     private static Stage stage;
     private static User user;
+    private static String page;
+
+    public static User getUser() {
+        return user;
+    }
+    public static void setUser(User user) {
+        Application.user = user;
+    }
+
+    /**Joshua
+     * Gets the stage of the application
+     *
+     * @return the stage of the application
+     */
+    public static Stage getStage() {
+        return stage;
+    }
+    public static String getPage() {
+        return page;
+    }
+
+    public static InputStream getResourceAsStream(String resourceName) {
+        return Application.class.getResourceAsStream(resourceName);
+    }
+    public static URL getResource(String resourceName) {
+        return Application.class.getResource(resourceName);
+    }
 
     /**Joshua
      * Initializes the JavaFX application and sets up the main stage
@@ -33,37 +60,24 @@ public class Application extends javafx.application.Application {
      * Loads a page from the specified FXML file and sets it as the scene for the application
      *
      * @param url The path to the FXML file to load, relative to the application's resources
+     * @param pageName The name of the page loaded
      */
-    public static void loadPage(String url) {
+    public static void loadPage(String url, String pageName) {
         try {
+            page = pageName;
             FXMLLoader loader = new FXMLLoader(Application.class.getResource(url));
             // DIMENSIONS: 1280 x 720
             scene = new Scene(loader.load(), 1280, 720);
+            // global stylesheet applied to all pages
+            scene.getStylesheets().add(getResource("styles.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-    public static void setUser(User user) {
-        Application.user = user;
-    }
-
-    /**Joshua
-     * Gets the stage of the application
-     *
-     * @return the stage of the application
-     */
-    public static Stage getStage() {
-        return stage;
-    }
-
-    public static InputStream getResourceAsStream(String resourceName) {
-        return Application.class.getResourceAsStream(resourceName);
-    }
-    public static URL getResource(String resourceName) {
-        return Application.class.getResource(resourceName);
+    public static void loadPage(String url) {
+        loadPage(url, url.substring(0, url.indexOf('.')));
     }
 
     public static void main(String[] args) {

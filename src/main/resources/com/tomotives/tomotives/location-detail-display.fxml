@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="720" prefWidth="1280" stylesheets="@location-detail-display.css, @location-display.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.controllers.LocationDetailController">
+    <children>
+        <HBox>
+            <fx:include source="toolbar.fxml" />
+        </HBox>
+
+        <BorderPane layoutY="60.0" prefHeight="580.0" prefWidth="1280.0">
+            <center>
+                <Pane BorderPane.alignment="CENTER">
+                    <children>
+                        <VBox spacing="20.0">
+                            <children>
+                                <HBox spacing="20.0">
+                                    <VBox prefWidth="600.0" spacing="15.0" styleClass="panel">
+                                        <children>
+                                            <fx:include fx:id="locationImage" fitHeight="350" fitWidth="575" source="resizable-image.fxml" />
+                                            <Label fx:id="locationName" style="-fx-font-size: 28px; -fx-font-weight: bold;" text="Location Name" />
+                                            <HBox fx:id="filterHBox" spacing="10.0">
+                                                <children>
+                                                    <Button mnemonicParsing="false" styleClass="filter-button" style="-fx-font-size: 16px;" text="Filter 1" />
+                                                    <Button mnemonicParsing="false" styleClass="filter-button" style="-fx-font-size: 16px;" text="Filter 2" />
+                                                    <Button mnemonicParsing="false" styleClass="filter-button" style="-fx-font-size: 16px;" text="Filter 3" />
+                                                    <Button mnemonicParsing="false" styleClass="filter-button" style="-fx-font-size: 16px;" text="Filter 3" />
+                                                </children>
+                                            </HBox>
+                                            <HBox fx:id="starsContainer" alignment="CENTER_LEFT" spacing="5.0">
+                                                <children>
+                                                    <Label styleClass="filled-star" style="-fx-font-size: 22px;" text="★" />
+                                                    <Label styleClass="filled-star" style="-fx-font-size: 22px;" text="★" />
+                                                    <Label styleClass="filled-star" style="-fx-font-size: 22px;" text="★" />
+                                                    <Label styleClass="half-star" style="-fx-font-size: 22px;" text="★" />
+                                                    <Label styleClass="empty-star" style="-fx-font-size: 22px;" text="★" />
+                                                    <Label fx:id="starRatingLabel" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="X.X" />
+                                                </children>
+                                            </HBox>
+                                            <HBox fx:id="priceContainer" alignment="CENTER_LEFT" spacing="12.0">
+                                                <children>
+                                                    <Label styleClass="filled-price" style="-fx-font-size: 26px" text="\$" />
+                                                    <Label styleClass="filled-price" style="-fx-font-size: 26px" text="\$" />
+                                                    <Label styleClass="filled-price" style="-fx-font-size: 26px" text="\$" />
+                                                    <Label styleClass="half-price" style="-fx-font-size: 26px" text="\$" />
+                                                    <Label styleClass="empty-price" style="-fx-font-size: 26px" text="\$" />
+                                                    <Label fx:id="priceRatingLabel" style="-fx-font-size: 22px; -fx-font-weight: bold;" text="X.X" />
+                                                </children>
+                                            </HBox>
+                                        </children>
+                                        <padding>
+                                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                        </padding>
+                              <HBox.margin>
+                                 <Insets />
+                              </HBox.margin>
+                                    </VBox>
+                                    <VBox prefWidth="600.0" spacing="30.0" styleClass="panel">
+                                        <children>
+                                            <VBox spacing="10.0">
+                                                <children>
+                                                    <Label styleClass="section-header" text="Description" />
+                                                    <Region prefHeight="2.0" prefWidth="560.0" styleClass="header-underline" />
+                                                    <Label fx:id="descriptionText" style="-fx-font-size: 14px; -fx-line-spacing: 5px;" text="Location description will appear here. This includes details about the place, its features, attractions, and other relevant information that would help users understand what to expect when visiting." wrapText="true" />
+                                                </children>
+                                            </VBox>
+
+                                            <VBox spacing="10.0">
+                                                <children>
+                                                    <Label styleClass="section-header" text="Reviews" />
+                                                    <Region prefHeight="2.0" prefWidth="560.0" styleClass="header-underline" />
+
+                                                    <ScrollPane fx:id="scrollPane" styleClass="scroll-pane" hbarPolicy="NEVER" prefHeight="307.0" prefWidth="300.0" fitToWidth="true">
+                                                        <VBox fx:id="reviewsContainer" spacing="15.0" style="-fx-padding: 5 5">
+                                                            <!-- reviews added here -->
+                                                        </VBox>
+                                                    </ScrollPane>
+                                                </children>
+                                            </VBox>
+                                        </children>
+                                        <padding>
+                                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                        </padding>
+                              <HBox.margin>
+                                 <Insets />
+                              </HBox.margin>
+                                    </VBox>
+                                </HBox>
+                            </children>
+                            <padding>
+                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                            </padding>
+                        </VBox>
+                    </children>
+                </Pane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

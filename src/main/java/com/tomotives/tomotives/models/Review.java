@@ -1,10 +1,21 @@
 package com.tomotives.tomotives.models;
 
+import java.util.Date;
+
 public class Review {
     private String description;
     private double rating;
     private double priceRating;
     private String user;
+    private Date date;
+
+    public Review(String description, double rating, double priceRating, String user, Date date) {
+        this.description = description;
+        this.rating = rating;
+        this.priceRating = priceRating;
+        this.user = user;
+        this.date = date;
+    }
 
     public String getDescription() {
         return description;
@@ -29,5 +40,11 @@ public class Review {
     }
     public void setUser(String user) {
         this.user = user;
+    }
+    public Date getDate() {
+        return date;
+    }
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

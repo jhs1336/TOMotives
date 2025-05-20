@@ -16,7 +16,7 @@ public class ResizableImageController {
      *
      * @param image the new image to be displayed
      */
-        public void setImage(Image image) {
+    public void setImage(Image image) {
         imageView.setImage(image);
         this.image = image;
         resize(imageView.getFitWidth(), imageView.getFitHeight());
@@ -27,7 +27,7 @@ public class ResizableImageController {
      * Gets the image object from the iamgeview
      */
     @FXML
-    public void initialize() {
+    private void initialize() {
         image = imageView.getImage();
     }
 

@@ -17,7 +17,7 @@
             <Insets left="15" right="15" />
         </padding>
 
-        <Hyperlink fx:id="locationNameLabel" styleClass="location-name" text="Location Name" onAction="#openLocationDetailPage">
+        <Hyperlink fx:id="locationNameLabel" styleClass="location-name" text="Location Name">
             <padding>
                 <Insets top="5" />
             </padding>

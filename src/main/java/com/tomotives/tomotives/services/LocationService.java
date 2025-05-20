@@ -5,12 +5,14 @@ import com.google.gson.reflect.TypeToken;
 import com.tomotives.tomotives.models.Category;
 import com.tomotives.tomotives.models.Location;
 import com.tomotives.tomotives.models.Review;
+import com.tomotives.tomotives.models.User;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 
 public class LocationService {
@@ -67,6 +69,14 @@ public class LocationService {
         return locations;
     }
 
+    public static Location getLocation(String name) {
+        for (Location location : getLocationList()) {
+            if (location.getName().equals(name)) {
+                return location;
+            }
+        }
+        return null;
+    }
     /**Joshua
      * Constructs a new Location object from the provided Map of location data
      *
@@ -78,15 +88,24 @@ public class LocationService {
         ArrayList<Map<String, Object>> reviews = gson.fromJson(gson.toJson(locationMap.get("reviews")), new TypeToken<ArrayList<Map<String, Object>>>(){}.getType());
         double totalRating = 0;
         double totalPriceRating = 0;
+        ArrayList<Review> reviewList = new ArrayList<>();
         for (Map<String, Object> review : reviews) {
             totalRating += (double) review.get("rating");
             totalPriceRating += (double) review.get("priceRating");
+
+            String dateStr = (String) review.get("date");
+            String[] dateParts = dateStr.split("-");
+            int year = Integer.parseInt(dateParts[0]);
+            int month = Integer.parseInt(dateParts[1]) - 1;
+            int day = Integer.parseInt(dateParts[2]);
+            reviewList.add(new Review((String) review.get("description"), (double) review.get("rating"), (double) review.get("priceRating"), (String) review.get("user"), new Date(year - 1900, month, day)));
         }
 
         int reviewCount = reviews.size();
         double averageRating = reviewCount > 0 ? totalRating / reviewCount : 0;
         double averagePriceRating = reviewCount > 0 ? totalPriceRating / reviewCount : 0;
 
-        return new Location((String) locationMap.get("name"), (String) locationMap.get("description"), averageRating, averagePriceRating, categories, (ArrayList<Review>) locationMap.get("reviews"), (String) locationMap.get("image"));
+
+        return new Location((String) locationMap.get("name"), (String) locationMap.get("description"), averageRating, averagePriceRating, categories, reviewList, (String) locationMap.get("image"));
     }
 }

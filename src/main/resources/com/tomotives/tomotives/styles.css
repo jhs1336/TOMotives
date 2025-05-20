@@ -1,0 +1,13 @@
+.button {
+    -fx-cursor: hand;
+}
+
+/* toolbar button hover */
+.toolbarButton:hover {
+    -fx-text-fill: #e0e0e0;
+}
+/* toolbar button normal state */
+.toolbarButton {
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+}

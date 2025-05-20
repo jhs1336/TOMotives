@@ -27,14 +27,6 @@ public class SmallLocationController extends LocationControllerBase {
     @FXML
     private Button filter2Button;
 
-    // will be used later for data collection
-    private String locationName;
-    private String imageUrl;
-    private double starRating;
-    private double priceRating;
-    private Category filter1;
-    private Category filter2;
-
     @FXML
     public void initialize() {
         if (resizableImageController != null) {
@@ -44,17 +36,10 @@ public class SmallLocationController extends LocationControllerBase {
     }
 
     public void setLocationData(String locationName, String imageUrl, double starRating, double priceRating, Category filter1, Category filter2) {
-        // store the data
-        this.locationName = locationName;
-        this.imageUrl = imageUrl;
-        this.starRating = starRating;
-        this.priceRating = priceRating;
-        this.filter1 = filter1;
-        this.filter2 = filter2;
-
         // update UI
         if (locationNameLabel != null) {
             locationNameLabel.setText(locationName);
+            locationNameLabel.setOnAction(event -> openLocationDetailPage(locationName));
             Tooltip tooltip = new Tooltip(locationName);
             tooltip.setStyle("-fx-font-size: 10px;");
             locationNameLabel.setTooltip(tooltip);

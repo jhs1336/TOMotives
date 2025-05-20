@@ -54,16 +54,6 @@ public class LargeLocationController extends LocationControllerBase {
     @FXML
     public Label starRatingLabel;
 
-    // will be used later for data collection
-    private String locationName;
-    private String imageUrl;
-    private double starRating;
-    private double priceRating;
-    private Category filter1;
-    private Category filter2;
-    private Category filter3;
-    private Category filter4;
-
     @FXML
     public void initialize() {
         resizableImageController.resize(resizableImage.getFitWidth(), resizableImage.getFitHeight());
@@ -84,19 +74,10 @@ public class LargeLocationController extends LocationControllerBase {
     }
 
     public void setLocationData(String locationName, String imageUrl, double starRating, double priceRating, Category filter1, Category filter2, Category filter3, Category filter4) {
-        // store the data
-        this.locationName = locationName;
-        this.imageUrl = imageUrl;
-        this.starRating = starRating;
-        this.priceRating = priceRating;
-        this.filter1 = filter1;
-        this.filter2 = filter2;
-        this.filter3 = filter3;
-        this.filter4 = filter4;
-
         // update UI
         if (locationNameLabel != null) {
             locationNameLabel.setText(locationName);
+            locationNameLabel.setOnAction(event -> openLocationDetailPage(locationName));
             Tooltip tooltip = new Tooltip(locationName);
             tooltip.setStyle("-fx-font-size: 10px;");
             locationNameLabel.setTooltip(tooltip);

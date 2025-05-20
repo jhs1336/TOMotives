@@ -5,16 +5,18 @@
     "description": "Known for its iconic skyline view, Riverdale Park is a local favorite for sunset watching, tobogganing, and dog walking.",
     "reviews": [
       {
-        "description": "One of the best views of Toronto’s skyline.",
+        "description": "One of the best views of Toronto's skyline.",
         "rating": 5.0,
         "priceRating": 0.0,
-        "user": "Elena Brooks"
+        "user": "Elena Brooks",
+        "date": "2024-08-15"
       },
       {
         "description": "Great space to relax or play sports.",
         "rating": 4.5,
         "priceRating": 0.0,
-        "user": "Nathan Silva"
+        "user": "Nathan Silva",
+        "date": "2024-11-03"
       }
     ],
     "image": "riverdale.jpg"
@@ -22,19 +24,21 @@
   {
     "name": "The Music Garden",
     "categories": ["Park", "Outdoors", "Artistic", "Scenic"],
-    "description": "Designed in collaboration with Yo-Yo Ma, this waterfront park is inspired by Bach’s music and features artistic landscaping.",
+    "description": "Designed in collaboration with Yo-Yo Ma, this waterfront park is inspired by Bach's music and features artistic landscaping.",
     "reviews": [
       {
         "description": "A hidden gem, especially in the summer.",
         "rating": 5.0,
         "priceRating": 0.0,
-        "user": "Harper Nguyen"
+        "user": "Harper Nguyen",
+        "date": "2025-03-21"
       },
       {
         "description": "Peaceful and beautifully designed.",
         "rating": 4.0,
         "priceRating": 0.0,
-        "user": "Victor Almeida"
+        "user": "Victor Almeida",
+        "date": "2024-07-14"
       }
     ],
     "image": "musicgarden.jpg"
@@ -48,13 +52,15 @@
         "description": "Feels like an escape from the city.",
         "rating": 4.0,
         "priceRating": 0.0,
-        "user": "Olivia Petras"
+        "user": "Olivia Petras",
+        "date": "2024-06-30"
       },
       {
         "description": "Great trail with a mix of forest and riverside.",
         "rating": 5.0,
         "priceRating": 0.0,
-        "user": "Isaac Ford"
+        "user": "Isaac Ford",
+        "date": "2025-02-15"
       }
     ],
     "image": "humbertrail.jpg"
@@ -68,13 +74,15 @@
         "description": "Saw a fox and tons of birds — unforgettable.",
         "rating": 5.0,
         "priceRating": 0.0,
-        "user": "Grace Bennett"
+        "user": "Grace Bennett",
+        "date": "2024-09-22"
       },
       {
         "description": "A true escape right in the city.",
         "rating": 5.0,
         "priceRating": 0.0,
-        "user": "Louis Hammond"
+        "user": "Louis Hammond",
+        "date": "2025-04-12"
       }
     ],
     "image": "tommythompson.jpg"
@@ -88,13 +96,15 @@
         "description": "Underrated beach. Very relaxing.",
         "rating": 4.5,
         "priceRating": 0.0,
-        "user": "Isabelle Crawford"
+        "user": "Isabelle Crawford",
+        "date": "2024-07-18"
       },
       {
         "description": "Great spot for a calm afternoon.",
         "rating": 4.0,
         "priceRating": 0.0,
-        "user": "Derek Walsh"
+        "user": "Derek Walsh",
+        "date": "2025-05-01"
       }
     ],
     "image": "cherrybeach.jpg"
@@ -108,13 +118,15 @@
         "description": "Perfect sledding hill in winter!",
         "rating": 5.0,
         "priceRating": 0.0,
-        "user": "Chloe Lang"
+        "user": "Chloe Lang",
+        "date": "2024-12-15"
       },
       {
         "description": "Lots of space and very peaceful.",
         "rating": 4.5,
         "priceRating": 0.0,
-        "user": "Anthony Rivas"
+        "user": "Anthony Rivas",
+        "date": "2025-01-20"
       }
     ],
     "image": "centennialhill.jpg"
@@ -128,13 +140,15 @@
         "description": "Best $10 rack in the city. Cool vibe too.",
         "rating": 5.0,
         "priceRating": 1.0,
-        "user": "Diana Liu"
+        "user": "Diana Liu",
+        "date": "2024-10-05"
       },
       {
         "description": "Love the 90s jackets and tees!",
         "rating": 4.0,
         "priceRating": 1.0,
-        "user": "Adam Fraser"
+        "user": "Adam Fraser",
+        "date": "2025-03-18"
       }
     ],
     "image": "blackmarket.jpg"
@@ -145,16 +159,18 @@
     "description": "Curated vintage store offering timeless pieces and rare finds, with a focus on quality and sustainability.",
     "reviews": [
       {
-        "description": "Found an original Levi’s denim jacket here!",
+        "description": "Found an original Levi's denim jacket here!",
         "rating": 4.0,
         "priceRating": 3.0,
-        "user": "Stephanie Novak"
+        "user": "Stephanie Novak",
+        "date": "2024-08-30"
       },
       {
         "description": "Not cheap, but really well-curated.",
         "rating": 4.5,
         "priceRating": 3.0,
-        "user": "Ethan McNeil"
+        "user": "Ethan McNeil",
+        "date": "2025-02-28"
       }
     ],
     "image": "expovintage.jpg"
@@ -168,113 +184,125 @@
         "description": "Scored a full outfit for under $20!",
         "rating": 4.0,
         "priceRating": 1.0,
-        "user": "Amanda Grant"
+        "user": "Amanda Grant",
+        "date": "2024-11-12"
       },
       {
         "description": "Big selection, but you have to dig.",
         "rating": 4.0,
         "priceRating": 2.0,
-        "user": "Julian Cook"
+        "user": "Julian Cook",
+        "date": "2025-04-03"
       }
     ],
     "image": "valuevillage.jpg"
   },
   {
     "name": "Brick Room",
-    "categories": ["Cafe", "Indoors"],
+    "categories": ["Cafe", "Indoors", "Breakfast", "Lunch"],
     "description": "A cozy cafe offering a selection of artisanal coffees and pastries in a warm, brick-lined setting.",
     "reviews": [
       {
         "description": "Charming atmosphere and excellent espresso.",
         "rating": 4.5,
         "priceRating": 3.0,
-        "user": "Emily Thompson"
+        "user": "Emily Thompson",
+        "date": "2024-09-08"
       },
       {
         "description": "A perfect spot for a quiet afternoon read.",
         "rating": 4.0,
         "priceRating": 2.0,
-        "user": "Michael Lee"
+        "user": "Michael Lee",
+        "date": "2025-01-15"
       }
     ],
     "image": "brickroom.jpg"
   },
   {
     "name": "Boxcar Social Laneway",
-    "categories": ["Cafe", "Indoors"],
+    "categories": ["Cafe", "Indoors", "Breakfast", "Lunch"],
     "description": "An intimate cafe inspired by Japanese listening bars, offering specialty coffee and a rotating selection of vinyl records.",
     "reviews": [
       {
         "description": "Unique concept with great coffee and music.",
         "rating": 4.0,
         "priceRating": 3.0,
-        "user": "Samantha Green"
+        "user": "Samantha Green",
+        "date": "2024-07-25"
       },
       {
         "description": "A hidden gem for coffee enthusiasts.",
         "rating": 4.0,
         "priceRating": 3.0,
-        "user": "David Chen"
+        "user": "David Chen",
+        "date": "2025-03-30"
       }
     ],
     "image": "boxcarsocial.jpg"
   },
   {
     "name": "Simple Coffee",
-    "categories": ["Cafe", "Indoors"],
+    "categories": ["Cafe", "Indoors", "Breakfast", "Lunch"],
     "description": "A minimalist cafe focusing on high-quality, simply roasted coffee beans for the perfect daily brew.",
     "reviews": [
       {
         "description": "Clean aesthetic and delicious coffee.",
         "rating": 5.0,
         "priceRating": 2.5,
-        "user": "Laura Martinez"
+        "user": "Laura Martinez",
+        "date": "2024-10-18"
       },
       {
         "description": "Great place to start your morning.",
         "rating": 4.0,
         "priceRating": 2.0,
-        "user": "James Wilson"
+        "user": "James Wilson",
+        "date": "2025-02-08"
       }
     ],
     "image": "simplecoffee.jpg"
   },
   {
     "name": "Icha Tea",
-    "categories": ["Cafe", "Indoors"],
+    "categories": ["Cafe", "Indoors", "Breakfast", "Lunch"],
     "description": "A premium tea shop offering handcrafted bubble tea beverages and a variety of loose leaf teas.",
     "reviews": [
       {
         "description": "Exceptional quality teas and a relaxing environment.",
         "rating": 5.0,
         "priceRating": 3.0,
-        "user": "Olivia Brown"
+        "user": "Olivia Brown",
+        "date": "2024-12-01"
       },
       {
         "description": "A must-visit for tea lovers.",
         "rating": 4.8,
         "priceRating": 2.8,
-        "user": "Daniel Smith"
+        "user": "Daniel Smith",
+        "date": "2025-04-15"
       }
     ],
     "image": "ichatea.jpg"
   },
   {
     "name": "Matcha Matcha",
-    "categories": ["Cafe", "Indoors"],
+    "categories": ["Cafe", "Indoors", "Breakfast", "Lunch"],
     "description": "A dedicated matcha bar serving ceremonial grade matcha drinks and unique flavor combinations.",
     "reviews": [
       {
         "description": "Innovative matcha creations and cozy ambiance.",
         "rating": 4.5,
         "priceRating": 3.0,
-        "user": "Sophia Johnson"
+        "user": "Sophia Johnson",
+        "date": "2024-08-22"
       },
       {
         "description": "Delightful flavors and friendly staff.",
         "rating": 4.5,
         "priceRating": 3.0,
-        "user": "Liam Davis"
+        "user": "Liam Davis",
+        "date": "2025-01-30"
       }
     ],
     "image": "matchamatcha.jpg"
@@ -288,13 +316,15 @@
         "description": "Amazing view of the city!",
         "rating": 5.0,
         "priceRating": 4.0,
-        "user": "John Doe"
+        "user": "John Doe",
+        "date": "2024-07-11"
       },
       {
         "description": "Great experience but a bit pricey.",
         "rating": 4.0,
         "priceRating": 3.0,
-        "user": "Jane Smith"
+        "user": "Jane Smith",
+        "date": "2025-03-25"
       }
     ],
     "image": "testimage1.jpg"
@@ -308,13 +338,15 @@
         "description": "Fascinating exhibits and beautiful architecture!",
         "rating": 5.0,
         "priceRating": 2.0,
-        "user": "Mike Wilson"
+        "user": "Mike Wilson",
+        "date": "2024-09-14"
       },
       {
         "description": "Great for families, lots to see and learn.",
         "rating": 4.0,
         "priceRating": 2.0,
-        "user": "Sarah Johnson"
+        "user": "Sarah Johnson",
+        "date": "2025-02-20"
       }
     ],
     "image": "rom.jpg"
@@ -328,13 +360,15 @@
         "description": "What a beautiful castle, love it!",
         "rating": 5.0,
         "priceRating": 2.0,
-        "user": "James Smith"
+        "user": "James Smith",
+        "date": "2024-11-28"
       },
       {
         "description": "I'm a big fan, although there is a lot of walking involved. (Difficult due to my weight)",
         "rating": 3.5,
         "priceRating": 3,
-        "user": "Joshua Holzman-Sharfe"
+        "user": "Joshua Holzman-Sharfe",
+        "date": "2025-01-05"
       }
     ],
     "image": "casalomajpeg.jpg"
@@ -348,13 +382,15 @@
         "description": "I paid 20 dollars for 8 wings! (A lot of money for me)",
         "rating": 2.0,
         "priceRating": 4.6,
-        "user": "Emmett Cassan"
+        "user": "Emmett Cassan",
+        "date": "2024-10-08"
       },
       {
         "description": "It's alright but a bit pricey.",
         "rating": 3.0,
         "priceRating": 4.0,
-        "user": "Jane Smith"
+        "user": "Jane Smith",
+        "date": "2024-12-15"
       }
     ],
     "image": "wingstop.jpg"
@@ -368,13 +404,15 @@
         "description": "Amazing view of nature within Toronto!",
         "rating": 5.0,
         "priceRating": 0.0,
-        "user": "John Dice"
+        "user": "John Dice",
+        "date": "2025-03-3"
       },
       {
         "description": "Lots to do! We went to the zoo and hiked around.",
         "rating": 4.5,
         "priceRating": 1.5,
-        "user": "Jane Doe"
+        "user": "Jane Doe",
+        "date": "2024-08-15"
       }
     ],
     "image": "highpark.jpg"
@@ -388,13 +426,15 @@
         "description": "Lots to buy and things to eat - fairly expensive.",
         "rating": 3.8,
         "priceRating": 4.0,
-        "user": "MerchantFlyer62"
+        "user": "MerchantFlyer62",
+        "date": "2025-02-10"
       },
       {
         "description": "I was turned out of a store when they refused to accept paying in cash! >:(",
         "rating": 4.0,
         "priceRating": 3.0,
-        "user": "Jhs1336"
+        "user": "Jhs1336",
+        "date": "2024-11-30"
       }
     ],
     "image": "eaton.jpg"
@@ -408,13 +448,15 @@
         "description": "Very cool and curated selection!",
         "rating": 5.0,
         "priceRating": 2.0,
-        "user": "Jehovah"
+        "user": "Jehovah",
+        "date": "2024-09-25"
       },
       {
         "description": "I am not a huge fan - especially not with the drive it took to get there!",
         "rating": 2.6,
         "priceRating": 3.0,
-        "user": "Adonai"
+        "user": "Adonai",
+        "date": "2025-04-15"
       }
     ],
     "image": "agakhan.jpg"
@@ -428,13 +470,15 @@
         "description": "So much to do and all sorts of interesting shops to visit!",
         "rating": 4.8,
         "priceRating": 1.6,
-        "user": "AlbertCompoundInterest"
+        "user": "AlbertCompoundInterest",
+        "date": "2024-07-20"
       },
       {
         "description": "I love Toronto!!!",
         "rating": 5.0,
         "priceRating": 0.7,
-        "user": "Grade11bio"
+        "user": "Grade11bio",
+        "date": "2025-01-05"
       }
     ],
     "image": "kensington.jpg"
@@ -448,13 +492,15 @@
         "description": "So cool to see locations I recognize from all over Canada.",
         "rating": 4.5,
         "priceRating": 2.3,
-        "user": "John Dice"
+        "user": "John Dice",
+        "date": "2024-10-12"
       },
       {
         "description": "This was good.",
         "rating": 4.0,
         "priceRating": 1.5,
-        "user": "Spacehelmetbob"
+        "user": "Spacehelmetbob",
+        "date": "2025-03-28"
       }
     ],
     "image": "littlecanada.jpeg"
@@ -468,13 +514,15 @@
         "description": "One of the seven modern wonders of the world! If you buy things from the areas around it can get pricey very quick.",
         "rating": 5.0,
         "priceRating": 4.0,
-        "user": "JhsSister1336"
+        "user": "JhsSister1336",
+        "date": "2024-08-30"
       },
       {
         "description": "SOOOOO EXPENSIVE!!!!",
         "rating": 3.4,
         "priceRating": 5.0,
-        "user": "Jane Smith"
+        "user": "Jane Smith",
+        "date": "2025-04-02"
       }
     ],
     "image": "niagarafalls.jpg"
@@ -488,13 +536,15 @@
         "description": "Fun with the kids.",
         "rating": 4.2,
         "priceRating": 5.0,
-        "user": "John Doe"
+        "user": "John Doe",
+        "date": "2024-07-15"
       },
       {
         "description": "I parted the red sea! (At gods command) HAHAHA I'm joking I went on a couple rollercoasters though",
         "rating": 4.0,
         "priceRating": 3.0,
-        "user": "Moses"
+        "user": "Moses",
+        "date": "2025-05-01"
       }
     ],
     "image": "canadawonderland.jpg"
@@ -508,13 +558,15 @@
         "description": "I hate this place",
         "rating": 1.0,
         "priceRating": 0.0,
-        "user": "John Tory"
+        "user": "John Tory",
+        "date": "2024-11-20"
       },
       {
         "description": "Would NOT recommend",
         "rating": 0.0,
         "priceRating": 0.0,
-        "user": "Jane Smith"
+        "user": "Jane Smith",
+        "date": "2025-01-15"
       }
     ],
     "image": "torontocityhall.jpg"

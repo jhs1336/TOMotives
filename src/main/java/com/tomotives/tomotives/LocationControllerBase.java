@@ -63,7 +63,7 @@ public class LocationControllerBase {
     }
 
     @FXML
-    public void openLocationDetailPage() {
-        //TOMotivesApplication.loadPage();
+    protected void openLocationDetailPage(String locationName) {
+        Application.loadPage("location-detail-display.fxml", "location-detail-display/" + locationName);
     }
 }
