@@ -17,9 +17,7 @@ public class LocationControllerBase {
             for (int i = 0; i < starsContainer.getChildren().size(); i++) {
                 if (starsContainer.getChildren().get(i) instanceof Label && ((Label) starsContainer.getChildren().get(i)).getText().equals("★")) {
                     Label star = (Label) starsContainer.getChildren().get(i);
-                    star.getStyleClass().remove("filled-star");
-                    star.getStyleClass().remove("half-star");
-                    star.getStyleClass().remove("empty-star");
+                    star.getStyleClass().removeAll("filled-star", "half-star", "empty-star");
                     if (i+1 <= rating) {
                         star.getStyleClass().add("filled-star");
                     } else {
@@ -45,9 +43,7 @@ public class LocationControllerBase {
             for (int i = 0; i < priceContainer.getChildren().size(); i++) {
                 if (priceContainer.getChildren().get(i) instanceof Label && ((Label) priceContainer.getChildren().get(i)).getText().equals("$")) {
                     Label price = (Label) priceContainer.getChildren().get(i);
-                    price.getStyleClass().remove("filled-price");
-                    price.getStyleClass().remove("half-price");
-                    price.getStyleClass().remove("empty-price");
+                    price.getStyleClass().removeAll("filled-price", "half-price", "empty-price");
                     if (i+1 <= rating) {
                         price.getStyleClass().add("filled-price");
                     } else {

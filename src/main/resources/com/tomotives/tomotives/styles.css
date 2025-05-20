@@ -11,3 +11,27 @@
     -fx-text-fill: white;
     -fx-background-color: transparent;
 }
+
+/* styles for ratings and prices */
+.empty-star {
+    -fx-text-fill: #DDDDDD;
+}
+.half-star {
+    -fx-text-fill: linear-gradient(to right, gold 50%, #DDDDDD 50%);
+}
+.filled-star {
+    -fx-text-fill: gold;
+}
+
+.empty-price {
+    -fx-text-fill: #DDDDDD;
+    -fx-font-weight: bold;
+}
+.half-price {
+    -fx-text-fill: linear-gradient(to right, #2E8B57 50%, #DDDDDD 50%);
+    -fx-font-weight: bold;
+}
+.filled-price {
+    -fx-text-fill: #2E8B57;
+    -fx-font-weight: bold;
+}

@@ -1,5 +1,6 @@
 package com.tomotives.tomotives.services;
 
+import com.tomotives.tomotives.Application;
 import com.tomotives.tomotives.controllers.ToastController;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +21,7 @@ public class ToastService {
         Platform.runLater(() -> {
             try {
                 // load the FXML
-                FXMLLoader loader = new FXMLLoader(ToastController.class.getResource("toast.fxml"));
+                FXMLLoader loader = new FXMLLoader(Application.getResource("toast.fxml"));
                 StackPane root = loader.load();
 
                 // create the controller

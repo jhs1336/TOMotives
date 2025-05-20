@@ -4,29 +4,6 @@
     -fx-text-fill: #333333;
 }
 
-.empty-star {
-    -fx-text-fill: #DDDDDD;
-}
-.half-star {
-    -fx-text-fill: linear-gradient(to right, gold 50%, #DDDDDD 50%);
-}
-.filled-star {
-    -fx-text-fill: gold;
-}
-
-.empty-price {
-    -fx-text-fill: #DDDDDD;
-    -fx-font-weight: bold;
-}
-.half-price {
-    -fx-text-fill: linear-gradient(to right, #2E8B57 50%, #DDDDDD 50%);
-    -fx-font-weight: bold;
-}
-.filled-price {
-    -fx-text-fill: #2E8B57;
-    -fx-font-weight: bold;
-}
-
 .filter-button {
     -fx-background-color: #FF6B6B;
     -fx-text-fill: white;
@@ -38,3 +15,94 @@
 .filter-button:hover {
     -fx-background-color: #FF5252;
 }
+
+.circle-button {
+    -fx-background-radius: 50%;
+    -fx-min-width: 25px;
+    -fx-min-height: 25px;
+    -fx-max-width: 25px;
+    -fx-max-height: 25px;
+    -fx-background-color: #FF6B6B;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-cursor: hand;
+    -fx-padding: 0;
+}
+
+.circle-button:hover {
+    -fx-background-color: #FF5252;
+}
+
+/* Review popup styles */
+.review-popup {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #e0e0e0;
+}
+
+.popup-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 10 0;
+}
+
+.popup-label {
+    -fx-font-weight: bold;
+}
+
+.submit-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 15;
+    -fx-background-radius: 5;
+}
+
+.submit-button:hover {
+    -fx-background-color: #45a049;
+}
+
+.cancel-button {
+    -fx-background-color: #f44336;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 15;
+    -fx-background-radius: 5;
+}
+
+.cancel-button:hover {
+    -fx-background-color: #d32f2f;
+}
+
+
+/* Clickable rating styles */
+.clickable-star, .clickable-price {
+    -fx-cursor: hand;
+    -fx-font-size: 24px;
+    -fx-padding: 0 2;
+}
+
+.clickable-star.filled-star {
+    -fx-text-fill: gold;
+}
+
+.clickable-star.empty-star {
+    -fx-text-fill: #cccccc;
+}
+
+.clickable-price.filled-price {
+    -fx-text-fill: #4CAF50;
+}
+
+.clickable-price.empty-price {
+    -fx-text-fill: #cccccc;
+}
+
+/* Hover effects */
+.clickable-star:hover, .clickable-price:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 3, 0, 0, 0);
+}
+

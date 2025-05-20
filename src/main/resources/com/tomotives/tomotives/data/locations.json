@@ -45,7 +45,7 @@
   },
   {
     "name": "Humber River Trail",
-    "categories": ["Trail", "Outdoors", "Hiking", "Biking"],
+    "categories": ["Biking", "Outdoors", "Hiking", "Scenic"],
     "description": "Scenic trail winding through natural areas and city neighborhoods, perfect for cycling, jogging, or bird watching.",
     "reviews": [
       {
@@ -89,7 +89,7 @@
   },
   {
     "name": "Cherry Beach",
-    "categories": ["Beach", "Outdoors", "Swimming", "Dog-friendly"],
+    "categories": ["Beach", "Outdoors", "Swimming", "Walking"],
     "description": "A quiet lakeside beach with picnic tables and off-leash areas, popular for paddleboarding and sunsets.",
     "reviews": [
       {
