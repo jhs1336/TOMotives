@@ -17,5 +17,128 @@
       "jane.smith@example.com",
       "bob.johnson@example.com"
     ]
+  },
+  {
+    "email": "elena.brooks@gmail.com",
+    "firstName": "Elena",
+    "lastName": "Brooks",
+    "password": "jhssux1336",
+    "displayName": "EBrooks",
+    "favourites": [
+      "Cherry Beach",
+      "Royal Ontario Museum"
+    ],
+    "recentLocations": [
+      "Brick Room",
+      "Royal Ontario Museum"
+    ],
+    "friends": [
+      "john.doe@example.com",
+      "bwilks@gmail.com"
+    ]
+  },
+  {
+    "email": "bwilks@gmail.com",
+    "firstName": "Bob",
+    "lastName": "Wilkinson",
+    "password": "freethrowmerchant",
+    "displayName": "Merchantflyer62",
+    "favourites": [
+      "The Music Garden",
+      "Brick Room"
+    ],
+    "recentLocations": [
+      "CN Tower",
+      "Royal Ontario Museum"
+    ],
+    "friends": [
+      "elena.brooks@gmail.com",
+      "compoundinterest@gmail.com"
+    ]
+  },
+  {
+    "email": "compoundinterest@gmail.com",
+    "firstName": "Albert",
+    "lastName": "Einstein",
+    "password": "123pass456word",
+    "displayName": "AlbertCompoundInterest",
+    "favourites": [
+      "Kensington Market",
+      "Little Canada"
+    ],
+    "recentLocations": [
+      "CN Tower",
+      "Royal Ontario Museum"
+    ],
+    "friends": [
+      "jhs1336@outlook.com",
+      "bwilks@gmail.com"
+    ]
+  },
+  {
+    "email": "jhs1336@outlook.com",
+    "firstName": "Joshua",
+    "lastName": "Holzman-Sharfe",
+    "password": "1336password",
+    "displayName": "Jhs1336",
+    "favourites": [
+      "Niagara Falls"
+    ],
+    "recentLocations": [
+      "Niagara Falls"
+    ],
+    "friends": [
+      "compoundinterest@gmail.com"
+    ]
+  },
+  {
+    "email": "moses@gmail.com",
+    "firstName": "Moses",
+    "lastName": "",
+    "password": "redSea123",
+    "displayName": "Moses",
+    "favourites": [
+      "Canada's Wonderland"
+    ],
+    "recentLocations": [
+      "Toronto City Hall",
+      "Canada's Wonderland"
+    ],
+    "friends": [
+      "jameswilson@gmail.com"
+    ]
+  },
+  {
+    "email": "jameswilson@gmail.com",
+    "firstName": "James",
+    "lastName": "Wilson",
+    "password": "pass123456",
+    "displayName": "JamesWil",
+    "favourites": [
+    ],
+    "recentLocations": [
+      "CN Tower",
+      "Royal Ontario Museum"
+    ],
+    "friends": [
+      "moses@gmail.com"
+    ]
+  },
+  {
+    "email": "smgreen12@gmail.com",
+    "firstName": "Samantha",
+    "lastName": "Green",
+    "password": "123login4",
+    "displayName": "SamanthaGreen",
+    "favourites": [
+      "Royal Ontario Museum",
+      "Icha Tea"
+    ],
+    "recentLocations": [
+      "Icha Tea",
+      "Royal Ontario Museum"
+    ],
+    "friends": [
+    ]
   }
 ]
