@@ -14,8 +14,8 @@
       "Royal Ontario Museum"
     ],
     "friends": [
-      "jane.smith@example.com",
-      "bob.johnson@example.com"
+      "JaneSmith",
+      "BobJohnson"
     ]
   },
   {
@@ -52,8 +52,8 @@
       "Royal Ontario Museum"
     ],
     "friends": [
-      "elena.brooks@gmail.com",
-      "compoundinterest@gmail.com"
+      "EBrooks",
+      "AlbertCompoundInterest"
     ]
   },
   {
@@ -71,8 +71,8 @@
       "Royal Ontario Museum"
     ],
     "friends": [
-      "jhs1336@outlook.com",
-      "bwilks@gmail.com"
+      "Jhs1336",
+      "MerchantFlyer62"
     ]
   },
   {
@@ -88,7 +88,7 @@
       "Niagara Falls"
     ],
     "friends": [
-      "compoundinterest@gmail.com"
+      "AlbertCompoundInterest"
     ]
   },
   {
@@ -105,7 +105,7 @@
       "Canada's Wonderland"
     ],
     "friends": [
-      "jameswilson@gmail.com"
+      "JamesWil"
     ]
   },
   {
@@ -121,7 +121,7 @@
       "Royal Ontario Museum"
     ],
     "friends": [
-      "moses@gmail.com"
+      "Moses"
     ]
   },
   {
@@ -139,6 +139,90 @@
       "Royal Ontario Museum"
     ],
     "friends": [
+    ]
+  },
+  {
+    "email": "emmettcassan@gmail.com",
+    "firstName": "Emmett",
+    "lastName": "Cassan",
+    "password": "badatgeoguessr3",
+    "displayName": "EmmettSucksatGeo",
+    "favourites": [
+      "Brick Room",
+      "Expo Vintage"
+    ],
+    "recentLocations": [
+      "Icha Tea",
+      "Value Village"
+    ],
+    "friends": [
+    ]
+  },
+  {
+    "email": "saulmesbur@gmail.com",
+    "firstName": "Saul",
+    "lastName": "Mesbur",
+    "password": "12345678qwerty",
+    "displayName": "SaulMesbur",
+    "favourites": [
+    ],
+    "recentLocations": [
+      "Boxcar Social Laneway",
+      "Simple Coffee"
+    ],
+    "friends": [
+    ]
+  },
+  {
+    "email": "davidchen@gmail.com",
+    "firstName": "David",
+    "lastName": "Chen",
+    "password": "freudisthegoat2",
+    "displayName": "DaveCh",
+    "favourites": [
+    ],
+    "recentLocations": [
+      "Icha Tea",
+      "Brick Room"
+    ],
+    "friends": [
+      "DanielS",
+      "Oliviaa"
+    ]
+  },
+  {
+    "email": "smith.daniel@gmail.com",
+    "firstName": "Daniel",
+    "lastName": "Smith",
+    "password": "123dwqwerty",
+    "displayName": "DanielS",
+    "favourites": [
+      "Royal Ontario Museum"
+    ],
+    "recentLocations": [
+      "Matcha Matcha",
+      "Royal Ontario Museum"
+    ],
+    "friends": [
+      "DaveCh"
+    ]
+  },
+  {
+    "email": "BrownOlive@hotmail.com",
+    "firstName": "Olivia",
+    "lastName": "Brown",
+    "password": "greenolive2123",
+    "displayName": "Oliviaa",
+    "favourites": [
+      "Matcha Matcha",
+      "Black Market"
+    ],
+    "recentLocations": [
+      "Icha Tea",
+      "Black Market"
+    ],
+    "friends": [
+      "DaveCh"
     ]
   }
 ]
