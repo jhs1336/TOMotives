@@ -9,6 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 
 import static com.tomotives.tomotives.Application.getStage;
 
@@ -19,9 +20,12 @@ public class LoginController {
     private ResizableImageController resizableImageController;
 
     @FXML
-    public TextField emailField;
+    private TextField emailField;
     @FXML
-    public PasswordField passwordField;
+    private PasswordField passwordField;
+
+    @FXML
+    private ToolbarController toolbarController;
 
     @FXML
     private void initialize() {
@@ -39,6 +43,7 @@ public class LoginController {
             if (UserService.getUserFromEmail(email).getPassword().equals(password)) {
                 ToastService.show(getStage(), "Login successful", ToastController.ToastType.SUCCESS);
                 Application.setUser(UserService.getUserFromEmail(email));
+                toolbarController.refreshToolbar();
                 return;
             }
         }

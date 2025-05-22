@@ -2,8 +2,8 @@ package com.tomotives.tomotives.controllers;
 
 import com.tomotives.tomotives.Application;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.geometry.Side;
+import javafx.scene.control.*;
 
 public class ToolbarController {
     @FXML
@@ -22,10 +22,9 @@ public class ToolbarController {
     private Button signupButton;
 
     @FXML
-    private Button loginButton;
-
+    private Button loginAndProfileButton;
     @FXML
-    private Button profileButton;
+    private Label divider;
     @FXML
     private void initialize() {
         //set up listeners
@@ -33,8 +32,18 @@ public class ToolbarController {
         browseButton.setOnAction(event -> handleBrowseButton());
         favouritesButton.setOnAction(event -> handleFavouritesButton());
         signupButton.setOnAction(event -> handleSignupButton());
-        loginButton.setOnAction(event -> handleLoginButton());
-        profileButton.setOnAction(event -> handleProfileButton());
+        loginAndProfileButton.setOnAction(event -> handleLoginAndProfileButtonClick());
+
+        refreshToolbar();
+    }
+
+    public void refreshToolbar() {
+        boolean userLoggedIn = Application.getUser() != null;
+        signupButton.setManaged(!userLoggedIn);
+        signupButton.setVisible(!userLoggedIn);
+        divider.setManaged(!userLoggedIn);
+        divider.setVisible(!userLoggedIn);
+        loginAndProfileButton.setText(!userLoggedIn ? "Login" : Application.getUser().getDisplayName());
     }
 
     /**Joshua
@@ -64,7 +73,27 @@ public class ToolbarController {
     /**Joshua
      * Handles the login button click event by loading the login page.
      */
-    private void handleLoginButton() {
-        Application.loadPage("login.fxml");
+    private void handleLoginAndProfileButtonClick() {
+        if (Application.getUser() == null) {
+            Application.loadPage("login.fxml");
+        } else {
+            ContextMenu contextMenu = new ContextMenu();
+            MenuItem profileMenuItem = new MenuItem("Profile");
+            MenuItem logoutMenuItem = new MenuItem("Log Out");
+            profileMenuItem.setStyle("-fx-font-size: 14px;");
+            logoutMenuItem.setStyle("-fx-text-fill: red; -fx-font-size: 14px;");
+            contextMenu.setStyle("-fx-padding: 5px; -fx-border-color: #00a0b0; -fx-background-radius: 5px; -fx-border-radius: 5px;");
+
+
+//            profileMenuItem.setOnAction(e -> Application.loadPage("profile.fxml"));
+            logoutMenuItem.setOnAction(e -> {
+                Application.setUser(null);
+                Application.loadPage("home.fxml");
+                refreshToolbar();
+            });
+
+            contextMenu.getItems().addAll(profileMenuItem, logoutMenuItem);
+            contextMenu.show(loginAndProfileButton, Side.BOTTOM, 0, 0);
+        }
     }
 }

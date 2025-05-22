@@ -6,6 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<?import com.dlsc.formsfx.view.controls.SimpleBooleanControl?>
+<?import javafx.beans.property.SimpleBooleanProperty?>
 <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="1280.0" stylesheets="" style="-fx-background-color: #00a0b0;" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.controllers.ToolbarController">
     <children>
         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -45,21 +47,19 @@
                         <Font size="16.0" />
                     </font>
                 </Button>
-                <Label text="|" textFill="WHITE">
+                <Label fx:id="divider" text="|" textFill="WHITE">
                     <font>
                         <Font size="16.0" />
                     </font>
                 </Label>
-                <Button fx:id="loginButton" style="-fx-background-color: transparent;" styleClass="toolbarButton" text="Log in" textFill="WHITE">
+                <Button fx:id="loginAndProfileButton" style="-fx-background-color: transparent;" styleClass="toolbarButton" text="Log in" textFill="WHITE">
                     <font>
                         <Font size="16.0" />
                     </font>
+                    <HBox.margin>
+                        <Insets right="16.0" />
+                    </HBox.margin>
                 </Button>
-              <Button fx:id="profileButton" style="-fx-background-color: transparent;" styleClass="toolbarButton" text="Profile" textFill="WHITE" visible="false">
-                 <font>
-                    <Font size="16.0" />
-                 </font>
-              </Button>
             </children>
         </HBox>
     </children>
