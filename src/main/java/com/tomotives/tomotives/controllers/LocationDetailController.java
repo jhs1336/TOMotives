@@ -29,6 +29,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import static com.tomotives.tomotives.Application.HOVER_BUTTON_STYLE;
+import static com.tomotives.tomotives.Application.NORMAL_BUTTON_STYLE;
+
 public class LocationDetailController extends LocationControllerBase {
 
     @FXML
@@ -162,8 +165,12 @@ public class LocationDetailController extends LocationControllerBase {
 
     @FXML
     private void handleAddReviewButtonClick(ActionEvent event) {
-        final String NORMAL_BUTTON_STYLE = "-fx-background-color: #00a0b0; -fx-text-fill: white; -fx-background-radius: 25px; -fx-font-size: 14px;";
-        final String HOVER_BUTTON_STYLE = "-fx-background-color: #008b9c; -fx-text-fill: white; -fx-background-radius: 25px; -fx-font-size: 14px;";
+
+        // if no user is logged in
+        if (Application.getUser() == null) {
+            Application.showLoginOrSignupPopup("Login to Add Reviews", "You need to be logged in to add reviews", "/location/" + locationName.getText());
+            return;
+        }
 
         Popup popup = new Popup();
         popup.setAutoHide(true);
@@ -179,176 +186,116 @@ public class LocationDetailController extends LocationControllerBase {
         titleLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
         titleLabel.getStyleClass().add("popup-title");
 
-        if (Application.getUser() == null) {
-            Label messageLabel = new Label("You need to be logged in to add reviews.");
-            messageLabel.setStyle("-fx-font-size: 16px;");
-            messageLabel.setWrapText(true);
+        // boxes for stars
+        VBox starRatingBox = new VBox();
+        starRatingBox.setSpacing(5);
+        HBox starsBox = new HBox();
+        starsBox.setSpacing(5);
+        starsBox.setAlignment(Pos.CENTER_LEFT);
 
-            Button loginButton = new Button("Login");
-            loginButton.setStyle(NORMAL_BUTTON_STYLE);
-            loginButton.hoverProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue) {
-                    loginButton.setStyle(HOVER_BUTTON_STYLE);
-                } else {
-                    loginButton.setStyle(NORMAL_BUTTON_STYLE);
-                }
+        // price rating boxes
+        VBox priceRatingBox = new VBox();
+        priceRatingBox.setSpacing(5);
+        HBox pricesBox = new HBox();
+        pricesBox.setSpacing(10);
+        pricesBox.setAlignment(Pos.CENTER_LEFT);
+
+        // final one element array to be used in lambda expressions - represents the value of stars selected
+        final int[] selectedStarRating = {0}; // default is 0 stars
+        final int[] selectedPriceRating = {0};
+        Label[] starLabels = new Label[5];
+        Label[] priceLabels = new Label[5];
+
+        for (int i = 0; i < starLabels.length; i++) {
+            final int value = i + 1;
+            // add styles
+            starLabels[i] = new Label("★");
+            starLabels[i].getStyleClass().addAll("clickable-star", "empty-star");
+            starLabels[i].setStyle("-fx-font-size: 24px; -fx-cursor: hand;");
+            priceLabels[i] = new Label("$");
+            priceLabels[i].getStyleClass().addAll("clickable-price", "empty-price");
+            priceLabels[i].setStyle("-fx-font-size: 24px; -fx-cursor: hand;");
+
+            // set click listeners to set selected value and update displays
+            starLabels[i].setOnMouseClicked(e -> {
+                selectedStarRating[0] = value;
+                updateClickableStars(starLabels, value);
             });
-            loginButton.setOnAction(e -> {
-                popup.hide();
-                Application.loadPage("login.fxml", "login/location/" + locationName.getText()); // pass in locationName as the location page to be loaded after login
-            });
-
-            Button signupButton = new Button("Sign Up");
-            signupButton.setStyle(NORMAL_BUTTON_STYLE);
-            signupButton.hoverProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue) {
-                    signupButton.setStyle(HOVER_BUTTON_STYLE);
-                } else {
-                    signupButton.setStyle(NORMAL_BUTTON_STYLE);
-                }
-            });
-            signupButton.setOnAction(e -> {
-                popup.hide();
-                Application.loadPage("sign-up.fxml", "sign-up/location" + locationName.getText()); // pass in locationName as the location page to be loaded after sign up
-            });
-
-            Button cancelButton = new Button("Cancel");
-            cancelButton.setStyle(NORMAL_BUTTON_STYLE);
-            cancelButton.hoverProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue) {
-                    cancelButton.setStyle(HOVER_BUTTON_STYLE);
-                } else {
-                    cancelButton.setStyle(NORMAL_BUTTON_STYLE);
-                }
-            });
-            cancelButton.setOnAction(e -> popup.hide());
-
-            HBox leftButtonBox = new HBox(10);
-            leftButtonBox.setAlignment(Pos.CENTER_LEFT);
-            leftButtonBox.getChildren().addAll(loginButton, signupButton);
-
-            HBox rightButtonBox = new HBox();
-            rightButtonBox.setAlignment(Pos.CENTER_RIGHT);
-            rightButtonBox.getChildren().add(cancelButton);
-
-            HBox buttonBox = new HBox(10);
-            buttonBox.setAlignment(Pos.CENTER);
-            HBox.setHgrow(leftButtonBox, Priority.ALWAYS);
-            buttonBox.getChildren().addAll(leftButtonBox, rightButtonBox);
-
-            popupContent.getChildren().addAll(titleLabel, messageLabel, buttonBox);
-        } else {
-            // boxes for stars
-            VBox starRatingBox = new VBox();
-            starRatingBox.setSpacing(5);
-            HBox starsBox = new HBox();
-            starsBox.setSpacing(5);
-            starsBox.setAlignment(Pos.CENTER_LEFT);
-
-            // price rating boxes
-            VBox priceRatingBox = new VBox();
-            priceRatingBox.setSpacing(5);
-            HBox pricesBox = new HBox();
-            pricesBox.setSpacing(10);
-            pricesBox.setAlignment(Pos.CENTER_LEFT);
-
-            // final one element array to be used in lambda expressions - represents the value of stars selected
-            final int[] selectedStarRating = {0}; // default is 0 stars
-            final int[] selectedPriceRating = {0};
-            Label[] starLabels = new Label[5];
-            Label[] priceLabels = new Label[5];
-
-            for (int i = 0; i < starLabels.length; i++) {
-                final int value = i + 1;
-                // add styles
-                starLabels[i] = new Label("★");
-                starLabels[i].getStyleClass().addAll("clickable-star", "empty-star");
-                starLabels[i].setStyle("-fx-font-size: 24px; -fx-cursor: hand;");
-                priceLabels[i] = new Label("$");
-                priceLabels[i].getStyleClass().addAll("clickable-price", "empty-price");
-                priceLabels[i].setStyle("-fx-font-size: 24px; -fx-cursor: hand;");
-
-                // set click listeners to set selected value and update displays
-                starLabels[i].setOnMouseClicked(e -> {
-                    selectedStarRating[0] = value;
-                    updateClickableStars(starLabels, value);
-                });
-                priceLabels[i].setOnMouseClicked(e -> {
-                    selectedPriceRating[0] = value;
-                    updateClickablePrices(priceLabels, value);
-                });
-
-                // set hover listeners so display can be updated depending on which item is hovered
-                starLabels[i].setOnMouseEntered(e -> {
-                    updateClickableStars(starLabels, value);
-                });
-                priceLabels[i].setOnMouseEntered(e -> {
-                    updateClickablePrices(priceLabels, value);
-                });
-                starsBox.getChildren().add(starLabels[i]);
-                pricesBox.getChildren().add(priceLabels[i]);
-            }
-
-            // Set action listeners for when mouse exits the container, clickable display resets to selected value
-            starsBox.setOnMouseExited(e -> {
-                updateClickableStars(starLabels, selectedStarRating[0]);
-            });
-            starRatingBox.getChildren().add(starsBox);
-            pricesBox.setOnMouseExited(e -> {
-                // when mouse exits the container, restore to selected value
-                updateClickablePrices(priceLabels, selectedPriceRating[0]);
-            });
-            priceRatingBox.getChildren().add(pricesBox);
-
-
-            // review text
-            TextArea reviewTextArea = new TextArea();
-            reviewTextArea.setWrapText(true);
-            reviewTextArea.setPrefRowCount(5);
-            reviewTextArea.setPromptText("Write your review here...");
-
-            // buttons
-            HBox buttonBox = new HBox();
-            buttonBox.setSpacing(10);
-            buttonBox.setAlignment(Pos.CENTER_RIGHT);
-
-            Button cancelButton = new Button("Cancel");
-            cancelButton.styleProperty().set(NORMAL_BUTTON_STYLE);
-            cancelButton.hoverProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue) {
-                    cancelButton.setStyle(HOVER_BUTTON_STYLE);
-                } else {
-                    cancelButton.setStyle(NORMAL_BUTTON_STYLE);
-                }
-            });
-            cancelButton.setOnAction(e -> {
-                popup.hide();
-            });
-            cancelButton.setOnAction(e -> popup.hide());
-
-            Button submitButton = new Button("Submit Review");
-            submitButton.styleProperty().set(NORMAL_BUTTON_STYLE);
-            submitButton.hoverProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue) {
-                    submitButton.setStyle(HOVER_BUTTON_STYLE);
-                } else {
-                    submitButton.setStyle(NORMAL_BUTTON_STYLE);
-                }
-            });
-            submitButton.setOnAction(e -> {
-                // validate input
-                if (reviewTextArea.getText().isEmpty()) {
-                    ToastService.show(Application.getStage(), "Review details are required", ToastController.ToastType.ERROR);
-                    return;
-                }
-                addReview(reviewTextArea.getText(), selectedStarRating[0], selectedPriceRating[0], Application.getUser().getDisplayName());
-                popup.hide();
+            priceLabels[i].setOnMouseClicked(e -> {
+                selectedPriceRating[0] = value;
+                updateClickablePrices(priceLabels, value);
             });
 
-            buttonBox.getChildren().addAll(cancelButton, submitButton);
-            // add all components to the popup content
-            popupContent.getChildren().addAll(titleLabel, starRatingBox, priceRatingBox, reviewTextArea, buttonBox);
+            // set hover listeners so display can be updated depending on which item is hovered
+            starLabels[i].setOnMouseEntered(e -> {
+                updateClickableStars(starLabels, value);
+            });
+            priceLabels[i].setOnMouseEntered(e -> {
+                updateClickablePrices(priceLabels, value);
+            });
+            starsBox.getChildren().add(starLabels[i]);
+            pricesBox.getChildren().add(priceLabels[i]);
         }
+
+        // Set action listeners for when mouse exits the container, clickable display resets to selected value
+        starsBox.setOnMouseExited(e -> {
+            updateClickableStars(starLabels, selectedStarRating[0]);
+        });
+        starRatingBox.getChildren().add(starsBox);
+        pricesBox.setOnMouseExited(e -> {
+            // when mouse exits the container, restore to selected value
+            updateClickablePrices(priceLabels, selectedPriceRating[0]);
+        });
+        priceRatingBox.getChildren().add(pricesBox);
+
+
+        // review text
+        TextArea reviewTextArea = new TextArea();
+        reviewTextArea.setWrapText(true);
+        reviewTextArea.setPrefRowCount(5);
+        reviewTextArea.setPromptText("Write your review here...");
+
+        // buttons
+        HBox buttonBox = new HBox();
+        buttonBox.setSpacing(10);
+        buttonBox.setAlignment(Pos.CENTER_RIGHT);
+
+        Button cancelButton = new Button("Cancel");
+        cancelButton.styleProperty().set(NORMAL_BUTTON_STYLE);
+        cancelButton.hoverProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                cancelButton.setStyle(HOVER_BUTTON_STYLE);
+            } else {
+                cancelButton.setStyle(NORMAL_BUTTON_STYLE);
+            }
+        });
+        cancelButton.setOnAction(e -> {
+            popup.hide();
+        });
+        cancelButton.setOnAction(e -> popup.hide());
+
+        Button submitButton = new Button("Submit Review");
+        submitButton.styleProperty().set(NORMAL_BUTTON_STYLE);
+        submitButton.hoverProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                submitButton.setStyle(HOVER_BUTTON_STYLE);
+            } else {
+                submitButton.setStyle(NORMAL_BUTTON_STYLE);
+            }
+        });
+        submitButton.setOnAction(e -> {
+            // validate input
+            if (reviewTextArea.getText().isEmpty()) {
+                ToastService.show(Application.getStage(), "Review details are required", ToastController.ToastType.ERROR);
+                return;
+            }
+            addReview(reviewTextArea.getText(), selectedStarRating[0], selectedPriceRating[0], Application.getUser().getDisplayName());
+            popup.hide();
+        });
+
+        buttonBox.getChildren().addAll(cancelButton, submitButton);
+        // add all components to the popup content
+        popupContent.getChildren().addAll(titleLabel, starRatingBox, priceRatingBox, reviewTextArea, buttonBox);
 
         popupContent.setStyle("-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);");
         // add content to popup

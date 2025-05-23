@@ -20,17 +20,13 @@ public class HomeController {
         smallLocationCarouselController.setTitle("Popular Locations");
         ArrayList<Location> locationList = LocationService.getLocationList();
         ArrayList<Location> randomLocations = new ArrayList<>(locationList);
-        java.util.Collections.shuffle(randomLocations);
+        randomLocations.sort((a, b) -> Double.compare(b.getRating(), a.getRating()));
+
         for (int i = 0; i < 10; i++) {
-            smallLocationCarouselController.addLocationDisplay(randomLocations.get(i));
+            smallLocationCarouselController.addLocationDisplay(randomLocations.get(randomLocations.size() - i - 1));
         }
         for (int i = 0; i < 10; i++) {
             largeLocationCarouselController.addLocationDisplay(randomLocations.get(i));
         }
-        largeLocationCarouselController.updateCarousel();
-
-//        for (Location location : locationList) {
-//            smallLocationCarouselController.addLocationDisplay(location);
-//        }
     }
 }

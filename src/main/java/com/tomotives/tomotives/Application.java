@@ -2,8 +2,18 @@ package com.tomotives.tomotives;
 
 import com.tomotives.tomotives.models.User;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,6 +24,9 @@ public class Application extends javafx.application.Application {
     private static Stage stage;
     private static User user;
     private static String page;
+
+    public static final String NORMAL_BUTTON_STYLE = "-fx-background-color: #00a0b0; -fx-text-fill: white; -fx-background-radius: 25px; -fx-font-size: 14px;";
+    public static final String HOVER_BUTTON_STYLE = "-fx-background-color: #008b9c; -fx-text-fill: white; -fx-background-radius: 25px; -fx-font-size: 14px;";
 
     public static User getUser() {
         return user;
@@ -80,8 +93,96 @@ public class Application extends javafx.application.Application {
         loadPage(url, url.substring(0, url.indexOf('.')));
     }
 
+    public static void showLoginOrSignupPopup(String title, String subtitle, String pagePath) {
+        Popup popup = new Popup();
+        popup.setAutoHide(true);
+        // setup popup structure
+        VBox popupContent = new VBox();
+        popupContent.getStyleClass().add("review-popup");
+        popupContent.setSpacing(15);
+        popupContent.setPadding(new Insets(20));
+        popupContent.setMinWidth(400);
+        popupContent.setMaxWidth(500);
+
+        Label titleLabel = new Label(title);
+        titleLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
+        titleLabel.getStyleClass().add("popup-title");
+
+        Label messageLabel = new Label(subtitle);
+        messageLabel.setStyle("-fx-font-size: 16px;");
+        messageLabel.setWrapText(true);
+
+        Button loginButton = new Button("Login");
+        loginButton.setStyle(NORMAL_BUTTON_STYLE);
+        // add hover listener to change between normal and hover styles
+        loginButton.hoverProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                loginButton.setStyle(HOVER_BUTTON_STYLE);
+            } else {
+                loginButton.setStyle(NORMAL_BUTTON_STYLE);
+            }
+        });
+        loginButton.setOnAction(e -> {
+            popup.hide();
+            Application.loadPage("login.fxml", "login" + pagePath); // pass in locationName as the location page to be loaded after login
+        });
+
+        Button signupButton = new Button("Sign Up");
+        signupButton.setStyle(NORMAL_BUTTON_STYLE);
+        signupButton.hoverProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                signupButton.setStyle(HOVER_BUTTON_STYLE);
+            } else {
+                signupButton.setStyle(NORMAL_BUTTON_STYLE);
+            }
+        });
+        signupButton.setOnAction(e -> {
+            popup.hide();
+            Application.loadPage("sign-up.fxml", "sign-up" + pagePath); // pass in locationName as the location page to be loaded after sign up
+        });
+
+        Button cancelButton = new Button("Cancel");
+        cancelButton.setStyle(NORMAL_BUTTON_STYLE);
+        cancelButton.hoverProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                cancelButton.setStyle(HOVER_BUTTON_STYLE);
+            } else {
+                cancelButton.setStyle(NORMAL_BUTTON_STYLE);
+            }
+        });
+        cancelButton.setOnAction(e -> popup.hide());
+
+        HBox leftButtonBox = new HBox(10);
+        leftButtonBox.setAlignment(Pos.CENTER_LEFT);
+        leftButtonBox.getChildren().addAll(loginButton, signupButton);
+
+        HBox rightButtonBox = new HBox();
+        rightButtonBox.setAlignment(Pos.CENTER_RIGHT);
+        rightButtonBox.getChildren().add(cancelButton);
+
+        HBox buttonBox = new HBox(10);
+        buttonBox.setAlignment(Pos.CENTER);
+        HBox.setHgrow(leftButtonBox, Priority.ALWAYS);
+        buttonBox.getChildren().addAll(leftButtonBox, rightButtonBox);
+
+        popupContent.getChildren().addAll(titleLabel, messageLabel, buttonBox);
+
+        popupContent.setStyle("-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);");
+        // add content to popup
+        popup.getContent().add(popupContent);
+
+        // show the popup
+        Window window = scene.getWindow();
+        popup.show(window, window.getX() + (window.getWidth() - popupContent.getMinWidth()) / 2, window.getY() + (window.getHeight() - 300) / 2);
+    }
+    public static void showLoginOrSignupPopup(String pagePath) {
+        showLoginOrSignupPopup("Login or Sign Up", "Please login or sign up to continue", pagePath);
+    }
+    public static void showLoginOrSignupPopup() {
+        showLoginOrSignupPopup("");
+    }
+
     public static void main(String[] args) {
         launch(args);
     }
-
 }

@@ -76,6 +76,7 @@ public class LargeLocationCarouselController {
         locationData.put("filter3", filter3);
         locationData.put("filter4", filter4);
         locationDisplays.add(locationData);
+        updateCarousel();
     }
     public void addLocationDisplay(Location location) {
         addLocationDisplay(location.getName(), location.getImage(), location.getRating(), location.getPrice(),
@@ -86,9 +87,7 @@ public class LargeLocationCarouselController {
     }
 
     /**Joshua
-     * Updates the carousel to show the appropriate locations based on the current index
-     * If there are fewer location displays than the display count, all displays are shown
-     * Otherwise, the displays starting from the current index are shown, up to the display count
+     * Updates the carousel to display the current location based on the current index
      */
     public void updateCarousel() {
         Map<String, Object> location = locationDisplays.get(currentIndex);
