@@ -163,6 +163,30 @@ public class LocationDetailController extends LocationControllerBase {
     @FXML
     private void handleAddReviewButtonClick(ActionEvent event) {
         if (Application.getUser() == null) {
+            Popup popup = new Popup();
+            popup.setAutoHide(true);
+            // setup popup structure
+            VBox popupContent = new VBox();
+            popupContent.getStyleClass().add("review-popup");
+            popupContent.setSpacing(15);
+            popupContent.setPadding(new Insets(20));
+            popupContent.setMinWidth(400);
+            popupContent.setMaxWidth(500);
+
+            Label titleLabel = new Label("Log in or sign up to add a review");
+            titleLabel.setAlignment(Pos.CENTER);
+            titleLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
+            titleLabel.getStyleClass().add("popup-title");
+
+            popupContent.setStyle("-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);");
+
+            popupContent.getChildren().addAll(titleLabel);
+            popup.getContent().add(popupContent);
+            Window window = ((Node) event.getSource()).getScene().getWindow();
+            popup.show(window,
+                    window.getX() + (window.getWidth() - popupContent.getMinWidth()) / 2,
+                    window.getY() + (window.getHeight() - 300) / 2);
+
             return;
         }
         Popup popup = new Popup();
