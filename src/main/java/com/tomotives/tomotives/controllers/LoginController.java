@@ -44,13 +44,15 @@ public class LoginController {
                 ToastService.show(getStage(), "Login successful", ToastController.ToastType.SUCCESS);
                 Application.setUser(UserService.getUserFromEmail(email));
                 toolbarController.refreshToolbar();
+                // check if we're on the login page with no additional params, (no page specified to route to after login)
+                if (Application.getPage().equals("login")) Application.loadPage("home.fxml");
+                else if (Application.getPage().split("/")[1].equals("location")) Application.loadPage("location-detail-display.fxml", "location-detail-display/" + Application.getPage().split("/")[2]);
                 return;
             }
         }
 
         showError("Invalid email or password");
     }
-
     private void showError(String message) {
         ToastService.show(getStage(), message, ToastController.ToastType.ERROR);
     }
