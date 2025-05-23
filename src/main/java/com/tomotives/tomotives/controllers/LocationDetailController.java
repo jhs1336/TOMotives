@@ -162,6 +162,9 @@ public class LocationDetailController extends LocationControllerBase {
 
     @FXML
     private void handleAddReviewButtonClick(ActionEvent event) {
+        if (Application.getUser() == null) {
+            return;
+        }
         Popup popup = new Popup();
         popup.setAutoHide(true);
         // setup popup structure
@@ -262,7 +265,7 @@ public class LocationDetailController extends LocationControllerBase {
                 ToastService.show(Application.getStage(), "Review details are required", ToastController.ToastType.ERROR);
                 return;
             }
-            addReview(reviewTextArea.getText(), selectedStarRating[0], selectedPriceRating[0], "Current User");
+            addReview(reviewTextArea.getText(), selectedStarRating[0], selectedPriceRating[0], Application.getUser().getDisplayName());
             popup.hide();
         });
 
