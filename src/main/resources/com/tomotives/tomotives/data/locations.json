@@ -1,11 +1,16 @@
 [
   {
     "name": "Riverdale Park",
-    "categories": ["Park", "Scenic", "Outdoors", "Walking"],
+    "categories": [
+      "Park",
+      "Scenic",
+      "Outdoors",
+      "Walking"
+    ],
     "description": "Known for its iconic skyline view, Riverdale Park is a local favorite for sunset watching, tobogganing, and dog walking.",
     "reviews": [
       {
-        "description": "One of the best views of Toronto's skyline.",
+        "description": "One of the best views of Toronto\u0027s skyline.",
         "rating": 5.0,
         "priceRating": 0.0,
         "user": "Elena Brooks",
@@ -23,8 +28,13 @@
   },
   {
     "name": "The Music Garden",
-    "categories": ["Park", "Outdoors", "Music", "Scenic"],
-    "description": "Designed in collaboration with Yo-Yo Ma, this waterfront park is inspired by Bach's music and features artistic landscaping.",
+    "categories": [
+      "Park",
+      "Outdoors",
+      "Music",
+      "Scenic"
+    ],
+    "description": "Designed in collaboration with Yo-Yo Ma, this waterfront park is inspired by Bach\u0027s music and features artistic landscaping.",
     "reviews": [
       {
         "description": "A hidden gem, especially in the summer.",
@@ -45,7 +55,12 @@
   },
   {
     "name": "Humber River Trail",
-    "categories": ["Biking", "Outdoors", "Hiking", "Scenic"],
+    "categories": [
+      "Biking",
+      "Outdoors",
+      "Hiking",
+      "Scenic"
+    ],
     "description": "Scenic trail winding through natural areas and city neighborhoods, perfect for cycling, jogging, or bird watching.",
     "reviews": [
       {
@@ -67,7 +82,12 @@
   },
   {
     "name": "Tommy Thompson Park",
-    "categories": ["Park", "Nature", "Birdwatching", "Outdoors"],
+    "categories": [
+      "Park",
+      "Nature",
+      "Birdwatching",
+      "Outdoors"
+    ],
     "description": "An urban wilderness extending into Lake Ontario, popular for wildlife watching, cycling, and sunset walks.",
     "reviews": [
       {
@@ -89,7 +109,12 @@
   },
   {
     "name": "Cherry Beach",
-    "categories": ["Beach", "Outdoors", "Swimming", "Walking"],
+    "categories": [
+      "Beach",
+      "Outdoors",
+      "Swimming",
+      "Walking"
+    ],
     "description": "A quiet lakeside beach with picnic tables and off-leash areas, popular for paddleboarding and sunsets.",
     "reviews": [
       {
@@ -111,7 +136,12 @@
   },
   {
     "name": "Centennial Hill",
-    "categories": ["Park", "Outdoors", "Sledding", "Family"],
+    "categories": [
+      "Park",
+      "Outdoors",
+      "Sledding",
+      "Family"
+    ],
     "description": "A community park known for its large hill, popular in winter for sledding and summer for picnics.",
     "reviews": [
       {
@@ -133,7 +163,12 @@
   },
   {
     "name": "Black Market",
-    "categories": ["Shopping", "Vintage", "Clothing", "Indoors"],
+    "categories": [
+      "Shopping",
+      "Vintage",
+      "Clothing",
+      "Indoors"
+    ],
     "description": "An underground vintage clothing store known for its eclectic fashion, punk energy, and affordable prices.",
     "reviews": [
       {
@@ -155,11 +190,16 @@
   },
   {
     "name": "Expo Vintage",
-    "categories": ["Shopping", "Vintage", "Indoors", "Clothing"],
+    "categories": [
+      "Shopping",
+      "Vintage",
+      "Indoors",
+      "Clothing"
+    ],
     "description": "Curated vintage store offering timeless pieces and rare finds, with a focus on quality and sustainability.",
     "reviews": [
       {
-        "description": "Found an original Levi's denim jacket here!",
+        "description": "Found an original Levi\u0027s denim jacket here!",
         "rating": 4.0,
         "priceRating": 3.0,
         "user": "Stephanie Novak",
@@ -177,7 +217,12 @@
   },
   {
     "name": "Value Village",
-    "categories": ["Shopping", "Vintage", "Budget", "Indoors"],
+    "categories": [
+      "Shopping",
+      "Vintage",
+      "Budget",
+      "Indoors"
+    ],
     "description": "Large-scale thrift store chain offering clothing, household items, books, and more at affordable prices.",
     "reviews": [
       {
@@ -199,7 +244,12 @@
   },
   {
     "name": "Brick Room",
-    "categories": ["Cafe", "Indoors", "Breakfast", "Lunch"],
+    "categories": [
+      "Cafe",
+      "Indoors",
+      "Breakfast",
+      "Lunch"
+    ],
     "description": "A cozy cafe offering a selection of artisanal coffees and pastries in a warm, brick-lined setting.",
     "reviews": [
       {
@@ -221,7 +271,12 @@
   },
   {
     "name": "Boxcar Social Laneway",
-    "categories": ["Cafe", "Indoors", "Breakfast", "Lunch"],
+    "categories": [
+      "Cafe",
+      "Indoors",
+      "Breakfast",
+      "Lunch"
+    ],
     "description": "An intimate cafe inspired by Japanese listening bars, offering specialty coffee and a rotating selection of vinyl records.",
     "reviews": [
       {
@@ -243,7 +298,12 @@
   },
   {
     "name": "Simple Coffee",
-    "categories": ["Cafe", "Indoors", "Breakfast", "Lunch"],
+    "categories": [
+      "Cafe",
+      "Indoors",
+      "Breakfast",
+      "Lunch"
+    ],
     "description": "A minimalist cafe focusing on high-quality, simply roasted coffee beans for the perfect daily brew.",
     "reviews": [
       {
@@ -265,7 +325,12 @@
   },
   {
     "name": "Icha Tea",
-    "categories": ["Cafe", "Indoors", "Breakfast", "Lunch"],
+    "categories": [
+      "Cafe",
+      "Indoors",
+      "Breakfast",
+      "Lunch"
+    ],
     "description": "A premium tea shop offering handcrafted bubble tea beverages and a variety of loose leaf teas.",
     "reviews": [
       {
@@ -287,7 +352,12 @@
   },
   {
     "name": "Matcha Matcha",
-    "categories": ["Cafe", "Indoors", "Breakfast", "Lunch"],
+    "categories": [
+      "Cafe",
+      "Indoors",
+      "Breakfast",
+      "Lunch"
+    ],
     "description": "A dedicated matcha bar serving ceremonial grade matcha drinks and unique flavor combinations.",
     "reviews": [
       {
@@ -309,7 +379,12 @@
   },
   {
     "name": "CN Tower",
-    "categories": ["Landmark", "Tourist", "Indoors", "Outdoors"],
+    "categories": [
+      "Landmark",
+      "Tourist",
+      "Indoors",
+      "Outdoors"
+    ],
     "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
     "reviews": [
       {
@@ -331,7 +406,12 @@
   },
   {
     "name": "Royal Ontario Museum",
-    "categories": ["Museum", "Tourist", "Indoors", "Landmark"],
+    "categories": [
+      "Museum",
+      "Tourist",
+      "Indoors",
+      "Landmark"
+    ],
     "description": "The Royal Ontario Museum is a museum of art, world culture and natural history in Toronto, Ontario, Canada.",
     "reviews": [
       {
@@ -353,7 +433,12 @@
   },
   {
     "name": "Casa Loma",
-    "categories": ["Landmark", "Indoors", "Tourist", "Historic"],
+    "categories": [
+      "Landmark",
+      "Indoors",
+      "Tourist",
+      "Historic"
+    ],
     "description": "Casa Loma is gothic revival-style castle in Toronto built from 1911-14 and a staple of Toronto tourism!",
     "reviews": [
       {
@@ -364,9 +449,9 @@
         "date": "2024-11-28"
       },
       {
-        "description": "I'm a big fan, although there is a lot of walking involved. (Difficult due to my weight)",
+        "description": "I\u0027m a big fan, although there is a lot of walking involved. (Difficult due to my weight)",
         "rating": 3.5,
-        "priceRating": 3,
+        "priceRating": 3.0,
         "user": "Joshua Holzman-Sharfe",
         "date": "2025-01-05"
       }
@@ -375,7 +460,12 @@
   },
   {
     "name": "Wingstop",
-    "categories": ["Restaurant", "DateSpot", "Lunch", "Dinner"],
+    "categories": [
+      "Restaurant",
+      "DateSpot",
+      "Lunch",
+      "Dinner"
+    ],
     "description": "Wingstop Inc. is an American international chain of restaurants that primarily sells buffalo wings. It is often noted for their poor quality and expensive prices.",
     "reviews": [
       {
@@ -386,7 +476,7 @@
         "date": "2024-10-08"
       },
       {
-        "description": "It's alright but a bit pricey.",
+        "description": "It\u0027s alright but a bit pricey.",
         "rating": 3.0,
         "priceRating": 4.0,
         "user": "Jane Smith",
@@ -397,7 +487,12 @@
   },
   {
     "name": "High Park",
-    "categories": ["Scenic", "Walking", "Hiking", "Outdoors"],
+    "categories": [
+      "Scenic",
+      "Walking",
+      "Hiking",
+      "Outdoors"
+    ],
     "description": "High Park is a municipal park in Toronto, Ontario, Canada. High Park is a mixed recreational and natural park, with sporting facilities, cultural facilities, educational facilities, gardens, playgrounds and a zoo. ",
     "reviews": [
       {
@@ -419,7 +514,12 @@
   },
   {
     "name": "Eaton Centre",
-    "categories": ["Shopping", "Mall", "Indoors", "Outdoors"],
+    "categories": [
+      "Shopping",
+      "Mall",
+      "Indoors",
+      "Outdoors"
+    ],
     "description": "CF Toronto Eaton Centre, commonly referred to simply as the Eaton Centre, is a shopping mall and office complex in the downtown core of Toronto, Ontario, Canada. It is owned and managed by Cadillac Fairview.",
     "reviews": [
       {
@@ -430,7 +530,7 @@
         "date": "2025-02-10"
       },
       {
-        "description": "I was turned out of a store when they refused to accept paying in cash! >:(",
+        "description": "I was turned out of a store when they refused to accept paying in cash! \u003e:(",
         "rating": 4.0,
         "priceRating": 3.0,
         "user": "Jhs1336",
@@ -441,7 +541,12 @@
   },
   {
     "name": "Aga Khan Museum",
-    "categories": ["Museum", "Tourist", "Indoors", "Outdoors"],
+    "categories": [
+      "Museum",
+      "Tourist",
+      "Indoors",
+      "Outdoors"
+    ],
     "description": "The Aga Khan Museum is a museum of Islamic art located at 77 Wynford Drive in the North York district of Toronto, Ontario, Canada. The museum is dedicated to Islamic art and objects, and it houses approximately 1,200 rare objects assembled by Shah Karim al-Husayni and Prince Sadruddin Aga Khan.",
     "reviews": [
       {
@@ -463,7 +568,12 @@
   },
   {
     "name": "Kensington Market",
-    "categories": ["Outdoors", "Tourist", "Indoors", "Outdoors"],
+    "categories": [
+      "Outdoors",
+      "Tourist",
+      "Indoors",
+      "Outdoors"
+    ],
     "description": "Kensington Market is a walkable bohemian neighbourhood that draws artists and tourists to its indie shops, vintage boutiques and arts spaces. The Market is also home to a wide array of specialty grocers, bakeries and cheese shops. Hipsters frequent trendy bars, cafes and international restaurants that range from casual to fine dining. Students and families populate Victorian houses along tree-lined streets.",
     "reviews": [
       {
@@ -485,7 +595,12 @@
   },
   {
     "name": "Little Canada",
-    "categories": ["Indoors", "Tourist", "Indoors", "Outdoors"],
+    "categories": [
+      "Indoors",
+      "Tourist",
+      "Indoors",
+      "Outdoors"
+    ],
     "description": "Little Canada, previously known as Our Home and Miniature Land, is a tourist attraction located in the basement of The Tenor, near Yonge–Dundas Square.",
     "reviews": [
       {
@@ -507,8 +622,13 @@
   },
   {
     "name": "Niagara Falls",
-    "categories": ["Landmark", "Outdoors", "Indoors", "Outdoors"],
-    "description": "Niagara Falls, Ontario, is a Canadian city at the famous waterfalls of the same name, linked with the U.S. by the Rainbow Bridge. Its site on the Niagara River's western shore overlooks the Horseshoe Falls, the cascades' most expansive section. ",
+    "categories": [
+      "Landmark",
+      "Outdoors",
+      "Indoors",
+      "Outdoors"
+    ],
+    "description": "Niagara Falls, Ontario, is a Canadian city at the famous waterfalls of the same name, linked with the U.S. by the Rainbow Bridge. Its site on the Niagara River\u0027s western shore overlooks the Horseshoe Falls, the cascades\u0027 most expansive section. ",
     "reviews": [
       {
         "description": "One of the seven modern wonders of the world! If you buy things from the areas around it can get pricey very quick.",
@@ -528,9 +648,14 @@
     "image": "niagarafalls.jpg"
   },
   {
-    "name": "Canada's Wonderland",
-    "categories": ["Indoors", "Outdoors", "Indoors", "Outdoors"],
-    "description": "Canada's Wonderland, formerly known as Paramount Canada's Wonderland, is a 330-acre amusement park located in Vaughan, Ontario, a municipality within the Greater Toronto Area.",
+    "name": "Canada\u0027s Wonderland",
+    "categories": [
+      "Indoors",
+      "Outdoors",
+      "Indoors",
+      "Outdoors"
+    ],
+    "description": "Canada\u0027s Wonderland, formerly known as Paramount Canada\u0027s Wonderland, is a 330-acre amusement park located in Vaughan, Ontario, a municipality within the Greater Toronto Area.",
     "reviews": [
       {
         "description": "Fun with the kids.",
@@ -540,7 +665,7 @@
         "date": "2024-07-15"
       },
       {
-        "description": "I parted the red sea! (At gods command) HAHAHA I'm joking I went on a couple rollercoasters though",
+        "description": "I parted the red sea! (At gods command) HAHAHA I\u0027m joking I went on a couple rollercoasters though",
         "rating": 4.0,
         "priceRating": 3.0,
         "user": "Moses",
@@ -551,8 +676,13 @@
   },
   {
     "name": "Toronto City Hall",
-    "categories": ["Landmark", "Tourist", "Indoors", "Outdoors"],
-    "description": "The Toronto City Hall, or New City Hall, is the seat of the municipal government of Toronto, Ontario, Canada, and one of the city's most distinctive landmarks. Designed by Viljo Revell and engineered by Hannskarl Bandel, the building opened in 1965.",
+    "categories": [
+      "Landmark",
+      "Tourist",
+      "Indoors",
+      "Outdoors"
+    ],
+    "description": "The Toronto City Hall, or New City Hall, is the seat of the municipal government of Toronto, Ontario, Canada, and one of the city\u0027s most distinctive landmarks. Designed by Viljo Revell and engineered by Hannskarl Bandel, the building opened in 1965.",
     "reviews": [
       {
         "description": "I hate this place",

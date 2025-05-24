@@ -334,6 +334,8 @@ public class LocationDetailController extends LocationControllerBase {
                 new Date() // current date
         );
 
+        LocationService.addReview(currentLocation.getName(), newReview);
+
         // add to the location's reviews
         currentLocation.getReviews().add(newReview);
 
@@ -343,7 +345,6 @@ public class LocationDetailController extends LocationControllerBase {
 
         // update the location's average ratings
         updateLocationRatings();
-        System.out.println("Added review: " + rating + " " + priceRating);
     }
 
     private void updateClickableStars(Label[] stars, double value) {

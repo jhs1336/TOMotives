@@ -11,8 +11,10 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 public class LocationService {
@@ -108,4 +110,46 @@ public class LocationService {
 
         return new Location((String) locationMap.get("name"), (String) locationMap.get("description"), averageRating, averagePriceRating, categories, reviewList, (String) locationMap.get("image"));
     }
+
+    public static void addReview(String locationName, Review review) {
+        try {
+            // read the current locations from the file
+            String locationListJson = new String(Files.readAllBytes(Paths.get(locationsFilePath)));
+            Type listType = new TypeToken<ArrayList<Map<String, Object>>>(){}.getType();
+            ArrayList<Map<String, Object>> locations = gson.fromJson(locationListJson, listType);
+
+            // find the location by name
+            for (Map<String, Object> location : locations) {
+                if (location.get("name").equals(locationName)) {
+                    // get the reviews array for this location
+                    ArrayList<Map<String, Object>> reviews = gson.fromJson(gson.toJson(location.get("reviews")), new TypeToken<ArrayList<Map<String, Object>>>(){}.getType());
+
+                    // create a new review map
+                    Map<String, Object> reviewMap = new HashMap<>();
+                    reviewMap.put("description", review.getDescription());
+                    reviewMap.put("rating", review.getRating());
+                    reviewMap.put("priceRating", review.getPriceRating());
+                    reviewMap.put("user", review.getUser());
+
+                    // format the date as yyyy-MM-dd
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    reviewMap.put("date", dateFormat.format(review.getDate()));
+
+                    // add the new review to the reviews array
+                    reviews.add(reviewMap);
+
+                    // update the reviews in the location
+                    location.put("reviews", reviews);
+
+                    // write the updated locations back to the file
+                    Files.write(Paths.get(locationsFilePath), gson.toJson(locations).getBytes());
+
+                    return;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
