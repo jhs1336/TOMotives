@@ -83,7 +83,8 @@ public class LargeLocationCarouselController {
             !location.getCategories().isEmpty() ? location.getCategories().getFirst() : null,
             location.getCategories().size() > 1 ? location.getCategories().get(1) : null,
             location.getCategories().size() > 2 ? location.getCategories().get(2) : null,
-            location.getCategories().size() > 3 ? location.getCategories().get(3) : null);
+            location.getCategories().size() > 3 ? location.getCategories().get(3) : null
+        );
     }
 
     /**Joshua

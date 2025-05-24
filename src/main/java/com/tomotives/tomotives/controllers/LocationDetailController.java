@@ -72,6 +72,7 @@ public class LocationDetailController extends LocationControllerBase {
     }
 
     private void loadLocationData() {
+        // get the location from the page url (ex location-detail-display/High Park)
         currentLocation = LocationService.getLocation(Application.getPage().substring(Application.getPage().indexOf("/") + 1));
         loadLocationData(currentLocation);
     }
@@ -92,17 +93,15 @@ public class LocationDetailController extends LocationControllerBase {
 
         updateStarRating(location.getRating(), starsContainer);
         updatePriceRating(location.getPrice(), priceContainer);
-
         loadReviews(location.getReviews());
     }
 
 
 
     private void loadReviews(List<Review> reviews) {
-        // Clear existing reviews
+        // clear existing reviews
         reviewsContainer.getChildren().clear();
 
-        // Add mock reviews
         for (Review review : reviews) {
             VBox reviewBox = createReviewBox(review);
             reviewsContainer.getChildren().add(reviewBox);
@@ -114,7 +113,7 @@ public class LocationDetailController extends LocationControllerBase {
         reviewBox.getStyleClass().add("review-item");
         reviewBox.setSpacing(5);
 
-        // Review header (author and date)
+        // review header
         HBox headerBox = new HBox();
         headerBox.setSpacing(10);
 
@@ -124,6 +123,7 @@ public class LocationDetailController extends LocationControllerBase {
         Label dateLabel = new Label(dateFormat.format(review.getDate()));
         dateLabel.getStyleClass().add("review-date");
 
+        // stars
         HBox starRatingBox = new HBox();
         starRatingBox.setSpacing(2);
         for (int i = 1; i <= 5; i++) {
@@ -138,6 +138,7 @@ public class LocationDetailController extends LocationControllerBase {
             starRatingBox.getChildren().add(star);
         }
 
+        // price rating
         HBox priceRatingBox = new HBox();
         priceRatingBox.setSpacing(2);
         for (int i = 1; i <= 5; i++) {
@@ -165,7 +166,6 @@ public class LocationDetailController extends LocationControllerBase {
 
     @FXML
     private void handleAddReviewButtonClick(ActionEvent event) {
-
         // if no user is logged in
         if (Application.getUser() == null) {
             Application.showLoginOrSignupPopup("Login to Add Reviews", "You need to be logged in to add reviews", "/location/" + locationName.getText());
@@ -201,8 +201,8 @@ public class LocationDetailController extends LocationControllerBase {
         pricesBox.setAlignment(Pos.CENTER_LEFT);
 
         // final one element array to be used in lambda expressions - represents the value of stars selected
-        final int[] selectedStarRating = {0}; // default is 0 stars
-        final int[] selectedPriceRating = {0};
+        final double[] selectedStarRating = {0}; // default is 0 stars
+        final double[] selectedPriceRating = {0};
         Label[] starLabels = new Label[5];
         Label[] priceLabels = new Label[5];
 
@@ -218,20 +218,40 @@ public class LocationDetailController extends LocationControllerBase {
 
             // set click listeners to set selected value and update displays
             starLabels[i].setOnMouseClicked(e -> {
-                selectedStarRating[0] = value;
-                updateClickableStars(starLabels, value);
+                // check if click is on left half of star
+                if (e.getX() < starLabels[value-1].getWidth() / 2) {
+                    selectedStarRating[0] = value - 0.5;
+                } else {
+                    selectedStarRating[0] = value;
+                }
+                updateClickableStars(starLabels, selectedStarRating[0]);
             });
             priceLabels[i].setOnMouseClicked(e -> {
-                selectedPriceRating[0] = value;
-                updateClickablePrices(priceLabels, value);
+                // check if click is on left half of price label
+                if (e.getX() < priceLabels[value-1].getWidth() / 2) {
+                    selectedPriceRating[0] = value - 0.5;
+                } else {
+                    selectedPriceRating[0] = value;
+                }
+                updateClickablePrices(priceLabels, selectedPriceRating[0]);
             });
 
             // set hover listeners so display can be updated depending on which item is hovered
-            starLabels[i].setOnMouseEntered(e -> {
-                updateClickableStars(starLabels, value);
+            starLabels[i].setOnMouseMoved(e -> {
+                double hoverValue = value;
+                // check if hover is on left half of star
+                if (e.getX() < starLabels[value-1].getWidth() / 2) {
+                    hoverValue = value - 0.5;
+                }
+                updateClickableStars(starLabels, hoverValue);
             });
-            priceLabels[i].setOnMouseEntered(e -> {
-                updateClickablePrices(priceLabels, value);
+            priceLabels[i].setOnMouseMoved(e -> {
+                double hoverValue = value;
+                // check if hover is on left half of price label
+                if (e.getX() < priceLabels[value-1].getWidth() / 2) {
+                    hoverValue = value - 0.5;
+                }
+                updateClickablePrices(priceLabels, hoverValue);
             });
             starsBox.getChildren().add(starLabels[i]);
             pricesBox.getChildren().add(priceLabels[i]);
@@ -305,7 +325,6 @@ public class LocationDetailController extends LocationControllerBase {
         Window window = ((Node) event.getSource()).getScene().getWindow();
         popup.show(window, window.getX() + (window.getWidth() - popupContent.getMinWidth()) / 2, window.getY() + (window.getHeight() - 300) / 2);
     }
-
     private void addReview(String description, double rating, double priceRating, String user) {
         Review newReview = new Review(
                 description,
@@ -324,26 +343,35 @@ public class LocationDetailController extends LocationControllerBase {
 
         // update the location's average ratings
         updateLocationRatings();
+        System.out.println("Added review: " + rating + " " + priceRating);
     }
 
-    private void updateClickableStars(Label[] stars, int value) {
+    private void updateClickableStars(Label[] stars, double value) {
         for (int i = 0; i < stars.length; i++) {
-            stars[i].getStyleClass().removeAll("filled-star", "empty-star");
-            if (i < value) {
+            stars[i].getStyleClass().removeAll("filled-star", "half-star", "empty-star");
+            if (i+1 <= value) {
                 stars[i].getStyleClass().add("filled-star");
             } else {
-                stars[i].getStyleClass().add("empty-star");
+                if (value + 0.5 >= (i+1)) {
+                    stars[i].getStyleClass().add("half-star");
+                } else {
+                    stars[i].getStyleClass().add("empty-star");
+                }
             }
         }
     }
 
-    private void updateClickablePrices(Label[] prices, int value) {
+    private void updateClickablePrices(Label[] prices, double value) {
         for (int i = 0; i < prices.length; i++) {
-            prices[i].getStyleClass().removeAll("filled-price", "empty-price");
-            if (i < value) {
+            prices[i].getStyleClass().removeAll("filled-price", "half-price", "empty-price");
+            if (i+1 <= value) {
                 prices[i].getStyleClass().add("filled-price");
             } else {
-                prices[i].getStyleClass().add("empty-price");
+                if (value + 0.5 >= (i+1)) {
+                    prices[i].getStyleClass().add("half-price");
+                } else {
+                    prices[i].getStyleClass().add("empty-price");
+                }
             }
         }
     }
