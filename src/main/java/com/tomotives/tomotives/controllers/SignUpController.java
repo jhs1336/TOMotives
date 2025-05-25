@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.tomotives.tomotives.Application;
 import com.tomotives.tomotives.models.User;
 import com.tomotives.tomotives.services.ToastService;
 import com.tomotives.tomotives.services.UserService;
@@ -48,6 +49,9 @@ public class SignUpController {
     private ResizableImageController resizableImageController;
 
     @FXML
+    private ToolbarController toolbarController;
+
+    @FXML
     private void initialize() {
         resizableImageController.resize(resizableImage.getFitWidth(), resizableImage.getFitHeight());
         resizableImageController.applyRoundedCorners(60);
@@ -60,9 +64,15 @@ public class SignUpController {
         boolean isValid = validateInputs();
 
         if (isValid) {
-            UserService.addUser(new User(emailField.getText(), firstNameField.getText(), lastNameField.getText(),  passwordField.getText(), displayNameField.getText()));
+            User user = new User(emailField.getText(), firstNameField.getText(), lastNameField.getText(),  passwordField.getText(), displayNameField.getText());
+            UserService.addUser(user);
 
-            // will take the account to the quiz to see their preferences
+            Application.setUser(user);
+            toolbarController.refreshToolbar();
+
+            // check if we're on the signup page with no additional params, (no page specified to route to after signing up)
+            if (Application.getPage().equals("sign-up")) Application.loadPage("home.fxml"); // TODO: change to intro survey
+            else if (Application.getPage().split("/")[1].equals("location")) Application.loadPage("location-detail-display.fxml", "location-detail-display/" + Application.getPage().split("/")[2]);
             ToastService.show(getStage(), "Created Account", ToastController.ToastType.SUCCESS);
         }
     }

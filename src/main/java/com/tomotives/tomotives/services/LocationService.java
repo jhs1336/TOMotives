@@ -92,7 +92,7 @@ public class LocationService {
     }
 
     public static void addReview(String locationName, Review review) {
-        if (Files.exists(Paths.get(LOCATIONS_FILE_PATH))) return;
+        if (!Files.exists(Paths.get(LOCATIONS_FILE_PATH))) return;
 
         try {
             // read the current locations from the file
@@ -114,6 +114,7 @@ public class LocationService {
                         "user", review.getUser(),
                         "date", new SimpleDateFormat("yyyy-MM-dd").format(review.getDate())
                     );
+                    System.out.println(reviewMap);
                     // add the new review to the reviews array
                     reviews.add(reviewMap);
 

@@ -39,8 +39,9 @@ public class LoginController {
         String email = emailField.getText();
         String password = passwordField.getText();
 
-        if (UserService.getUserFromEmail(email) != null) {
-            if (UserService.getUserFromEmail(email).getPassword().equals(password)) {
+        User user = UserService.getUserFromEmail(email);
+        if (user != null) {
+            if (user.getPassword().equals(password)) {
                 ToastService.show(getStage(), "Login successful", ToastController.ToastType.SUCCESS);
                 Application.setUser(UserService.getUserFromEmail(email));
                 toolbarController.refreshToolbar();

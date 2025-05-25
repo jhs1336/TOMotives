@@ -80,8 +80,8 @@ public class LocationDetailController extends LocationControllerBase {
         locationName.setText(location.getName());
         locationImageController.setImage(new Image(Application.getResourceAsStream("images/" + location.getImage())));
         locationImageController.resize(locationImage.getFitWidth(), locationImage.getFitHeight());
-        starRatingLabel.setText(String.valueOf(location.getRating()));
-        priceRatingLabel.setText(String.valueOf(location.getPrice()));
+        starRatingLabel.setText(String.format("%.1f", location.getRating()));
+        priceRatingLabel.setText(String.format("%.1f", location.getPrice()));
         descriptionText.setText(location.getDescription());
 
         for (int i = 0; i < filterHBox.getChildren().size(); i++) {
