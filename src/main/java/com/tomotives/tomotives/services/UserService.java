@@ -1,23 +1,28 @@
 package com.tomotives.tomotives.services;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
+import com.tomotives.tomotives.Application;
 import com.tomotives.tomotives.models.User;
 
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class UserService {
-    private static String usersFilePath = "src/main/resources/com/tomotives/tomotives/data/users.json";
+    private final static String USERS_FILE_PATH = "src/main/resources/com/tomotives/tomotives/data/users.json";
     private static Gson gson = new Gson();
 
     public static ArrayList<Object> getUserObjectList() {
         try {
-            String userList = new String(Files.readAllBytes(Paths.get(usersFilePath)));
+            String userList = new String(Files.readAllBytes(Paths.get(USERS_FILE_PATH)));
             Type listType = new TypeToken<ArrayList<Object>>(){}.getType();
             ArrayList<Object> users = gson.fromJson(userList, listType);
             return users;
@@ -56,5 +61,32 @@ public class UserService {
             }
         }
         return null;
+    }
+
+    public static void addUser(User user) {
+        if (!Files.exists(Paths.get(USERS_FILE_PATH))) return;
+
+        Map<String, Object> userMap = Map.of(
+            "email", user.getEmail(),
+            "password", user.getPassword(),
+            "firstName", user.getFirstName(),
+            "lastName", user.getLastName(),
+            "displayName", user.getDisplayName(),
+            "favourites", user.getFavourites(),
+            "recentLocations", user.getRecentLocations(),
+            "friends", user.getFriends()
+        );
+        try {
+            ArrayList<Map<String, Object>> users;
+            // read the current users from the file
+            String userListJson = new String(Files.readAllBytes(Paths.get(USERS_FILE_PATH)));
+            Type listType = new TypeToken<ArrayList<Map<String, Object>>>(){}.getType();
+            users = gson.fromJson(userListJson, listType);
+
+            users.add(userMap);
+            Files.write(Paths.get(USERS_FILE_PATH), gson.toJson(users).getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

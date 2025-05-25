@@ -4,7 +4,9 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.tomotives.tomotives.models.User;
 import com.tomotives.tomotives.services.ToastService;
+import com.tomotives.tomotives.services.UserService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -58,40 +60,7 @@ public class SignUpController {
         boolean isValid = validateInputs();
 
         if (isValid) {
-            Gson gson = new Gson();
-            JsonObject userJson = new JsonObject();
-            userJson.addProperty("email", emailField.getText());
-            userJson.addProperty("password", passwordField.getText());
-            userJson.addProperty("firstName", firstNameField.getText());
-            userJson.addProperty("lastName", lastNameField.getText());
-            userJson.addProperty("displayName", displayNameField.getText());
-            userJson.add("favorites", new JsonArray());
-            userJson.add("recentlyViewed", new JsonArray());
-            userJson.add("friends", new JsonArray());
-
-            String json = gson.toJson(userJson);
-            try {
-                JsonArray usersJson;
-                File usersFile = new File(getClass().getResource("/com/tomotives/tomotives/data/users.json").getFile());
-                if (usersFile.exists()) {
-                    Reader reader = new FileReader(usersFile);
-                    usersJson = gson.fromJson(reader, JsonArray.class);
-                    System.out.println("Users JSON: " + usersJson);
-                    reader.close();
-                } else {
-                    usersJson = new JsonArray();
-                }
-
-                usersJson.add(gson.fromJson(json, JsonElement.class));
-
-                FileWriter writer = new FileWriter(usersFile);
-                System.out.println("Writing to file: " + usersJson);
-                gson.toJson(usersJson, writer);
-                writer.close();
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            UserService.addUser(new User(emailField.getText(), firstNameField.getText(), lastNameField.getText(),  passwordField.getText(), displayNameField.getText()));
 
             // will take the account to the quiz to see their preferences
             ToastService.show(getStage(), "Created Account", ToastController.ToastType.SUCCESS);
@@ -125,8 +94,17 @@ public class SignUpController {
             return false;
         }
 
-        if(displayNameField.getText().isEmpty()) {
+        if (displayNameField.getText().isEmpty()) {
             showError("Display name is required");
+            return false;
+        }
+
+        if (UserService.getUserFromEmail(emailField.getText()) != null) {
+            showError("Email already in use.");
+            return false;
+        }
+        if (UserService.getUserFromDisplayName(displayNameField.getText()) != null) {
+            showError("Display name already in use.");
             return false;
         }
 

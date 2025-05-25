@@ -98,11 +98,11 @@
     "password": "redSea123",
     "displayName": "Moses",
     "favourites": [
-      "Canada's Wonderland"
+      "Canada\u0027s Wonderland"
     ],
     "recentLocations": [
       "Toronto City Hall",
-      "Canada's Wonderland"
+      "Canada\u0027s Wonderland"
     ],
     "friends": [
       "JamesWil"
@@ -114,8 +114,7 @@
     "lastName": "Wilson",
     "password": "pass123456",
     "displayName": "JamesWil",
-    "favourites": [
-    ],
+    "favourites": [],
     "recentLocations": [
       "CN Tower",
       "Royal Ontario Museum"
@@ -138,8 +137,7 @@
       "Icha Tea",
       "Royal Ontario Museum"
     ],
-    "friends": [
-    ]
+    "friends": []
   },
   {
     "email": "emmettcassan@gmail.com",
@@ -155,8 +153,7 @@
       "Icha Tea",
       "Value Village"
     ],
-    "friends": [
-    ]
+    "friends": []
   },
   {
     "email": "saulmesbur@gmail.com",
@@ -164,14 +161,12 @@
     "lastName": "Mesbur",
     "password": "12345678qwerty",
     "displayName": "SaulMesbur",
-    "favourites": [
-    ],
+    "favourites": [],
     "recentLocations": [
       "Boxcar Social Laneway",
       "Simple Coffee"
     ],
-    "friends": [
-    ]
+    "friends": []
   },
   {
     "email": "davidchen@gmail.com",
@@ -179,8 +174,7 @@
     "lastName": "Chen",
     "password": "freudisthegoat2",
     "displayName": "DaveCh",
-    "favourites": [
-    ],
+    "favourites": [],
     "recentLocations": [
       "Icha Tea",
       "Brick Room"

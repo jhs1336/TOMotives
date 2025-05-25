@@ -66,15 +66,16 @@ public class LargeLocationCarouselController {
 
     public void addLocationDisplay(String locationName, String imageUrl, double starRating, double priceRating, Category filter1, Category filter2, Category filter3, Category filter4) {
         // configure the location to display data given
-        Map<String, Object> locationData = new HashMap<>();
-        locationData.put("name", locationName);
-        locationData.put("image", imageUrl);
-        locationData.put("rating", starRating);
-        locationData.put("price", priceRating);
-        locationData.put("filter1", filter1);
-        locationData.put("filter2", filter2);
-        locationData.put("filter3", filter3);
-        locationData.put("filter4", filter4);
+        Map<String, Object> locationData = Map.of(
+            "name", locationName,
+            "image", imageUrl,
+            "rating", starRating,
+            "price", priceRating,
+            "filter1", filter1,
+            "filter2", filter2,
+            "filter3", filter3,
+            "filter4", filter4
+        );
         locationDisplays.add(locationData);
         updateCarousel();
     }

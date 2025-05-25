@@ -5,7 +5,6 @@ import com.google.gson.reflect.TypeToken;
 import com.tomotives.tomotives.models.Category;
 import com.tomotives.tomotives.models.Location;
 import com.tomotives.tomotives.models.Review;
-import com.tomotives.tomotives.models.User;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -18,27 +17,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LocationService {
-    private static String locationsFilePath = "src/main/resources/com/tomotives/tomotives/data/locations.json";
+    private final static String LOCATIONS_FILE_PATH = "src/main/resources/com/tomotives/tomotives/data/locations.json";
     private static Gson gson = new Gson();
-
-    // dont use
-//    public static Location getLocation() {
-//        try {
-//            String locationList = new String(Files.readAllBytes(Paths.get(locationsFilePath)));
-//            Type listType = new TypeToken<ArrayList<Object>>(){}.getType();
-//            ArrayList<Object> locations = gson.fromJson(locationList, listType);
-//            String locationJson = gson.toJson(locations.get(0));
-//
-//            Type mapType = new TypeToken<Map<String, Object>>(){}.getType();
-//            Map<String, Object> locationMap = gson.fromJson(locationJson, mapType);
-//
-//            return getLocationFromMap(locationMap);
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
 
     /**Joshua
      * Retrieves a list of location objects, as type Object from the locations JSON file
@@ -47,7 +27,7 @@ public class LocationService {
      */
     public static ArrayList<Object> getLocationObjectList() {
         try {
-            String locationList = new String(Files.readAllBytes(Paths.get(locationsFilePath)));
+            String locationList = new String(Files.readAllBytes(Paths.get(LOCATIONS_FILE_PATH)));
             Type listType = new TypeToken<ArrayList<Object>>(){}.getType();
             ArrayList<Object> locations = gson.fromJson(locationList, listType);
             return locations;
@@ -112,9 +92,11 @@ public class LocationService {
     }
 
     public static void addReview(String locationName, Review review) {
+        if (Files.exists(Paths.get(LOCATIONS_FILE_PATH))) return;
+
         try {
             // read the current locations from the file
-            String locationListJson = new String(Files.readAllBytes(Paths.get(locationsFilePath)));
+            String locationListJson = new String(Files.readAllBytes(Paths.get(LOCATIONS_FILE_PATH)));
             Type listType = new TypeToken<ArrayList<Map<String, Object>>>(){}.getType();
             ArrayList<Map<String, Object>> locations = gson.fromJson(locationListJson, listType);
 
@@ -125,16 +107,13 @@ public class LocationService {
                     ArrayList<Map<String, Object>> reviews = gson.fromJson(gson.toJson(location.get("reviews")), new TypeToken<ArrayList<Map<String, Object>>>(){}.getType());
 
                     // create a new review map
-                    Map<String, Object> reviewMap = new HashMap<>();
-                    reviewMap.put("description", review.getDescription());
-                    reviewMap.put("rating", review.getRating());
-                    reviewMap.put("priceRating", review.getPriceRating());
-                    reviewMap.put("user", review.getUser());
-
-                    // format the date as yyyy-MM-dd
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                    reviewMap.put("date", dateFormat.format(review.getDate()));
-
+                    Map<String, Object> reviewMap = Map.of(
+                        "description", review.getDescription(),
+                        "rating", review.getRating(),
+                        "priceRating", review.getPriceRating(),
+                        "user", review.getUser(),
+                        "date", new SimpleDateFormat("yyyy-MM-dd").format(review.getDate())
+                    );
                     // add the new review to the reviews array
                     reviews.add(reviewMap);
 
@@ -142,7 +121,7 @@ public class LocationService {
                     location.put("reviews", reviews);
 
                     // write the updated locations back to the file
-                    Files.write(Paths.get(locationsFilePath), gson.toJson(locations).getBytes());
+                    Files.write(Paths.get(LOCATIONS_FILE_PATH), gson.toJson(locations).getBytes());
 
                     return;
                 }
