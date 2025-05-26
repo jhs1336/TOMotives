@@ -117,7 +117,7 @@ public class LocationDetailController extends LocationControllerBase {
         HBox headerBox = new HBox();
         headerBox.setSpacing(10);
 
-        Label authorLabel = new Label(review.getUser());
+        Hyperlink authorLabel = new Hyperlink(review.getUser());
         authorLabel.getStyleClass().add("review-author");
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM d, yyyy");
         Label dateLabel = new Label(dateFormat.format(review.getDate()));
