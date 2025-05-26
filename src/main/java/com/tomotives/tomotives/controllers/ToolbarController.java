@@ -88,7 +88,6 @@ public class ToolbarController {
 //            profileMenuItem.setOnAction(e -> Application.loadPage("profile.fxml"));
             logoutMenuItem.setOnAction(e -> {
                 Application.setUser(null);
-                Application.loadPage("login.fxml");
                 refreshToolbar();
             });
 
