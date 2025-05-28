@@ -17,28 +17,28 @@
             <VBox prefWidth="400.0" spacing="30.0">
                 <VBox spacing="8.0">
                     <Label styleClass="field-label" text="Display name" />
-                    <TextField prefHeight="40.0" styleClass="form-field" />
+                    <TextField fx:id="displayNameTextField" prefHeight="40.0" styleClass="form-field" />
                 </VBox>
 
                 <HBox spacing="20.0">
                     <VBox spacing="8.0" HBox.hgrow="ALWAYS">
                         <Label styleClass="field-label" text="First name" />
-                        <TextField prefHeight="40.0" styleClass="form-field" />
+                        <TextField fx:id="firstNameTextField" prefHeight="40.0" styleClass="form-field" />
                     </VBox>
                     <VBox spacing="8.0" HBox.hgrow="ALWAYS">
                         <Label styleClass="field-label" text="Last name" />
-                        <TextField prefHeight="40.0" styleClass="form-field" />
+                        <TextField fx:id="lastNameField" prefHeight="40.0" styleClass="form-field" />
                     </VBox>
                 </HBox>
 
                 <HBox spacing="20.0">
                     <VBox spacing="8.0" HBox.hgrow="ALWAYS">
                         <Label styleClass="field-label" text="Email" />
-                        <TextField prefHeight="40.0" styleClass="form-field" />
+                        <TextField fx:id="emailTextField" prefHeight="40.0" styleClass="form-field" />
                     </VBox>
                     <VBox spacing="8.0" HBox.hgrow="ALWAYS">
                         <Label styleClass="field-label" text="Password" />
-                        <PasswordField prefHeight="40.0" styleClass="form-field" />
+                        <PasswordField fx:id="passwordTextField" prefHeight="40.0" styleClass="form-field" />
                     </VBox>
                 </HBox>
 
