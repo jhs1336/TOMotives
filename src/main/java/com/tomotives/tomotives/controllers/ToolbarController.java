@@ -80,12 +80,14 @@ public class ToolbarController {
             ContextMenu contextMenu = new ContextMenu();
             MenuItem profileMenuItem = new MenuItem("Profile");
             MenuItem logoutMenuItem = new MenuItem("Log Out");
+            profileMenuItem.getStyleClass().add("button");
+            logoutMenuItem.getStyleClass().add("button");
             profileMenuItem.setStyle("-fx-font-size: 14px;");
             logoutMenuItem.setStyle("-fx-text-fill: red; -fx-font-size: 14px;");
             contextMenu.setStyle("-fx-padding: 5px; -fx-border-color: #00a0b0; -fx-background-radius: 5px; -fx-border-radius: 5px;");
 
 
-//            profileMenuItem.setOnAction(e -> Application.loadPage("profile.fxml"));
+            profileMenuItem.setOnAction(e -> Application.loadPage("profile.fxml"));
             logoutMenuItem.setOnAction(e -> {
                 Application.setUser(null);
                 refreshToolbar();
