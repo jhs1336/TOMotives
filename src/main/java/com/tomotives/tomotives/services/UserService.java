@@ -76,6 +76,9 @@ public class UserService {
         // return using the FriendStatus enum based on the results
         return null;
     }
+    public static FriendStatus getUserFriendshipStatus(String userDisplayName, String otherUserDisplayName) {
+        return getUserFriendshipStatus(getUserFromDisplayName(userDisplayName), getUserFromDisplayName(otherUserDisplayName));
+    }
 
     public static void addUser(User user) {
         if (!Files.exists(Paths.get(USERS_FILE_PATH))) return;
