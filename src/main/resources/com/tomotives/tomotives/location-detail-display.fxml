@@ -20,7 +20,10 @@
                                     <VBox prefWidth="600.0" spacing="15.0" styleClass="panel">
                                         <children>
                                             <fx:include fx:id="locationImage" fitHeight="350" fitWidth="575" source="resizable-image.fxml" />
-                                            <Label fx:id="locationName" style="-fx-font-size: 28px; -fx-font-weight: bold;" text="Location Name" />
+                                            <HBox spacing="10">
+                                                <Label fx:id="locationName" style="-fx-font-size: 28px; -fx-font-weight: bold;" text="Location Name" />
+                                                <Label fx:id="heartLabel" styleClass="heart-button" text="♥" />
+                                            </HBox>
                                             <HBox fx:id="filterHBox" spacing="10.0">
                                                 <children>
                                                     <Button mnemonicParsing="false" style="-fx-font-size: 16px;" styleClass="filter-button" text="Filter 1" />

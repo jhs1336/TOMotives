@@ -4,6 +4,7 @@ import com.tomotives.tomotives.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 
 public class ProfileController {
     @FXML
@@ -16,6 +17,8 @@ public class ProfileController {
     TextField lastNameField;
     @FXML
     PasswordField passwordTextField;
+    @FXML
+    public VBox friendsBox;
 
     @FXML
     private void initialize() {
@@ -25,6 +28,7 @@ public class ProfileController {
         lastNameField.setText(Application.getUser().getLastName());
         passwordTextField.setText(Application.getUser().getPassword());
 
-
+        // add friends to box
     }
+
 }

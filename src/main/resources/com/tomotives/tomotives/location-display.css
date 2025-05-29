@@ -106,3 +106,8 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 3, 0, 0, 0);
 }
 
+.heart-button {
+    -fx-font-size: 34px;
+    -fx-cursor: hand;
+}
+

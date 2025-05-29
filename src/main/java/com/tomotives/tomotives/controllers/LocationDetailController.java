@@ -6,15 +6,14 @@ import com.tomotives.tomotives.models.Location;
 import com.tomotives.tomotives.models.Review;
 import com.tomotives.tomotives.services.LocationService;
 import com.tomotives.tomotives.services.ToastService;
+import com.tomotives.tomotives.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.geometry.Insets;
 import javafx.scene.layout.HBox;
@@ -22,17 +21,16 @@ import javafx.scene.layout.Priority;
 import javafx.stage.Popup;
 import javafx.stage.Window;
 
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
 
 import static com.tomotives.tomotives.Application.HOVER_BUTTON_STYLE;
 import static com.tomotives.tomotives.Application.NORMAL_BUTTON_STYLE;
 
 public class LocationDetailController extends LocationControllerBase {
+    private final String FAVOURITED_COLOR_STYLE = "-fx-text-fill: #ED4956;";
+    private final String NOT_FAVOURITED_COLOR_STYLE = "-fx-text-fill: #CCCCCC;";
 
     @FXML
     private ImageView locationImage;
@@ -41,6 +39,8 @@ public class LocationDetailController extends LocationControllerBase {
 
     @FXML
     private Label locationName;
+    @FXML
+    private Label heartLabel;
 
     @FXML
     private HBox priceContainer;
@@ -69,6 +69,37 @@ public class LocationDetailController extends LocationControllerBase {
         locationImageController.resize(locationImage.getFitWidth(), locationImage.getFitHeight());
         locationImageController.applyRoundedCorners(10);
         loadLocationData();
+
+        if (Application.getUser() == null || !Application.getUser().getFavourites().contains(currentLocation.getName())) heartLabel.setStyle(NOT_FAVOURITED_COLOR_STYLE);
+        else heartLabel.setStyle(FAVOURITED_COLOR_STYLE);
+
+        heartLabel.setOnMouseClicked(event -> {
+            if (Application.getUser() == null) Application.showLoginOrSignupPopup("/location/" + locationName.getText());
+            else {
+                // add to favourites
+                if (Application.getUser().getFavourites().contains(currentLocation.getName())) {
+                    Application.getUser().getFavourites().remove(currentLocation.getName());
+                    heartLabel.setStyle(NOT_FAVOURITED_COLOR_STYLE);
+                } else {
+                    Application.getUser().getFavourites().add(currentLocation.getName());
+                    heartLabel.setStyle(FAVOURITED_COLOR_STYLE);
+                }
+                UserService.addOrRemoveUserFavourite(Application.getUser().getDisplayName(), currentLocation.getName());
+            }
+
+        });
+        heartLabel.setOnMouseExited(event -> {
+            if (Application.getUser() == null || !Application.getUser().getFavourites().contains(currentLocation.getName())) heartLabel.setStyle(NOT_FAVOURITED_COLOR_STYLE);
+            else heartLabel.setStyle(FAVOURITED_COLOR_STYLE);
+        });
+        heartLabel.setOnMouseMoved(event -> {
+            if (Application.getUser() == null || !Application.getUser().getFavourites().contains(currentLocation.getName())) heartLabel.setStyle(FAVOURITED_COLOR_STYLE);
+            else heartLabel.setStyle(NOT_FAVOURITED_COLOR_STYLE);
+        });
+
+        if (Application.getUser() != null) {
+            UserService.addRecentLocationToUser(Application.getUser().getDisplayName(), currentLocation.getName());
+        }
     }
 
     private void loadLocationData() {
