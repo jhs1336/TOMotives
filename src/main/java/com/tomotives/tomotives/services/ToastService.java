@@ -47,7 +47,7 @@ public class ToastService {
         Platform.runLater(() -> {
             try {
                 // load the FXML
-                FXMLLoader loader = new FXMLLoader(ToastController.class.getResource("toast.fxml"));
+                FXMLLoader loader = new FXMLLoader(Application.getResource("toast.fxml"));
                 StackPane root = loader.load();
 
                 // create and configure the controller

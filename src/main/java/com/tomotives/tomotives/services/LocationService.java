@@ -114,7 +114,7 @@ public class LocationService {
                         "user", review.getUser(),
                         "date", new SimpleDateFormat("yyyy-MM-dd").format(review.getDate())
                     );
-                    System.out.println(reviewMap);
+
                     // add the new review to the reviews array
                     reviews.add(reviewMap);
 

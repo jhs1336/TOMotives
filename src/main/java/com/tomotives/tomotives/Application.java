@@ -1,6 +1,9 @@
 package com.tomotives.tomotives;
 
 import com.tomotives.tomotives.models.User;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -8,12 +11,17 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -103,6 +111,9 @@ public class Application extends javafx.application.Application {
         popupContent.setPadding(new Insets(20));
         popupContent.setMinWidth(400);
         popupContent.setMaxWidth(500);
+        popupContent.setOpacity(0);
+//        popupContent.setScaleX(0.0);
+//        popupContent.setScaleY(0.0);
 
         Label titleLabel = new Label(title);
         titleLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
@@ -174,6 +185,21 @@ public class Application extends javafx.application.Application {
         // show the popup
         Window window = scene.getWindow();
         popup.show(window, window.getX() + (window.getWidth() - popupContent.getMinWidth()) / 2, window.getY() + (window.getHeight() - 300) / 2);
+
+        // animation for popup appearance
+        Timeline fadeIn = new Timeline(
+            new KeyFrame(Duration.ZERO,
+//                new KeyValue(popupContent.scaleXProperty(), 0.0),
+//                new KeyValue(popupContent.scaleYProperty(), 1.0),
+                new KeyValue(popupContent.opacityProperty(), 0)
+            ),
+            new KeyFrame(Duration.millis(200),
+//                new KeyValue(popupContent.scaleXProperty(), 1),
+//                new KeyValue(popupContent.scaleYProperty(), 1),
+                    new KeyValue(popupContent.opacityProperty(), 1)
+            )
+        );
+        fadeIn.play();
     }
     public static void showLoginOrSignupPopup(String pagePath) {
         showLoginOrSignupPopup("Login or Sign Up", "Please login or sign up to continue", pagePath);

@@ -376,6 +376,8 @@ public class LocationDetailController extends LocationControllerBase {
 
         // update the location's average ratings
         updateLocationRatings();
+
+        ToastService.show(Application.getStage(), "Review added successfully", ToastController.ToastType.SUCCESS);
     }
 
     private void updateClickableStars(Label[] stars, double value) {
