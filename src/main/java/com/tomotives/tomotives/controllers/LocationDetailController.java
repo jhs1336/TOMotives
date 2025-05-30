@@ -133,6 +133,9 @@ public class LocationDetailController extends LocationControllerBase {
         // clear existing reviews
         reviewsContainer.getChildren().clear();
 
+        // sort reviews by date (newest first so they will be at top of review list)
+        reviews.sort((r1, r2) -> r2.getDate().compareTo(r1.getDate()));
+
         for (Review review : reviews) {
             VBox reviewBox = createReviewBox(review);
             reviewsContainer.getChildren().add(reviewBox);

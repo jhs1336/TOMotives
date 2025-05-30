@@ -50,6 +50,16 @@ public class LocationService {
         }
         return locations;
     }
+    public static ArrayList<String> getLocationNamesList() {
+        ArrayList<Object> locationList = getLocationObjectList();
+        ArrayList<String> locations = new ArrayList<>();
+        Type mapType = new TypeToken<Map<String, Object>>(){}.getType();
+        for (Object locationObject : locationList) {
+            Map<String, Object> locationMap = gson.fromJson(gson.toJson(locationObject), mapType);
+            locations.add((String) locationMap.get("name"));
+        }
+        return locations;
+    }
 
     public static Location getLocation(String name) {
         for (Location location : getLocationList()) {

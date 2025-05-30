@@ -1,9 +1,13 @@
 package com.tomotives.tomotives.controllers;
 
 import com.tomotives.tomotives.Application;
+import com.tomotives.tomotives.services.LocationService;
 import javafx.fxml.FXML;
 import javafx.geometry.Side;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+
+import java.util.ArrayList;
 
 public class ToolbarController {
     @FXML
@@ -35,7 +39,49 @@ public class ToolbarController {
         loginAndProfileButton.setOnAction(event -> handleLoginAndProfileButtonClick());
 
         refreshToolbar();
-    }
+
+        // set up search field autocomplete
+        ContextMenu searchContextMenu = new ContextMenu();
+        searchContextMenu.setStyle("-fx-background-color: white; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 3);");
+        searchField.setContextMenu(searchContextMenu);
+
+        // add listener for each time the text is changed
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == null || newValue.isEmpty()) {
+                searchContextMenu.hide();
+                return;
+            }
+            // if there is text, clear current items
+            searchContextMenu.getItems().clear();
+            ArrayList<String> locations = LocationService.getLocationNamesList();
+
+            for (String location : locations) {
+                // if location contains the current text, add as a menu item
+                if (location.toLowerCase().contains(newValue.toLowerCase())) {
+                    MenuItem item = new MenuItem(location);
+                    item.setStyle("-fx-padding: 8; -fx-font-size: 14px; -fx-border-radius: 20;");
+                    item.getStyleClass().add("button");
+                    item.setOnAction(event -> {
+                        Application.loadPage("location-detail-display.fxml", "location-detail-display/" + location);
+                        searchContextMenu.hide();
+                    });
+                    // restrict amount of items to 15 (they will go off screen if there are more)
+                    if (searchContextMenu.getItems().size() < 15) searchContextMenu.getItems().add(item);
+                }
+            }
+
+            if (!searchContextMenu.getItems().isEmpty() && searchField.isFocused()) {
+                searchContextMenu.show(searchField, Side.BOTTOM, 0, 0);
+            } else {
+                searchContextMenu.hide();
+            }
+        });
+
+        searchField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                searchContextMenu.hide();
+            }
+        });    }
 
     public void refreshToolbar() {
         boolean userLoggedIn = Application.getUser() != null;
