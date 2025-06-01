@@ -348,8 +348,21 @@ public class LocationDetailController extends LocationControllerBase {
         });
 
         buttonBox.getChildren().addAll(cancelButton, submitButton);
+
+        // for popup content structure
+        VBox buttonVBox = new VBox();
+        buttonVBox.setAlignment(Pos.BOTTOM_RIGHT);
+        buttonVBox.getChildren().add(buttonBox);
+
+        VBox ratingVBox = new VBox();
+        ratingVBox.getChildren().addAll(starRatingBox, priceRatingBox);
+
+        HBox bottomBox = new HBox();
+        HBox.setHgrow(buttonVBox, Priority.ALWAYS);
+        bottomBox.getChildren().addAll(ratingVBox, buttonVBox);
+
         // add all components to the popup content
-        popupContent.getChildren().addAll(titleLabel, starRatingBox, priceRatingBox, reviewTextArea, buttonBox);
+        popupContent.getChildren().addAll(titleLabel, reviewTextArea, bottomBox);
 
         popupContent.setStyle("-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);");
         // add content to popup

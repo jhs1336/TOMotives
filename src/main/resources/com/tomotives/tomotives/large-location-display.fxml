@@ -17,16 +17,9 @@
             <VBox minWidth="160" prefWidth="160" spacing="5.0">
                 <Hyperlink fx:id="locationNameLabel" styleClass="location-name" text="Location Name" wrapText="true" />
 
-                <GridPane hgap="5" vgap="5">
-                    <fx:include fx:id="smallImage1" fitHeight="50" fitWidth="75" source="resizable-image.fxml" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                    <fx:include fx:id="smallImage2" fitHeight="50" fitWidth="75" source="resizable-image.fxml" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                    <fx:include fx:id="smallImage3" fitHeight="50" fitWidth="75" source="resizable-image.fxml" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                    <fx:include fx:id="smallImage4" fitHeight="50" fitWidth="75" source="resizable-image.fxml" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                </GridPane>
-
 
                 <!-- Star rating section -->
-                <HBox fx:id="starsContainer" spacing="5">
+                <HBox fx:id="starsContainer" spacing="5" alignment="BOTTOM_CENTER" VBox.vgrow="ALWAYS">
                     <children>
                         <Label style="-fx-font-size: 18px;" text="★" />
                         <Label style="-fx-font-size: 18px;" text="★" />
@@ -38,7 +31,7 @@
                 </HBox>
 
                 <!-- Dollar sign rating section -->
-                <HBox fx:id="priceContainer" spacing="10">
+                <HBox fx:id="priceContainer" spacing="10" alignment="BOTTOM_CENTER">
                     <children>
                         <Label style="-fx-font-size: 21px;" styleClass="filled-price" text="\$" />
                         <Label style="-fx-font-size: 21px;" styleClass="filled-price" text="\$" />
@@ -50,7 +43,7 @@
                 </HBox>
 
                 <!-- Filters -->
-                <VBox spacing="8">
+                <VBox spacing="8" alignment="BOTTOM_CENTER">
                     <HBox spacing="8">
                         <Button fx:id="filter1Button" styleClass="filter-button" text="Filter 1" />
                         <Button fx:id="filter2Button" styleClass="filter-button" text="Filter 2" />
@@ -61,7 +54,7 @@
                     </HBox>
                 </VBox>
             <padding>
-               <Insets top="5.0" />
+               <Insets top="5.0" bottom="5.0" />
             </padding>
             </VBox>
         </HBox>
