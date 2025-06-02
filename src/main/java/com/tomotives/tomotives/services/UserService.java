@@ -60,22 +60,45 @@ public class UserService {
     }
 
     public static ArrayList<User> getUserFriends(User user) {
-        // given the user, loop through their friends (user.getFriends()) and for each friend they have, check if that user also has the current user as a friend.
-        // If so, add them to a list that will be returned.
-        return null;
+        ArrayList<User> allUsers = getUserList();
+        ArrayList<User> mutualFriends = new ArrayList<>();
+
+        for (String friendDisplayName : user.getFriends()) {
+            User potentialFriend = getUserFromDisplayName(friendDisplayName);
+            if (potentialFriend != null && potentialFriend.getFriends().contains(user.getDisplayName())) {
+                mutualFriends.add(potentialFriend);
+            }
+        }
+
+        return mutualFriends;
     }
     public static ArrayList<User> getUserFriends(String userDisplayName) {
         return getUserFriends(getUserFromDisplayName(userDisplayName));
     }
 
-    public static FriendStatus getUserFriendshipStatus(User user, User otherUser) {
-        // if both users are in each others friends list, they are friends
-        // if user has otherUser in their friends list, but otherUser does not have user in their friends list, user has a pending request to otherUser
-        // and vice versa
-
-        // return using the FriendStatus enum based on the results
-        return null;
+    // Enum that describes friendship status
+    public enum FriendStatus {
+        FRIEND,
+        REQUESTED,
+        RECEIVED,
+        NOT_FRIEND
     }
+
+    public static FriendStatus getUserFriendshipStatus(User user, User otherUser) {
+        boolean userHasOtherUser = user.getFriends().contains(otherUser.getDisplayName());
+        boolean otherUserHasUser = user.getFriends().contains(otherUser.getDisplayName());
+
+        if (userHasOtherUser && otherUserHasUser) {
+            return FriendStatus.FRIEND;
+        } else if (userHasOtherUser) {
+            return FriendStatus.REQUESTED;
+        } else if (otherUserHasUser) {
+            return FriendStatus.RECEIVED;
+        } else {
+            return FriendStatus.NOT_FRIEND;
+        }
+    }
+
     public static FriendStatus getUserFriendshipStatus(String userDisplayName, String otherUserDisplayName) {
         return getUserFriendshipStatus(getUserFromDisplayName(userDisplayName), getUserFromDisplayName(otherUserDisplayName));
     }
