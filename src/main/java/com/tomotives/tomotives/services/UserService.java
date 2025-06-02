@@ -59,10 +59,23 @@ public class UserService {
         return null;
     }
 
+    /**
+     * Saul - goes through the user's friend list and checks if the users they have added are mutual friends
+     * @param user
+     * @return mutualFriends is the arrayList of friends of the user that have added them back
+     */
     public static ArrayList<User> getUserFriends(User user) {
         // given the user, loop through their friends (user.getFriends()) and for each friend they have, check if that user also has the current user as a friend.
         // If so, add them to a list that will be returned.
-        return null;
+        ArrayList<User> mutualFriends = new ArrayList<>();
+
+        for (int i = 0; i < user.getFriends().size(); i++) {
+            User friend = getUserFromDisplayName(user.getFriends().get(i));
+            if (friend != null && friend.getFriends().contains(user.getDisplayName())) {
+                mutualFriends.add(friend);
+            }
+        }
+        return mutualFriends;
     }
     public static ArrayList<User> getUserFriends(String userDisplayName) {
         return getUserFriends(getUserFromDisplayName(userDisplayName));
