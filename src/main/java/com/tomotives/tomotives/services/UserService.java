@@ -61,7 +61,7 @@ public class UserService {
 
     /**
      * Saul - goes through the user's friend list and checks if the users they have added are mutual friends
-     * @param user
+     * @param user the user to get the friends of
      * @return mutualFriends is the arrayList of friends of the user that have added them back
      */
     public static ArrayList<User> getUserFriends(User user) {
