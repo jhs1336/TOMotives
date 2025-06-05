@@ -50,6 +50,11 @@ public class LocationService {
         }
         return locations;
     }
+
+    /**
+     *
+     * @return
+     */
     public static ArrayList<String> getLocationNamesList() {
         ArrayList<Object> locationList = getLocationObjectList();
         ArrayList<String> locations = new ArrayList<>();
@@ -61,6 +66,11 @@ public class LocationService {
         return locations;
     }
 
+    /**
+     *
+     * @param name
+     * @return
+     */
     public static Location getLocation(String name) {
         for (Location location : getLocationList()) {
             if (location.getName().equals(name)) {
@@ -101,6 +111,11 @@ public class LocationService {
         return new Location((String) locationMap.get("name"), (String) locationMap.get("description"), averageRating, averagePriceRating, categories, reviewList, (String) locationMap.get("image"));
     }
 
+    /**
+     *
+     * @param locationName
+     * @param review
+     */
     public static void addReview(String locationName, Review review) {
         if (!Files.exists(Paths.get(LOCATIONS_FILE_PATH))) return;
 

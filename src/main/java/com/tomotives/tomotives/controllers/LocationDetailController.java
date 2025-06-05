@@ -102,11 +102,19 @@ public class LocationDetailController extends LocationControllerBase {
         }
     }
 
+    /**
+     *
+     */
     private void loadLocationData() {
         // get the location from the page url (ex location-detail-display/High Park)
         currentLocation = LocationService.getLocation(Application.getPage().substring(Application.getPage().indexOf("/") + 1));
         loadLocationData(currentLocation);
     }
+
+    /**
+     *
+     * @param location
+     */
     private void loadLocationData(Location location) {
         locationName.setText(location.getName());
         locationImageController.setImage(new Image(Application.getResourceAsStream("images/" + location.getImage())));
@@ -127,8 +135,10 @@ public class LocationDetailController extends LocationControllerBase {
         loadReviews(location.getReviews());
     }
 
-
-
+    /**
+     *
+     * @param reviews
+     */
     private void loadReviews(List<Review> reviews) {
         // clear existing reviews
         reviewsContainer.getChildren().clear();
@@ -142,6 +152,11 @@ public class LocationDetailController extends LocationControllerBase {
         }
     }
 
+    /**
+     *
+     * @param review
+     * @return
+     */
     private VBox createReviewBox(Review review) {
         VBox reviewBox = new VBox();
         reviewBox.getStyleClass().add("review-item");
@@ -199,6 +214,9 @@ public class LocationDetailController extends LocationControllerBase {
     }
 
     @FXML
+    /**
+     *
+     */
     private void handleAddReviewButtonClick(ActionEvent event) {
         // if no user is logged in
         if (Application.getUser() == null) {
@@ -372,6 +390,14 @@ public class LocationDetailController extends LocationControllerBase {
         Window window = ((Node) event.getSource()).getScene().getWindow();
         popup.show(window, window.getX() + (window.getWidth() - popupContent.getMinWidth()) / 2, window.getY() + (window.getHeight() - 300) / 2);
     }
+
+    /**
+     *
+     * @param description
+     * @param rating
+     * @param priceRating
+     * @param user
+     */
     private void addReview(String description, double rating, double priceRating, String user) {
         Review newReview = new Review(
                 description,
@@ -396,6 +422,11 @@ public class LocationDetailController extends LocationControllerBase {
         ToastService.show(Application.getStage(), "Review added successfully", ToastController.ToastType.SUCCESS);
     }
 
+    /**
+     *
+     * @param stars
+     * @param value
+     */
     private void updateClickableStars(Label[] stars, double value) {
         for (int i = 0; i < stars.length; i++) {
             stars[i].getStyleClass().removeAll("filled-star", "half-star", "empty-star");
@@ -411,6 +442,11 @@ public class LocationDetailController extends LocationControllerBase {
         }
     }
 
+    /**
+     *
+     * @param prices
+     * @param value
+     */
     private void updateClickablePrices(Label[] prices, double value) {
         for (int i = 0; i < prices.length; i++) {
             prices[i].getStyleClass().removeAll("filled-price", "half-price", "empty-price");
@@ -426,6 +462,9 @@ public class LocationDetailController extends LocationControllerBase {
         }
     }
 
+    /**
+     *
+     */
     private void updateLocationRatings() {
         // calculate new average ratings
         double totalStarRating = 0;

@@ -60,6 +60,9 @@ public class SignUpController {
         createAccountButton.setOnAction(event -> handleCreateAccount());
     }
 
+    /**
+     *
+     */
     private void handleCreateAccount() {
         boolean isValid = validateInputs();
 
@@ -77,6 +80,10 @@ public class SignUpController {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     private boolean validateInputs() {
         if (emailField.getText().isEmpty() || !Pattern.compile("^(.+)@(\\S+)$").matcher(emailField.getText()).matches()) {
             showError("Please enter a valid email address.");

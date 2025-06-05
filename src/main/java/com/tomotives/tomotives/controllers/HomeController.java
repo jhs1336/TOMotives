@@ -15,6 +15,9 @@ public class HomeController {
     @FXML
     private LargeLocationCarouselController largeLocationCarouselController;
 
+    /**
+     *
+     */
     @FXML
     public void initialize() {
         smallLocationCarouselController.setTitle("Popular Locations");

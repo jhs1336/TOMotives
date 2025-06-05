@@ -64,6 +64,17 @@ public class LargeLocationCarouselController {
         updateCarousel();
     }
 
+    /**
+     *
+     * @param locationName
+     * @param imageUrl
+     * @param starRating
+     * @param priceRating
+     * @param filter1
+     * @param filter2
+     * @param filter3
+     * @param filter4
+     */
     public void addLocationDisplay(String locationName, String imageUrl, double starRating, double priceRating, Category filter1, Category filter2, Category filter3, Category filter4) {
         // configure the location to display data given
         Map<String, Object> locationData = Map.of(
@@ -79,6 +90,11 @@ public class LargeLocationCarouselController {
         locationDisplays.add(locationData);
         updateCarousel();
     }
+
+    /**
+     *
+     * @param location
+     */
     public void addLocationDisplay(Location location) {
         addLocationDisplay(location.getName(), location.getImage(), location.getRating(), location.getPrice(),
             !location.getCategories().isEmpty() ? location.getCategories().getFirst() : null,

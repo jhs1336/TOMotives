@@ -9,6 +9,14 @@ public class Review {
     private String user;
     private Date date;
 
+    /**
+     *
+     * @param description
+     * @param rating
+     * @param priceRating
+     * @param user
+     * @param date
+     */
     public Review(String description, double rating, double priceRating, String user, Date date) {
         this.description = description;
         this.rating = rating;
