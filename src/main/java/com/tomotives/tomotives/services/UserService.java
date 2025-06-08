@@ -28,6 +28,10 @@ public class UserService {
         }
     }
 
+    /**
+     *
+     * @return users is the arraylist of users
+     */
     public static ArrayList<User> getUserList() {
         ArrayList<Object> userObjects = getUserObjectList();
         ArrayList<User> users = new ArrayList<>();
@@ -38,10 +42,20 @@ public class UserService {
         return users;
     }
 
+    /**
+     *
+     * @param map
+     * @return
+     */
     public static User getUserFromMap(Map<String, Object> map) {
         return new User((String) map.get("email"), (String) map.get("firstName"), (String) map.get("lastName"), (String) map.get("password"), (String) map.get("displayName"), (ArrayList<String>) map.get("favourites"), (ArrayList<String>) map.get("recentLocations"), (ArrayList<String>) map.get("friends"));
     }
 
+    /**
+     *
+     * @param email
+     * @return
+     */
     public static User getUserFromEmail(String email) {
         for (User user : getUserList()) {
             if (user.getEmail().equals(email)) {
@@ -50,6 +64,12 @@ public class UserService {
         }
         return null;
     }
+
+    /**
+     *
+     * @param displayName
+     * @return
+     */
     public static User getUserFromDisplayName(String displayName) {
         for (User user : getUserList()) {
             if (user.getDisplayName().equals(displayName)) {
@@ -77,10 +97,22 @@ public class UserService {
         }
         return mutualFriends;
     }
+
+    /**
+     *
+     * @param userDisplayName
+     * @return
+     */
     public static ArrayList<User> getUserFriends(String userDisplayName) {
         return getUserFriends(getUserFromDisplayName(userDisplayName));
     }
 
+    /**
+     *
+     * @param user
+     * @param otherUser
+     * @return
+     */
     public static FriendStatus getUserFriendshipStatus(User user, User otherUser) {
         // if both users are in each others friends list, they are friends
         // if user has otherUser in their friends list, but otherUser does not have user in their friends list, user has a pending request to otherUser
@@ -89,10 +121,21 @@ public class UserService {
         // return using the FriendStatus enum based on the results
         return null;
     }
+
+    /**
+     *
+     * @param userDisplayName
+     * @param otherUserDisplayName
+     * @return
+     */
     public static FriendStatus getUserFriendshipStatus(String userDisplayName, String otherUserDisplayName) {
         return getUserFriendshipStatus(getUserFromDisplayName(userDisplayName), getUserFromDisplayName(otherUserDisplayName));
     }
 
+    /**
+     *
+     * @param user
+     */
     public static void addUser(User user) {
         if (!Files.exists(Paths.get(USERS_FILE_PATH))) return;
 
@@ -120,6 +163,11 @@ public class UserService {
         }
     }
 
+    /**
+     *
+     * @param displayName
+     * @param location
+     */
     public static void addRecentLocationToUser(String displayName, String location) {
         try {
             // read the current users from the file
@@ -153,6 +201,12 @@ public class UserService {
             e.printStackTrace();
         }
     }
+
+    /**
+     *
+     * @param user
+     * @param location
+     */
     public static void addRecentLocationToUser(User user, String location) {
         addRecentLocationToUser(user.getDisplayName(), location);
     }
@@ -184,6 +238,12 @@ public class UserService {
             e.printStackTrace();
         }
     }
+
+    /**
+     *
+     * @param user
+     * @param location
+     */
     public static void addOrRemoveUserFavourite(User user, String location) {
         addOrRemoveUserFavourite(user.getDisplayName(), location);
     }

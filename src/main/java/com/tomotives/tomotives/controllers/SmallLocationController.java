@@ -35,6 +35,15 @@ public class SmallLocationController extends LocationControllerBase {
         }
     }
 
+    /**
+     *
+     * @param locationName
+     * @param imageUrl
+     * @param starRating
+     * @param priceRating
+     * @param filter1
+     * @param filter2
+     */
     public void setLocationData(String locationName, String imageUrl, double starRating, double priceRating, Category filter1, Category filter2) {
         // update UI
         if (locationNameLabel != null) {

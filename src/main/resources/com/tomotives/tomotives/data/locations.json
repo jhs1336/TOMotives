@@ -707,5 +707,18 @@
       }
     ],
     "image": "torontocityhall.jpg"
+  },
+  {
+    "name": "St. Lawrence Market",
+    "categories": [
+      "Shop",
+      "Tourist",
+      "Indoors",
+      "Shopping"
+    ],
+    "description": "The St. Lawrence Market South building is a major public market building in Toronto, Ontario, Canada. It is located on the southwest corner of Front and Lower Jarvis Streets. Along with the St. Lawrence Market North and St. Lawrence Hall, it comprises the St. Lawrence Market complex.",
+    "reviews": [
+    ],
+    "image": "stlawrence.jpg"
   }
 ]
