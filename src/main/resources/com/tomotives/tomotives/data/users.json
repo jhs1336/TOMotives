@@ -166,7 +166,8 @@
     "favourites": [],
     "recentLocations": [
       "Boxcar Social Laneway",
-      "Simple Coffee"
+      "Simple Coffee",
+      "Eaton Centre"
     ],
     "friends": []
   },
@@ -220,5 +221,25 @@
     "friends": [
       "DaveCh"
     ]
+  },
+  {
+    "lastName": "li",
+    "displayName": "juicy",
+    "firstName": "jess",
+    "email": "jessica@gmail.com",
+    "password": "jessicali123",
+    "favourites": [],
+    "friends": [],
+    "recentLocations": []
+  },
+  {
+    "friends": [],
+    "recentLocations": [],
+    "lastName": "a",
+    "displayName": "choe",
+    "firstName": "choe",
+    "email": "choeyinga@gmail.com",
+    "password": "1234567890",
+    "favourites": []
   }
 ]

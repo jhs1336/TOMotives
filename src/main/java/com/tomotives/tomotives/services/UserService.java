@@ -147,6 +147,10 @@ public class UserService {
                 if (user.get("displayName").equals(displayName)) {
                     // get the recent locations array
                     ArrayList<String> recentLocations = gson.fromJson(gson.toJson(user.get("recentLocations")), new TypeToken<ArrayList<String>>(){}.getType());
+                    if (recentLocations.isEmpty()) {
+                        recentLocations.add(location);
+                        return;
+                    }
                     // if the location is last location viewed, return
                     if (recentLocations.getLast().equals(location)) return;
                     // if location exists in array, remove it
