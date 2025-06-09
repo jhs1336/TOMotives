@@ -11,6 +11,7 @@ public class User {
     private ArrayList<String> favourites;
     private ArrayList<String> recentLocations;
     private ArrayList<String> friends;
+    private ArrayList<Category> likedCategories;
 
     public User(String email, String firstName, String lastName, String password, String displayName) {
         this.email = email;
@@ -21,8 +22,9 @@ public class User {
         this.favourites = new ArrayList<>();
         this.recentLocations = new ArrayList<>();
         this.friends = new ArrayList<>();
+        this.likedCategories = new ArrayList<>();
     }
-    public User(String email, String firstName, String lastName, String password, String displayName, ArrayList<String> favourites, ArrayList<String> recentLocations, ArrayList<String> friends) {
+    public User(String email, String firstName, String lastName, String password, String displayName, ArrayList<String> favourites, ArrayList<String> recentLocations, ArrayList<String> friends, ArrayList<Category> likedCategories) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -31,6 +33,7 @@ public class User {
         this.favourites = favourites;
         this.recentLocations = recentLocations;
         this.friends = friends;
+        this.likedCategories = likedCategories;
     }
     public User(User other) {
         this.email = other.email;
@@ -41,6 +44,7 @@ public class User {
         this.favourites = new ArrayList<>(other.favourites);
         this.recentLocations = new ArrayList<>(other.recentLocations);
         this.friends = new ArrayList<>(other.friends);
+        this.likedCategories = new ArrayList<>(other.likedCategories);
     }
 
     public String getEmail() { return email; }

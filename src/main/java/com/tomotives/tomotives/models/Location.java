@@ -33,6 +33,7 @@ public class Location {
         this.image = image;
     }
     /**
+     * Saul
      * Constructs a new Location object with rating and price calculated from reviews
      *
      * @param name        the name of the location

@@ -30,10 +30,6 @@ public class ToolbarController {
     @FXML
     private Label divider;
     @FXML
-
-    /**
-     *
-     */
     private void initialize() {
         //set up listeners
         homeButton.setOnAction(event -> handleHomeButton());
@@ -87,9 +83,6 @@ public class ToolbarController {
             }
         });    }
 
-    /**
-     *
-     */
     public void refreshToolbar() {
         boolean userLoggedIn = Application.getUser() != null;
         signupButton.setManaged(!userLoggedIn);

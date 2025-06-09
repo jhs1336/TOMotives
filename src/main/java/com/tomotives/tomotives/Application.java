@@ -101,12 +101,6 @@ public class Application extends javafx.application.Application {
         loadPage(url, url.substring(0, url.indexOf('.')));
     }
 
-    /**
-     *
-     * @param title
-     * @param subtitle
-     * @param pagePath
-     */
     public static void showLoginOrSignupPopup(String title, String subtitle, String pagePath) {
         Popup popup = new Popup();
         popup.setAutoHide(true);
@@ -208,10 +202,6 @@ public class Application extends javafx.application.Application {
         fadeIn.play();
     }
 
-    /**
-     *
-     * @param pagePath
-     */
     public static void showLoginOrSignupPopup(String pagePath) {
         showLoginOrSignupPopup("Login or Sign Up", "Please login or sign up to continue", pagePath);
     }

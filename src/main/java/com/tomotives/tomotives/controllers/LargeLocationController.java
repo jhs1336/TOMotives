@@ -44,17 +44,6 @@ public class LargeLocationController extends LocationControllerBase {
         resizableImageController.applyRoundedCorners(10);
     }
 
-    /**
-     *
-     * @param locationName
-     * @param imageUrl
-     * @param starRating
-     * @param priceRating
-     * @param filter1
-     * @param filter2
-     * @param filter3
-     * @param filter4
-     */
     public void setLocationData(String locationName, String imageUrl, double starRating, double priceRating, Category filter1, Category filter2, Category filter3, Category filter4) {
         // update UI
         if (locationNameLabel != null) {
@@ -91,7 +80,7 @@ public class LargeLocationController extends LocationControllerBase {
     }
 
     /**
-     *
+     * Saul
      * @param rating The rating value to display, which can be a decimal value between 0 and the 5
      * @param priceContainer The HBox container to update the price rating for
      */
@@ -102,7 +91,7 @@ public class LargeLocationController extends LocationControllerBase {
     }
 
     /**
-     *
+     * Saul
      * @param rating The rating value to display, which can be a decimal value between 0 and 5
      * @param starsContainer The HBox container where the star icons are displayed
      */

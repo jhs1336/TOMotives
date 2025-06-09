@@ -52,15 +52,6 @@ public class SmallLocationCarouselController {
         }
     }
 
-    /**
-     *
-     * @param locationName
-     * @param imageUrl
-     * @param starRating
-     * @param priceRating
-     * @param filter1
-     * @param filter2
-     */
     public void addLocationDisplay(String locationName, String imageUrl, double starRating, double priceRating, Category filter1, Category filter2) {
         try {
             // get fxml
