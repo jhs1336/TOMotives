@@ -75,7 +75,7 @@
                                                     <HBox alignment="CENTER_LEFT" spacing="450.0">
                                                         <children>
                                                             <Label styleClass="section-header" text="Reviews" HBox.hgrow="ALWAYS" />
-                                                            <Button fx:id="addReviewButton" styleClass="circle-button" text="+" onAction="#handleAddReviewButtonClick" />
+                                                            <Button fx:id="addReviewButton" styleClass="circle-button" text="+" onMouseClicked="#handleAddReviewButtonClick" />
                                                         </children>
                                                     </HBox>
                                                     <Region prefHeight="2.0" prefWidth="560.0" styleClass="header-underline" />

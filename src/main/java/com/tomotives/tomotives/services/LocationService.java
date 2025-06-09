@@ -171,5 +171,35 @@ public class LocationService {
             e.printStackTrace();
         }
     }
+    public static void removeReview(String locationName, String reviewDescription) {
+        if (!Files.exists(Paths.get(LOCATIONS_FILE_PATH))) return;
 
+        try {
+            // read the current locations from the file
+            String locationListJson = new String(Files.readAllBytes(Paths.get(LOCATIONS_FILE_PATH)));
+            Type listType = new TypeToken<ArrayList<Map<String, Object>>>(){}.getType();
+            ArrayList<Map<String, Object>> locations = gson.fromJson(locationListJson, listType);
+
+            // find the location by name
+            for (Map<String, Object> location : locations) {
+                if (location.get("name").equals(locationName)) {
+                    // get the reviews array for this location
+                    ArrayList<Map<String, Object>> reviews = gson.fromJson(gson.toJson(location.get("reviews")), new TypeToken<ArrayList<Map<String, Object>>>(){}.getType());
+
+                    // find and remove the review with the matching description
+                    reviews.removeIf(review -> reviewDescription.equals(review.get("description")));
+
+                    // update the reviews in the location
+                    location.put("reviews", reviews);
+
+                    // write the updated locations back to the file
+                    Files.write(Paths.get(LOCATIONS_FILE_PATH), gson.toJson(locations).getBytes());
+
+                    return;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

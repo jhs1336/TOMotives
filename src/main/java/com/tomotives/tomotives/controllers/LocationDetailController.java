@@ -14,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.geometry.Insets;
 import javafx.scene.layout.HBox;
@@ -186,8 +187,18 @@ public class LocationDetailController extends LocationControllerBase {
             priceRatingBox.getChildren().add(price);
         }
 
-        HBox.setHgrow(authorLabel, Priority.ALWAYS);
-        headerBox.getChildren().addAll(authorLabel, dateLabel, starRatingBox, priceRatingBox);
+        // add edit icon if review belongs to current user
+        if (Application.getUser() != null && review.getUser().equals(Application.getUser().getDisplayName())) {
+            Label editIcon = new Label("✎");
+            editIcon.setStyle("-fx-cursor: hand;");
+            editIcon.setOnMouseClicked(e -> {
+                handleAddReviewButtonClick(e, review.getDescription(), review.getRating(), review.getPriceRating(), true);
+            });
+            headerBox.getChildren().addAll(authorLabel, dateLabel, starRatingBox, priceRatingBox, editIcon);
+        } else {
+            HBox.setHgrow(authorLabel, Priority.ALWAYS);
+            headerBox.getChildren().addAll(authorLabel, dateLabel, starRatingBox, priceRatingBox);
+        }
 
         Label contentLabel = new Label(review.getDescription());
         contentLabel.getStyleClass().add("review-content");
@@ -198,7 +209,11 @@ public class LocationDetailController extends LocationControllerBase {
     }
 
     @FXML
-    private void handleAddReviewButtonClick(ActionEvent event) {
+    private void handleAddReviewButtonClick(MouseEvent event) {
+        handleAddReviewButtonClick(event, "", 0, 0, false);
+    }
+    @FXML
+    private void handleAddReviewButtonClick(MouseEvent event, String description, double rating, double priceRating, boolean removeExistingReview) {
         // if no user is logged in
         if (Application.getUser() == null) {
             Application.showLoginOrSignupPopup("Login to Add Reviews", "You need to be logged in to add reviews", "/location/" + locationName.getText());
@@ -342,7 +357,11 @@ public class LocationDetailController extends LocationControllerBase {
                 ToastService.show(Application.getStage(), "Review details are required", ToastController.ToastType.ERROR);
                 return;
             }
+            // if there is an existing review marked for removal, remove it
+            if (removeExistingReview) LocationService.removeReview(locationName.getText(), description);
             addReview(reviewTextArea.getText(), selectedStarRating[0], selectedPriceRating[0], Application.getUser().getDisplayName());
+            // refresh page to reload reviews, data, order of reviews, etc.
+            Application.loadPage("location-detail-display.fxml", "location-detail-display/" + locationName.getText());
             popup.hide();
         });
 
@@ -359,6 +378,13 @@ public class LocationDetailController extends LocationControllerBase {
         HBox bottomBox = new HBox();
         HBox.setHgrow(buttonVBox, Priority.ALWAYS);
         bottomBox.getChildren().addAll(ratingVBox, buttonVBox);
+
+        // set the review options to the arguments passed in
+        reviewTextArea.setText(description);
+        selectedStarRating[0] = rating;
+        updateClickableStars(starLabels, selectedStarRating[0]);
+        selectedPriceRating[0] = priceRating;
+        updateClickablePrices(priceLabels, selectedPriceRating[0]);
 
         // add all components to the popup content
         popupContent.getChildren().addAll(titleLabel, reviewTextArea, bottomBox);
@@ -393,7 +419,7 @@ public class LocationDetailController extends LocationControllerBase {
         // update the location's average ratings
         updateLocationRatings();
 
-        ToastService.show(Application.getStage(), "Review added successfully", ToastController.ToastType.SUCCESS);
+        ToastService.show(Application.getStage(), "Review submitted successfully", ToastController.ToastType.SUCCESS);
     }
 
     private void updateClickableStars(Label[] stars, double value) {

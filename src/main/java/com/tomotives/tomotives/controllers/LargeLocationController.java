@@ -34,9 +34,9 @@ public class LargeLocationController extends LocationControllerBase {
     private Button filter4Button;
 
     @FXML
-    public Label priceRatingLabel;
+    private Label priceRatingLabel;
     @FXML
-    public Label starRatingLabel;
+    private Label starRatingLabel;
 
     @FXML
     public void initialize() {
