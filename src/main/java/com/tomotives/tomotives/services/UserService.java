@@ -81,14 +81,22 @@ public class UserService {
         return getUserFriends(getUserFromDisplayName(userDisplayName));
     }
 
-    // Enum that describes friendship status
+    /** Jessica
+     * Enum that describes friendship status
+     */
     public enum FriendStatus {
         FRIEND,
         REQUESTED,
         RECEIVED,
         NOT_FRIEND
-    }
+    } // end Friend Status
 
+    /** Jessica
+     * Checks the friend status between two users
+     * @param user the first user being compared
+     * @param otherUser the second user being compared
+     * return FriendStatus that describe their friend status
+     */
     public static FriendStatus getUserFriendshipStatus(User user, User otherUser) {
         boolean userHasOtherUser = user.getFriends().contains(otherUser.getDisplayName());
         boolean otherUserHasUser = user.getFriends().contains(otherUser.getDisplayName());
@@ -102,7 +110,7 @@ public class UserService {
         } else {
             return FriendStatus.NOT_FRIEND;
         }
-    }
+    } // end getUserFriendshipStatus
 
     public static FriendStatus getUserFriendshipStatus(String userDisplayName, String otherUserDisplayName) {
         return getUserFriendshipStatus(getUserFromDisplayName(userDisplayName), getUserFromDisplayName(otherUserDisplayName));
