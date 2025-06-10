@@ -4,7 +4,6 @@ package com.tomotives.tomotives.models;
  * Represents the different categories of activities or places that can be associated with a location
  */
 public enum Category {
-    // copied from mindomo diagram
     INDOORS,
     OUTDOORS,
     PARK,

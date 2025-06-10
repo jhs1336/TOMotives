@@ -1,1 +1,311 @@
-[{"email":"john.doe@gmail.com","firstName":"John","lastName":"Doe","password":"password123","displayName":"JohnD","favourites":["Royal Ontario Museum","CN Tower"],"recentLocations":["CN Tower","Royal Ontario Museum"],"friends":["JaneSmith","BobJohnson"]},{"email":"elena.brooks@gmail.com","firstName":"Elena","lastName":"Brooks","password":"jhssux1336","displayName":"EBrooks","favourites":["Cherry Beach","Royal Ontario Museum"],"recentLocations":["Brick Room","Royal Ontario Museum"],"friends":["john.doe@example.com","bwilks@gmail.com"]},{"email":"bwilks@gmail.com","firstName":"Bob","lastName":"Wilkinson","password":"freethrowmerchant","displayName":"Merchantflyer62","favourites":["The Music Garden","Brick Room"],"recentLocations":["CN Tower","Royal Ontario Museum"],"friends":["EBrooks","AlbertCompoundInterest"]},{"email":"compoundinterest@gmail.com","firstName":"Albert","lastName":"Einstein","password":"123pass456word","displayName":"AlbertCompoundInterest","favourites":["Kensington Market","Little Canada"],"recentLocations":["CN Tower","Royal Ontario Museum"],"friends":["Jhs1336","MerchantFlyer62"]},{"email":"joshua@gmail.com","firstName":"Joshua","lastName":"Holzman-Sharfe","password":"password","displayName":"Jhs1336","favourites":["Niagara Falls"],"recentLocations":["Niagara Falls","Tommy Thompson Park","Icha Tea","Wingstop","Aga Khan Museum"],"friends":["AlbertCompoundInterest"]},{"email":"moses@gmail.com","firstName":"Moses","lastName":"","password":"redSea123","displayName":"Moses","favourites":["Canada\u0027s Wonderland"],"recentLocations":["Toronto City Hall","Canada\u0027s Wonderland"],"friends":["JamesWil"]},{"email":"jameswilson@gmail.com","firstName":"James","lastName":"Wilson","password":"pass123456","displayName":"JamesWil","favourites":[],"recentLocations":["CN Tower","Royal Ontario Museum"],"friends":["Moses"]},{"email":"smgreen12@gmail.com","firstName":"Samantha","lastName":"Green","password":"123login4","displayName":"SamanthaGreen","favourites":["Royal Ontario Museum","Icha Tea"],"recentLocations":["Icha Tea","Royal Ontario Museum"],"friends":[]},{"email":"emmettcassan@gmail.com","firstName":"Emmett","lastName":"Cassan","password":"badatgeoguessr3","displayName":"EmmettSucksatGeo","favourites":["Brick Room","Expo Vintage"],"recentLocations":["Icha Tea","Value Village"],"friends":[]},{"email":"saulmesbur@gmail.com","firstName":"Saul","lastName":"Mesbur","password":"12345678qwerty","displayName":"SaulMesbur","favourites":[],"recentLocations":["Boxcar Social Laneway","Simple Coffee","St. Lawrence Market"],"friends":[]},{"email":"davidchen@gmail.com","firstName":"David","lastName":"Chen","password":"freudisthegoat2","displayName":"DaveCh","favourites":[],"recentLocations":["Icha Tea","Brick Room"],"friends":["DanielS","Oliviaa"]},{"email":"smith.daniel@gmail.com","firstName":"Daniel","lastName":"Smith","password":"123dwqwerty","displayName":"DanielS","favourites":["Royal Ontario Museum"],"recentLocations":["Matcha Matcha","Royal Ontario Museum"],"friends":["DaveCh"]},{"email":"BrownOlive@hotmail.com","firstName":"Olivia","lastName":"Brown","password":"greenolive2123","displayName":"Oliviaa","favourites":["Matcha Matcha","Black Market"],"recentLocations":["Icha Tea","Black Market"],"friends":["DaveCh"]}]
+[
+  {
+    "email": "john.doe@gmail.com",
+    "firstName": "John",
+    "lastName": "Doe",
+    "password": "password123",
+    "displayName": "JohnD",
+    "favourites": [
+      "Royal Ontario Museum",
+      "CN Tower"
+    ],
+    "recentLocations": [
+      "CN Tower",
+      "Royal Ontario Museum"
+    ],
+    "friends": [
+      "JaneSmith",
+      "BobJohnson"
+    ],
+    "likedCategories": [
+      "LANDMARK",
+      "TOURIST",
+      "MUSEUM"
+    ]
+  },
+  {
+    "email": "elena.brooks@gmail.com",
+    "firstName": "Elena",
+    "lastName": "Brooks",
+    "password": "jhssux1336",
+    "displayName": "EBrooks",
+    "favourites": [
+      "Cherry Beach",
+      "Royal Ontario Museum"
+    ],
+    "recentLocations": [
+      "Brick Room",
+      "Royal Ontario Museum"
+    ],
+    "friends": [
+      "john.doe@example.com",
+      "bwilks@gmail.com"
+    ],
+    "likedCategories": [
+      "BEACH",
+      "MUSEUM",
+      "OUTDOORS"
+    ]
+  },
+  {
+    "email": "bwilks@gmail.com",
+    "firstName": "Bob",
+    "lastName": "Wilkinson",
+    "password": "freethrowmerchant",
+    "displayName": "Merchantflyer62",
+    "favourites": [
+      "The Music Garden",
+      "Brick Room"
+    ],
+    "recentLocations": [
+      "CN Tower",
+      "Royal Ontario Museum"
+    ],
+    "friends": [
+      "EBrooks",
+      "AlbertCompoundInterest"
+    ],
+    "likedCategories": [
+      "MUSIC",
+      "INDOORS",
+      "LANDMARK"
+    ]
+  },
+  {
+    "email": "compoundinterest@gmail.com",
+    "firstName": "Albert",
+    "lastName": "Einstein",
+    "password": "123pass456word",
+    "displayName": "AlbertCompoundInterest",
+    "favourites": [
+      "Kensington Market",
+      "Little Canada"
+    ],
+    "recentLocations": [
+      "CN Tower",
+      "Royal Ontario Museum"
+    ],
+    "friends": [
+      "Jhs1336",
+      "MerchantFlyer62"
+    ],
+    "likedCategories": [
+      "SHOPPING",
+      "LANDMARK",
+      "TOURIST"
+    ]
+  },
+  {
+    "email": "joshua@gmail.com",
+    "firstName": "Joshua",
+    "lastName": "Holzman-Sharfe",
+    "password": "password",
+    "displayName": "Jhs1336",
+    "favourites": [
+      "Niagara Falls"
+    ],
+    "recentLocations": [
+      "Niagara Falls",
+      "Tommy Thompson Park",
+      "Icha Tea",
+      "Wingstop",
+      "Aga Khan Museum",
+      "Kensington Market",
+      "St. Lawrence Market"
+    ],
+    "friends": [
+      "AlbertCompoundInterest"
+    ],
+    "likedCategories": [
+      "LANDMARK",
+      "NATURE",
+      "SCENIC",
+      "MUSEUM"
+    ]
+  },
+  {
+    "email": "moses@gmail.com",
+    "firstName": "Moses",
+    "lastName": "",
+    "password": "redSea123",
+    "displayName": "Moses",
+    "favourites": [
+      "Canada\u0027s Wonderland"
+    ],
+    "recentLocations": [
+      "Toronto City Hall",
+      "Canada\u0027s Wonderland"
+    ],
+    "friends": [
+      "JamesWil"
+    ],
+    "likedCategories": [
+      "LANDMARK",
+      "OUTDOORS",
+      "WITH_FRIENDS"
+    ]
+  },
+  {
+    "email": "jameswilson@gmail.com",
+    "firstName": "James",
+    "lastName": "Wilson",
+    "password": "pass123456",
+    "displayName": "JamesWil",
+    "favourites": [],
+    "recentLocations": [
+      "CN Tower",
+      "Royal Ontario Museum"
+    ],
+    "friends": [
+      "Moses"
+    ],
+    "likedCategories": [
+      "LANDMARK",
+      "MUSEUM",
+      "TOURIST"
+    ]
+  },
+  {
+    "email": "smgreen12@gmail.com",
+    "firstName": "Samantha",
+    "lastName": "Green",
+    "password": "123login4",
+    "displayName": "SamanthaGreen",
+    "favourites": [
+      "Royal Ontario Museum",
+      "Icha Tea"
+    ],
+    "recentLocations": [
+      "Icha Tea",
+      "Royal Ontario Museum"
+    ],
+    "friends": [],
+    "likedCategories": [
+      "MUSEUM",
+      "CAFE",
+      "INDOORS"
+    ]
+  },
+  {
+    "email": "emmettcassan@gmail.com",
+    "firstName": "Emmett",
+    "lastName": "Cassan",
+    "password": "badatgeoguessr3",
+    "displayName": "EmmettSucksatGeo",
+    "favourites": [
+      "Brick Room",
+      "Expo Vintage"
+    ],
+    "recentLocations": [
+      "Icha Tea",
+      "Value Village"
+    ],
+    "friends": [],
+    "likedCategories": [
+      "VINTAGE",
+      "CAFE",
+      "SHOPPING"
+    ]
+  },
+  {
+    "email": "saulmesbur@gmail.com",
+    "firstName": "Saul",
+    "lastName": "Mesbur",
+    "password": "12345678qwerty",
+    "displayName": "SaulMesbur",
+    "favourites": [],
+    "recentLocations": [
+      "Boxcar Social Laneway",
+      "Simple Coffee",
+      "St. Lawrence Market"
+    ],
+    "friends": [],
+    "likedCategories": [
+      "CAFE",
+      "SHOPPING",
+      "STUDY_SPOT"
+    ]
+  },
+  {
+    "email": "davidchen@gmail.com",
+    "firstName": "David",
+    "lastName": "Chen",
+    "password": "freudisthegoat2",
+    "displayName": "DaveCh",
+    "favourites": [],
+    "recentLocations": [
+      "Icha Tea",
+      "Brick Room"
+    ],
+    "friends": [
+      "DanielS",
+      "Oliviaa"
+    ],
+    "likedCategories": [
+      "CAFE",
+      "INDOORS",
+      "WITH_FRIENDS"
+    ]
+  },
+  {
+    "email": "smith.daniel@gmail.com",
+    "firstName": "Daniel",
+    "lastName": "Smith",
+    "password": "123dwqwerty",
+    "displayName": "DanielS",
+    "favourites": [
+      "Royal Ontario Museum"
+    ],
+    "recentLocations": [
+      "Matcha Matcha",
+      "Royal Ontario Museum"
+    ],
+    "friends": [
+      "DaveCh"
+    ],
+    "likedCategories": [
+      "MUSEUM",
+      "CAFE",
+      "EDUCATIONAL"
+    ]
+  },
+  {
+    "email": "BrownOlive@hotmail.com",
+    "firstName": "Olivia",
+    "lastName": "Brown",
+    "password": "greenolive2123",
+    "displayName": "Oliviaa",
+    "favourites": [
+      "Matcha Matcha",
+      "Black Market"
+    ],
+    "recentLocations": [
+      "Icha Tea",
+      "Black Market"
+    ],
+    "friends": [
+      "DaveCh"
+    ],
+    "likedCategories": [
+      "CAFE",
+      "SHOPPING",
+      "VINTAGE"
+    ]
+  },
+  {
+    "lastName": "ss",
+    "recentLocations": [],
+    "friends": [],
+    "favourites": [],
+    "password": "password",
+    "email": "t@gmail.com",
+    "firstName": "s",
+    "displayName": "pas",
+    "likedCategories": [
+      "BARS",
+      "DOG_FRIENDLY",
+      "LANDMARK",
+      "BUDGET"
+    ]
+  }
+]

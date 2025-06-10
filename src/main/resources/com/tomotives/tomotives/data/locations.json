@@ -2,10 +2,10 @@
   {
     "name": "Riverdale Park",
     "categories": [
-      "Park",
-      "Scenic",
-      "Outdoors",
-      "Walking"
+      "PARK",
+      "SCENIC",
+      "OUTDOORS",
+      "WALKING"
     ],
     "description": "Known for its iconic skyline view, Riverdale Park is a local favorite for sunset watching, tobogganing, and dog walking.",
     "reviews": [
@@ -29,10 +29,10 @@
   {
     "name": "The Music Garden",
     "categories": [
-      "Park",
-      "Outdoors",
-      "Music",
-      "Scenic"
+      "PARK",
+      "OUTDOORS",
+      "MUSIC",
+      "SCENIC"
     ],
     "description": "Designed in collaboration with Yo-Yo Ma, this waterfront park is inspired by Bach\u0027s music and features artistic landscaping.",
     "reviews": [
@@ -56,10 +56,10 @@
   {
     "name": "Humber River Trail",
     "categories": [
-      "Biking",
-      "Outdoors",
-      "Hiking",
-      "Scenic"
+      "BIKING",
+      "OUTDOORS",
+      "HIKING",
+      "SCENIC"
     ],
     "description": "Scenic trail winding through natural areas and city neighborhoods, perfect for cycling, jogging, or bird watching.",
     "reviews": [
@@ -83,10 +83,10 @@
   {
     "name": "Tommy Thompson Park",
     "categories": [
-      "Park",
-      "Nature",
-      "Birdwatching",
-      "Outdoors"
+      "PARK",
+      "NATURE",
+      "BIRDWATCHING",
+      "OUTDOORS"
     ],
     "description": "An urban wilderness extending into Lake Ontario, popular for wildlife watching, cycling, and sunset walks.",
     "reviews": [
@@ -117,10 +117,10 @@
   {
     "name": "Cherry Beach",
     "categories": [
-      "Beach",
-      "Outdoors",
-      "Swimming",
-      "Walking"
+      "BEACH",
+      "OUTDOORS",
+      "SWIMMING",
+      "WALKING"
     ],
     "description": "A quiet lakeside beach with picnic tables and off-leash areas, popular for paddleboarding and sunsets.",
     "reviews": [
@@ -144,10 +144,10 @@
   {
     "name": "Centennial Hill",
     "categories": [
-      "Park",
-      "Outdoors",
-      "Sledding",
-      "Family"
+      "PARK",
+      "OUTDOORS",
+      "SLEDDING",
+      "FAMILY"
     ],
     "description": "A community park known for its large hill, popular in winter for sledding and summer for picnics.",
     "reviews": [
@@ -171,10 +171,10 @@
   {
     "name": "Black Market",
     "categories": [
-      "Shopping",
-      "Vintage",
-      "Clothing",
-      "Indoors"
+      "SHOPPING",
+      "VINTAGE",
+      "CLOTHING",
+      "INDOORS"
     ],
     "description": "An underground vintage clothing store known for its eclectic fashion, punk energy, and affordable prices.",
     "reviews": [
@@ -198,10 +198,10 @@
   {
     "name": "Expo Vintage",
     "categories": [
-      "Shopping",
-      "Vintage",
-      "Indoors",
-      "Clothing"
+      "SHOPPING",
+      "VINTAGE",
+      "INDOORS",
+      "CLOTHING"
     ],
     "description": "Curated vintage store offering timeless pieces and rare finds, with a focus on quality and sustainability.",
     "reviews": [
@@ -225,10 +225,10 @@
   {
     "name": "Value Village",
     "categories": [
-      "Shopping",
-      "Vintage",
-      "Budget",
-      "Indoors"
+      "SHOPPING",
+      "VINTAGE",
+      "BUDGET",
+      "INDOORS"
     ],
     "description": "Large-scale thrift store chain offering clothing, household items, books, and more at affordable prices.",
     "reviews": [
@@ -252,10 +252,10 @@
   {
     "name": "Brick Room",
     "categories": [
-      "Cafe",
-      "Indoors",
-      "Breakfast",
-      "Lunch"
+      "CAFE",
+      "INDOORS",
+      "BREAKFAST",
+      "LUNCH"
     ],
     "description": "A cozy cafe offering a selection of artisanal coffees and pastries in a warm, brick-lined setting.",
     "reviews": [
@@ -279,10 +279,10 @@
   {
     "name": "Boxcar Social Laneway",
     "categories": [
-      "Cafe",
-      "Indoors",
-      "Breakfast",
-      "Lunch"
+      "CAFE",
+      "INDOORS",
+      "BREAKFAST",
+      "LUNCH"
     ],
     "description": "An intimate cafe inspired by Japanese listening bars, offering specialty coffee and a rotating selection of vinyl records.",
     "reviews": [
@@ -306,10 +306,10 @@
   {
     "name": "Simple Coffee",
     "categories": [
-      "Cafe",
-      "Indoors",
-      "Breakfast",
-      "Lunch"
+      "CAFE",
+      "INDOORS",
+      "BREAKFAST",
+      "LUNCH"
     ],
     "description": "A minimalist cafe focusing on high-quality, simply roasted coffee beans for the perfect daily brew.",
     "reviews": [
@@ -333,10 +333,10 @@
   {
     "name": "Icha Tea",
     "categories": [
-      "Cafe",
-      "Indoors",
-      "Breakfast",
-      "Lunch"
+      "CAFE",
+      "INDOORS",
+      "BREAKFAST",
+      "LUNCH"
     ],
     "description": "A premium tea shop offering handcrafted bubble tea beverages and a variety of loose leaf teas.",
     "reviews": [
@@ -367,10 +367,10 @@
   {
     "name": "Matcha Matcha",
     "categories": [
-      "Cafe",
-      "Indoors",
-      "Breakfast",
-      "Lunch"
+      "CAFE",
+      "INDOORS",
+      "BREAKFAST",
+      "LUNCH"
     ],
     "description": "A dedicated matcha bar serving ceremonial grade matcha drinks and unique flavor combinations.",
     "reviews": [
@@ -394,10 +394,10 @@
   {
     "name": "CN Tower",
     "categories": [
-      "Landmark",
-      "Tourist",
-      "Indoors",
-      "Outdoors"
+      "LANDMARK",
+      "TOURIST",
+      "INDOORS",
+      "OUTDOORS"
     ],
     "description": "The CN Tower is a 553.3 m-high concrete communications and observation tower in downtown Toronto, Ontario, Canada.",
     "reviews": [
@@ -421,10 +421,10 @@
   {
     "name": "Royal Ontario Museum",
     "categories": [
-      "Museum",
-      "Tourist",
-      "Indoors",
-      "Landmark"
+      "MUSEUM",
+      "TOURIST",
+      "INDOORS",
+      "LANDMARK"
     ],
     "description": "The Royal Ontario Museum is a museum of art, world culture and natural history in Toronto, Ontario, Canada.",
     "reviews": [
@@ -448,10 +448,10 @@
   {
     "name": "Casa Loma",
     "categories": [
-      "Landmark",
-      "Indoors",
-      "Tourist",
-      "Historic"
+      "LANDMARK",
+      "INDOORS",
+      "TOURIST",
+      "HISTORIC"
     ],
     "description": "Casa Loma is gothic revival-style castle in Toronto built from 1911-14 and a staple of Toronto tourism!",
     "reviews": [
@@ -475,10 +475,10 @@
   {
     "name": "Wingstop",
     "categories": [
-      "Restaurant",
-      "Date Spot",
-      "Lunch",
-      "Dinner"
+      "RESTAURANT",
+      "DATE_SPOT",
+      "LUNCH",
+      "DINNER"
     ],
     "description": "Wingstop Inc. is an American international chain of restaurants that primarily sells buffalo wings. It is often noted for their poor quality and expensive prices.",
     "reviews": [
@@ -502,10 +502,10 @@
   {
     "name": "High Park",
     "categories": [
-      "Scenic",
-      "Walking",
-      "Hiking",
-      "Outdoors"
+      "SCENIC",
+      "WALKING",
+      "HIKING",
+      "OUTDOORS"
     ],
     "description": "High Park is a municipal park in Toronto, Ontario, Canada. High Park is a mixed recreational and natural park, with sporting facilities, cultural facilities, educational facilities, gardens, playgrounds and a zoo. ",
     "reviews": [
@@ -529,10 +529,10 @@
   {
     "name": "Eaton Centre",
     "categories": [
-      "Shopping",
-      "Mall",
-      "Indoors",
-      "Outdoors"
+      "SHOPPING",
+      "MALL",
+      "INDOORS",
+      "OUTDOORS"
     ],
     "description": "CF Toronto Eaton Centre, commonly referred to simply as the Eaton Centre, is a shopping mall and office complex in the downtown core of Toronto, Ontario, Canada. It is owned and managed by Cadillac Fairview.",
     "reviews": [
@@ -556,10 +556,10 @@
   {
     "name": "Aga Khan Museum",
     "categories": [
-      "Museum",
-      "Tourist",
-      "Indoors",
-      "Outdoors"
+      "MUSEUM",
+      "TOURIST",
+      "INDOORS",
+      "OUTDOORS"
     ],
     "description": "The Aga Khan Museum is a museum of Islamic art located at 77 Wynford Drive in the North York district of Toronto, Ontario, Canada. The museum is dedicated to Islamic art and objects, and it houses approximately 1,200 rare objects assembled by Shah Karim al-Husayni and Prince Sadruddin Aga Khan.",
     "reviews": [
@@ -583,10 +583,10 @@
   {
     "name": "Kensington Market",
     "categories": [
-      "Outdoors",
-      "Tourist",
-      "Indoors",
-      "Outdoors"
+      "OUTDOORS",
+      "TOURIST",
+      "INDOORS",
+      "SHOPPING"
     ],
     "description": "Kensington Market is a walkable bohemian neighbourhood that draws artists and tourists to its indie shops, vintage boutiques and arts spaces. The Market is also home to a wide array of specialty grocers, bakeries and cheese shops. Hipsters frequent trendy bars, cafes and international restaurants that range from casual to fine dining. Students and families populate Victorian houses along tree-lined streets.",
     "reviews": [
@@ -605,11 +605,11 @@
         "date": "2025-01-05"
       },
       {
-        "rating": 4.5,
-        "description": "Wonderful place.",
-        "user": "Jhs1336",
+        "date": "2025-06-10",
         "priceRating": 3.5,
-        "date": "2025-06-10"
+        "user": "Jhs1336",
+        "description": "Wonderful place",
+        "rating": 4.5
       }
     ],
     "image": "kensington.jpg"
@@ -617,10 +617,10 @@
   {
     "name": "Little Canada",
     "categories": [
-      "Indoors",
-      "Tourist",
-      "Indoors",
-      "Outdoors"
+      "INDOORS",
+      "TOURIST",
+      "WALKING",
+      "OUTDOORS"
     ],
     "description": "Little Canada, previously known as Our Home and Miniature Land, is a tourist attraction located in the basement of The Tenor, near Yonge–Dundas Square.",
     "reviews": [
@@ -644,10 +644,10 @@
   {
     "name": "Niagara Falls",
     "categories": [
-      "Landmark",
-      "Outdoors",
-      "Indoors",
-      "Outdoors"
+      "LANDMARK",
+      "OUTDOORS",
+      "INDOORS",
+      "TOURIST"
     ],
     "description": "Niagara Falls, Ontario, is a Canadian city at the famous waterfalls of the same name, linked with the U.S. by the Rainbow Bridge. Its site on the Niagara River\u0027s western shore overlooks the Horseshoe Falls, the cascades\u0027 most expansive section. ",
     "reviews": [
@@ -671,10 +671,10 @@
   {
     "name": "Canada\u0027s Wonderland",
     "categories": [
-      "Indoors",
-      "Outdoors",
-      "Indoors",
-      "Outdoors"
+      "INDOORS",
+      "OUTDOORS",
+      "TOURIST",
+      "SHOP"
     ],
     "description": "Canada\u0027s Wonderland, formerly known as Paramount Canada\u0027s Wonderland, is a 330-acre amusement park located in Vaughan, Ontario, a municipality within the Greater Toronto Area.",
     "reviews": [
@@ -698,10 +698,10 @@
   {
     "name": "Toronto City Hall",
     "categories": [
-      "Landmark",
-      "Tourist",
-      "Indoors",
-      "Outdoors"
+      "LANDMARK",
+      "TOURIST",
+      "INDOORS",
+      "OUTDOORS"
     ],
     "description": "The Toronto City Hall, or New City Hall, is the seat of the municipal government of Toronto, Ontario, Canada, and one of the city\u0027s most distinctive landmarks. Designed by Viljo Revell and engineered by Hannskarl Bandel, the building opened in 1965.",
     "reviews": [
@@ -725,10 +725,10 @@
   {
     "name": "St. Lawrence Market",
     "categories": [
-      "Shop",
-      "Tourist",
-      "Indoors",
-      "Shopping"
+      "SHOP",
+      "TOURIST",
+      "INDOORS",
+      "SHOPPING"
     ],
     "description": "The St. Lawrence Market South building is a major public market building in Toronto, Ontario, Canada. It is located on the southwest corner of Front and Lower Jarvis Streets. Along with the St. Lawrence Market North and St. Lawrence Hall, it comprises the St. Lawrence Market complex.",
     "reviews": [

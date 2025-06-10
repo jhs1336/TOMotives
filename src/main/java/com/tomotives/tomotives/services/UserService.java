@@ -42,7 +42,7 @@ public class UserService {
     }
 
     public static User getUserFromMap(Map<String, Object> map) {
-        return new User((String) map.get("email"), (String) map.get("firstName"), (String) map.get("lastName"), (String) map.get("password"), (String) map.get("displayName"), (ArrayList<String>) map.get("favourites"), (ArrayList<String>) map.get("recentLocations"), (ArrayList<String>) map.get("friends"), new ArrayList<>());
+        return new User((String) map.get("email"), (String) map.get("firstName"), (String) map.get("lastName"), (String) map.get("password"), (String) map.get("displayName"), (ArrayList<String>) map.get("favourites"), (ArrayList<String>) map.get("recentLocations"), (ArrayList<String>) map.get("friends"), (ArrayList<Category>) map.get("likedCategories"));
     }
 
     public static User getUserFromEmail(String email) {
@@ -65,7 +65,7 @@ public class UserService {
 
     /**
      * Saul - goes through the user's friend list and checks if the users they have added are mutual friends
-     * @param user
+     * @param user the user to get the friends of
      * @return mutualFriends is the arrayList of friends of the user that have added them back
      */
     public static ArrayList<User> getUserFriends(User user) {
