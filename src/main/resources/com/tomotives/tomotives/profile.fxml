@@ -6,7 +6,7 @@
 
 <BorderPane stylesheets="@profile.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.controllers.ProfileController">
     <top>
-        <fx:include source="toolbar.fxml" />
+        <fx:include fx:id="toolbar" source="toolbar.fxml" />
     </top>
     <center>
         <HBox spacing="50.0" style="-fx-background-color: white; -fx-background-radius: 20px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);">
@@ -44,8 +44,9 @@
 
                 <Region prefHeight="20.0" />
 
-                <HBox alignment="CENTER">
-                    <Button prefHeight="45.0" prefWidth="120.0" styleClass="sign-out-button" text="Sign out" />
+                <HBox spacing="20.0" alignment="CENTER">
+                    <Button prefHeight="45.0" prefWidth="170.0" styleClass="saveButton" text="Save Changes" onMouseClicked="#saveChanges" />
+                    <Button prefHeight="45.0" prefWidth="120.0" styleClass="sign-out-button" text="Sign out" onMouseClicked="#signOut" />
                 </HBox>
             </VBox>
 

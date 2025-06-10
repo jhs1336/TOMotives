@@ -137,6 +137,33 @@ public class UserService {
         }
     }
 
+    public static void editUser(String userDisplayName, User replacementUser) {
+        try {
+            // read the current users from the file
+            String userListJson = new String(Files.readAllBytes(Paths.get(USERS_FILE_PATH)));
+            Type listType = new TypeToken<ArrayList<Map<String, Object>>>(){}.getType();
+            ArrayList<Map<String, Object>> users = new Gson().fromJson(userListJson, listType);
+
+            // find and update the user in the list
+            for (Map<String, Object> user : users) {
+                if (user.get("displayName").equals(userDisplayName)) {
+                    // update fields
+                    user.put("email", replacementUser.getEmail());
+                    user.put("firstName", replacementUser.getFirstName());
+                    user.put("lastName", replacementUser.getLastName());
+                    user.put("password", replacementUser.getPassword());
+                    user.put("displayName", replacementUser.getDisplayName());
+
+                    break;
+                }
+            }
+            // write the updated data back to the file
+            Files.write(Paths.get(UserService.USERS_FILE_PATH), new Gson().toJson(users).getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void addRecentLocationToUser(String displayName, String location) {
         try {
             // read the current users from the file
