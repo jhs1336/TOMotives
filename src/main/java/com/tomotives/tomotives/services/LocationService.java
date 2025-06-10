@@ -35,9 +35,10 @@ public class LocationService {
             e.printStackTrace();
             return null;
         }
-    }
+    }//end getLocationObjectList method
+
     /**Joshua
-     * Retrieves a list of Location objects as type Location from the locations JSON file
+     * Retrieves a arraylist with all the locations from the file
      *
      * @return an ArrayList of Location objects as type Location, or null if an IOException occurs while reading the file
      */
@@ -49,7 +50,13 @@ public class LocationService {
             locations.add(getLocationFromMap(gson.fromJson(gson.toJson(locationObject), mapType)));
         }
         return locations;
-    }
+    }//end getLocationList method
+
+    /**Joshua
+     * Retrieves a list of Location objects as type Location from the locations JSON file
+     *
+     * @return an ArrayList of Location objects as type Location, or null if an IOException occurs while reading the file
+     */
     public static ArrayList<String> getLocationNamesList() {
         ArrayList<Object> locationList = getLocationObjectList();
         ArrayList<String> locations = new ArrayList<>();
@@ -59,29 +66,61 @@ public class LocationService {
             locations.add((String) locationMap.get("name"));
         }
         return locations;
-    }
+    }//end getLocationNamesList method
 
     public static ArrayList<Location> filterLocationListByCategories(ArrayList<Category> categories) {
-        // given a list of categories, return an arraylist with only locations which have those categories
-        // steps to help: loop through all locations (getLocationList()) will provide you will all locations
-        // for each location, check if any of it's categories are in the categories array list provided. If so, add the location to an array list that you will return later.
+        //create arrayList of all the locations and an empty arrayList for locations with given category
+        ArrayList<Location> filteredLocations =  new ArrayList<>();
+        ArrayList<Location> unfilteredLocations = getLocationList();
 
-        return null;
-    }
+        //loop through all locations
+        for (Location location : unfilteredLocations){
+
+            //creates an arraylist of the categories each location has
+            ArrayList<Category> locationCategories = location.getCategories();
+
+            //compares category of the location to the category user inputed
+            for(Category category : locationCategories){
+
+                //if the location has user's inputted category
+                if (locationCategories.contains(category)) {
+                    filteredLocations.add(location);
+                    break;
+                }
+            }
+        }
+        return filteredLocations;
+    }//end filterLocationLostByCategories method
 
     public static ArrayList<Location> filterLocationListByRating(double min, double max) {
-        // given a minimum and maximum rating (both INCLUSIVE), return an arraylist with only locations which have ratings within the range
-        // steps: loop through all locations (getLocationList()) will provide you will all locations
-        // for each location, check if it's rating is within the range. If so, add the location to an array list that you will return later
-        // ALTERNATIVELY: sort the list of locations by rating, then use the min and max to find where to cutoff the list at
+        ArrayList<Location> filteredLocations = new ArrayList<>();
+        ArrayList<Location> unfilteredLocations = getLocationList();
 
-        return null;
-    }
+        for (Location location : unfilteredLocations){
+            //get the ratings
+            double rating = location.getRating();
+            if(rating>=min && rating<=max){
+                filteredLocations.add(location);
+            }
+        }
+
+        return filteredLocations;
+    }//end filterLocationByRating method
+
     public static ArrayList<Location> filterLocationListByPrice(double min, double max) {
+        ArrayList<Location> filteredLocations = new ArrayList<>();
+        ArrayList<Location> unfilteredLocations = getLocationList();
 
+        for (Location location : unfilteredLocations){
+            //get the price
+            double price = location.getRating();
+            if(price>=min && price<=max){
+                filteredLocations.add(location);
+            }
+        }
 
-        return null;
-    }
+        return filteredLocations;
+    }//end filteredLocationListByPrice method
 
     public static Location getLocation(String name) {
         for (Location location : getLocationList()) {
@@ -124,6 +163,7 @@ public class LocationService {
     }
 
     public static int getLocationAmountOfFavorites(Location location) {
+        int counter;
         // given a location, return the amount of favorites it has NOTE: favorites are stored by user, not location.
         // steps: loop through all users (UserService.getUserList()) will provide you will all users
         // for each user, check if the user has the location in their favorites list. If so, add to a counter, and eventually return the counter
