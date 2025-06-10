@@ -293,19 +293,18 @@
     ]
   },
   {
-    "lastName": "ss",
+    "email": "admin@gmail.com",
+    "firstName": "Admin",
+    "lastName": "Admin",
+    "password": "admin",
+    "displayName": "Admin",
+    "favourites": [],
     "recentLocations": [],
     "friends": [],
-    "favourites": [],
-    "password": "password",
-    "email": "t@gmail.com",
-    "firstName": "s",
-    "displayName": "pas",
     "likedCategories": [
-      "BARS",
-      "DOG_FRIENDLY",
-      "LANDMARK",
-      "BUDGET"
+      "CAFE",
+      "SHOPPING",
+      "VINTAGE"
     ]
   }
 ]

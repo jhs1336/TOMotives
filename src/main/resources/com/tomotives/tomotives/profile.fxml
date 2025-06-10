@@ -48,6 +48,9 @@
                     <Button prefHeight="45.0" prefWidth="170.0" styleClass="saveButton" text="Save Changes" onMouseClicked="#saveChanges" />
                     <Button prefHeight="45.0" prefWidth="120.0" styleClass="sign-out-button" text="Sign out" onMouseClicked="#signOut" />
                 </HBox>
+                <HBox spacing="20.0" alignment="CENTER">
+                    <Button fx:id="addUserButton" prefHeight="45.0" prefWidth="170.0" styleClass="saveButton" text="Add User" managed="false" onMouseClicked="#addUser" />
+                </HBox>
             </VBox>
 
             <Region prefWidth="1.0" style="-fx-background-color: #dddddd; -fx-min-width: 1px; -fx-max-width: 1px;"/>

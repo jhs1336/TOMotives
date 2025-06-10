@@ -8,6 +8,7 @@ import com.tomotives.tomotives.services.ToastService;
 import com.tomotives.tomotives.services.UserService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -27,10 +28,20 @@ public class ProfileController {
     private VBox friendsBox;
 
     @FXML
+    private Button addUserButton;
+
+    @FXML
     private ToolbarController toolbarController;
 
     @FXML
     private void initialize() {
+        if (Application.getUser().getDisplayName().equals("Admin")) {
+            addUserButton.setManaged(true);
+            firstNameTextField.getParent().getChildrenUnmodifiable().forEach(node -> node.setManaged(false));
+            lastNameField.getParent().getChildrenUnmodifiable().forEach(node -> node.setManaged(false));
+            firstNameTextField.getParent().getParent().setManaged(false);
+        }
+
         displayNameTextField.setText(Application.getUser().getDisplayName());
         emailTextField.setText(Application.getUser().getEmail());
         firstNameTextField.setText(Application.getUser().getFirstName());
@@ -67,5 +78,10 @@ public class ProfileController {
         Application.setUser(null);
         toolbarController.refreshToolbar();
         Application.loadPage("login.fxml");
+    }
+
+    @FXML
+    private void addUser() {
+        ;
     }
 }
