@@ -120,7 +120,7 @@ public class LocationDetailController extends LocationControllerBase {
         for (int i = 0; i < filterHBox.getChildren().size(); i++) {
             Node child = filterHBox.getChildren().get(i);
             if (child instanceof Button) {
-                ((Button) child).setText(location.getCategories().get(i).getName());
+                ((Button) child).setText(String.valueOf(location.getCategories().get(i)));
             }
         }
 

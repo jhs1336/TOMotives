@@ -2,6 +2,7 @@ package com.tomotives.tomotives.services;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.tomotives.tomotives.models.Category;
 import com.tomotives.tomotives.models.FriendStatus;
 import com.tomotives.tomotives.models.User;
 
@@ -10,7 +11,9 @@ import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class UserService {
     private final static String USERS_FILE_PATH = "src/main/resources/com/tomotives/tomotives/data/users.json";
@@ -93,6 +96,37 @@ public class UserService {
     public static FriendStatus getUserFriendshipStatus(String userDisplayName, String otherUserDisplayName) {
         return getUserFriendshipStatus(getUserFromDisplayName(userDisplayName), getUserFromDisplayName(otherUserDisplayName));
     }
+
+    public static void setLikedCategories(User user, List<Category> categories) {
+        setLikedCategories(user.getDisplayName(), categories);
+    }
+
+    public static void setLikedCategories(String userDisplayName, List<Category> categories) {
+        try {
+            // read the current users from the file
+            String userListJson = new String(Files.readAllBytes(Paths.get(USERS_FILE_PATH)));
+            Type listType = new TypeToken<ArrayList<Map<String, Object>>>(){}.getType();
+            ArrayList<Map<String, Object>> users = gson.fromJson(userListJson, listType);
+
+            // find the user by display name
+            for (Map<String, Object> user : users) {
+                if (user.get("displayName").equals(userDisplayName)) {
+                    // Convert categories to list of strings
+                    List<String> categoryStrings = categories.stream().map(Category::name).collect(Collectors.toList());
+
+                    // update the likedCategories field
+                    user.put("likedCategories", categoryStrings);
+
+                    // write the updated data back to the file
+                    Files.write(Paths.get(USERS_FILE_PATH), gson.toJson(users).getBytes());
+                    return;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static void addUser(User user) {
         if (!Files.exists(Paths.get(USERS_FILE_PATH))) return;

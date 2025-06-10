@@ -49,12 +49,12 @@ public class SmallLocationController extends LocationControllerBase {
             resizableImageController.applyRoundedCorners(10);
         }
         if (filter1Button != null && filter1 != null) {
-            filter1Button.setText(filter1.getName());
-            filter1Button.setTooltip(new Tooltip(filter1.getName()));
+            filter1Button.setText(String.valueOf(filter1));
+            filter1Button.setTooltip(new Tooltip(String.valueOf(filter1)));
         }
         if (filter2Button != null && filter2 != null) {
-            filter2Button.setText(filter2.getName());
-            filter2Button.setTooltip(new Tooltip(filter2.getName()));
+            filter2Button.setText(String.valueOf(filter2));
+            filter2Button.setTooltip(new Tooltip(String.valueOf(filter2)));
         }
 
         // update star and price ratings

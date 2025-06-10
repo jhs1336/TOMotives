@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 
 import java.io.File;
 import java.io.FileReader;
@@ -70,7 +71,7 @@ public class SignUpController {
             toolbarController.refreshToolbar();
 
             // check if we're on the signup page with no additional params, (no page specified to route to after signing up)
-            if (Application.getPage().equals("sign-up")) Application.loadPage("home.fxml"); // TODO: change to intro survey
+            if (Application.getPage().equals("sign-up")) Application.loadPage("intro-survey.fxml");
             else if (Application.getPage().split("/")[1].equals("location")) Application.loadPage("location-detail-display.fxml", "location-detail-display/" + Application.getPage().split("/")[2]);
             ToastService.show(getStage(), "Created Account", ToastController.ToastType.SUCCESS);
         }

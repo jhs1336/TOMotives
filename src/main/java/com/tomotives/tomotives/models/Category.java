@@ -5,60 +5,52 @@ package com.tomotives.tomotives.models;
  */
 public enum Category {
     // copied from mindomo diagram
-    Indoors,
-    Outdoors,
-    Park,
-    Nature,
-    Budget,
-    Clothing,
-    Vintage,
-    WithFriends("With Friends"),
-    Solo,
-    DateSpot("Date Spot"),
-    NightTime("Night Time"),
-    Landmark,
-    Birdwatching,
-    Family,
-    Restaurant,
-    Cafe,
-    Swimming,
-    Beach,
-    DogFriendly( "Dog-friendly"),
-    Breakfast,
-    Lunch,
-    Dinner,
-    StudySpot("Study Spot"),
-    Walking,
-    Tourist,
-    Bars,
-    Sledding,
-    Mall,
-    Shop,
-    Shopping,
-    Hiking,
-    Biking,
-    Scenic,
-    Historic,
-    Museum,
-    Parking,
-    Music,
-    Gym,
-    CarRental( "Car Rental"),
-    CarWash( "Car Wash"),
-    CarRepair( "Car Repair"),
-    Educational;
+    INDOORS,
+    OUTDOORS,
+    PARK,
+    NATURE,
+    BUDGET,
+    CLOTHING,
+    VINTAGE,
+    WITH_FRIENDS,
+    SOLO,
+    DATE_SPOT,
+    NIGHT_TIME,
+    LANDMARK,
+    BIRDWATCHING,
+    FAMILY,
+    RESTAURANT,
+    CAFE,
+    SWIMMING,
+    BEACH,
+    DOG_FRIENDLY,
+    BREAKFAST,
+    LUNCH,
+    DINNER,
+    STUDY_SPOT,
+    WALKING,
+    TOURIST,
+    BARS,
+    SLEDDING,
+    MALL,
+    SHOP,
+    SHOPPING,
+    HIKING,
+    BIKING,
+    SCENIC,
+    HISTORIC,
+    MUSEUM,
+    PARKING,
+    MUSIC,
+    GYM,
+    CAR_RENTAL,
+    CAR_WASH,
+    CAR_REPAIR,
+    EDUCATIONAL;
 
 
-    private final String name;
-
-    Category() {
-        this.name = toString();
-    }
-    Category(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
+    @Override
+    public String toString() {
+        return super.toString().charAt(0) + super.toString().replace("_", " ").toLowerCase().substring(1);
     }
 }
