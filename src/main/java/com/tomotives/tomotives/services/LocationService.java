@@ -61,6 +61,28 @@ public class LocationService {
         return locations;
     }
 
+    public static ArrayList<Location> filterLocationListByCategories(ArrayList<Category> categories) {
+        // given a list of categories, return an arraylist with only locations which have those categories
+        // steps to help: loop through all locations (getLocationList()) will provide you will all locations
+        // for each location, check if any of it's categories are in the categories array list provided. If so, add the location to an array list that you will return later.
+
+        return null;
+    }
+
+    public static ArrayList<Location> filterLocationListByRating(double min, double max) {
+        // given a minimum and maximum rating (both INCLUSIVE), return an arraylist with only locations which have ratings within the range
+        // steps: loop through all locations (getLocationList()) will provide you will all locations
+        // for each location, check if it's rating is within the range. If so, add the location to an array list that you will return later
+        // ALTERNATIVELY: sort the list of locations by rating, then use the min and max to find where to cutoff the list at
+
+        return null;
+    }
+    public static ArrayList<Location> filterLocationListByPrice(double min, double max) {
+
+
+        return null;
+    }
+
     public static Location getLocation(String name) {
         for (Location location : getLocationList()) {
             if (location.getName().equals(name)) {
@@ -99,6 +121,14 @@ public class LocationService {
 
 
         return new Location((String) locationMap.get("name"), (String) locationMap.get("description"), averageRating, averagePriceRating, categories, reviewList, (String) locationMap.get("image"));
+    }
+
+    public static int getLocationAmountOfFavorites(Location location) {
+        // given a location, return the amount of favorites it has NOTE: favorites are stored by user, not location.
+        // steps: loop through all users (UserService.getUserList()) will provide you will all users
+        // for each user, check if the user has the location in their favorites list. If so, add to a counter, and eventually return the counter
+
+        return 0;
     }
 
     public static void addReview(String locationName, Review review) {
@@ -141,5 +171,35 @@ public class LocationService {
             e.printStackTrace();
         }
     }
+    public static void removeReview(String locationName, String reviewDescription) {
+        if (!Files.exists(Paths.get(LOCATIONS_FILE_PATH))) return;
 
+        try {
+            // read the current locations from the file
+            String locationListJson = new String(Files.readAllBytes(Paths.get(LOCATIONS_FILE_PATH)));
+            Type listType = new TypeToken<ArrayList<Map<String, Object>>>(){}.getType();
+            ArrayList<Map<String, Object>> locations = gson.fromJson(locationListJson, listType);
+
+            // find the location by name
+            for (Map<String, Object> location : locations) {
+                if (location.get("name").equals(locationName)) {
+                    // get the reviews array for this location
+                    ArrayList<Map<String, Object>> reviews = gson.fromJson(gson.toJson(location.get("reviews")), new TypeToken<ArrayList<Map<String, Object>>>(){}.getType());
+
+                    // find and remove the review with the matching description
+                    reviews.removeIf(review -> reviewDescription.equals(review.get("description")));
+
+                    // update the reviews in the location
+                    location.put("reviews", reviews);
+
+                    // write the updated locations back to the file
+                    Files.write(Paths.get(LOCATIONS_FILE_PATH), gson.toJson(locations).getBytes());
+
+                    return;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

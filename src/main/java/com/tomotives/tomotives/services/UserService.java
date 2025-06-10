@@ -50,6 +50,7 @@ public class UserService {
         }
         return null;
     }
+
     public static User getUserFromDisplayName(String displayName) {
         for (User user : getUserList()) {
             if (user.getDisplayName().equals(displayName)) {
@@ -80,16 +81,6 @@ public class UserService {
     public static ArrayList<User> getUserFriends(String userDisplayName) {
         return getUserFriends(getUserFromDisplayName(userDisplayName));
     }
-
-    /** Jessica
-     * Enum that describes friendship status
-     */
-    public enum FriendStatus {
-        FRIEND,
-        REQUESTED,
-        RECEIVED,
-        NOT_FRIEND
-    } // end Friend Status
 
     /** Jessica
      * Checks the friend status between two users
@@ -155,10 +146,6 @@ public class UserService {
                 if (user.get("displayName").equals(displayName)) {
                     // get the recent locations array
                     ArrayList<String> recentLocations = gson.fromJson(gson.toJson(user.get("recentLocations")), new TypeToken<ArrayList<String>>(){}.getType());
-                    if (recentLocations.isEmpty()) {
-                        recentLocations.add(location);
-                        return;
-                    }
                     // if the location is last location viewed, return
                     if (recentLocations.getLast().equals(location)) return;
                     // if location exists in array, remove it

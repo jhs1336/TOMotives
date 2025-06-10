@@ -37,7 +37,7 @@ public class Application extends javafx.application.Application {
     public static final String HOVER_BUTTON_STYLE = "-fx-background-color: #008b9c; -fx-text-fill: white; -fx-background-radius: 25px; -fx-font-size: 14px;";
 
     public static User getUser() {
-        return user;
+        return user != null ? new User(user) : null;
     }
     public static void setUser(User user) {
         Application.user = user;
@@ -201,6 +201,7 @@ public class Application extends javafx.application.Application {
         );
         fadeIn.play();
     }
+
     public static void showLoginOrSignupPopup(String pagePath) {
         showLoginOrSignupPopup("Login or Sign Up", "Please login or sign up to continue", pagePath);
     }

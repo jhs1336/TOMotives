@@ -8,17 +8,17 @@ import javafx.scene.layout.VBox;
 
 public class ProfileController {
     @FXML
-    TextField displayNameTextField;
+    private TextField displayNameTextField;
     @FXML
-    TextField emailTextField;
+    private TextField emailTextField;
     @FXML
-    TextField firstNameTextField;
+    private TextField firstNameTextField;
     @FXML
-    TextField lastNameField;
+    private TextField lastNameField;
     @FXML
-    PasswordField passwordTextField;
+    private PasswordField passwordTextField;
     @FXML
-    public VBox friendsBox;
+    private VBox friendsBox;
 
     @FXML
     private void initialize() {

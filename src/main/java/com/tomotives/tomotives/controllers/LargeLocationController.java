@@ -34,9 +34,9 @@ public class LargeLocationController extends LocationControllerBase {
     private Button filter4Button;
 
     @FXML
-    public Label priceRatingLabel;
+    private Label priceRatingLabel;
     @FXML
-    public Label starRatingLabel;
+    private Label starRatingLabel;
 
     @FXML
     public void initialize() {
@@ -58,20 +58,20 @@ public class LargeLocationController extends LocationControllerBase {
             resizableImageController.applyRoundedCorners(10);
         }
         if (filter1Button != null && filter1 != null) {
-            filter1Button.setText(filter1.getName());
-            filter1Button.setTooltip(new Tooltip(filter1.getName()));
+            filter1Button.setText(String.valueOf(filter1));
+            filter1Button.setTooltip(new Tooltip(String.valueOf(filter1)));
         }
         if (filter2Button != null && filter2 != null) {
-            filter2Button.setText(filter2.getName());
-            filter2Button.setTooltip(new Tooltip(filter2.getName()));
+            filter2Button.setText(String.valueOf(filter2));
+            filter2Button.setTooltip(new Tooltip(String.valueOf(filter2)));
         }
         if (filter3Button != null && filter3 != null) {
-            filter3Button.setText(filter3.getName());
-            filter3Button.setTooltip(new Tooltip(filter3.getName()));
+            filter3Button.setText(String.valueOf(filter3));
+            filter3Button.setTooltip(new Tooltip(String.valueOf(filter3)));
         }
         if (filter4Button != null && filter4 != null) {
-            filter4Button.setText(filter4.getName());
-            filter4Button.setTooltip(new Tooltip(filter4.getName()));
+            filter4Button.setText(String.valueOf(filter4));
+            filter4Button.setTooltip(new Tooltip(String.valueOf(filter4)));
         }
 
         // update star and price ratings
@@ -79,11 +79,22 @@ public class LargeLocationController extends LocationControllerBase {
         updatePriceRating(priceRating, priceContainer);
     }
 
+    /**
+     * Saul
+     * @param rating The rating value to display, which can be a decimal value between 0 and the 5
+     * @param priceContainer The HBox container to update the price rating for
+     */
     @Override
     protected void updatePriceRating(double rating, HBox priceContainer) {
         super.updatePriceRating(rating, priceContainer);
         priceRatingLabel.setText(String.format("%.1f", rating));
     }
+
+    /**
+     * Saul
+     * @param rating The rating value to display, which can be a decimal value between 0 and 5
+     * @param starsContainer The HBox container where the star icons are displayed
+     */
     @Override
     protected void updateStarRating(double rating, HBox starsContainer) {
         super.updateStarRating(rating, starsContainer);

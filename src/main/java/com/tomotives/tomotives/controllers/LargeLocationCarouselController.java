@@ -26,9 +26,9 @@ public class LargeLocationCarouselController {
     private Label carouselTitle;
 
     @FXML
-    public AnchorPane largeLocationDisplay;
+    private AnchorPane largeLocationDisplay;
     @FXML
-    public LargeLocationController largeLocationDisplayController;
+    private LargeLocationController largeLocationDisplayController;
 
     private int currentIndex;
     private List<Map<String, Object>> locationDisplays = new ArrayList<>();
@@ -79,6 +79,7 @@ public class LargeLocationCarouselController {
         locationDisplays.add(locationData);
         updateCarousel();
     }
+
     public void addLocationDisplay(Location location) {
         addLocationDisplay(location.getName(), location.getImage(), location.getRating(), location.getPrice(),
             !location.getCategories().isEmpty() ? location.getCategories().getFirst() : null,
