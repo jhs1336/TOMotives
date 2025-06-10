@@ -2,6 +2,7 @@ package com.tomotives.tomotives.services;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.tomotives.tomotives.models.Category;
 import com.tomotives.tomotives.models.FriendStatus;
 import com.tomotives.tomotives.models.User;
 
@@ -10,7 +11,9 @@ import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class UserService {
     private final static String USERS_FILE_PATH = "src/main/resources/com/tomotives/tomotives/data/users.json";
@@ -39,7 +42,7 @@ public class UserService {
     }
 
     public static User getUserFromMap(Map<String, Object> map) {
-        return new User((String) map.get("email"), (String) map.get("firstName"), (String) map.get("lastName"), (String) map.get("password"), (String) map.get("displayName"), (ArrayList<String>) map.get("favourites"), (ArrayList<String>) map.get("recentLocations"), (ArrayList<String>) map.get("friends"));
+        return new User((String) map.get("email"), (String) map.get("firstName"), (String) map.get("lastName"), (String) map.get("password"), (String) map.get("displayName"), (ArrayList<String>) map.get("favourites"), (ArrayList<String>) map.get("recentLocations"), (ArrayList<String>) map.get("friends"), new ArrayList<>());
     }
 
     public static User getUserFromEmail(String email) {
@@ -146,6 +149,10 @@ public class UserService {
                 if (user.get("displayName").equals(displayName)) {
                     // get the recent locations array
                     ArrayList<String> recentLocations = gson.fromJson(gson.toJson(user.get("recentLocations")), new TypeToken<ArrayList<String>>(){}.getType());
+                    if (recentLocations.isEmpty()) {
+                        recentLocations.add(location);
+                        return;
+                    }
                     // if the location is last location viewed, return
                     if (recentLocations.getLast().equals(location)) return;
                     // if location exists in array, remove it
@@ -170,6 +177,36 @@ public class UserService {
     public static void addRecentLocationToUser(User user, String location) {
         addRecentLocationToUser(user.getDisplayName(), location);
     }
+    public static void setLikedCategories(User user, List<Category> categories) {
+        setLikedCategories(user.getDisplayName(), categories);
+    }
+
+    public static void setLikedCategories(String userDisplayName, List<Category> categories) {
+        try {
+            // read the current users from the file
+            String userListJson = new String(Files.readAllBytes(Paths.get(USERS_FILE_PATH)));
+            Type listType = new TypeToken<ArrayList<Map<String, Object>>>(){}.getType();
+            ArrayList<Map<String, Object>> users = gson.fromJson(userListJson, listType);
+
+            // find the user by display name
+            for (Map<String, Object> user : users) {
+                if (user.get("displayName").equals(userDisplayName)) {
+                    // Convert categories to list of strings
+                    List<String> categoryStrings = categories.stream().map(Category::name).collect(Collectors.toList());
+
+                    // update the likedCategories field
+                    user.put("likedCategories", categoryStrings);
+
+                    // write the updated data back to the file
+                    Files.write(Paths.get(USERS_FILE_PATH), gson.toJson(users).getBytes());
+                    return;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void addOrRemoveUserFavourite(String displayName, String location) {
         try {
             // read the current users from the file
