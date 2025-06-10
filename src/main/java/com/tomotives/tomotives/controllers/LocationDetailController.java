@@ -230,7 +230,7 @@ public class LocationDetailController extends LocationControllerBase {
         popupContent.setMinWidth(400);
         popupContent.setMaxWidth(500);
 
-        Label titleLabel = new Label(Application.getUser() != null ? "Add Review" : "Login to Add Reviews");
+        Label titleLabel = new Label(removeExistingReview ? "Edit Review" : "Add Review");
         titleLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
         titleLabel.getStyleClass().add("popup-title");
 

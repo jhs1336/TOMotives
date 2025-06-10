@@ -67,6 +67,7 @@ public class IntroSurveyController {
         if (selectedFilters.size() >= MIN_SELECTIONS) {
             UserService.setLikedCategories(Application.getUser().getDisplayName(), getSelectedFilters());
             ToastService.show(Application.getStage(), "Intro Survey Completed", ToastController.ToastType.SUCCESS, 4000);
+            Application.loadPage("home.fxml");
         }
     }
 
