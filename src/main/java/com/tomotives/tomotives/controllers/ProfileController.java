@@ -4,14 +4,23 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.tomotives.tomotives.Application;
 import com.tomotives.tomotives.models.User;
+import com.tomotives.tomotives.services.LocationService;
 import com.tomotives.tomotives.services.ToastService;
 import com.tomotives.tomotives.services.UserService;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.stage.Popup;
+import javafx.stage.Window;
+
+import static com.tomotives.tomotives.Application.HOVER_BUTTON_STYLE;
+import static com.tomotives.tomotives.Application.NORMAL_BUTTON_STYLE;
 
 public class ProfileController {
     @FXML
@@ -81,7 +90,90 @@ public class ProfileController {
     }
 
     @FXML
-    private void addUser() {
-        ;
+    private void addUser(MouseEvent event) {
+        Popup popup = new Popup();
+        popup.setAutoHide(true);
+        // setup popup structure
+        VBox popupContent = new VBox();
+        popupContent.getStyleClass().add("review-popup");
+        popupContent.setStyle("-fx-border-color: #00a0b0;");
+        popupContent.setSpacing(15);
+        popupContent.setPadding(new Insets(20));
+        popupContent.setMinWidth(400);
+        popupContent.setMaxWidth(500);
+
+        Label titleLabel = new Label("Add User");
+        titleLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
+        titleLabel.getStyleClass().add("popup-title");
+
+        VBox contentBox = new VBox();
+        contentBox.setSpacing(10);
+        TextField emailField = new TextField();
+        emailField.setPromptText("Email");
+        PasswordField passwordField = new PasswordField();
+        passwordField.setPromptText("Password");
+        TextField firstNameField = new TextField();
+        firstNameField.setPromptText("First Name");
+        TextField lastNameField = new TextField();
+        lastNameField.setPromptText("Last Name");
+        TextField displayNameField = new TextField();
+        displayNameField.setPromptText("Display Name");
+        contentBox.getChildren().addAll(emailField, passwordField, firstNameField, lastNameField, displayNameField);
+
+        // buttons
+        HBox buttonBox = new HBox();
+        buttonBox.setSpacing(10);
+        buttonBox.setAlignment(Pos.CENTER_RIGHT);
+
+        Button cancelButton = new Button("Cancel");
+        cancelButton.styleProperty().set(NORMAL_BUTTON_STYLE);
+        cancelButton.hoverProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                cancelButton.setStyle(HOVER_BUTTON_STYLE);
+            } else {
+                cancelButton.setStyle(NORMAL_BUTTON_STYLE);
+            }
+        });
+        cancelButton.setOnAction(e -> {
+            popup.hide();
+        });
+        cancelButton.setOnAction(e -> popup.hide());
+
+        Button createAccountButton = new Button("Create Account");
+        createAccountButton.styleProperty().set(NORMAL_BUTTON_STYLE);
+        createAccountButton.hoverProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                createAccountButton.setStyle(HOVER_BUTTON_STYLE);
+            } else {
+                createAccountButton.setStyle(NORMAL_BUTTON_STYLE);
+            }
+        });
+        createAccountButton.setOnAction(e -> {
+            if (UserService.getUserFromEmail(emailField.getText()) != null) {
+                ToastService.show(Application.getStage(), "Email already in use", ToastController.ToastType.ERROR);
+                return;
+            }
+            if (UserService.getUserFromDisplayName(displayNameField.getText()) != null) {
+                ToastService.show(Application.getStage(), "Display name already in use", ToastController.ToastType.ERROR);
+                return;
+            }
+            User user = new User(emailField.getText(), firstNameField.getText(), lastNameField.getText(),  passwordField.getText(), displayNameField.getText());
+            UserService.addUser(user);
+            ToastService.show(Application.getStage(), "Account Created", ToastController.ToastType.SUCCESS);
+            popup.hide();
+        });
+
+        buttonBox.getChildren().addAll(cancelButton, createAccountButton);
+
+        // add all components to the popup content
+        popupContent.getChildren().addAll(titleLabel, contentBox, buttonBox);
+
+        popupContent.setStyle("-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);");
+        // add content to popup
+        popup.getContent().add(popupContent);
+
+        // show the popup
+        Window window = ((Node) event.getSource()).getScene().getWindow();
+        popup.show(window, window.getX() + (window.getWidth() - popupContent.getMinWidth()) / 2, window.getY() + (window.getHeight() - 300) / 2);
     }
 }
