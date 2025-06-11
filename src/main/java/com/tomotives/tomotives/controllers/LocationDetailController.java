@@ -10,6 +10,7 @@ import com.tomotives.tomotives.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -153,6 +154,29 @@ public class LocationDetailController extends LocationControllerBase {
 
         Hyperlink authorLabel = new Hyperlink(review.getUser());
         authorLabel.getStyleClass().add("review-author");
+
+        authorLabel.setOnAction(event -> {
+            ContextMenu contextMenu = new ContextMenu();
+            MenuItem addFriendMenuItem = new MenuItem("Add Friend");
+            addFriendMenuItem.setDisable(Application.getUser() == null); // disabled if no user logged in
+            MenuItem recentlyViewedMenuItem = new MenuItem("View Recent");
+            MenuItem favouritesMenuItem = new MenuItem("View Favourites");
+            addFriendMenuItem.getStyleClass().add(Application.getUser() == null ? null : "button");
+            recentlyViewedMenuItem.getStyleClass().add("button");
+            favouritesMenuItem.getStyleClass().add("button");
+            addFriendMenuItem.setStyle("-fx-font-size: 14px;");
+            recentlyViewedMenuItem.setStyle("-fx-font-size: 14px;");
+            favouritesMenuItem.setStyle("-fx-font-size: 14px;");
+            contextMenu.setStyle("-fx-padding: 5px; -fx-border-color: #00a0b0; -fx-background-radius: 5px; -fx-border-radius: 5px;");
+
+            addFriendMenuItem.setOnAction(e -> Application.loadPage("profile.fxml"));
+            recentlyViewedMenuItem.setOnAction(e -> Application.loadPage("favourites-and-recently-viewed.fxml", "favourites-and-recently-viewed/recently-viewed/" + authorLabel.getText()));
+            favouritesMenuItem.setOnAction(e -> Application.loadPage("favourites-and-recently-viewed.fxml", "favourites-and-recently-viewed/favourites/" + authorLabel.getText()));
+
+            contextMenu.getItems().addAll(addFriendMenuItem, recentlyViewedMenuItem, favouritesMenuItem);
+            contextMenu.show(authorLabel, Side.BOTTOM, 0, 0);
+        });
+
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM d, yyyy");
         Label dateLabel = new Label(dateFormat.format(review.getDate()));
         dateLabel.getStyleClass().add("review-date");

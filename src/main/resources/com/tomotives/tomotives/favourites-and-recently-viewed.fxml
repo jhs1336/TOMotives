@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.controllers.FavoritesAndRecentlyViewed">
+    <top>
+        <fx:include source="toolbar.fxml" />
+    </top>
+    <center>
+        <HBox spacing="50.0" style="-fx-background-color: white; -fx-background-radius: 20px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);">
+            <padding>
+                <Insets bottom="12.0" left="22.0" right="22.0" top="12.0" />
+            </padding>
+
+
+            <VBox prefWidth="1750.0" spacing="8.0">
+                <VBox spacing="8.0">
+                    <Label fx:id="label" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Favorites" />
+                    <Region prefWidth="400.0" style="-fx-background-color: #dddddd; -fx-min-height: 1px; -fx-max-height: 1px;" />
+                </VBox>
+                <fx:include fx:id="collection" prefWidth="1200.0" source="small-location-collection.fxml" />
+            </VBox>
+            <VBox>
+                <fx:include source="small-location-collection.fxml" />
+            </VBox>
+         <BorderPane.margin>
+            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+         </BorderPane.margin>
+        </HBox>
+    </center>
+</BorderPane>

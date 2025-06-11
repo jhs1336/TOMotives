@@ -122,12 +122,8 @@ public class ToolbarController {
         if (Application.getUser() == null) {
             Application.showLoginOrSignupPopup();
         } else {
-            Application.loadPage("search-result-page.fxml");
+            Application.loadPage("favourites-and-recently-viewed.fxml", "favourites-and-recently-viewed/favourites/" + Application.getUser().getDisplayName());
         }
-    }
-
-    private void handleProfileButton() {
-           // TOMotivesApplication.loadPage("profile.fxml");
     }
 
     /**Joshua
@@ -145,21 +141,25 @@ public class ToolbarController {
         } else {
             ContextMenu contextMenu = new ContextMenu();
             MenuItem profileMenuItem = new MenuItem("Profile");
+            MenuItem recentlyViewedMenuItem = new MenuItem("Recent");
             MenuItem logoutMenuItem = new MenuItem("Log Out");
             profileMenuItem.getStyleClass().add("button");
+            recentlyViewedMenuItem.getStyleClass().add("button");
             logoutMenuItem.getStyleClass().add("button");
             profileMenuItem.setStyle("-fx-font-size: 14px;");
+            recentlyViewedMenuItem.setStyle("-fx-font-size: 14px;");
             logoutMenuItem.setStyle("-fx-text-fill: red; -fx-font-size: 14px;");
             contextMenu.setStyle("-fx-padding: 5px; -fx-border-color: #00a0b0; -fx-background-radius: 5px; -fx-border-radius: 5px;");
 
 
             profileMenuItem.setOnAction(e -> Application.loadPage("profile.fxml"));
+            recentlyViewedMenuItem.setOnAction(e -> Application.loadPage("favourites-and-recently-viewed.fxml", "favourites-and-recently-viewed/recently-viewed/" + Application.getUser().getDisplayName()));
             logoutMenuItem.setOnAction(e -> {
                 Application.setUser(null);
                 refreshToolbar();
             });
 
-            contextMenu.getItems().addAll(profileMenuItem, logoutMenuItem);
+            contextMenu.getItems().addAll(profileMenuItem, recentlyViewedMenuItem, logoutMenuItem);
             contextMenu.show(loginAndProfileButton, Side.BOTTOM, 0, 0);
         }
     }
