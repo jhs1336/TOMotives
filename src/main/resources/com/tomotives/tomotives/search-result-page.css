@@ -1,0 +1,38 @@
+.filter-button {
+    -fx-background-color: #FF6B6B;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-background-radius: 15;
+    -fx-padding: 6 12;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0, 0, 1);
+    -fx-min-width: 80;
+    -fx-max-width: 80;
+    -fx-pref-width: 80;
+}
+
+.filter-button:hover {
+    -fx-background-color: #FF5252;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 2);
+}
+
+.filter-button.selected {
+    -fx-background-color: #059669;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 2);
+}
+
+.filter-button.selected:hover {
+    -fx-background-color: #047857;
+}
+
+.refresh-button {
+    -fx-background-color: #00a0b0;
+    -fx-text-fill: white;
+    -fx-background-radius: 15px;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+}
+.refresh-button:hover {
+    -fx-background-color: #008a99;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 3);
+}

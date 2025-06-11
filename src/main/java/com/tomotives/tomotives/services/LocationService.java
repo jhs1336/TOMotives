@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 import com.tomotives.tomotives.models.Category;
 import com.tomotives.tomotives.models.Location;
 import com.tomotives.tomotives.models.Review;
+import org.apache.commons.text.similarity.LevenshteinDistance;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class LocationService {
     private final static String LOCATIONS_FILE_PATH = "src/main/resources/com/tomotives/tomotives/data/locations.json";
@@ -67,6 +69,41 @@ public class LocationService {
         }
         return locations;
     }//end getLocationNamesList method
+
+    public static ArrayList<Location> filterLocationListByName(String searchTerm) {
+        ArrayList<Location> locations = getLocationList();
+
+        // filter locations based on name similarity and substring matching
+        Map<Location, Integer> distanceMap = new HashMap<>();
+        for (Location location : locations) {
+            String locationName = location.getName().toLowerCase();
+            String searchTermLower = searchTerm.toLowerCase();
+
+            // check if search term is a substring of location name
+            if (locationName.contains(searchTermLower)) {
+                distanceMap.put(location, 0);
+            } else {
+                int distance = LevenshteinDistance.getDefaultInstance()
+                    .apply(locationName, searchTermLower);
+
+                // split location name into words and check each word
+                String[] words = locationName.split("\\s+");
+                for (String word : words) {
+                    int wordDistance = LevenshteinDistance.getDefaultInstance()
+                        .apply(word, searchTermLower);
+                    distance = Math.min(distance, wordDistance);
+                }
+
+                distanceMap.put(location, distance);
+            }
+        }
+
+        return distanceMap.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue()) // sorted (to put the closest matches first)
+                .limit(20) // 20 results max
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
 
     public static ArrayList<Location> filterLocationListByCategories(ArrayList<Category> categories) {
         //create arrayList of all the locations and an empty arrayList for locations with given category

@@ -45,11 +45,11 @@
                 <Region prefHeight="20.0" />
 
                 <HBox spacing="20.0" alignment="CENTER">
-                    <Button prefHeight="45.0" prefWidth="170.0" styleClass="saveButton" text="Save Changes" onMouseClicked="#saveChanges" />
+                    <Button prefHeight="45.0" prefWidth="170.0" styleClass="save-button" text="Save Changes" onMouseClicked="#saveChanges" />
                     <Button prefHeight="45.0" prefWidth="120.0" styleClass="sign-out-button" text="Sign out" onMouseClicked="#signOut" />
                 </HBox>
                 <HBox spacing="20.0" alignment="CENTER">
-                    <Button fx:id="addUserButton" prefHeight="45.0" prefWidth="170.0" styleClass="saveButton" text="Add User" managed="false" onMouseClicked="#addUser" />
+                    <Button fx:id="addUserButton" prefHeight="45.0" prefWidth="170.0" styleClass="save-button" text="Add User" managed="false" onMouseClicked="#addUser" />
                 </HBox>
             </VBox>
 

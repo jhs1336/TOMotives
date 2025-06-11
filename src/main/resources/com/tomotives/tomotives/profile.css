@@ -19,7 +19,7 @@
     -fx-border-width: 2px;
 }
 
-.saveButton {
+.save-button {
     -fx-background-color: #00a0b0;
     -fx-text-fill: white;
     -fx-background-radius: 25px;
@@ -27,7 +27,7 @@
     -fx-font-weight: bold;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
 }
-.saveButton:hover {
+.save-button:hover {
     -fx-background-color: #008a99;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 3);
 }

@@ -6,9 +6,94 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller=""
-            prefHeight="400.0" prefWidth="600.0">
-            <fx:include source="toolbar.fxml" />
-</AnchorPane>
+            fx:controller="com.tomotives.tomotives.controllers.SearchResultController"
+            prefHeight="400.0" prefWidth="600.0" stylesheets="@search-result-page.css">
+    <top>
+        <fx:include source="toolbar.fxml" />
+    </top>
+    <center>
+        <HBox spacing="50.0" style="-fx-background-color: white; -fx-background-radius: 20px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);">
+            <padding>
+                <Insets bottom="12.0" left="22.0" right="22.0" top="12.0" />
+            </padding>
+
+            <VBox prefWidth="680.0" spacing="8.0">
+                <VBox spacing="8.0">
+                    <Label fx:id="searchResultsLabel" text="Search Results" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #333333;" />
+                    <Region prefWidth="400.0" style="-fx-background-color: #dddddd; -fx-min-height: 1px; -fx-max-height: 1px;"/>
+                </VBox>
+                <fx:include fx:id="resultsCollection" source="small-location-collection.fxml" prefWidth="1200.0" />
+            </VBox>
+
+            <Region prefWidth="1.0" style="-fx-background-color: #dddddd; -fx-min-width: 1px; -fx-max-width: 1px;"/>
+
+            <VBox fx:id="filtersBox" prefWidth="300.0" spacing="8.0">
+                <Label text="Filters" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #333333;" />
+                <Region prefWidth="400.0" style="-fx-background-color: #dddddd; -fx-min-height: 1px; -fx-max-height: 1px;"/>
+                <GridPane fx:id="filterGridPane" alignment="CENTER" hgap="15.0" style="-fx-padding: 20 0;" vgap="15.0">
+                    <children>
+                        <Button fx:id="indoors" onAction="#onFilterClick" styleClass="filter-button" text="Indoors" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Button fx:id="outdoors" onAction="#onFilterClick" styleClass="filter-button" text="Outdoors" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Button fx:id="park" onAction="#onFilterClick" styleClass="filter-button" text="Park" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                        <Button fx:id="nature" onAction="#onFilterClick" styleClass="filter-button" text="Nature" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+                        <Button fx:id="budget" onAction="#onFilterClick" styleClass="filter-button" text="Budget" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Button fx:id="clothing" onAction="#onFilterClick" styleClass="filter-button" text="Clothing" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="vintage" onAction="#onFilterClick" styleClass="filter-button" text="Vintage" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Button fx:id="withFriends" onAction="#onFilterClick" styleClass="filter-button" text="With Friends" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+                        <Button fx:id="solo" onAction="#onFilterClick" styleClass="filter-button" text="Solo" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Button fx:id="dateSpot" onAction="#onFilterClick" styleClass="filter-button" text="Date Spot" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="nightTime" onAction="#onFilterClick" styleClass="filter-button" text="Night Time" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Button fx:id="landmark" onAction="#onFilterClick" styleClass="filter-button" text="Landmark" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+                        <Button fx:id="birdwatching" onAction="#onFilterClick" styleClass="filter-button" text="Birdwatching" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <Button fx:id="family" onAction="#onFilterClick" styleClass="filter-button" text="Family" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="restaurant" onAction="#onFilterClick" styleClass="filter-button" text="Restaurant" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Button fx:id="cafe" onAction="#onFilterClick" styleClass="filter-button" text="Cafe" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+
+                        <Button fx:id="swimming" onAction="#onFilterClick" styleClass="filter-button" text="Swimming" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <Button fx:id="beach" onAction="#onFilterClick" styleClass="filter-button" text="Beach" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Button fx:id="dogFriendly" onAction="#onFilterClick" styleClass="filter-button" text="Dog Friendly" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <Button fx:id="breakfast" onAction="#onFilterClick" styleClass="filter-button" text="Breakfast" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+
+                        <Button fx:id="lunch" onAction="#onFilterClick" styleClass="filter-button" text="Lunch" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                        <Button fx:id="dinner" onAction="#onFilterClick" styleClass="filter-button" text="Dinner" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Button fx:id="studySpot" onAction="#onFilterClick" styleClass="filter-button" text="Study Spot" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <Button fx:id="walking" onAction="#onFilterClick" styleClass="filter-button" text="Walking" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+
+                        <Button fx:id="tourist" onAction="#onFilterClick" styleClass="filter-button" text="Tourist" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                        <Button fx:id="bars" onAction="#onFilterClick" styleClass="filter-button" text="Bars" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Button fx:id="sledding" onAction="#onFilterClick" styleClass="filter-button" text="Sledding" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                        <Button fx:id="mall" onAction="#onFilterClick" styleClass="filter-button" text="Mall" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+
+                        <Button fx:id="shop" onAction="#onFilterClick" styleClass="filter-button" text="Shop" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                        <Button fx:id="shopping" onAction="#onFilterClick" styleClass="filter-button" text="Shopping" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <Button fx:id="hiking" onAction="#onFilterClick" styleClass="filter-button" text="Hiking" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                        <Button fx:id="biking" onAction="#onFilterClick" styleClass="filter-button" text="Biking" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+
+                        <Button fx:id="scenic" onAction="#onFilterClick" styleClass="filter-button" text="Scenic" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                        <Button fx:id="historic" onAction="#onFilterClick" styleClass="filter-button" text="Historic" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <Button fx:id="museum" onAction="#onFilterClick" styleClass="filter-button" text="Museum" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                        <Button fx:id="parking" onAction="#onFilterClick" styleClass="filter-button" text="Parking" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+
+                        <Button fx:id="music" onAction="#onFilterClick" styleClass="filter-button" text="Music" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+                        <Button fx:id="gym" onAction="#onFilterClick" styleClass="filter-button" text="Gym" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                        <Button fx:id="carRental" onAction="#onFilterClick" styleClass="filter-button" text="Car Rental" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                        <Button fx:id="carWash" onAction="#onFilterClick" styleClass="filter-button" text="Car Wash" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+
+                        <Button fx:id="carRepair" onAction="#onFilterClick" styleClass="filter-button" text="Car Repair" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+                        <Button fx:id="educational" onAction="#onFilterClick" styleClass="filter-button" text="Educational" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                    </children>
+                </GridPane>
+                <Button fx:id="refreshButton" onAction="#refresh" styleClass="refresh-button" text="Refresh" />
+            </VBox>
+            <BorderPane.margin>
+                <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+            </BorderPane.margin>
+        </HBox>
+    </center>
+</BorderPane>

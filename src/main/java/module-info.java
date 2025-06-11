@@ -11,6 +11,7 @@ module com.tomotives.tomotives {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires com.google.gson;
+    requires org.apache.commons.text; // org.apache.commons:commons-text:1.13.0
 
     opens com.tomotives.tomotives to javafx.fxml;
     exports com.tomotives.tomotives;

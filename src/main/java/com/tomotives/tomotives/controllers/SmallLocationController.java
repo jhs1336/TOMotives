@@ -3,6 +3,7 @@ package com.tomotives.tomotives.controllers;
 import com.tomotives.tomotives.Application;
 import com.tomotives.tomotives.models.Category;
 import com.tomotives.tomotives.LocationControllerBase;
+import com.tomotives.tomotives.models.Location;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -35,6 +36,9 @@ public class SmallLocationController extends LocationControllerBase {
         }
     }
 
+    public void setLocationData(Location location) {
+        setLocationData(location.getName(), location.getImage(), location.getRating(), location.getPrice(), location.getCategories().getFirst(), location.getCategories().get(1));
+    }
     public void setLocationData(String locationName, String imageUrl, double starRating, double priceRating, Category filter1, Category filter2) {
         // update UI
         if (locationNameLabel != null) {

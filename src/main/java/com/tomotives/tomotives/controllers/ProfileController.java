@@ -8,6 +8,7 @@ import com.tomotives.tomotives.services.LocationService;
 import com.tomotives.tomotives.services.ToastService;
 import com.tomotives.tomotives.services.UserService;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -18,6 +19,8 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Window;
+
+import java.io.IOException;
 
 import static com.tomotives.tomotives.Application.HOVER_BUTTON_STYLE;
 import static com.tomotives.tomotives.Application.NORMAL_BUTTON_STYLE;
