@@ -55,8 +55,16 @@
 
             <Region prefWidth="1.0" style="-fx-background-color: #dddddd; -fx-min-width: 1px; -fx-max-width: 1px;"/>
 
-            <VBox fx:id="friendsBox" prefWidth="300.0" spacing="20.0">
-                <Label text="Friends" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #333333;" />
+            <VBox prefWidth="300.0" spacing="4.0">
+                <HBox>
+                    <Label text="Friends" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #333333;" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button fx:id="searchButton" text="🔍" style="-fx-font-size: 20px; -fx-background-color: transparent;" onMouseClicked="#searchForFriends"/>
+
+                </HBox>
+                <VBox fx:id="friendsBox" spacing="10.0" >
+
+                </VBox>
 <!--                <ScrollPane fx:id="friendsScrollPane" hbarPolicy="NEVER" />-->
             </VBox>
          <BorderPane.margin>

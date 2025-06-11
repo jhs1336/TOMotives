@@ -93,7 +93,7 @@ public class UserService {
      */
     public static FriendStatus getUserFriendshipStatus(User user, User otherUser) {
         boolean userHasOtherUser = user.getFriends().contains(otherUser.getDisplayName());
-        boolean otherUserHasUser = user.getFriends().contains(otherUser.getDisplayName());
+        boolean otherUserHasUser = otherUser.getFriends().contains(user.getDisplayName());
 
         if (userHasOtherUser && otherUserHasUser) {
             return FriendStatus.FRIEND;
@@ -108,6 +108,36 @@ public class UserService {
 
     public static FriendStatus getUserFriendshipStatus(String userDisplayName, String otherUserDisplayName) {
         return getUserFriendshipStatus(getUserFromDisplayName(userDisplayName), getUserFromDisplayName(otherUserDisplayName));
+    }
+
+    public static void setLikedCategories(User user, List<Category> categories) {
+        setLikedCategories(user.getDisplayName(), categories);
+    }
+
+    public static void setLikedCategories(String userDisplayName, List<Category> categories) {
+        try {
+            // read the current users from the file
+            String userListJson = new String(Files.readAllBytes(Paths.get(USERS_FILE_PATH)));
+            Type listType = new TypeToken<ArrayList<Map<String, Object>>>(){}.getType();
+            ArrayList<Map<String, Object>> users = gson.fromJson(userListJson, listType);
+
+            // find the user by display name
+            for (Map<String, Object> user : users) {
+                if (user.get("displayName").equals(userDisplayName)) {
+                    // Convert categories to list of strings
+                    List<String> categoryStrings = categories.stream().map(Category::name).collect(Collectors.toList());
+
+                    // update the likedCategories field
+                    user.put("likedCategories", categoryStrings);
+
+                    // write the updated data back to the file
+                    Files.write(Paths.get(USERS_FILE_PATH), gson.toJson(users).getBytes());
+                    return;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void addUser(User user) {
@@ -164,6 +194,29 @@ public class UserService {
         }
     }
 
+    public static void addFriend(String userDisplayName, String friendDisplayName) {
+        try {
+            // read the current users from the file
+            String userListJson = new String(Files.readAllBytes(Paths.get(USERS_FILE_PATH)));
+            Type listType = new TypeToken<ArrayList<Map<String, Object>>>() {
+            }.getType();
+            ArrayList<Map<String, Object>> users = gson.fromJson(userListJson, listType);
+
+            // find the user by name
+            for (Map<String, Object> user : users) {
+                if (user.get("displayName").equals(userDisplayName)) {
+                    // add the friend to the user's friends list
+                    List<String> friends = (List<String>) user.get("friends");
+                    friends.add(friendDisplayName);
+                    user.put("friends", friends);
+                    Files.write(Paths.get(USERS_FILE_PATH), gson.toJson(users).getBytes());
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void addRecentLocationToUser(String displayName, String location) {
         try {
             // read the current users from the file
@@ -203,35 +256,6 @@ public class UserService {
     }
     public static void addRecentLocationToUser(User user, String location) {
         addRecentLocationToUser(user.getDisplayName(), location);
-    }
-    public static void setLikedCategories(User user, List<Category> categories) {
-        setLikedCategories(user.getDisplayName(), categories);
-    }
-
-    public static void setLikedCategories(String userDisplayName, List<Category> categories) {
-        try {
-            // read the current users from the file
-            String userListJson = new String(Files.readAllBytes(Paths.get(USERS_FILE_PATH)));
-            Type listType = new TypeToken<ArrayList<Map<String, Object>>>(){}.getType();
-            ArrayList<Map<String, Object>> users = gson.fromJson(userListJson, listType);
-
-            // find the user by display name
-            for (Map<String, Object> user : users) {
-                if (user.get("displayName").equals(userDisplayName)) {
-                    // Convert categories to list of strings
-                    List<String> categoryStrings = categories.stream().map(Category::name).collect(Collectors.toList());
-
-                    // update the likedCategories field
-                    user.put("likedCategories", categoryStrings);
-
-                    // write the updated data back to the file
-                    Files.write(Paths.get(USERS_FILE_PATH), gson.toJson(users).getBytes());
-                    return;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public static void addOrRemoveUserFavourite(String displayName, String location) {

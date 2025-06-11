@@ -50,3 +50,22 @@
 .border-pane > .center {
     -fx-background-color: #f5f5f5;
 }
+
+.accept-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2ecc71;
+    -fx-font-size: 14px;
+}
+.accept-button:hover {
+    -fx-text-fill: #27ae60;
+}
+
+.deny-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e74c3c;
+    -fx-font-size: 14px;
+}
+
+.deny-button:hover {
+    -fx-text-fill: #c0392b;
+}

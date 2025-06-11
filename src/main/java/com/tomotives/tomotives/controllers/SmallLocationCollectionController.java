@@ -30,9 +30,6 @@ public class SmallLocationCollectionController {
         for (Location location : locations) {
             // ensure at least one category matches
             if (categories.stream().anyMatch(category -> location.getCategories().contains(category))) {
-                System.out.println(location.getName());
-                System.out.println(location.getCategories());
-                System.out.println(categories);
                 loadLocation(location);
             };
         }
