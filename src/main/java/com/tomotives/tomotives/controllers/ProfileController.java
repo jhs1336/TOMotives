@@ -1,15 +1,10 @@
 package com.tomotives.tomotives.controllers;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.tomotives.tomotives.Application;
-import com.tomotives.tomotives.models.FriendStatus;
 import com.tomotives.tomotives.models.User;
-import com.tomotives.tomotives.services.LocationService;
 import com.tomotives.tomotives.services.ToastService;
 import com.tomotives.tomotives.services.UserService;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Side;
@@ -17,12 +12,9 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Window;
-
-import java.io.IOException;
 
 import static com.tomotives.tomotives.Application.*;
 
@@ -91,9 +83,21 @@ public class ProfileController {
                     Button acceptButton = new Button("✓");
                     acceptButton.getStyleClass().add("accept-button");
                     acceptButton.setTooltip(new Tooltip("Accept"));
+                    acceptButton.setOnAction(e -> {
+                        UserService.addFriend(displayNameTextField.getText(), userLink.getText());
+                        Application.getUser().getFriends().add(userLink.getText());
+                        ToastService.show(Application.getStage(), "Friend Added!", ToastController.ToastType.SUCCESS);
+                        loadFriends();
+                    });
                     Button rejectButton = new Button("✗");
                     rejectButton.getStyleClass().add("deny-button");
                     rejectButton.setTooltip(new Tooltip("Reject"));
+                    rejectButton.setOnAction(e -> {
+                       UserService.removeFriend(userLink.getText(), displayNameTextField.getText());
+                       Application.getUser().getFriends().remove(userLink.getText());
+                       ToastService.show(Application.getStage(), "Friend Removed!", ToastController.ToastType.ERROR);
+                       loadFriends();
+                    });
                     HBox hBox = new HBox(userLink, acceptButton, rejectButton);
                     friendsBox.getChildren().addAll(hBox);
                 }

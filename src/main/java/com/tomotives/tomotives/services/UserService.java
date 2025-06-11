@@ -216,6 +216,28 @@ public class UserService {
             e.printStackTrace();
         }
     }
+    public static void removeFriend(String userDisplayName, String friendDisplayName) {
+        try {
+            // read the current users from the file
+            String userListJson = new String(Files.readAllBytes(Paths.get(USERS_FILE_PATH)));
+            Type listType = new TypeToken<ArrayList<Map<String, Object>>>() {
+            }.getType();
+            ArrayList<Map<String, Object>> users = gson.fromJson(userListJson, listType);
+
+            // find the user by name
+            for (Map<String, Object> user : users) {
+                if (user.get("displayName").equals(userDisplayName)) {
+                    // add the friend to the user's friends list
+                    List<String> friends = (List<String>) user.get("friends");
+                    friends.remove(friendDisplayName);
+                    user.put("friends", friends);
+                    Files.write(Paths.get(USERS_FILE_PATH), gson.toJson(users).getBytes());
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void addRecentLocationToUser(String displayName, String location) {
         try {
