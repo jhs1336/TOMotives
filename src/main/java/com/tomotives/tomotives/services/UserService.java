@@ -10,9 +10,7 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class UserService {
@@ -108,6 +106,43 @@ public class UserService {
 
     public static FriendStatus getUserFriendshipStatus(String userDisplayName, String otherUserDisplayName) {
         return getUserFriendshipStatus(getUserFromDisplayName(userDisplayName), getUserFromDisplayName(otherUserDisplayName));
+    }
+
+    public static Map<User, Integer> getPeopleUserMayKnow(User user) {
+        Map<User, Integer> peopleUserMayKnow = new HashMap<>();
+        for (User otherUser : getUserList()) {
+            // start check for common categories
+            if (otherUser.getDisplayName().equals(user.getDisplayName()) || getUserFriendshipStatus(user, otherUser) != FriendStatus.NOT_FRIEND) {
+                continue;
+            }
+            int commonCategories = 0;
+
+            for (int i = 0; i < user.getLikedCategories().size(); i++) {
+                if (otherUser.getLikedCategories().contains(user.getLikedCategories().get(i))) {
+                    commonCategories++;
+                }
+            }
+
+            // END check for common categories
+            // check for mutual friends
+            int mutualFriends = 0;
+            for (String friend : user.getFriends()) {
+                if (otherUser.getFriends().contains(friend) && getUserFriendshipStatus(user.getDisplayName(), friend) == FriendStatus.NOT_FRIEND) {
+                    mutualFriends++;
+                }
+            }
+            if (commonCategories + mutualFriends > 0) peopleUserMayKnow.put(otherUser, commonCategories + mutualFriends);
+        }
+
+        return peopleUserMayKnow.entrySet()
+                .stream()
+                .sorted(Map.Entry.<User, Integer>comparingByValue().reversed())
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1,
+                        LinkedHashMap::new
+                ));
     }
 
     public static void setLikedCategories(User user, List<Category> categories) {

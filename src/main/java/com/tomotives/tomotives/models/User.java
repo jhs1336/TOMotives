@@ -71,5 +71,8 @@ public class User {
     public ArrayList<String> getFriends() { return friends; }
     public void setFriends(ArrayList<String> friends) { this.friends = friends; }
 
+    public ArrayList<Category> getLikedCategories() { return likedCategories; }
+    public void setLikedCategories(ArrayList<Category> likedCategories) { this.likedCategories = likedCategories; }
+
 
 }

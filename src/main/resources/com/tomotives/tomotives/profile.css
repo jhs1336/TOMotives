@@ -69,3 +69,19 @@
 .deny-button:hover {
     -fx-text-fill: #c0392b;
 }
+
+.add-friend-button {
+    -fx-background-radius: 25%;
+    -fx-min-width: 16px;
+    -fx-min-height: 16px;
+    -fx-max-width: 16px;
+    -fx-max-height: 16px;
+    -fx-background-color: #FF6B6B;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+    -fx-padding: 0;
+}
+.add-friend:hover {
+    -fx-background-color: #FF5252;
+}

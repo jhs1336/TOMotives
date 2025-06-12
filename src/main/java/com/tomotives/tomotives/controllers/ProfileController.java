@@ -1,6 +1,7 @@
 package com.tomotives.tomotives.controllers;
 
 import com.tomotives.tomotives.Application;
+import com.tomotives.tomotives.models.FriendStatus;
 import com.tomotives.tomotives.models.User;
 import com.tomotives.tomotives.services.ToastService;
 import com.tomotives.tomotives.services.UserService;
@@ -15,6 +16,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Window;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import static com.tomotives.tomotives.Application.*;
 
@@ -31,6 +37,8 @@ public class ProfileController {
     private PasswordField passwordTextField;
     @FXML
     private VBox friendsBox;
+    @FXML
+    private VBox peopleYouMayKnowBox;
 
     @FXML
     private Button addUserButton;
@@ -54,21 +62,38 @@ public class ProfileController {
         passwordTextField.setText(Application.getUser().getPassword());
 
         loadFriends();
+        loadPeopleYouMayKnow();
     }
 
     private void loadFriends() {
         friendsBox.getChildren().clear();
 
+        Map<User, FriendStatus> friendListItems = new HashMap<>();
         for (User friend : UserService.getUserList()) {
-            switch (UserService.getUserFriendshipStatus(Application.getUser(), friend)) {
+            friendListItems.put(friend, UserService.getUserFriendshipStatus(Application.getUser(), friend));
+        }
+        Map<User, FriendStatus> sortedFriendListItems = friendListItems.entrySet()
+            .stream()
+            .sorted(Map.Entry.comparingByValue())
+            .collect(Collectors.toMap(
+                Map.Entry::getKey,
+                Map.Entry::getValue,
+                (e1, e2) -> e1,
+                java.util.LinkedHashMap::new
+            ));
+
+        friendListItems = sortedFriendListItems;
+
+        for (Map.Entry<User, FriendStatus> entry : friendListItems.entrySet()) {
+            switch (entry.getValue()) {
                 case FRIEND -> {
-                    Hyperlink userLink = new Hyperlink(friend.getDisplayName());
+                    Hyperlink userLink = new Hyperlink(entry.getKey().getDisplayName());
                     userLink.setStyle("-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #333333;");
                     addContextMenu(userLink);
                     friendsBox.getChildren().add(userLink);
                 }
                 case REQUESTED -> {
-                    Hyperlink userLink = new Hyperlink(friend.getDisplayName());
+                    Hyperlink userLink = new Hyperlink(entry.getKey().getDisplayName());
                     userLink.setStyle("-fx-font-size: 16px; -fx-text-fill: #333333;");
                     addContextMenu(userLink);
                     Label label = new Label("Request Sent");
@@ -77,7 +102,7 @@ public class ProfileController {
                     friendsBox.getChildren().addAll(hBox);
                 }
                 case RECEIVED -> {
-                    Hyperlink userLink = new Hyperlink(friend.getDisplayName());
+                    Hyperlink userLink = new Hyperlink(entry.getKey().getDisplayName());
                     userLink.setStyle("-fx-font-size: 16px; -fx-text-fill: #333333;");
                     addContextMenu(userLink);
                     Button acceptButton = new Button("✓");
@@ -93,10 +118,10 @@ public class ProfileController {
                     rejectButton.getStyleClass().add("deny-button");
                     rejectButton.setTooltip(new Tooltip("Reject"));
                     rejectButton.setOnAction(e -> {
-                       UserService.removeFriend(userLink.getText(), displayNameTextField.getText());
-                       Application.getUser().getFriends().remove(userLink.getText());
-                       ToastService.show(Application.getStage(), "Friend Removed!", ToastController.ToastType.ERROR);
-                       loadFriends();
+                                        UserService.removeFriend(userLink.getText(), displayNameTextField.getText());
+                                        Application.getUser().getFriends().remove(userLink.getText());
+                                        ToastService.show(Application.getStage(), "Friend Removed!", ToastController.ToastType.ERROR);
+                                        loadFriends();
                     });
                     HBox hBox = new HBox(userLink, acceptButton, rejectButton);
                     friendsBox.getChildren().addAll(hBox);
@@ -107,7 +132,87 @@ public class ProfileController {
             }
         }
     }
+    private void loadPeopleYouMayKnow() {
+        peopleYouMayKnowBox.getChildren().clear();
+        for (Map.Entry<User, Integer> entry : UserService.getPeopleUserMayKnow(Application.getUser()).entrySet()) {
+            User user = entry.getKey();
+            Hyperlink userLink = new Hyperlink(user.getDisplayName());
+            userLink.setStyle("-fx-font-size: 16px; -fx-text-fill: #333333;");
+            addContextMenu(userLink);
+            Label label = new Label(entry.getValue() + (entry.getValue() == 1 ? " connection" : " connections"));
+            label.setStyle("-fx-text-fill: rgba(0, 0, 0, 0.6);");
 
+            Button addFriendButton = new Button("+");
+            addFriendButton.getStyleClass().add("add-friend-button");
+            addFriendButton.setTooltip(new Tooltip("Add Friend"));
+            addFriendButton.setOnAction(e -> {
+                Popup popup = new Popup();
+                popup.setAutoHide(true);
+                // setup popup structure
+                VBox popupContent = new VBox();
+                popupContent.setStyle("-fx-border-color: #00a0b0;");
+                popupContent.setSpacing(15);
+                popupContent.setPadding(new Insets(20));
+                popupContent.setMinWidth(400);
+                popupContent.setMaxWidth(500);
+                Label titleLabel = new Label("Add " + user.getDisplayName() + " as a friend?");
+                titleLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
+                titleLabel.getStyleClass().add("popup-title");
+
+                HBox buttonBox = new HBox();
+                buttonBox.setSpacing(10);
+                buttonBox.setAlignment(Pos.CENTER_RIGHT);
+
+                Button cancelButton = new Button("Cancel");
+                cancelButton.styleProperty().set(NORMAL_BUTTON_STYLE);
+                cancelButton.hoverProperty().addListener((observable, oldValue, newValue) -> {
+                    if (newValue) {
+                        cancelButton.setStyle(HOVER_BUTTON_STYLE);
+                    } else {
+                        cancelButton.setStyle(NORMAL_BUTTON_STYLE);
+                    }
+                });
+                cancelButton.setOnAction(ev -> {
+                    popup.hide();
+                });
+                cancelButton.setOnAction(ev -> popup.hide());
+
+                Button sendRequestButton = new Button("Send Request");
+                sendRequestButton.styleProperty().set(NORMAL_BUTTON_STYLE);
+                sendRequestButton.hoverProperty().addListener((observable, oldValue, newValue) -> {
+                    if (newValue) {
+                        sendRequestButton.setStyle(HOVER_BUTTON_STYLE);
+                    } else {
+                        sendRequestButton.setStyle(NORMAL_BUTTON_STYLE);
+                    }
+                });
+                sendRequestButton.setOnAction(ev -> {
+                    UserService.addFriend(displayNameTextField.getText(), userLink.getText());
+                    Application.getUser().getFriends().add(userLink.getText());
+                    ToastService.show(Application.getStage(), "Friend request sent!", ToastController.ToastType.SUCCESS);
+                    addFriendButton.setDisable(true);
+                    loadFriends();
+                    popup.hide();
+                });
+
+                buttonBox.getChildren().addAll(cancelButton, sendRequestButton);
+
+                // add all components to the popup content
+                popupContent.getChildren().addAll(titleLabel, buttonBox);
+
+                popupContent.setStyle("-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);");
+                // add content to popup
+                popup.getContent().add(popupContent);
+
+                // show the popup
+                Window window = ((Node) e.getSource()).getScene().getWindow();
+                popup.show(window, window.getX() + (window.getWidth() - popupContent.getMinWidth()) / 2, window.getY() + (window.getHeight() - 300) / 2);
+            });
+            HBox hBox = new HBox(userLink, label, addFriendButton);
+            hBox.setSpacing(6);
+            peopleYouMayKnowBox.getChildren().addAll(hBox);
+        }
+    }
     private void addContextMenu(Hyperlink userLink) {
         userLink.setOnAction(event -> {
             ContextMenu contextMenu = new ContextMenu();
@@ -133,7 +238,6 @@ public class ProfileController {
         popup.setAutoHide(true);
         // setup popup structure
         VBox popupContent = new VBox();
-        popupContent.getStyleClass().add("review-popup");
         popupContent.setStyle("-fx-border-color: #00a0b0;");
         popupContent.setSpacing(15);
         popupContent.setPadding(new Insets(20));
