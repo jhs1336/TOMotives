@@ -62,38 +62,49 @@ public class HomeController {
         double score = 0;
 
         // boost score for matching categories
-        for (int i = 0; i < user.getLikedCategories().size(); i++) {
-            if (location.getCategories().contains(user.getLikedCategories().get(i))) {
-                score += 1.5;
+        if (user.getLikedCategories() != null) {
+            System.out.println("a");
+            for (int i = 0; i < user.getLikedCategories().size(); i++) {
+                System.out.println(user.getLikedCategories().get(i));
+                if (location.getCategories().contains(user.getLikedCategories().get(i))) {
+                    System.out.println("s");
+                    score += 1.5;
+                }
             }
         }
 
         // boost score for sharing categories with user's favorite locations
-        for (String favourite : user.getFavourites()) {
-            for (Category category : LocationService.getLocation(favourite).getCategories()) {
-                if (location.getCategories().contains(category)) {
-                    score += .4;
+        if (user.getFavourites() != null) {
+            for (String favourite : user.getFavourites()) {
+                for (Category category : LocationService.getLocation(favourite).getCategories()) {
+                    if (location.getCategories().contains(category)) {
+                        score += .4;
+                    }
                 }
             }
         }
 
         // boost score for sharing categories with user's recently viewed locations
-        for (String recentlyViewed : user.getRecentLocations()) {
-            for (Category category : LocationService.getLocation(recentlyViewed).getCategories()) {
-                if (location.getCategories().contains(category)) {
-                    score += .2;
+        if (user.getRecentLocations() != null) {
+            for (String recentlyViewed : user.getRecentLocations()) {
+                for (Category category : LocationService.getLocation(recentlyViewed).getCategories()) {
+                    if (location.getCategories().contains(category)) {
+                        score += .2;
+                    }
                 }
             }
         }
 
         // boost score if location is in friends' favorites or recently viewed
-        for (String friend : user.getFriends()) {
-            User friendUser = UserService.getUserFromDisplayName(friend);
-            if (friendUser.getFavourites().contains(location)) {
-                score += 1;
-            }
-            else if (friendUser.getRecentLocations().contains(location)) {
-                score += 0.1;
+        if (user.getFriends() != null) {
+            for (String friend : user.getFriends()) {
+                User friendUser = UserService.getUserFromDisplayName(friend);
+                if (friendUser.getFavourites().contains(location)) {
+                    score += 1;
+                }
+                else if (friendUser.getRecentLocations().contains(location)) {
+                    score += 0.1;
+                }
             }
         }
 
