@@ -3,6 +3,7 @@ package com.tomotives.tomotives.controllers;
 import com.tomotives.tomotives.models.Category;
 import com.tomotives.tomotives.LocationControllerBase;
 import com.tomotives.tomotives.Application;
+import com.tomotives.tomotives.services.LocationService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -34,6 +35,11 @@ public class LargeLocationController extends LocationControllerBase {
     private Button filter4Button;
 
     @FXML
+    private Label favouritesLabel;
+    @FXML
+    private Label commentsLabel;
+
+    @FXML
     private Label priceRatingLabel;
     @FXML
     private Label starRatingLabel;
@@ -48,6 +54,9 @@ public class LargeLocationController extends LocationControllerBase {
         // update UI
         if (locationNameLabel != null) {
             locationNameLabel.setText(locationName);
+            if (locationNameLabel.getText().length() < 10) locationNameLabel.setStyle("-fx-font-size: 24px;");
+            else if (locationNameLabel.getText().length() < 18) locationNameLabel.setStyle("-fx-font-size: 22px;");
+            else locationNameLabel.setStyle("-fx-font-size: 20px;");
             locationNameLabel.setOnAction(event -> openLocationDetailPage(locationName));
             Tooltip tooltip = new Tooltip(locationName);
             tooltip.setStyle("-fx-font-size: 10px;");
@@ -72,6 +81,12 @@ public class LargeLocationController extends LocationControllerBase {
         if (filter4Button != null && filter4 != null) {
             filter4Button.setText(String.valueOf(filter4));
             filter4Button.setTooltip(new Tooltip(String.valueOf(filter4)));
+        }
+        if (favouritesLabel != null) {
+            favouritesLabel.setText(String.valueOf(LocationService.getLocationAmountOfFavourites(LocationService.getLocation(locationName))));
+        }
+        if (commentsLabel != null) {
+            commentsLabel.setText(String.valueOf(LocationService.getLocation(locationName).getReviews().size()));
         }
 
         // update star and price ratings

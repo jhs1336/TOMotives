@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 import com.tomotives.tomotives.models.Category;
 import com.tomotives.tomotives.models.Location;
 import com.tomotives.tomotives.models.Review;
+import com.tomotives.tomotives.models.User;
 import org.apache.commons.text.similarity.LevenshteinDistance;
 
 import java.io.IOException;
@@ -199,13 +200,19 @@ public class LocationService {
         return new Location((String) locationMap.get("name"), (String) locationMap.get("description"), averageRating, averagePriceRating, categories, reviewList, (String) locationMap.get("image"));
     }
 
-    public static int getLocationAmountOfFavorites(Location location) {
-        int counter;
+    public static int getLocationAmountOfFavourites(Location location) {
+        int counter = 0;
         // given a location, return the amount of favorites it has NOTE: favorites are stored by user, not location.
         // steps: loop through all users (UserService.getUserList()) will provide you will all users
         // for each user, check if the user has the location in their favorites list. If so, add to a counter, and eventually return the counter
 
-        return 0;
+        for (User user : UserService.getUserList()) {
+            if (user.getFavourites().contains(location.getName())) {
+                counter++;
+            }
+        }
+
+        return counter;
     }
 
     public static void addReview(String locationName, Review review) {

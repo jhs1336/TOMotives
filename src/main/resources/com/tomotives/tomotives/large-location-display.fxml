@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.image.Image?>
+<?import java.lang.String?>
 <AnchorPane maxHeight="300" maxWidth="580" minHeight="300" minWidth="580" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 5;" stylesheets="@location-display.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.controllers.LargeLocationController">
     <children>
         <HBox spacing="10" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -14,12 +15,38 @@
             </fx:define>
             <fx:include fx:id="resizableImage" fitHeight="296" fitWidth="400" source="resizable-image.fxml" />
 
-            <VBox minWidth="160" prefWidth="160" spacing="5.0">
-                <Hyperlink fx:id="locationNameLabel" styleClass="location-name" text="Location Name" wrapText="true" />
+            <VBox prefWidth="160.0" spacing="5.0">
+                <HBox VBox.vgrow="ALWAYS">
+                    <Hyperlink fx:id="locationNameLabel" maxWidth="160" prefHeight="120.0" prefWidth="160.0" style="-fx-font-size: 21px;" styleClass="location-name" text="Location Name" wrapText="true" VBox.vgrow="ALWAYS" />
+                </HBox>
 
+                <VBox alignment="CENTER" spacing="-5.0">
+                    <HBox fx:id="favouritesContainer" spacing="8">
+                        <VBox alignment="TOP_CENTER">
+                            <Label style="-fx-font-size: 28px; -fx-text-fill: #ED4956;" text="♥" /> <!-- 32px -->
+                        </VBox>
+                        <VBox alignment="CENTER">
+                            <Label fx:id="favouritesLabel" style="-fx-font-size: 20px;" text="2" /> <!-- 24px -->
+                        </VBox>
+                  <padding>
+                     <Insets left="6.0" />
+                  </padding>
+
+                    </HBox>
+                    <HBox fx:id="commentsContainer" spacing="8">
+                        <Label style="-fx-font-size: 20px; -fx-text-fill: grey" text="💬" /> <!-- 24px -->
+                        <Label fx:id="commentsLabel" style="-fx-font-size: 20px;" text="4" /> <!-- 24px -->
+                  <padding>
+                     <Insets left="6.0" />
+                  </padding>
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+                    </HBox>
+                </VBox>
 
                 <!-- Star rating section -->
-                <HBox fx:id="starsContainer" spacing="5" alignment="BOTTOM_CENTER" VBox.vgrow="ALWAYS">
+                <HBox fx:id="starsContainer" alignment="BOTTOM_CENTER" spacing="5">
                     <children>
                         <Label style="-fx-font-size: 18px;" text="★" />
                         <Label style="-fx-font-size: 18px;" text="★" />
@@ -31,7 +58,7 @@
                 </HBox>
 
                 <!-- Dollar sign rating section -->
-                <HBox fx:id="priceContainer" spacing="10" alignment="BOTTOM_CENTER">
+                <HBox fx:id="priceContainer" alignment="BOTTOM_CENTER" spacing="10">
                     <children>
                         <Label style="-fx-font-size: 21px;" styleClass="filled-price" text="\$" />
                         <Label style="-fx-font-size: 21px;" styleClass="filled-price" text="\$" />
@@ -43,7 +70,7 @@
                 </HBox>
 
                 <!-- Filters -->
-                <VBox spacing="8" alignment="BOTTOM_CENTER">
+                <VBox alignment="BOTTOM_CENTER" spacing="8">
                     <HBox spacing="8">
                         <Button fx:id="filter1Button" styleClass="filter-button" text="Filter 1" />
                         <Button fx:id="filter2Button" styleClass="filter-button" text="Filter 2" />
@@ -54,7 +81,7 @@
                     </HBox>
                 </VBox>
             <padding>
-               <Insets top="5.0" bottom="5.0" />
+               <Insets bottom="5.0" top="5.0" />
             </padding>
             </VBox>
         </HBox>

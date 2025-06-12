@@ -77,7 +77,7 @@ public class LargeLocationCarouselController {
             "filter4", filter4
         );
         locationDisplays.add(locationData);
-        updateCarousel();
+        if (locationDisplays.size() == 1) updateCarousel();
     }
 
     public void addLocationDisplay(Location location) {
