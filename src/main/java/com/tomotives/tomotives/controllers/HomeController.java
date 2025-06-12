@@ -63,11 +63,8 @@ public class HomeController {
 
         // boost score for matching categories
         if (user.getLikedCategories() != null) {
-            System.out.println("a");
             for (int i = 0; i < user.getLikedCategories().size(); i++) {
-                System.out.println(user.getLikedCategories().get(i));
                 if (location.getCategories().contains(user.getLikedCategories().get(i))) {
-                    System.out.println("s");
                     score += 1.5;
                 }
             }

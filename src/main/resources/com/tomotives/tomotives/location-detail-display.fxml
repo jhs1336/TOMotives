@@ -80,7 +80,7 @@
                                                     </HBox>
                                                     <Region prefHeight="2.0" prefWidth="560.0" styleClass="header-underline" />
 
-                                                    <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" prefHeight="307.0" prefWidth="300.0" styleClass="scroll-pane">
+                                                    <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" prefHeight="310.0" prefWidth="300.0" styleClass="scroll-pane">
                                                         <VBox fx:id="reviewsContainer" spacing="15.0" style="-fx-padding: 5 5">
                                                             <!-- reviews added here -->
                                                         </VBox>

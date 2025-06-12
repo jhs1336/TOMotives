@@ -117,19 +117,23 @@ public class UserService {
             }
             int commonCategories = 0;
 
-            for (int i = 0; i < user.getLikedCategories().size(); i++) {
-                if (otherUser.getLikedCategories() == null) break;
-                if (otherUser.getLikedCategories().contains(user.getLikedCategories().get(i))) {
-                    commonCategories++;
+            if (user.getLikedCategories() != null) {
+                for (int i = 0; i < user.getLikedCategories().size(); i++) {
+                    if (otherUser.getLikedCategories() == null) break;
+                    if (otherUser.getLikedCategories().contains(user.getLikedCategories().get(i))) {
+                        commonCategories++;
+                    }
                 }
             }
 
             // END check for common categories
             // check for mutual friends
             int mutualFriends = 0;
-            for (String friend : user.getFriends()) {
-                if (otherUser.getFriends().contains(friend) && getUserFriendshipStatus(user.getDisplayName(), friend) == FriendStatus.NOT_FRIEND) {
-                    mutualFriends++;
+            if (user.getFriends() != null) {
+                for (String friend : user.getFriends()) {
+                    if (otherUser.getFriends().contains(friend) && getUserFriendshipStatus(user.getDisplayName(), friend) == FriendStatus.NOT_FRIEND) {
+                        mutualFriends++;
+                    }
                 }
             }
             if (commonCategories + mutualFriends > 0) peopleUserMayKnow.put(otherUser, commonCategories + mutualFriends);
