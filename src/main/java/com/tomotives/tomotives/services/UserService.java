@@ -131,7 +131,7 @@ public class UserService {
             int mutualFriends = 0;
             if (user.getFriends() != null) {
                 for (String friend : user.getFriends()) {
-                    if (otherUser.getFriends().contains(friend) && getUserFriendshipStatus(user.getDisplayName(), friend) == FriendStatus.NOT_FRIEND) {
+                    if (otherUser.getFriends().contains(friend)) {
                         mutualFriends++;
                     }
                 }
