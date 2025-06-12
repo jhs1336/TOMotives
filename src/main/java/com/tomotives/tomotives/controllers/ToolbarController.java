@@ -153,6 +153,7 @@ public class ToolbarController {
             logoutMenuItem.setOnAction(e -> {
                 Application.setUser(null);
                 refreshToolbar();
+                if (Application.getPage().equals("profile")) Application.loadPage("home.fxml");
             });
 
             contextMenu.getItems().addAll(profileMenuItem, recentlyViewedMenuItem, logoutMenuItem);

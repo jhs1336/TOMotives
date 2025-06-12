@@ -169,7 +169,11 @@ public class LocationDetailController extends LocationControllerBase {
             favouritesMenuItem.setStyle("-fx-font-size: 14px;");
             contextMenu.setStyle("-fx-padding: 5px; -fx-border-color: #00a0b0; -fx-background-radius: 5px; -fx-border-radius: 5px;");
 
-            addFriendMenuItem.setOnAction(e -> Application.loadPage("profile.fxml"));
+            addFriendMenuItem.setOnAction(e -> {
+                UserService.addFriend(Application.getUser().getDisplayName(), authorLabel.getText());
+                Application.getUser().getFriends().add(authorLabel.getText());
+                ToastService.show(Application.getStage(), "Friend request sent!", ToastController.ToastType.SUCCESS);
+            });
             recentlyViewedMenuItem.setOnAction(e -> Application.loadPage("favourites-and-recently-viewed.fxml", "favourites-and-recently-viewed/recently-viewed/" + authorLabel.getText()));
             favouritesMenuItem.setOnAction(e -> Application.loadPage("favourites-and-recently-viewed.fxml", "favourites-and-recently-viewed/favourites/" + authorLabel.getText()));
 

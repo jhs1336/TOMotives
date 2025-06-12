@@ -84,10 +84,8 @@ public class ProfileController {
             ));
 
         friendListItems = sortedFriendListItems;
-        System.out.println("Friends: " + friendListItems);
         if (friendListItems.isEmpty()) {
             Label noFriendsLabel = new Label("No users found");
-            System.out.println("No friends found");
             friendsBox.getChildren().add(noFriendsLabel);
             return;
         }

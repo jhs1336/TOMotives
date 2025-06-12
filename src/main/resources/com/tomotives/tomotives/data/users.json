@@ -170,7 +170,8 @@
       "Royal Ontario Museum"
     ],
     "friends": [
-      "Moses"
+      "Moses",
+      "SaulMesbur"
     ],
     "likedCategories": [
       "LANDMARK",
@@ -192,7 +193,9 @@
       "Icha Tea",
       "Royal Ontario Museum"
     ],
-    "friends": [],
+    "friends": [
+      "SaulMesbur"
+    ],
     "likedCategories": [
       "MUSEUM",
       "CAFE",
@@ -213,7 +216,9 @@
       "Icha Tea",
       "Value Village"
     ],
-    "friends": [],
+    "friends": [
+      "SaulMesbur"
+    ],
     "likedCategories": [
       "VINTAGE",
       "CAFE",
@@ -236,6 +241,9 @@
       "St. Lawrence Market"
     ],
     "friends": [
+      "EmmettSucksatGeo",
+      "SamanthaGreen",
+      "JamesWil"
     ],
     "likedCategories": [
       "CAFE",
