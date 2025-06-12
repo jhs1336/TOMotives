@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane prefHeight="400.0" prefWidth="600.0" stylesheets="@sign-up.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.controllers.HomeController">
@@ -11,9 +12,18 @@
         <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
                 <VBox>
-                    <HBox prefHeight="100.0" prefWidth="200.0">
+                    <HBox prefHeight="500.0" prefWidth="1000.0" spacing="36.0">
                         <children>
-                            <fx:include fx:id="largeLocationCarousel" source="large-location-carousel.fxml"></fx:include>
+                            <VBox alignment="CENTER" spacing="10.0">
+                                <Label style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Featured" />
+                                <Label style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Locations" />
+                                <HBox.margin>
+                                   <Insets left="120.0" />
+                                </HBox.margin>
+                            </VBox>
+                            <VBox alignment="CENTER" spacing="10.0">
+                                <fx:include fx:id="largeLocationCarousel" source="large-location-carousel.fxml" />
+                            </VBox>
                         </children>
                     </HBox>
                 <HBox>

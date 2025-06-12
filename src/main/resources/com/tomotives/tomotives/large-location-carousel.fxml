@@ -7,15 +7,10 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.text.Font?>
-<AnchorPane fx:id="carouselRoot" prefHeight="250.0" prefWidth="1280.0" stylesheets="@carousel.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.controllers.LargeLocationCarouselController">
+<AnchorPane fx:id="carouselRoot" prefHeight="250.0" prefWidth="600.0" stylesheets="@carousel.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.controllers.LargeLocationCarouselController">
     <children>
         <VBox alignment="TOP_CENTER" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-<!--                <Label fx:id="carouselTitle" text="Locations">-->
-<!--                    <font>-->
-<!--                        <Font name="System Bold" size="24.0" />-->
-<!--                    </font>-->
-<!--                </Label>-->
                 <HBox alignment="CENTER" spacing="35.0">
                     <children>
                         <Button fx:id="prevButton" onAction="#goToPrevious" styleClass="carousel-button" text="&lt;">
