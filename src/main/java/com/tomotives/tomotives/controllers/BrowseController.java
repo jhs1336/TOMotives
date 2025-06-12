@@ -11,7 +11,6 @@ public class BrowseController {
     @FXML
     private void onFilterClick(ActionEvent event) {
         Button clickedButton = (Button) event.getSource();
-        System.out.println("Filter clicked: " + clickedButton.getText());
         Application.loadPage("search-result-page.fxml", "search-result-page/filter/" + clickedButton.getText());
     }
 }

@@ -73,8 +73,8 @@
         </HBox>
 
         <HBox alignment="CENTER" spacing="10">
-            <Button fx:id="filter1Button" styleClass="filter-button" text="Filter 1" />
-            <Button fx:id="filter2Button" styleClass="filter-button" text="Filter 2" />
+            <Button fx:id="filter1Button" onAction="#onFilterClicked" styleClass="filter-button" text="Filter 1" />
+            <Button fx:id="filter2Button" onAction="#onFilterClicked" styleClass="filter-button" text="Filter 2" />
         </HBox>
     </VBox>
 </VBox>

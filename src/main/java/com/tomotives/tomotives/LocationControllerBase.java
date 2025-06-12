@@ -1,6 +1,8 @@
 package com.tomotives.tomotives;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
@@ -56,6 +58,12 @@ public class LocationControllerBase {
                 }
             }
         }
+    }
+
+    @FXML
+    protected void onFilterClicked(ActionEvent event) {
+        Button clickedButton = (Button) event.getSource();
+        Application.loadPage("search-result-page.fxml", "search-result-page/filter/" + clickedButton.getText());
     }
 
     @FXML
