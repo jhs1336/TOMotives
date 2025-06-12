@@ -7,6 +7,7 @@ import com.tomotives.tomotives.services.LocationService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
@@ -21,17 +22,28 @@ public class SmallLocationCollectionController {
 
     public void loadLocations(List<Location> locations) {
         clearGridPane();
+        if (locations.isEmpty()) {
+            Label noResultsLabel = new Label("No results found.");
+            gridPane.getChildren().add(noResultsLabel);
+            return;
+        }
         for (Location location : locations) {
             loadLocation(location);
         }
     }
     public void loadLocations(List<Location> locations, List<Category> categories) {
         clearGridPane();
+        boolean found = false;
         for (Location location : locations) {
             // ensure at least one category matches
             if (categories.stream().anyMatch(category -> location.getCategories().contains(category))) {
                 loadLocation(location);
-            };
+                found = true;
+            }
+        }
+        if (!found) {
+            Label noResultsLabel = new Label("No results found.");
+            gridPane.getChildren().add(noResultsLabel);
         }
     }
     private void loadLocation(Location location) {

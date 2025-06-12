@@ -118,6 +118,7 @@ public class UserService {
             int commonCategories = 0;
 
             for (int i = 0; i < user.getLikedCategories().size(); i++) {
+                if (otherUser.getLikedCategories() == null) break;
                 if (otherUser.getLikedCategories().contains(user.getLikedCategories().get(i))) {
                     commonCategories++;
                 }

@@ -75,6 +75,7 @@ public class ProfileController {
         Map<User, FriendStatus> sortedFriendListItems = friendListItems.entrySet()
             .stream()
             .sorted(Map.Entry.comparingByValue())
+            .filter(entry -> entry.getValue() != FriendStatus.NOT_FRIEND)
             .collect(Collectors.toMap(
                 Map.Entry::getKey,
                 Map.Entry::getValue,
@@ -83,6 +84,13 @@ public class ProfileController {
             ));
 
         friendListItems = sortedFriendListItems;
+        System.out.println("Friends: " + friendListItems);
+        if (friendListItems.isEmpty()) {
+            Label noFriendsLabel = new Label("No users found");
+            System.out.println("No friends found");
+            friendsBox.getChildren().add(noFriendsLabel);
+            return;
+        }
 
         for (Map.Entry<User, FriendStatus> entry : friendListItems.entrySet()) {
             switch (entry.getValue()) {
@@ -134,7 +142,13 @@ public class ProfileController {
     }
     private void loadPeopleYouMayKnow() {
         peopleYouMayKnowBox.getChildren().clear();
-        for (Map.Entry<User, Integer> entry : UserService.getPeopleUserMayKnow(Application.getUser()).entrySet()) {
+        Map<User, Integer> peopleUserMayKnow =  UserService.getPeopleUserMayKnow(Application.getUser());
+        if (peopleUserMayKnow.isEmpty()) {
+            Label noFriendsLabel = new Label("No users found");
+            peopleYouMayKnowBox.getChildren().add(noFriendsLabel);
+            return;
+        }
+        for (Map.Entry<User, Integer> entry : peopleUserMayKnow.entrySet()) {
             User user = entry.getKey();
             Hyperlink userLink = new Hyperlink(user.getDisplayName());
             userLink.setStyle("-fx-font-size: 16px; -fx-text-fill: #333333;");
