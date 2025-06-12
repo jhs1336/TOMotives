@@ -47,7 +47,6 @@ public class ToolbarController {
 
         // add listener for each time the text is changed
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
-            System.out.println("Text changed to: " + newValue);
             if (newValue == null || newValue.isEmpty()) {
                 searchContextMenu.hide();
                 return;
@@ -63,7 +62,6 @@ public class ToolbarController {
                     item.setStyle("-fx-padding: 8; -fx-font-size: 14px; -fx-border-radius: 20;");
                     item.getStyleClass().add("button");
                     item.setOnAction(event -> {
-                        System.out.println("s");
                         Application.loadPage("location-detail-display.fxml", "location-detail-display/" + location);
                         searchContextMenu.hide();
                     });
@@ -79,20 +77,17 @@ public class ToolbarController {
             }
         });
 
-        searchField.setOnKeyPressed(event -> {
-            System.out.println("Key pressed: " + event.getCode());
+        searchField.setOnKeyReleased(event -> {
             if (event.getCode() != KeyCode.ENTER) return;
-            System.out.println("Search field action triggered");
             if (searchField.getText().isEmpty()) {
                 searchContextMenu.hide();
                 return;
             }
             searchField.deselect();
-           Application.loadPage("search-result-page.fxml", "search-result-page/search/" + searchField.getText());
+            Application.loadPage("search-result-page.fxml", "search-result-page/search/" + searchField.getText());
         });
 
         searchField.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            System.out.println("Search field focused: " + newValue);
             if (!newValue) {
                 searchContextMenu.hide();
             }

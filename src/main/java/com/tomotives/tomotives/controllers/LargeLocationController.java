@@ -54,8 +54,8 @@ public class LargeLocationController extends LocationControllerBase {
         // update UI
         if (locationNameLabel != null) {
             locationNameLabel.setText(locationName);
-            if (locationNameLabel.getText().length() < 10) locationNameLabel.setStyle("-fx-font-size: 24px;");
-            else if (locationNameLabel.getText().length() < 18) locationNameLabel.setStyle("-fx-font-size: 22px;");
+            if (locationNameLabel.getText().length() < 10) locationNameLabel.setStyle("-fx-font-size: 26px;");
+            else if (locationNameLabel.getText().length() < 18) locationNameLabel.setStyle("-fx-font-size: 23px;");
             else locationNameLabel.setStyle("-fx-font-size: 20px;");
             locationNameLabel.setOnAction(event -> openLocationDetailPage(locationName));
             Tooltip tooltip = new Tooltip(locationName);
