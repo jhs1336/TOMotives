@@ -116,6 +116,7 @@ public class ToolbarController {
     }
 
     private void handleBrowseButton() {
+        Application.loadPage("browse.fxml");
     }
 
     private void handleFavouritesButton() {

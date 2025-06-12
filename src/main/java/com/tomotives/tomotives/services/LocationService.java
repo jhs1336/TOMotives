@@ -121,7 +121,7 @@ public class LocationService {
             for(Category category : locationCategories){
 
                 //if the location has user's inputted category
-                if (locationCategories.contains(category)) {
+                if (categories.contains(category)) {
                     filteredLocations.add(location);
                     break;
                 }

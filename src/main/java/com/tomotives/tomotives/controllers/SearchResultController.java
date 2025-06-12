@@ -37,7 +37,7 @@ public class SearchResultController {
                 resultsCollectionController.loadLocations(LocationService.filterLocationListByName(searchTerm));
                 searchResultsLabel.setText("Search Results for \"" + searchTerm + "\"");
             } else if (middlePart.equals("filter")) {
-                selectedFilters.add(Category.valueOf(middlePart.replace(" ", "_").toUpperCase()));
+                selectedFilters.add(Category.valueOf(parts[2].replace(" ", "_").toUpperCase()));
                 resultsCollectionController.loadLocations(LocationService.filterLocationListByCategories(selectedFilters));
                 updateButtons();
             }
@@ -54,7 +54,8 @@ public class SearchResultController {
 
     @FXML
     private void refresh(ActionEvent event) {
-        resultsCollectionController.loadLocations(LocationService.filterLocationListByName(searchTerm), selectedFilters);
+        if (searchTerm != null) resultsCollectionController.loadLocations(LocationService.filterLocationListByName(searchTerm), selectedFilters);
+        else resultsCollectionController.loadLocations(LocationService.filterLocationListByCategories(selectedFilters));
     }
     @FXML
     private void onFilterClick(ActionEvent event) {
