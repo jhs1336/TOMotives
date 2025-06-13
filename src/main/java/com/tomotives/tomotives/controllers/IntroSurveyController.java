@@ -2,7 +2,7 @@
  *
  * Project TOMotives
  * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
- * Last Edited: June 12, 2025
+ * Last Edited: June 13, 2025
  */
 
 package com.tomotives.tomotives.controllers;
@@ -36,6 +36,20 @@ public class IntroSurveyController {
     private List<Button> filterButtons;
     private List<Button> selectedFilters;
     private static final int MIN_SELECTIONS = 3;
+
+    /**Joshua
+     * Gets the list of selected filters from the buttons on screen
+     *
+     * @return The list of selected filters
+     */
+    public List<Category> getSelectedFilters() {
+        List<Category> selectedTexts = new ArrayList<>();
+        for (Button button : selectedFilters) {
+            // replace spaces with underscores and convert to uppercase, then get the enum value
+            selectedTexts.add(Category.valueOf(button.getText().replace(" ", "_").toUpperCase()));
+        }
+        return selectedTexts;
+    }
 
     /**Joshua
      * Initialize the controller by setting up the filter buttons, and disabling the Done button (as it requires 3 selections first)
@@ -107,19 +121,5 @@ public class IntroSurveyController {
         // check if the minimum number of selections is met
         boolean hasMinimumSelections = selectedFilters.size() >= MIN_SELECTIONS;
         doneButton.setDisable(!hasMinimumSelections);
-    }
-
-    /**Joshua
-     * Gets the list of selected filters from the buttons on screen
-     *
-     * @return The list of selected filters
-     */
-    public List<Category> getSelectedFilters() {
-        List<Category> selectedTexts = new ArrayList<>();
-        for (Button button : selectedFilters) {
-            // replace spaces with underscores and convert to uppercase, then get the enum value
-            selectedTexts.add(Category.valueOf(button.getText().replace(" ", "_").toUpperCase()));
-        }
-        return selectedTexts;
     }
 }

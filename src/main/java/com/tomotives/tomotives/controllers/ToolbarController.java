@@ -2,7 +2,7 @@
  *
  * Project TOMotives
  * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
- * Last Edited: June 12, 2025
+ * Last Edited: June 13, 2025
  */
 
 package com.tomotives.tomotives.controllers;
@@ -105,6 +105,9 @@ public class ToolbarController {
         });
     }
 
+    /** Joshua
+     * Refreshes the toolbar by updating the visibility and text of the login and profile button based on whether the user is logged in
+     */
     public void refreshToolbar() {
         boolean userLoggedIn = Application.getUser() != null;
         signupButton.setManaged(!userLoggedIn);

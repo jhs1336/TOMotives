@@ -2,7 +2,7 @@
  *
  * Project TOMotives
  * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
- * Last Edited: June 12, 2025
+ * Last Edited: June 13, 2025
  */
 
 package com.tomotives.tomotives;
@@ -66,7 +66,7 @@ public class Application extends javafx.application.Application {
      * @return the user of the application
      */
     public static User getUser() {
-        return user; // also cannot be a copy, same logic as above
+        return new User(user);
     }
 
     /**Emmett

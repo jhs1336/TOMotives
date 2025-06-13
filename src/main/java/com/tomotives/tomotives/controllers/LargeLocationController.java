@@ -2,7 +2,7 @@
  *
  * Project TOMotives
  * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
- * Last Edited: June 12, 2025
+ * Last Edited: June 13, 2025
  */
 
 package com.tomotives.tomotives.controllers;
@@ -50,15 +50,6 @@ public class LargeLocationController extends LocationControllerBase {
     private Label priceRatingLabel;
     @FXML
     private Label starRatingLabel;
-
-    /**Emmett
-     * Initializes the controller by resizing the image to the needed size and applying rounded corners
-     */
-    @FXML
-    public void initialize() {
-        resizableImageController.resize(resizableImage.getFitWidth(), resizableImage.getFitHeight());
-        resizableImageController.applyRoundedCorners(10);
-    }
 
     /**Joshua
      * Sets the location data for the UI components
@@ -134,5 +125,14 @@ public class LargeLocationController extends LocationControllerBase {
     protected void updateStarRating(double rating, HBox starsContainer) {
         super.updateStarRating(rating, starsContainer); // changes the star icons to be filled / half / empty
         starRatingLabel.setText(String.format("%.1f", rating));
+    }
+
+    /**Emmett
+     * Initializes the controller by resizing the image to the needed size and applying rounded corners
+     */
+    @FXML
+    public void initialize() {
+        resizableImageController.resize(resizableImage.getFitWidth(), resizableImage.getFitHeight());
+        resizableImageController.applyRoundedCorners(10);
     }
 }

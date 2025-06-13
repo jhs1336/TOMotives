@@ -172,7 +172,7 @@ public class Location {
      * @return the reviews of the location
      */
     public ArrayList<Review> getReviews() {
-        return reviews;
+        return new ArrayList<Review>(reviews);
     }
 
     /** Jessica

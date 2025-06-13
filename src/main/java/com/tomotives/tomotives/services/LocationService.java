@@ -2,7 +2,7 @@
  *
  * Project TOMotives
  * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
- * Last Edited: June 12, 2025
+ * Last Edited: June 13, 2025
  */
 
 package com.tomotives.tomotives.services;
@@ -77,117 +77,6 @@ public class LocationService {
         }
         return locations;
     }//end getLocationNamesList method
-
-    /**Joshua
-     * filters the location list by name
-     * @param searchTerm the name of the location to search for
-     * @return an ArrayList of the best 20 matches for the search term, sorted by similarity to the search term
-     */
-    public static ArrayList<Location> filterLocationListByName(String searchTerm) {
-        ArrayList<Location> locations = getLocationList();
-
-        // filter locations based on name similarity and substring matching
-        Map<Location, Integer> distanceMap = new HashMap<>();
-        for (Location location : locations) {
-            String locationName = location.getName().toLowerCase();
-            String searchTermLower = searchTerm.toLowerCase();
-
-            // check if search term is a substring of location name
-            if (locationName.contains(searchTermLower)) {
-                distanceMap.put(location, 0);
-            } else {
-                int distance = LevenshteinDistance.getDefaultInstance()
-                    .apply(locationName, searchTermLower);
-
-                // split location name into words and check each word
-                String[] words = locationName.split("\\s+");
-                for (String word : words) {
-                    int wordDistance = LevenshteinDistance.getDefaultInstance()
-                        .apply(word, searchTermLower);
-                    distance = Math.min(distance, wordDistance);
-                }
-
-                distanceMap.put(location, distance);
-            }
-        }
-
-        return distanceMap.entrySet().stream()
-                .sorted(Map.Entry.comparingByValue()) // sorted (to put the closest matches first)
-                .limit(20) // 20 results max
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toCollection(ArrayList::new));
-    }
-
-    /**Choeying
-     * filters the location list by category(ies)
-     * @param categories the categories to filter by
-     * @return the list of locations that have one of the categories provided
-     */
-    public static ArrayList<Location> filterLocationListByCategories(ArrayList<Category> categories) {
-        //create arrayList of all the locations and an empty arrayList for locations with given category
-        ArrayList<Location> filteredLocations =  new ArrayList<>();
-        ArrayList<Location> unfilteredLocations = getLocationList();
-
-        //loop through all locations
-        for (Location location : unfilteredLocations){
-
-            //creates an arraylist of the categories each location has
-            ArrayList<Category> locationCategories = location.getCategories();
-
-            //compares category of the location to the category user inputed
-            for(Category category : locationCategories){
-
-                //if the location has user's inputted category
-                if (categories.contains(category)) {
-                    filteredLocations.add(location);
-                    break;
-                }
-            }
-        }
-        return filteredLocations;
-    }//end filterLocationLostByCategories method
-
-    /**Choeying
-     * filters the location list by rating
-     * @param min minimum rating
-     * @param max maximum rating
-     * @return the list of locations that have a rating between the min and max
-     */
-    public static ArrayList<Location> filterLocationListByRating(double min, double max) {
-        ArrayList<Location> filteredLocations = new ArrayList<>();
-        ArrayList<Location> unfilteredLocations = getLocationList();
-
-        for (Location location : unfilteredLocations){
-            //get the ratings
-            double rating = location.getRating();
-            if(rating>=min && rating<=max){
-                filteredLocations.add(location);
-            }
-        }
-
-        return filteredLocations;
-    }//end filterLocationByRating method
-
-    /**Choeying
-     * filters the location list by price rating
-     * @param min minimum rating
-     * @param max maximum rating
-     * @return the list of locations that have a price rating between the min and max
-     */
-    public static ArrayList<Location> filterLocationListByPrice(double min, double max) {
-        ArrayList<Location> filteredLocations = new ArrayList<>();
-        ArrayList<Location> unfilteredLocations = getLocationList();
-
-        for (Location location : unfilteredLocations){
-            //get the price
-            double price = location.getRating();
-            if(price>=min && price<=max){
-                filteredLocations.add(location);
-            }
-        }
-
-        return filteredLocations;
-    }//end filteredLocationListByPrice method
 
     /**Saul
      * gets the location object from the location list
@@ -338,4 +227,115 @@ public class LocationService {
             e.printStackTrace();
         }
     }
+
+    /**Joshua
+     * filters the location list by name
+     * @param searchTerm the name of the location to search for
+     * @return an ArrayList of the best 20 matches for the search term, sorted by similarity to the search term
+     */
+    public static ArrayList<Location> filterLocationListByName(String searchTerm) {
+        ArrayList<Location> locations = getLocationList();
+
+        // filter locations based on name similarity and substring matching
+        Map<Location, Integer> distanceMap = new HashMap<>();
+        for (Location location : locations) {
+            String locationName = location.getName().toLowerCase();
+            String searchTermLower = searchTerm.toLowerCase();
+
+            // check if search term is a substring of location name
+            if (locationName.contains(searchTermLower)) {
+                distanceMap.put(location, 0);
+            } else {
+                int distance = LevenshteinDistance.getDefaultInstance()
+                        .apply(locationName, searchTermLower);
+
+                // split location name into words and check each word
+                String[] words = locationName.split("\\s+");
+                for (String word : words) {
+                    int wordDistance = LevenshteinDistance.getDefaultInstance()
+                            .apply(word, searchTermLower);
+                    distance = Math.min(distance, wordDistance);
+                }
+
+                distanceMap.put(location, distance);
+            }
+        }
+
+        return distanceMap.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue()) // sorted (to put the closest matches first)
+                .limit(20) // 20 results max
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    /**Choeying
+     * filters the location list by category(ies)
+     * @param categories the categories to filter by
+     * @return the list of locations that have one of the categories provided
+     */
+    public static ArrayList<Location> filterLocationListByCategories(ArrayList<Category> categories) {
+        //create arrayList of all the locations and an empty arrayList for locations with given category
+        ArrayList<Location> filteredLocations =  new ArrayList<>();
+        ArrayList<Location> unfilteredLocations = getLocationList();
+
+        //loop through all locations
+        for (Location location : unfilteredLocations){
+
+            //creates an arraylist of the categories each location has
+            ArrayList<Category> locationCategories = location.getCategories();
+
+            //compares category of the location to the category user inputed
+            for(Category category : locationCategories){
+
+                //if the location has user's inputted category
+                if (categories.contains(category)) {
+                    filteredLocations.add(location);
+                    break;
+                }
+            }
+        }
+        return filteredLocations;
+    }//end filterLocationLostByCategories method
+
+    /**Choeying
+     * filters the location list by rating
+     * @param min minimum rating
+     * @param max maximum rating
+     * @return the list of locations that have a rating between the min and max
+     */
+    public static ArrayList<Location> filterLocationListByRating(double min, double max) {
+        ArrayList<Location> filteredLocations = new ArrayList<>();
+        ArrayList<Location> unfilteredLocations = getLocationList();
+
+        for (Location location : unfilteredLocations){
+            //get the ratings
+            double rating = location.getRating();
+            if(rating>=min && rating<=max){
+                filteredLocations.add(location);
+            }
+        }
+
+        return filteredLocations;
+    }//end filterLocationByRating method
+
+    /**Choeying
+     * filters the location list by price rating
+     * @param min minimum rating
+     * @param max maximum rating
+     * @return the list of locations that have a price rating between the min and max
+     */
+    public static ArrayList<Location> filterLocationListByPrice(double min, double max) {
+        ArrayList<Location> filteredLocations = new ArrayList<>();
+        ArrayList<Location> unfilteredLocations = getLocationList();
+
+        for (Location location : unfilteredLocations){
+            //get the price
+            double price = location.getRating();
+            if(price>=min && price<=max){
+                filteredLocations.add(location);
+            }
+        }
+
+        return filteredLocations;
+    }//end filteredLocationListByPrice method
 }

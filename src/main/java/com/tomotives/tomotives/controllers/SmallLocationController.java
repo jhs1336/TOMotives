@@ -2,7 +2,7 @@
  *
  * Project TOMotives
  * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
- * Last Edited: June 12, 2025
+ * Last Edited: June 13, 2025
  */
 
 package com.tomotives.tomotives.controllers;
@@ -34,17 +34,6 @@ public class SmallLocationController extends LocationControllerBase {
     private Button filter1Button;
     @FXML
     private Button filter2Button;
-
-    /** Jessica
-     * Initializes the object by resizing the resizableImage to the size needed and applying rounded corners
-     */
-    @FXML
-    public void initialize() {
-        if (resizableImageController != null) {
-            resizableImageController.resize(resizableImage.getFitWidth(), resizableImage.getFitHeight());
-            resizableImageController.applyRoundedCorners(10);
-        }
-    }
 
     /**
      * Sets the location data for the UI in the small location component
@@ -88,5 +77,16 @@ public class SmallLocationController extends LocationControllerBase {
         // update star and price ratings
         updateStarRating(starRating, starsContainer);
         updatePriceRating(priceRating, priceContainer);
+    }
+
+    /** Jessica
+     * Initializes the object by resizing the resizableImage to the size needed and applying rounded corners
+     */
+    @FXML
+    public void initialize() {
+        if (resizableImageController != null) {
+            resizableImageController.resize(resizableImage.getFitWidth(), resizableImage.getFitHeight());
+            resizableImageController.applyRoundedCorners(10);
+        }
     }
 }
