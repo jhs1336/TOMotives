@@ -388,6 +388,7 @@ public class ProfileController {
             currentUser.setPassword(passwordTextField.getText());
 
             UserService.editUser(oldDisplayName, currentUser);
+            toolbarController.refreshToolbar();
 
             // Show success message
             ToastService.show(Application.getStage(), "Profile Saved", ToastController.ToastType.SUCCESS);
