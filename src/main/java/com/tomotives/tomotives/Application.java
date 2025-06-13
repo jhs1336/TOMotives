@@ -1,3 +1,10 @@
+/* The Application class is the main class for the application, which has many helper methods used by other classes like loading resources and pages
+ *
+ * Project TOMotives
+ * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
+ * Last Edited: June 12, 2025
+ */
+
 package com.tomotives.tomotives;
 
 import com.tomotives.tomotives.models.User;

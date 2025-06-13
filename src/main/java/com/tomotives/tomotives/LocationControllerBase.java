@@ -1,3 +1,10 @@
+/* The LocationControllerBase is a parent class which provides functionality for the location controllers. It provides a common interface for managing locations and their associated data.
+ *
+ * Project TOMotives
+ * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
+ * Last Edited: June 12, 2025
+ */
+
 package com.tomotives.tomotives;
 
 import javafx.event.ActionEvent;
