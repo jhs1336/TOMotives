@@ -162,7 +162,7 @@ public class LocationDetailController extends LocationControllerBase {
         loadReviews(location.getReviews());
     }
 
-    /**Joshua
+    /**Saul
      * Loads and displays the reviews for the current location
      * Reviews are sorted by date (newest first)
      *
