@@ -1,3 +1,10 @@
+/* The LocationService is a service which handles all operations related to locations and provides a service for other parts of the application to access data from
+ *
+ * Project TOMotives
+ * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
+ * Last Edited: June 12, 2025
+ */
+
 package com.tomotives.tomotives.services;
 
 import com.google.gson.Gson;
@@ -71,6 +78,11 @@ public class LocationService {
         return locations;
     }//end getLocationNamesList method
 
+    /**Joshua
+     * filters the location list by name
+     * @param searchTerm the name of the location to search for
+     * @return an ArrayList of the best 20 matches for the search term, sorted by similarity to the search term
+     */
     public static ArrayList<Location> filterLocationListByName(String searchTerm) {
         ArrayList<Location> locations = getLocationList();
 
@@ -106,6 +118,11 @@ public class LocationService {
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
+    /**Choeying
+     * filters the location list by category(ies)
+     * @param categories the categories to filter by
+     * @return the list of locations that have one of the categories provided
+     */
     public static ArrayList<Location> filterLocationListByCategories(ArrayList<Category> categories) {
         //create arrayList of all the locations and an empty arrayList for locations with given category
         ArrayList<Location> filteredLocations =  new ArrayList<>();
@@ -130,6 +147,12 @@ public class LocationService {
         return filteredLocations;
     }//end filterLocationLostByCategories method
 
+    /**Choeying
+     * filters the location list by rating
+     * @param min minimum rating
+     * @param max maximum rating
+     * @return the list of locations that have a rating between the min and max
+     */
     public static ArrayList<Location> filterLocationListByRating(double min, double max) {
         ArrayList<Location> filteredLocations = new ArrayList<>();
         ArrayList<Location> unfilteredLocations = getLocationList();
@@ -145,6 +168,12 @@ public class LocationService {
         return filteredLocations;
     }//end filterLocationByRating method
 
+    /**Choeying
+     * filters the location list by price rating
+     * @param min minimum rating
+     * @param max maximum rating
+     * @return the list of locations that have a price rating between the min and max
+     */
     public static ArrayList<Location> filterLocationListByPrice(double min, double max) {
         ArrayList<Location> filteredLocations = new ArrayList<>();
         ArrayList<Location> unfilteredLocations = getLocationList();
@@ -160,6 +189,11 @@ public class LocationService {
         return filteredLocations;
     }//end filteredLocationListByPrice method
 
+    /**Saul
+     * gets the location object from the location list
+     * @param name the name of the location
+     * @return the location object
+     */
     public static Location getLocation(String name) {
         for (Location location : getLocationList()) {
             if (location.getName().equals(name)) {
@@ -177,21 +211,26 @@ public class LocationService {
     public static Location getLocationFromMap(Map<String, Object> locationMap) {
         ArrayList<Category> categories = gson.fromJson(gson.toJson(locationMap.get("categories")), new TypeToken<ArrayList<Category>>(){}.getType());
         ArrayList<Map<String, Object>> reviews = gson.fromJson(gson.toJson(locationMap.get("reviews")), new TypeToken<ArrayList<Map<String, Object>>>(){}.getType());
+
         double totalRating = 0;
         double totalPriceRating = 0;
         ArrayList<Review> reviewList = new ArrayList<>();
+        // add all reviews from location
         for (Map<String, Object> review : reviews) {
             totalRating += (double) review.get("rating");
             totalPriceRating += (double) review.get("priceRating");
 
             String dateStr = (String) review.get("date");
             String[] dateParts = dateStr.split("-");
+            // get parts of date
             int year = Integer.parseInt(dateParts[0]);
             int month = Integer.parseInt(dateParts[1]) - 1;
             int day = Integer.parseInt(dateParts[2]);
+            // add to review list
             reviewList.add(new Review((String) review.get("description"), (double) review.get("rating"), (double) review.get("priceRating"), (String) review.get("user"), new Date(year - 1900, month, day)));
         }
 
+        // calculate averages
         int reviewCount = reviews.size();
         double averageRating = reviewCount > 0 ? totalRating / reviewCount : 0;
         double averagePriceRating = reviewCount > 0 ? totalPriceRating / reviewCount : 0;
@@ -200,11 +239,13 @@ public class LocationService {
         return new Location((String) locationMap.get("name"), (String) locationMap.get("description"), averageRating, averagePriceRating, categories, reviewList, (String) locationMap.get("image"));
     }
 
+    /** Emmett
+     * get the amount of favourites on a given location
+     * @param location location to get favourites from
+     * @return the amount of favourites
+     */
     public static int getLocationAmountOfFavourites(Location location) {
         int counter = 0;
-        // given a location, return the amount of favorites it has NOTE: favorites are stored by user, not location.
-        // steps: loop through all users (UserService.getUserList()) will provide you will all users
-        // for each user, check if the user has the location in their favorites list. If so, add to a counter, and eventually return the counter
 
         for (User user : UserService.getUserList()) {
             if (user.getFavourites().contains(location.getName())) {
@@ -215,6 +256,11 @@ public class LocationService {
         return counter;
     }
 
+    /**Joshua
+     * add a review to a location
+     * @param locationName the name of the location to add the review to
+     * @param review the review to add
+     */
     public static void addReview(String locationName, Review review) {
         if (!Files.exists(Paths.get(LOCATIONS_FILE_PATH))) return;
 
@@ -255,6 +301,12 @@ public class LocationService {
             e.printStackTrace();
         }
     }
+
+    /**Joshua
+     * remove a review from a location
+     * @param locationName the name of the location to remove the review from
+     * @param reviewDescription the description of the review to remove
+     */
     public static void removeReview(String locationName, String reviewDescription) {
         if (!Files.exists(Paths.get(LOCATIONS_FILE_PATH))) return;
 

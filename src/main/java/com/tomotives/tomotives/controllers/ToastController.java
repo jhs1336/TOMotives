@@ -1,3 +1,10 @@
+/* The ToastController class is the controller for the toast.fxml component which works with the ToastService to display a toast notification on the screen when needed
+ *
+ * Project TOMotives
+ * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
+ * Last Edited: June 12, 2025
+ */
+
 package com.tomotives.tomotives.controllers;
 
 import javafx.animation.KeyFrame;
@@ -29,19 +36,24 @@ public class ToastController {
     private ToastType type;
     private String message;
 
+    /** Emmett
+     * Gets the duration of the toast notification in milliseconds.
+     *
+     * @return the duration of the toast notification in milliseconds
+     */
     public int getDuration() {
         return duration;
     }
+
+    /** Emmett
+     * Sets the duration of the toast notification in milliseconds.
+     * @param duration the duration of the toast notification in milliseconds
+     */
     public void setDuration(int duration) {
         this.duration = duration;
     }
 
-    @FXML
-    private void initialize() {
-        // called by javafx when first loaded
-    }
-
-    /**Joshua
+    /**Saul
      * Initializes the toast notification with the provided message and type
      *
      * @param message The message to display in the toast
@@ -58,7 +70,7 @@ public class ToastController {
         String typeClass = type.toString().toLowerCase();
         toastContainer.getStyleClass().add(typeClass);
 
-        // create popup
+        // create popup - Joshua helped
         popup = new Popup();
         popup.setAutoFix(true);
         popup.setAutoHide(false);
@@ -73,7 +85,7 @@ public class ToastController {
      *
      * @param ownerStage The stage that shows the toast
      */
-        public void showToast(Stage ownerStage) {
+    public void showToast(Stage ownerStage) {
         // position toast at the bottom center of screen
         popup.setOnShown(e -> {
             popup.setX(ownerStage.getX() + (ownerStage.getWidth() - popup.getWidth()) / 2);

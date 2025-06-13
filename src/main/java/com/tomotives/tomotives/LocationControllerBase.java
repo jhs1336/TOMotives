@@ -60,12 +60,20 @@ public class LocationControllerBase {
         }
     }
 
+    /**Jessica
+     * handles the click event of the filter buttons
+     * @param event
+     */
     @FXML
     protected void onFilterClicked(ActionEvent event) {
         Button clickedButton = (Button) event.getSource();
         Application.loadPage("search-result-page.fxml", "search-result-page/filter/" + clickedButton.getText());
     }
 
+    /**Joshua
+     * opens the location detail page
+     * @param locationName the name of the location to open
+     */
     @FXML
     protected void openLocationDetailPage(String locationName) {
         Application.loadPage("location-detail-display.fxml", "location-detail-display/" + locationName);

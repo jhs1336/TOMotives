@@ -1,3 +1,10 @@
+/* The Location class represents a location in the application
+ *
+ * Project TOMotives
+ * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
+ * Last Edited: June 12, 2025
+ */
+
 package com.tomotives.tomotives.models;
 
 import java.util.ArrayList;
@@ -12,7 +19,7 @@ public class Location {
     private String image;
 
 
-    /** Joshua
+    /** Choeying
      * Constructs a new Location object with the specified properties.
      *
      * @param name        the name of the location
@@ -65,12 +72,12 @@ public class Location {
     }
 
 
-    /** Joshua
+    /** Jessica
      * Constructs a new Location object by copying the properties of the provided Location object
      *
      * @param location the Location object to copy
      */
-        public Location(Location location) {
+    public Location(Location location) {
         this.name = location.name;
         this.categories = new ArrayList<>(location.categories);
         this.rating = location.rating;
@@ -82,61 +89,112 @@ public class Location {
 
     /** Saul
      * The name of the location
-     *
      * @return the name of the location
      */
     public String getName() {
         return name;
     }
 
+    /** Saul
+     * Sets the name of the location
+     * @param name the new name of the location
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /** Saul
+     * get the categories associated with the location
+     * @return the categories associated with the location
+     */
     public ArrayList<Category> getCategories() {
         return categories;
     }
 
+    /** Saul
+     * Sets the categories associated with the location
+     * @param categories the new categories associated with the location
+     */
     public void setCategories(ArrayList<Category> categories) {
         this.categories = categories;
     }
 
+    /** Choeying
+     * get the rating of the location
+     * @return the rating of the location
+     */
     public double getRating() {
         return rating;
     }
 
+    /** Choeying
+     * set the rating of the location
+     * @param rating the new rating of the location
+     */
     public void setRating(double rating) {
         this.rating = rating;
     }
 
+    /** Choeying
+     * get the price of the location
+     * @return the price of the location
+     */
     public double getPrice() {
         return price;
     }
 
+    /** Choeying
+     * set the price of the location
+     * @param price the new price of the location
+     */
     public void setPrice(double price) {
         this.price = price;
     }
 
+    /** Jessica
+     * get the description of the location
+     * @return the description of the location
+     */
     public String getDescription() {
         return description;
     }
 
+    /** Jessica
+     * set the description of the location
+     * @param description the new description of the location
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /** Jessica
+     * get the reviews of the location
+     * @return the reviews of the location
+     */
     public ArrayList<Review> getReviews() {
         return reviews;
     }
 
+    /** Jessica
+     * set the reviews of the location
+     * @param reviews the new reviews of the location
+     */
     public void setReviews(ArrayList<Review> reviews) {
         this.reviews = reviews;
     }
 
+    /** Emmett
+     * get the image of the location
+     * @return the image of the location
+     */
     public String getImage() {
         return image;
     }
 
+    /** Emmett
+     * set the image of the location
+     * @param image the new image of the location
+     */
     public void setImage(String image) {
         this.image = image;
     }

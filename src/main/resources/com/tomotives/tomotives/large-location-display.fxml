@@ -11,7 +11,7 @@
         <HBox spacing="10" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
             <fx:define>
-                <Image fx:id="image" url="@images/testimage3.jpg" />
+                <Image fx:id="image" url="@images/cntower.jpg" />
             </fx:define>
             <fx:include fx:id="resizableImage" fitHeight="296" fitWidth="400" source="resizable-image.fxml" />
 

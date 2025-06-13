@@ -36,28 +36,54 @@ public class Application extends javafx.application.Application {
     public static final String NORMAL_BUTTON_STYLE = "-fx-background-color: #00a0b0; -fx-text-fill: white; -fx-background-radius: 25px; -fx-font-size: 14px;";
     public static final String HOVER_BUTTON_STYLE = "-fx-background-color: #008b9c; -fx-text-fill: white; -fx-background-radius: 25px; -fx-font-size: 14px;";
 
-    public static User getUser() {
-        return user;
-    }
-    public static void setUser(User user) {
-        Application.user = user;
-    }
 
-    /**Joshua
+    /** Choeying
      * Gets the stage of the application
      *
      * @return the stage of the application
      */
     public static Stage getStage() {
-        return stage;
+        return stage; // cannot be a copy as operations will need to be performed on the stage for components from javafx, etc.
     }
+
+    /** Jessica
+     * gets the page of the application
+     * @return the page of the application
+     */
     public static String getPage() {
         return page;
     }
 
+    /**Emmett
+     * gets the user of the application
+     * @return the user of the application
+     */
+    public static User getUser() {
+        return user; // also cannot be a copy, same logic as above
+    }
+
+    /**Emmett
+     * sets the user of the application
+     * @param user the user of the application
+     */
+    public static void setUser(User user) {
+        Application.user = user;
+    }
+
+    /** Joshua
+     * gets the resource as a stream
+     * @param resourceName the name of the resource
+     * @return the resource as a stream
+     */
     public static InputStream getResourceAsStream(String resourceName) {
         return Application.class.getResourceAsStream(resourceName);
     }
+
+    /**Joshua
+     * gets the resource as a URL
+     * @param resourceName the name of the resource
+     * @return the resource as a URL
+     */
     public static URL getResource(String resourceName) {
         return Application.class.getResource(resourceName);
     }
@@ -97,10 +123,21 @@ public class Application extends javafx.application.Application {
             e.printStackTrace();
         }
     }
+
+    /** Joshua
+     * Loads the page with the specified URL and sets the page name to the file name without the extension
+     * @param url The URL of the page to load
+     */
     public static void loadPage(String url) {
         loadPage(url, url.substring(0, url.indexOf('.')));
     }
 
+    /**Joshua
+     * shows the popup to suggest users to login or sign up
+     * @param title the title of the popup
+     * @param subtitle the subtitle of the popup
+     * @param pagePath the path to the page to load after logging in or signing up
+     */
     public static void showLoginOrSignupPopup(String title, String subtitle, String pagePath) {
         Popup popup = new Popup();
         popup.setAutoHide(true);
@@ -112,8 +149,6 @@ public class Application extends javafx.application.Application {
         popupContent.setMinWidth(400);
         popupContent.setMaxWidth(500);
         popupContent.setOpacity(0);
-//        popupContent.setScaleX(0.0);
-//        popupContent.setScaleY(0.0);
 
         Label titleLabel = new Label(title);
         titleLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
@@ -135,7 +170,7 @@ public class Application extends javafx.application.Application {
         });
         loginButton.setOnAction(e -> {
             popup.hide();
-            Application.loadPage("login.fxml", "login" + pagePath); // pass in locationName as the location page to be loaded after login
+            Application.loadPage("login.fxml", "login" + pagePath); // pass in pagePath as the location page to be loaded after login
         });
 
         Button signupButton = new Button("Sign Up");
@@ -149,7 +184,7 @@ public class Application extends javafx.application.Application {
         });
         signupButton.setOnAction(e -> {
             popup.hide();
-            Application.loadPage("sign-up.fxml", "sign-up" + pagePath); // pass in locationName as the location page to be loaded after sign up
+            Application.loadPage("sign-up.fxml", "sign-up" + pagePath); // pass in pagePath as the location page to be loaded after sign up
         });
 
         Button cancelButton = new Button("Cancel");
@@ -189,26 +224,34 @@ public class Application extends javafx.application.Application {
         // animation for popup appearance
         Timeline fadeIn = new Timeline(
             new KeyFrame(Duration.ZERO,
-//                new KeyValue(popupContent.scaleXProperty(), 0.0),
-//                new KeyValue(popupContent.scaleYProperty(), 1.0),
                 new KeyValue(popupContent.opacityProperty(), 0)
             ),
             new KeyFrame(Duration.millis(200),
-//                new KeyValue(popupContent.scaleXProperty(), 1),
-//                new KeyValue(popupContent.scaleYProperty(), 1),
                     new KeyValue(popupContent.opacityProperty(), 1)
             )
         );
         fadeIn.play();
     }
 
+    /** Joshua
+     * shows the popup to suggest users to login or sign up with the page path passed in to be loaded after logging in or signing up
+     * @param pagePath the path to the page to load after logging in or signing up
+     */
     public static void showLoginOrSignupPopup(String pagePath) {
         showLoginOrSignupPopup("Login or Sign Up", "Please login or sign up to continue", pagePath);
     }
+
+    /** Joshua
+     * shows the popup to suggest users to login or sign up, with no page path to be loaded after logging in or signing up
+     */
     public static void showLoginOrSignupPopup() {
         showLoginOrSignupPopup("");
     }
 
+    /** Joshua
+     * starts the program
+     * @param args args
+     */
     public static void main(String[] args) {
         launch(args);
     }

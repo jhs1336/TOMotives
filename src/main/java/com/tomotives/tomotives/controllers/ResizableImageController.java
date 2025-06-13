@@ -1,3 +1,10 @@
+/* The ResizableImageController class is the controller for the resizable-image.fxml component which is the wrapper class for the JavaFX image class, with added capabilities such as keeping aspect ratio and having any size, and rounded edges
+ *
+ * Project TOMotives
+ * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
+ * Last Edited: June 12, 2025
+ */
+
 package com.tomotives.tomotives.controllers;
 
 import javafx.fxml.FXML;

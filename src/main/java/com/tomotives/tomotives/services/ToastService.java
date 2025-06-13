@@ -1,3 +1,10 @@
+/* The ToastService is a service which allows for the display of different kinds of toasts on the screen
+ *
+ * Project TOMotives
+ * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
+ * Last Edited: June 12, 2025
+ */
+
 package com.tomotives.tomotives.services;
 
 import com.tomotives.tomotives.Application;

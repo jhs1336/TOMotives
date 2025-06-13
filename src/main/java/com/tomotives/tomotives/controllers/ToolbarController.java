@@ -1,3 +1,10 @@
+/* The ToolbarController class is the controller for the toolbar.fxml component which is the top bar of the entire application
+ *
+ * Project TOMotives
+ * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
+ * Last Edited: June 12, 2025
+ */
+
 package com.tomotives.tomotives.controllers;
 
 import com.tomotives.tomotives.Application;
@@ -29,6 +36,10 @@ public class ToolbarController {
     private Button loginAndProfileButton;
     @FXML
     private Label divider;
+
+    /** Joshua
+     * Initializes the controller by binding all action listeners for buttons, and setting search functionality
+     */
     @FXML
     private void initialize() {
         //set up listeners
@@ -103,57 +114,70 @@ public class ToolbarController {
         loginAndProfileButton.setText(!userLoggedIn ? "Login" : Application.getUser().getDisplayName());
     }
 
-    /**Joshua
+    /**Choeying
      * Handles the click event of the home button by loading the home page.
      */
     private void handleHomeButton() {
         Application.loadPage("home.fxml");
     }
 
+    /** Choeying
+     * Handles the click event of the browse button by loading the browse page.
+     */
     private void handleBrowseButton() {
         Application.loadPage("browse.fxml");
     }
 
+    /**Jessica
+     * If the user is not logged in, shows the popup to login.
+     * Otherwise, loads the favourites page with the information needed
+     */
     private void handleFavouritesButton() {
         if (Application.getUser() == null) {
             Application.showLoginOrSignupPopup();
         } else {
-            Application.loadPage("favourites-and-recently-viewed.fxml", "favourites-and-recently-viewed/favourites/" + Application.getUser().getDisplayName());
+            Application.loadPage("favourites-and-recently-viewed.fxml", "favourites-and-recently-viewed/favourites/" + Application.getUser().getDisplayName()); // Joshua did this
         }
     }
 
-    /**Joshua
+    /**Jessica
      * Handles the click event of the signup button by loading the sign-up page.
      */
     private void handleSignupButton() {
         Application.loadPage("sign-up.fxml");
     }
+
     /**Joshua
-     * Handles the login button click event by loading the login page.
+     * Handles the login or profile button click event
+     * If the user is not logged in, loads the login page.
+     * Otherwise, shows a context menu with profile, recently viewed, and logout options
      */
     private void handleLoginAndProfileButtonClick() {
         if (Application.getUser() == null) {
+            // user is not logged in, load login page
             Application.loadPage("login.fxml");
         } else {
+            // user is logged in, show context menu about their account
             ContextMenu contextMenu = new ContextMenu();
             MenuItem profileMenuItem = new MenuItem("Profile");
             MenuItem recentlyViewedMenuItem = new MenuItem("Recent");
             MenuItem logoutMenuItem = new MenuItem("Log Out");
+
             profileMenuItem.getStyleClass().add("button");
             recentlyViewedMenuItem.getStyleClass().add("button");
             logoutMenuItem.getStyleClass().add("button");
+
             profileMenuItem.setStyle("-fx-font-size: 14px;");
             recentlyViewedMenuItem.setStyle("-fx-font-size: 14px;");
             logoutMenuItem.setStyle("-fx-text-fill: red; -fx-font-size: 14px;");
             contextMenu.setStyle("-fx-padding: 5px; -fx-border-color: #00a0b0; -fx-background-radius: 5px; -fx-border-radius: 5px;");
-
 
             profileMenuItem.setOnAction(e -> Application.loadPage("profile.fxml"));
             recentlyViewedMenuItem.setOnAction(e -> Application.loadPage("favourites-and-recently-viewed.fxml", "favourites-and-recently-viewed/recently-viewed/" + Application.getUser().getDisplayName()));
             logoutMenuItem.setOnAction(e -> {
                 Application.setUser(null);
                 refreshToolbar();
-                if (Application.getPage().equals("profile")) Application.loadPage("home.fxml");
+                if (Application.getPage().equals("profile")) Application.loadPage("home.fxml"); // if no other page set to be added from URL, load home page
             });
 
             contextMenu.getItems().addAll(profileMenuItem, recentlyViewedMenuItem, logoutMenuItem);

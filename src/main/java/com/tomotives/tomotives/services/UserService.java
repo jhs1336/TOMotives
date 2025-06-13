@@ -1,3 +1,10 @@
+/* The UserService is a service which handles all operations related to users and provides a service for other parts of the application to access data from
+ *
+ * Project TOMotives
+ * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
+ * Last Edited: June 12, 2025
+ */
+
 package com.tomotives.tomotives.services;
 
 import com.google.gson.Gson;
@@ -17,6 +24,10 @@ public class UserService {
     private final static String USERS_FILE_PATH = "src/main/resources/com/tomotives/tomotives/data/users.json";
     private static Gson gson = new Gson();
 
+    /**Joshua
+     * Retrieves a list of user objects, as type Object from the users JSON file
+     * @return an ArrayList of user objects as type Object, or null if an IOException occurs while reading the file
+     */
     public static ArrayList<Object> getUserObjectList() {
         try {
             String userList = new String(Files.readAllBytes(Paths.get(USERS_FILE_PATH)));
@@ -29,6 +40,10 @@ public class UserService {
         }
     }
 
+    /** Joshua
+     * Retrieves a list of user objects, as type User from the users JSON file
+     * @return an ArrayList of user objects as type User, or null if an IOException occurs while reading the file
+     */
     public static ArrayList<User> getUserList() {
         ArrayList<Object> userObjects = getUserObjectList();
         ArrayList<User> users = new ArrayList<>();
@@ -39,10 +54,20 @@ public class UserService {
         return users;
     }
 
+    /**Joshua
+     * Retrieves a user object from a map
+     * @param map a map of user data
+     * @return a User object
+     */
     public static User getUserFromMap(Map<String, Object> map) {
         return new User((String) map.get("email"), (String) map.get("firstName"), (String) map.get("lastName"), (String) map.get("password"), (String) map.get("displayName"), (ArrayList<String>) map.get("favourites"), (ArrayList<String>) map.get("recentLocations"), (ArrayList<String>) map.get("friends"), (ArrayList<Category>) map.get("likedCategories"));
     }
 
+    /**Saul
+     * gets a user object from an email
+     * @param email the email of the user to get
+     * @return the user object
+     */
     public static User getUserFromEmail(String email) {
         for (User user : getUserList()) {
             if (user.getEmail().equals(email)) {
@@ -52,6 +77,11 @@ public class UserService {
         return null;
     }
 
+    /**Saul
+     * gets a user object from a display name
+     * @param displayName the display name of the user to get
+     * @return the user object
+     */
     public static User getUserFromDisplayName(String displayName) {
         for (User user : getUserList()) {
             if (user.getDisplayName().equals(displayName)) {
@@ -61,14 +91,11 @@ public class UserService {
         return null;
     }
 
-    /**
-     * Saul - goes through the user's friend list and checks if the users they have added are mutual friends
+    /** Jessica - goes through the user's friend list and checks if the users they have added are mutual friends
      * @param user the user to get the friends of
      * @return mutualFriends is the arrayList of friends of the user that have added them back
      */
     public static ArrayList<User> getUserFriends(User user) {
-        // given the user, loop through their friends (user.getFriends()) and for each friend they have, check if that user also has the current user as a friend.
-        // If so, add them to a list that will be returned.
         ArrayList<User> mutualFriends = new ArrayList<>();
 
         for (int i = 0; i < user.getFriends().size(); i++) {
@@ -79,9 +106,7 @@ public class UserService {
         }
         return mutualFriends;
     }
-    public static ArrayList<User> getUserFriends(String userDisplayName) {
-        return getUserFriends(getUserFromDisplayName(userDisplayName));
-    }
+
 
     /** Jessica
      * Checks the friend status between two users
@@ -104,10 +129,11 @@ public class UserService {
         }
     } // end getUserFriendshipStatus
 
-    public static FriendStatus getUserFriendshipStatus(String userDisplayName, String otherUserDisplayName) {
-        return getUserFriendshipStatus(getUserFromDisplayName(userDisplayName), getUserFromDisplayName(otherUserDisplayName));
-    }
-
+    /**Joshua
+     * gets a list of other users that the user may know, based on their liked categories, and mutual friends
+     * @param user the user to get the people they may know for
+     * @return a map of users and their amount of commonalities
+     */
     public static Map<User, Integer> getPeopleUserMayKnow(User user) {
         Map<User, Integer> peopleUserMayKnow = new HashMap<>();
         for (User otherUser : getUserList()) {
@@ -139,6 +165,7 @@ public class UserService {
             if (commonCategories + mutualFriends > 0) peopleUserMayKnow.put(otherUser, commonCategories + mutualFriends);
         }
 
+        // sort the map by value
         return peopleUserMayKnow.entrySet()
                 .stream()
                 .sorted(Map.Entry.<User, Integer>comparingByValue().reversed())
@@ -150,10 +177,11 @@ public class UserService {
                 ));
     }
 
-    public static void setLikedCategories(User user, List<Category> categories) {
-        setLikedCategories(user.getDisplayName(), categories);
-    }
-
+    /** Joshua
+     * sets the user's liked categories
+     * @param userDisplayName the user to set the liked categories for
+     * @param categories the categories to set
+     */
     public static void setLikedCategories(String userDisplayName, List<Category> categories) {
         try {
             // read the current users from the file
@@ -180,6 +208,10 @@ public class UserService {
         }
     }
 
+    /** Joshua
+     * adds a new user
+     * @param user the user to add
+     */
     public static void addUser(User user) {
         if (!Files.exists(Paths.get(USERS_FILE_PATH))) return;
 
@@ -207,6 +239,11 @@ public class UserService {
         }
     }
 
+    /** Joshua
+     * edits a user
+     * @param userDisplayName the user to edit
+     * @param replacementUser the user to replace with
+     */
     public static void editUser(String userDisplayName, User replacementUser) {
         try {
             // read the current users from the file
@@ -234,12 +271,16 @@ public class UserService {
         }
     }
 
+    /**Joshua
+     * adds a friend to a user
+     * @param userDisplayName the user to add the friend to
+     * @param friendDisplayName the friend to add
+     */
     public static void addFriend(String userDisplayName, String friendDisplayName) {
         try {
             // read the current users from the file
             String userListJson = new String(Files.readAllBytes(Paths.get(USERS_FILE_PATH)));
-            Type listType = new TypeToken<ArrayList<Map<String, Object>>>() {
-            }.getType();
+            Type listType = new TypeToken<ArrayList<Map<String, Object>>>() {}.getType();
             ArrayList<Map<String, Object>> users = gson.fromJson(userListJson, listType);
 
             // find the user by name
@@ -256,6 +297,12 @@ public class UserService {
             e.printStackTrace();
         }
     }
+
+    /**Joshua
+     * removes a friend from a user
+     * @param userDisplayName the user to remove the friend from
+     * @param friendDisplayName the friend to remove
+     */
     public static void removeFriend(String userDisplayName, String friendDisplayName) {
         try {
             // read the current users from the file
@@ -279,6 +326,11 @@ public class UserService {
         }
     }
 
+    /**Joshua
+     * adds a recent location to a user
+     * @param displayName the user to add the recent location to
+     * @param location the recent location to add
+     */
     public static void addRecentLocationToUser(String displayName, String location) {
         try {
             // read the current users from the file
@@ -316,10 +368,13 @@ public class UserService {
             e.printStackTrace();
         }
     }
-    public static void addRecentLocationToUser(User user, String location) {
-        addRecentLocationToUser(user.getDisplayName(), location);
-    }
 
+    /**Joshua
+     * If the user already has the location in their favourites, remove it
+     * If the user does not have the location in their favourites, add it
+     * @param displayName the user to add the favourite to
+     * @param location the favourite to add
+     */
     public static void addOrRemoveUserFavourite(String displayName, String location) {
         try {
             // read the current users from the file
@@ -347,8 +402,5 @@ public class UserService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-    public static void addOrRemoveUserFavourite(User user, String location) {
-        addOrRemoveUserFavourite(user.getDisplayName(), location);
     }
 }

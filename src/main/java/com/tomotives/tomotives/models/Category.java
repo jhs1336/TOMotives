@@ -1,8 +1,12 @@
+/* The Category enum represents the categories of locations in the application
+ *
+ * Project TOMotives
+ * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
+ * Last Edited: June 12, 2025
+ */
+
 package com.tomotives.tomotives.models;
 
-/** Joshua + Saul
- * Represents the different categories of activities or places that can be associated with a location
- */
 public enum Category {
     INDOORS,
     OUTDOORS,
@@ -48,6 +52,11 @@ public enum Category {
     EDUCATIONAL;
 
 
+    /** Joshua
+     * returns the string representation of the category, with underscores replaced by spaces and the first letter capitalized
+     * ex. INDOORS -> Indoors, STUDY_SPOT -> Study Spot
+     * @return the string representation of the category
+     */
     @Override
     public String toString() {
         return super.toString().charAt(0) + super.toString().replace("_", " ").toLowerCase().substring(1);

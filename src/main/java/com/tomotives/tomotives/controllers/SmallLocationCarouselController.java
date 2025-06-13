@@ -1,3 +1,11 @@
+/* The SmallLocationCarouselController class is the controller for the small-location-carousel.fxml component which is a carousel for displaying locations in a smaller format than the large location carousel
+ *
+ * Project TOMotives
+ * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
+ * Last Edited: June 12, 2025
+ */
+
+
 package com.tomotives.tomotives.controllers;
 
 import com.tomotives.tomotives.Application;
@@ -16,13 +24,7 @@ import java.util.List;
 
 public class SmallLocationCarouselController {
     @FXML
-    private AnchorPane carouselRoot;
-    @FXML
     private HBox locationsContainer;
-    @FXML
-    private Button prevButton;
-    @FXML
-    private Button nextButton;
     @FXML
     private Label carouselTitle;
 
@@ -30,7 +32,7 @@ public class SmallLocationCarouselController {
     private int displayCount = 5; // number of locations to display at once *not how many locations are in the carousel*
     private List<Pane> locationDisplays = new ArrayList<>();
 
-    /**Joshua
+    /** Choeying
      * Sets the number of locations to show in the carousel at once
      * Max is 5. Will be set to high if given a number greater
      *
@@ -41,7 +43,7 @@ public class SmallLocationCarouselController {
         updateCarousel();
     }
 
-    /**Joshua
+    /** Jessica
      * Sets the title of the carousel
      *
      * @param title the new title to set for the carousel
@@ -52,6 +54,16 @@ public class SmallLocationCarouselController {
         }
     }
 
+    /**Joshua
+     * Adds a location display to the carousel
+     *
+     * @param locationName the name of the location to display
+     * @param imageUrl the URL of the image to display for the location
+     * @param starRating the star rating of the location
+     * @param priceRating the price rating of the location
+     * @param filter1 the first category filter to apply to the location
+     * @param filter2 the second category filter to apply to the location
+     */
     public void addLocationDisplay(String locationName, String imageUrl, double starRating, double priceRating, Category filter1, Category filter2) {
         try {
             // get fxml
@@ -69,6 +81,11 @@ public class SmallLocationCarouselController {
             e.printStackTrace();
         }
     }
+    /**Joshua
+     * Adds a location display to the carousel using the provided location object
+     *
+     * @param location the location object containing the data to display
+     */
     public void addLocationDisplay(Location location) {
         addLocationDisplay(location.getName(), location.getImage(), location.getRating(), location.getPrice(), location.getCategories().getFirst(), location.getCategories().get(1));
     }

@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.controllers.FavoritesAndRecentlyViewed">
+<BorderPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tomotives.tomotives.controllers.FavouritesAndRecentlyViewed">
     <top>
         <fx:include source="toolbar.fxml" />
     </top>
@@ -17,7 +17,7 @@
 
             <VBox prefWidth="1750.0" spacing="8.0">
                 <VBox spacing="8.0">
-                    <Label fx:id="label" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Favorites" />
+                    <Label fx:id="label" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Favourites" />
                     <Region prefWidth="400.0" style="-fx-background-color: #dddddd; -fx-min-height: 1px; -fx-max-height: 1px;" />
                 </VBox>
                 <fx:include fx:id="collection" prefWidth="1200.0" source="small-location-collection.fxml" />

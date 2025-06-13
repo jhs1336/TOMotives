@@ -1,3 +1,10 @@
+/* The ProfileController class is the controller for the profile.fxml page which is the page where a user view their details, and manage friends other connections
+ *
+ * Project TOMotives
+ * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
+ * Last Edited: June 12, 2025
+ */
+
 package com.tomotives.tomotives.controllers;
 
 import com.tomotives.tomotives.Application;
@@ -46,6 +53,10 @@ public class ProfileController {
     @FXML
     private ToolbarController toolbarController;
 
+    /** Saul
+     * Initializes the controller by setting up the UI elements with data from the current user and adding the user's friends to the friendsBox
+     * If the user is admin, it sets up the custom admin profile page
+     */
     @FXML
     private void initialize() {
         if (Application.getUser().getDisplayName().equals("Admin")) {
@@ -65,13 +76,20 @@ public class ProfileController {
         loadPeopleYouMayKnow();
     }
 
+    /**Joshua
+     * Loads the user's friends and displays them in the friendsBox
+     * The friends are sorted by their friendship status friends first, then users requested, then received friend requests.
+     * If there are no friends, a label is displayed accordingly
+     */
     private void loadFriends() {
+        // clear previous data
         friendsBox.getChildren().clear();
 
         Map<User, FriendStatus> friendListItems = new HashMap<>();
         for (User friend : UserService.getUserList()) {
             friendListItems.put(friend, UserService.getUserFriendshipStatus(Application.getUser(), friend));
         }
+        // sort friends based on their ordinal value (puts them in order of the enum, FRIEND, REQUESTED, RECEIVED), and filters out users who are not friends
         Map<User, FriendStatus> sortedFriendListItems = friendListItems.entrySet()
             .stream()
             .sorted(Map.Entry.comparingByValue())
@@ -90,7 +108,9 @@ public class ProfileController {
             return;
         }
 
+        // loop through the friends map
         for (Map.Entry<User, FriendStatus> entry : friendListItems.entrySet()) {
+            // switch on the value of friend status
             switch (entry.getValue()) {
                 case FRIEND -> {
                     Hyperlink userLink = new Hyperlink(entry.getKey().getDisplayName());
@@ -102,6 +122,7 @@ public class ProfileController {
                     Hyperlink userLink = new Hyperlink(entry.getKey().getDisplayName());
                     userLink.setStyle("-fx-font-size: 16px; -fx-text-fill: #333333;");
                     addContextMenu(userLink);
+
                     Label label = new Label("Request Sent");
                     label.setStyle("-fx-text-fill: rgba(0, 0, 0, 0.6);");
                     HBox hBox = new HBox(userLink, label);
@@ -111,10 +132,12 @@ public class ProfileController {
                     Hyperlink userLink = new Hyperlink(entry.getKey().getDisplayName());
                     userLink.setStyle("-fx-font-size: 16px; -fx-text-fill: #333333;");
                     addContextMenu(userLink);
+
                     Button acceptButton = new Button("✓");
                     acceptButton.getStyleClass().add("accept-button");
                     acceptButton.setTooltip(new Tooltip("Accept"));
                     acceptButton.setOnAction(e -> {
+                        // add as friends
                         UserService.addFriend(displayNameTextField.getText(), userLink.getText());
                         Application.getUser().getFriends().add(userLink.getText());
                         ToastService.show(Application.getStage(), "Friend Added!", ToastController.ToastType.SUCCESS);
@@ -124,11 +147,13 @@ public class ProfileController {
                     rejectButton.getStyleClass().add("deny-button");
                     rejectButton.setTooltip(new Tooltip("Reject"));
                     rejectButton.setOnAction(e -> {
-                                        UserService.removeFriend(userLink.getText(), displayNameTextField.getText());
-                                        Application.getUser().getFriends().remove(userLink.getText());
-                                        ToastService.show(Application.getStage(), "Friend Removed!", ToastController.ToastType.ERROR);
-                                        loadFriends();
+                        //remove from other user's list
+                        UserService.removeFriend(userLink.getText(), displayNameTextField.getText());
+                        Application.getUser().getFriends().remove(userLink.getText());
+                        ToastService.show(Application.getStage(), "Friend Removed!", ToastController.ToastType.ERROR);
+                        loadFriends();
                     });
+
                     HBox hBox = new HBox(userLink, acceptButton, rejectButton);
                     friendsBox.getChildren().addAll(hBox);
                 }
@@ -138,26 +163,36 @@ public class ProfileController {
             }
         }
     }
+
+    /**Joshua
+     * Loads people the current user may know based on similar liked categories, and mutual friends
+     */
     private void loadPeopleYouMayKnow() {
+        // clear previous data
         peopleYouMayKnowBox.getChildren().clear();
+
         Map<User, Integer> peopleUserMayKnow =  UserService.getPeopleUserMayKnow(Application.getUser());
         if (peopleUserMayKnow.isEmpty()) {
             Label noFriendsLabel = new Label("No users found");
             peopleYouMayKnowBox.getChildren().add(noFriendsLabel);
             return;
         }
+
+        // loop through users map
         for (Map.Entry<User, Integer> entry : peopleUserMayKnow.entrySet()) {
             User user = entry.getKey();
             Hyperlink userLink = new Hyperlink(user.getDisplayName());
             userLink.setStyle("-fx-font-size: 16px; -fx-text-fill: #333333;");
             addContextMenu(userLink);
-            Label label = new Label(entry.getValue() + (entry.getValue() == 1 ? " connection" : " connections"));
+
+            Label label = new Label(entry.getValue() + (entry.getValue() == 1 ? " connection" : " connections")); // connection for singular connections for plural
             label.setStyle("-fx-text-fill: rgba(0, 0, 0, 0.6);");
 
             Button addFriendButton = new Button("+");
             addFriendButton.getStyleClass().add("add-friend-button");
             addFriendButton.setTooltip(new Tooltip("Add Friend"));
             addFriendButton.setOnAction(e -> {
+                // show popup to confirm friend request
                 Popup popup = new Popup();
                 popup.setAutoHide(true);
                 // setup popup structure
@@ -187,7 +222,6 @@ public class ProfileController {
                 cancelButton.setOnAction(ev -> {
                     popup.hide();
                 });
-                cancelButton.setOnAction(ev -> popup.hide());
 
                 Button sendRequestButton = new Button("Send Request");
                 sendRequestButton.styleProperty().set(NORMAL_BUTTON_STYLE);
@@ -220,11 +254,18 @@ public class ProfileController {
                 Window window = ((Node) e.getSource()).getScene().getWindow();
                 popup.show(window, window.getX() + (window.getWidth() - popupContent.getMinWidth()) / 2, window.getY() + (window.getHeight() - 300) / 2);
             });
+
             HBox hBox = new HBox(userLink, label, addFriendButton);
             hBox.setSpacing(6);
             peopleYouMayKnowBox.getChildren().addAll(hBox);
         }
     }
+
+    /**Joshua
+     * Adds a context menu to the provided {@link Hyperlink} that allows the user to view the user's recently viewed items and favorites
+     *
+     * @param userLink The {@link Hyperlink} to add the context menu to
+     */
     private void addContextMenu(Hyperlink userLink) {
         userLink.setOnAction(event -> {
             ContextMenu contextMenu = new ContextMenu();
@@ -244,6 +285,11 @@ public class ProfileController {
         });
     }
 
+    /** Joshua
+     * Displays a popup window that allows the user to search for friends and send friend requests
+     *
+     * @param event The mouse event that triggered the method
+     */
     @FXML
     private void searchForFriends(MouseEvent event) {
         Popup popup = new Popup();
@@ -283,7 +329,6 @@ public class ProfileController {
         cancelButton.setOnAction(e -> {
             popup.hide();
         });
-        cancelButton.setOnAction(e -> popup.hide());
 
         Button sendRequestButton = new Button("Send Request");
         sendRequestButton.styleProperty().set(NORMAL_BUTTON_STYLE);
@@ -295,6 +340,7 @@ public class ProfileController {
             }
         });
         sendRequestButton.setOnAction(e -> {
+            // ensure friend request is for valid user, if not show error toast
             if (friendSearchField.getText().isEmpty()) {
                 ToastService.show(Application.getStage(), "Please enter a display name", ToastController.ToastType.ERROR);
                 return;
@@ -302,6 +348,8 @@ public class ProfileController {
                 ToastService.show(Application.getStage(), "User not found", ToastController.ToastType.ERROR);
                 return;
             }
+
+            // send friend request
             UserService.addFriend(displayNameTextField.getText(), friendSearchField.getText());
             Application.getUser().getFriends().add(friendSearchField.getText());
             ToastService.show(Application.getStage(), "Friend request sent!", ToastController.ToastType.SUCCESS);
@@ -323,6 +371,9 @@ public class ProfileController {
         popup.show(window, window.getX() + (window.getWidth() - popupContent.getMinWidth()) / 2, window.getY() + (window.getHeight() - 300) / 2);
     }
 
+    /** Choeying
+     * Saves the changes made to the user's profile and shows a success toast
+     */
     @FXML
     private void saveChanges() {
         try {
@@ -345,6 +396,9 @@ public class ProfileController {
         }
     }
 
+    /** Jessica
+     * Signs the current user out of the application and navigates to the login page
+     */
     @FXML
     private void signOut() {
         Application.setUser(null);
@@ -352,6 +406,11 @@ public class ProfileController {
         Application.loadPage("login.fxml");
     }
 
+    /** Joshua
+     * Displays a popup window to allow the admin to create a new account with specified details
+     *
+     * @param event The mouse event that triggered the popup.
+     */
     @FXML
     private void addUser(MouseEvent event) {
         Popup popup = new Popup();
@@ -369,6 +428,7 @@ public class ProfileController {
         titleLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
         titleLabel.getStyleClass().add("popup-title");
 
+        // add details to be filled out about new user
         VBox contentBox = new VBox();
         contentBox.setSpacing(10);
         TextField emailField = new TextField();
@@ -400,7 +460,6 @@ public class ProfileController {
         cancelButton.setOnAction(e -> {
             popup.hide();
         });
-        cancelButton.setOnAction(e -> popup.hide());
 
         Button createAccountButton = new Button("Create Account");
         createAccountButton.styleProperty().set(NORMAL_BUTTON_STYLE);
@@ -412,6 +471,7 @@ public class ProfileController {
             }
         });
         createAccountButton.setOnAction(e -> {
+            // check fields that would break other systems if inputted wrong, otherwise let admin have control
             if (UserService.getUserFromEmail(emailField.getText()) != null) {
                 ToastService.show(Application.getStage(), "Email already in use", ToastController.ToastType.ERROR);
                 return;

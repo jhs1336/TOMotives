@@ -1,3 +1,10 @@
+/* The LargeLocationController class is the controller for the large-location-display.fxml component which is a component that displays a location in the large format. It extends LocationControllerBase so it inherits everything needed for managing locations
+ *
+ * Project TOMotives
+ * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
+ * Last Edited: June 12, 2025
+ */
+
 package com.tomotives.tomotives.controllers;
 
 import com.tomotives.tomotives.models.Category;
@@ -44,16 +51,31 @@ public class LargeLocationController extends LocationControllerBase {
     @FXML
     private Label starRatingLabel;
 
+    /**Emmett
+     * Initializes the controller by resizing the image to the needed size and applying rounded corners
+     */
     @FXML
     public void initialize() {
         resizableImageController.resize(resizableImage.getFitWidth(), resizableImage.getFitHeight());
         resizableImageController.applyRoundedCorners(10);
     }
 
+    /**Joshua
+     * Sets the location data for the UI components
+     *
+     * @param locationName The name of the location to display
+     * @param imageUrl The URL of the image to display for the location
+     * @param starRating The star rating for the location, which should be a decimal value between 0 and 5
+     * @param priceRating The price rating for the location, which should be a decimal value between 0 and 5
+     * @param filter1 The first category filter to display
+     * @param filter2 The second category filter to display
+     * @param filter3 The third category filter to display
+     * @param filter4 The fourth category filter to display
+     */
     public void setLocationData(String locationName, String imageUrl, double starRating, double priceRating, Category filter1, Category filter2, Category filter3, Category filter4) {
-        // update UI
         if (locationNameLabel != null) {
             locationNameLabel.setText(locationName);
+            // dependent on how long the name is, change the font size to fit the container properly
             if (locationNameLabel.getText().length() < 10) locationNameLabel.setStyle("-fx-font-size: 26px;");
             else if (locationNameLabel.getText().length() < 18) locationNameLabel.setStyle("-fx-font-size: 23px;");
             else locationNameLabel.setStyle("-fx-font-size: 20px;");
@@ -94,25 +116,23 @@ public class LargeLocationController extends LocationControllerBase {
         updatePriceRating(priceRating, priceContainer);
     }
 
-    /**
-     * Saul
+    /** Saul
      * @param rating The rating value to display, which can be a decimal value between 0 and the 5
      * @param priceContainer The HBox container to update the price rating for
      */
     @Override
     protected void updatePriceRating(double rating, HBox priceContainer) {
-        super.updatePriceRating(rating, priceContainer);
+        super.updatePriceRating(rating, priceContainer); // changes the price icons to be filled / half / empty
         priceRatingLabel.setText(String.format("%.1f", rating));
     }
 
-    /**
-     * Saul
+    /** Saul
      * @param rating The rating value to display, which can be a decimal value between 0 and 5
      * @param starsContainer The HBox container where the star icons are displayed
      */
     @Override
     protected void updateStarRating(double rating, HBox starsContainer) {
-        super.updateStarRating(rating, starsContainer);
+        super.updateStarRating(rating, starsContainer); // changes the star icons to be filled / half / empty
         starRatingLabel.setText(String.format("%.1f", rating));
     }
 }

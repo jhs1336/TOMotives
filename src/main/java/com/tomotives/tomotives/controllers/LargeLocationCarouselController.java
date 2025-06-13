@@ -1,3 +1,10 @@
+/* The LargeLocationCarouselController class is the controller for the large-location-carousel.fxml component which is a component that displays a carousel of locations, in the bigger format than the small location carousel
+ *
+ * Project TOMotives
+ * Programmers: Joshua Holzman-Sharfe, Saul Mesbur, Choeying Augarshar, Jessica Li, Emmett Cassan
+ * Last Edited: June 12, 2025
+ */
+
 package com.tomotives.tomotives.controllers;
 
 import com.tomotives.tomotives.models.Category;
@@ -15,23 +22,10 @@ import java.util.Map;
 
 public class LargeLocationCarouselController {
     @FXML
-    private AnchorPane carouselRoot;
-    @FXML
-    private HBox locationsContainer;
-    @FXML
-    private Button prevButton;
-    @FXML
-    private Button nextButton;
-    @FXML
-    private Label carouselTitle;
-
-    @FXML
-    private AnchorPane largeLocationDisplay;
-    @FXML
     private LargeLocationController largeLocationDisplayController;
 
     private int currentIndex;
-    private List<Map<String, Object>> locationDisplays = new ArrayList<>();
+    private List<Map<String, Object>> locationDisplays = new ArrayList<>(); // map as the locations used for display do not perfectly match the Location class
 
     /**Joshua
      * Navigates the carousel back one location (shifts one to left)
@@ -41,11 +35,10 @@ public class LargeLocationCarouselController {
         if (locationDisplays.isEmpty()) {
             return;
         }
-        currentIndex--;
-        // Handle wrap-around for negative index
+        // handle wrap-around for negative index
         if (currentIndex < 0) {
             currentIndex = locationDisplays.size() - 1;
-        }
+        } else currentIndex--;
         updateCarousel();
     }
 
@@ -58,12 +51,25 @@ public class LargeLocationCarouselController {
         if (locationDisplays.isEmpty()) {
             return;
         }
+        // handles wrap-around for index out of bounds
         if (currentIndex >= locationDisplays.size() - 1) {
             currentIndex = 0;
         } else currentIndex++;
         updateCarousel();
     }
 
+    /**Joshua
+     * Adds a location display to the carousel
+     *
+     * @param locationName the name of the location to display
+     * @param imageUrl the URL of the image to display for the location
+     * @param starRating the star rating for the location
+     * @param priceRating the price rating for the location
+     * @param filter1 the first category filter for the location
+     * @param filter2 the second category filter for the location
+     * @param filter3 the third category filter for the location
+     * @param filter4 the fourth category filter for the location
+     */
     public void addLocationDisplay(String locationName, String imageUrl, double starRating, double priceRating, Category filter1, Category filter2, Category filter3, Category filter4) {
         // configure the location to display data given
         Map<String, Object> locationData = Map.of(
@@ -77,9 +83,14 @@ public class LargeLocationCarouselController {
             "filter4", filter4
         );
         locationDisplays.add(locationData);
-        if (locationDisplays.size() == 1) updateCarousel();
+        if (locationDisplays.size() == 1) updateCarousel(); // only need to update carousel if this is the first location added (as it will be the one displayed)
     }
 
+    /**Joshua
+     * Adds a location display to the carousel from a location object
+     *
+     * @param location The location to add to the carousel.
+     */
     public void addLocationDisplay(Location location) {
         addLocationDisplay(location.getName(), location.getImage(), location.getRating(), location.getPrice(),
             !location.getCategories().isEmpty() ? location.getCategories().getFirst() : null,
